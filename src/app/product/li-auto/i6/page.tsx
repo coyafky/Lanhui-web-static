@@ -1,0 +1,99 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { liAutoI6PageConfig } from "@/lib/li-auto-i6-page-config";
+import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
+import {
+  liAutoI6UpgradeProjects,
+  LI_AUTO_I6_PROJECT_COUNT,
+  LI_AUTO_I6_HERO_IMAGE,
+} from "@/lib/li-auto-i6-products";
+import { safeJsonLd } from "@/lib/json-ld";
+
+const MODEL_NAME = "理想 i6";
+const CANONICAL_PATH = "/product/li-auto/i6";
+
+const PAGE_TITLE = "理想 i6 轻改升级方案｜车衣隔热膜星空顶流媒体后视镜｜蓝辉轻改";
+const PAGE_DESCRIPTION =
+  "蓝辉轻改整理理想 i6 专属升级方案参考，覆盖车衣、隔热膜、彩绘、双拼改色、360 软包脚垫、星空顶、平衡杆、星空膜、底盘护板、小桌板、香氛系统、轮毂、流媒体后视镜、钢化膜、刹车卡钳、迎宾踏板、防虫网、挡泥板、HUD 显示保护罩和内饰镀膜等 20 项项目。";
+
+export const metadata: Metadata = {
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  keywords: [
+    "理想 i6 轻改", "理想 i6 改装", "理想 i6 车衣",
+    "理想 i6 隔热膜", "理想 i6 星空顶", "理想 i6 流媒体后视镜",
+    "理想 i6 底盘护板", "理想 i6 内饰镀膜", "蓝辉轻改",
+  ],
+  alternates: { canonical: CANONICAL_PATH },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [
+      {
+        url: LI_AUTO_I6_HERO_IMAGE.publicPath,
+        width: LI_AUTO_I6_HERO_IMAGE.width,
+        height: LI_AUTO_I6_HERO_IMAGE.height,
+        alt: LI_AUTO_I6_HERO_IMAGE.alt,
+      },
+    ],
+    type: "article",
+  },
+};
+
+export default function LiAutoI6Page() {
+  const breadcrumbItems = getProductBreadcrumbs("/product/li-auto/i6");
+  const breadcrumbSchema = getProductBreadcrumbSchema("/product/li-auto/i6");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${MODEL_NAME} 专属轻改方案`,
+    numberOfItems: liAutoI6UpgradeProjects.length,
+    itemListElement: liAutoI6UpgradeProjects.map((p) => ({
+      "@type": "ListItem" as const,
+      position: p.order,
+      name: p.name,
+      category: p.category,
+      url: `${CANONICAL_PATH}#li-auto-i6-project-${p.key}`,
+    })),
+  };
+
+  return (
+    <>
+      <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col bg-zinc-950">
+
+
+        <VehiclePageRenderer config={liAutoI6PageConfig} />
+
+        <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-sm tracking-widest text-orange-400 mb-3">NEXT STEP</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{`${MODEL_NAME} 升级方案 · 到店评估`}</h2>
+            <p className="text-zinc-400 text-sm md:text-base mb-8">确认车型、配置和项目组合后到店评估，蓝辉轻改团队按标准流程施工。</p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/product/li-auto"
+                className="inline-flex items-center px-4 py-2.5 rounded-md border border-orange-900/60 bg-orange-950/30 text-orange-300 hover:text-orange-200 hover:border-orange-700/60 text-sm transition-colors"
+              >
+                返回理想系列
+              </Link>
+            </div>
+            <p className="text-xs text-zinc-500 mt-6">
+              不同年份、批次、版本和配置的理想 i6 在尺寸、接口、安装位和结构上可能存在差异。
+              页面项目只作为轻改方向参考，最终以到店确认和施工评估为准。
+            </p>
+          </div>
+        </section>
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
+      </main>
+      {breadcrumbSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }}
+        />
+      )}
+    </>
+  );
+}

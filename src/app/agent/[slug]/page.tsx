@@ -1,0 +1,170 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  ChevronRight,
+  MapPin,
+  Store as StoreIcon,
+} from "lucide-react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import {
+  listPublishedProvinces,
+  listPublishedCities,
+  listStaticProvinceParams,
+  listStores,
+} from "@/lib/store-query";
+import { generateBreadcrumbSchema } from "@/lib/geo";
+import { StoreCard } from "@/components/agent/StoreCard";
+import { sortStoresByLevel } from "@/components/agent/sort-stores";
+import { safeJsonLd } from "@/lib/json-ld";
+
+export function generateStaticParams() {
+  return listStaticProvinceParams();
+}
+
+export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const province = listPublishedProvinces().find((p) => p.slug === slug);
+  if (!province) return { title: "门店详情 | 蓝辉轻改 LANHUI" };
+  return {
+    title: `${province.label}门店 | 蓝辉轻改 LANHUI`,
+    description: `蓝辉轻改在 ${province.label} 的门店信息，覆盖 ${province.cityCount} 个城市。`,
+  };
+}
+
+export default async function ProvincePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const province = listPublishedProvinces().find((p) => p.slug === slug);
+  if (!province) notFound();
+  const storesInProvince = sortStoresByLevel(
+    listStores({ province: slug }),
+  );
+  const citiesInProvince = listPublishedCities(slug);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: safeJsonLd(
+            generateBreadcrumbSchema([
+              { name: "首页", url: "/" },
+              { name: "全国门店", url: "/agent" },
+              { name: province.label, url: `/agent/${province.slug}` },
+            ])
+          ),
+        }}
+      />
+      <Header />
+      <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col">
+        {/* ── 面包屑 + Hero ── */}
+        <section className="relative bg-zinc-950 text-white overflow-hidden">
+          <div className="absolute inset-0 -z-0" aria-hidden="true">
+            <div className="absolute -top-32 right-0 w-[400px] h-[400px] rounded-full bg-orange-600/10 blur-[80px]" />
+          </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-14">
+            <nav className="flex items-center text-sm text-zinc-500 mb-8 flex-wrap gap-y-1">
+              <Link
+                href="/"
+                className="hover:text-white transition-colors"
+              >
+                首页
+              </Link>
+              <ChevronRight className="w-4 h-4 mx-1.5" />
+              <Link
+                href="/agent"
+                className="hover:text-white transition-colors"
+              >
+                全国门店
+              </Link>
+              <ChevronRight className="w-4 h-4 mx-1.5" />
+              <span className="text-zinc-300">{province.label}</span>
+            </nav>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+              {province.label}门店
+            </h1>
+            <p className="text-base md:text-lg text-zinc-400">
+              当前在
+              <span className="text-orange-400 font-semibold mx-1">
+                {province.label}
+              </span>
+              已开放
+              <span className="text-orange-400 font-semibold mx-1">
+                {province.storeCount}
+              </span>
+              家门店，覆盖
+              <span className="text-orange-400 font-semibold mx-1">
+                {province.cityCount}
+              </span>
+              个城市
+            </p>
+          </div>
+        </section>
+
+        {/* ── 按城市浏览 ── */}
+        <section className="py-12 md:py-16 bg-black">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-orange-500/10">
+                <MapPin className="w-5 h-5 text-orange-400" />
+              </div>
+              <h2 className="text-xl font-bold text-white">按城市浏览</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {citiesInProvince.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/agent/${province.slug}/${c.slug}`}
+                  className="group flex items-center justify-between px-5 py-4 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-zinc-700 hover:bg-zinc-800/80 transition-all duration-200"
+                >
+                  <span className="text-base text-white font-medium">
+                    {c.label}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 text-xs font-medium bg-orange-950/40 border border-orange-800/50 text-orange-300 rounded-md">
+                      {c.storeCount} 家
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-zinc-600 group-hover:text-orange-400 group-hover:translate-x-0.5 transition-all" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 省内门店列表 ── */}
+        <section className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-end justify-between mb-8 gap-4">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-orange-500/10">
+                  <StoreIcon className="w-5 h-5 text-orange-400" />
+                </div>
+                <h2 className="text-xl font-bold text-white">省内门店</h2>
+              </div>
+              <p className="text-xs text-zinc-500 hidden sm:block">
+                按门店等级排序 · 旗舰优先
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {storesInProvince.map((s) => (
+                <StoreCard key={s.id} store={s} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

@@ -1,0 +1,79 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowRight, MapPin, BadgeCheck, MessageCircle } from "lucide-react";
+import { openWeChatModal } from "@/lib/wechat-modal";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import type { BreadcrumbItem } from "@/components/Breadcrumbs";
+import { BrandSeriesHeroVisual } from "@/components/brand-series/BrandSeriesHeroVisual";
+import { GAOSHAN_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
+
+export function GaoshanSeriesHero({
+  breadcrumbItems,
+}: {
+  breadcrumbItems?: readonly BreadcrumbItem[];
+}) {
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-teal-950/40 via-zinc-950 to-zinc-950">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/15 via-transparent to-transparent"
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+        {breadcrumbItems && breadcrumbItems.length > 0 && (
+          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
+        )}
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* 左侧文案 */}
+          <div className="space-y-6">
+            <p className="inline-flex min-h-10 items-center gap-2 rounded-full bg-teal-400/10 px-4 text-sm font-medium text-teal-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]">
+              <MapPin className="size-4" aria-hidden />
+              魏牌高山全系 · 顺德大良
+            </p>
+
+            <h1 className="max-w-xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
+              高山全系保护与舒适升级
+            </h1>
+
+            <p className="max-w-lg text-pretty text-base leading-relaxed text-zinc-300 sm:text-lg">
+              从隔热防晒、上下车便利到座舱清洁，根据你的车型与使用场景制定升级方案。
+              高山是魏牌旗下 MPV 产品系列，全系均可到店咨询。
+            </p>
+
+            <p className="inline-flex items-center gap-2 text-sm font-medium text-teal-400/80">
+              <BadgeCheck className="size-4" aria-hidden />
+              服务高山全系，高山 8 提供独立专车方案
+            </p>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
+              <button
+                type="button"
+                onClick={() => openWeChatModal()}
+                className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 px-6 text-base font-semibold text-white shadow-lg shadow-teal-500/20 transition-transform active:scale-[0.96]"
+              >
+                <MessageCircle className="size-4" aria-hidden />
+                告诉我们车型与需求
+              </button>
+              <Link
+                href="/product/gaoshan/8"
+                className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-white/[0.04] px-6 text-base font-medium text-zinc-200 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-colors hover:bg-white/[0.08] active:scale-[0.96]"
+              >
+                查看高山 8 专属方案
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
+            </div>
+
+            <p className="text-sm text-zinc-500">
+              顺德大良到店施工 · 车型与年款现场核验 · 完工功能复检
+            </p>
+          </div>
+
+          <div className="lg:flex lg:items-center lg:justify-center">
+            <BrandSeriesHeroVisual image={GAOSHAN_SERIES_HERO_IMAGE} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

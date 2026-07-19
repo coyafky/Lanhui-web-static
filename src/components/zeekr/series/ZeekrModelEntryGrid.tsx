@@ -1,0 +1,112 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, MessageCircle } from "lucide-react";
+import { openWeChatModal } from "@/lib/wechat-modal";
+import type { ZeekrModelEntryKey } from "@/lib/zeekr-series-services";
+
+export type ZeekrModelEntry = {
+  modelKey: ZeekrModelEntryKey;
+  modelName: string;
+  canonicalPath: string;
+  /** 主打使用场景 */
+  scenario: string;
+  /** 最常见的三项需求 */
+  topNeeds: readonly [string, string, string];
+  image: { src: string; alt: string };
+};
+
+type ZeekrModelEntryGridProps = {
+  entries: readonly ZeekrModelEntry[];
+};
+
+/**
+ * 9X / 8X 车型专属子页入口（整卡可点）。
+ * 主打车型使用场景 + 三项常见需求；底部提供"没有找到车型"咨询入口。
+ * 009 等未完成子页的车型不提供暗示性入口。
+ */
+export function ZeekrModelEntryGrid({ entries }: ZeekrModelEntryGridProps) {
+  return (
+    <section
+      id="zeekr-models"
+      aria-labelledby="zeekr-models-title"
+      className="py-16 sm:py-20 bg-zinc-950 border-t border-white/[0.05] scroll-mt-20"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 lg:mb-10">
+          <p className="text-xs tracking-widest mb-3 text-orange-400 uppercase">
+            按车型选
+          </p>
+          <h2
+            id="zeekr-models-title"
+            className="text-2xl md:text-3xl font-bold text-white text-balance leading-[1.08] tracking-[-0.025em]"
+          >
+            9X / 8X 车型专属方案
+          </h2>
+          <p className="mt-3 text-zinc-400 max-w-2xl text-base leading-relaxed text-pretty">
+            子页包含该车型的专属项目、适配提示和组合建议。进入后按年款与配置继续确认。
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+          {entries.map((m) => (
+            <Link
+              key={m.modelKey}
+              href={m.canonicalPath}
+              className="group flex flex-col overflow-hidden rounded-3xl bg-zinc-900/60 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] transition-transform active:scale-[0.98]"
+            >
+              <div className="relative aspect-[4/3] bg-zinc-900">
+                <Image
+                  src={m.image.src}
+                  alt={m.image.alt}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-3 p-5">
+                <h3 className="text-lg font-bold text-white">{m.modelName}</h3>
+                <p className="text-base text-zinc-400 leading-relaxed text-pretty flex-1">
+                  {m.scenario}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {m.topNeeds.map((need) => (
+                    <span
+                      key={need}
+                      className="inline-flex items-center rounded-full bg-white/[0.04] px-3 py-1 text-xs text-zinc-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]"
+                    >
+                      {need}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-xs text-zinc-500">
+                  进入后按年款与配置继续确认
+                </p>
+                <span className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-400 transition-colors group-hover:text-orange-300">
+                  查看 {m.modelName} 专属方案
+                  <ArrowRight className="size-4" aria-hidden />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* 未覆盖车型咨询入口 */}
+        <div className="mt-6 flex flex-col items-start gap-3 rounded-3xl bg-zinc-900/60 p-6 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-base text-zinc-300 leading-relaxed text-pretty">
+            没有找到你的车型？发来车型、年款和配置，我们先帮你确认能做什么。
+          </p>
+          <button
+            type="button"
+            onClick={() => openWeChatModal()}
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-5 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-transform active:scale-[0.96]"
+          >
+            <MessageCircle className="size-4" aria-hidden />
+            提交车型确认
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}

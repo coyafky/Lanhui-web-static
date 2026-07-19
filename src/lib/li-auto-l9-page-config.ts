@@ -1,0 +1,58 @@
+import type { VehiclePageConfig } from "@/components/vehicle-page";
+import {
+  liAutoL9UpgradeProjects,
+  liAutoL9Scenarios,
+  liAutoL9ServiceSteps,
+  liAutoL9Faq,
+  LI_AUTO_L9_PROJECT_COUNT,
+  LI_AUTO_L9_SCENARIO_COUNT,
+} from "@/lib/li-auto-l9-products";
+
+export const liAutoL9PageConfig: VehiclePageConfig = {
+  theme: "blue",
+  hero: {
+    badge: "PROJECTS",
+    title: "理想 L9 · 14 个升级项目",
+    subtitle: "理想 L9 轻改升级方案",
+    description:
+      "理想 L9 全车轻改方案，覆盖新车保护、家庭座舱、外观个性、行车防护与屏幕细节 5 大场景；蓝辉轻改顺德大良店按标准化流程评估与施工。",
+    heroImage: {
+      src: "/images/products/li-auto/l9/generated/hero.webp",
+      alt: "理想 L9 轻改升级方案主视觉",
+      width: 1448,
+      height: 1086,
+    },
+    stats: {
+      totalProjects: LI_AUTO_L9_PROJECT_COUNT,
+      totalScenarios: LI_AUTO_L9_SCENARIO_COUNT,
+    },
+  },
+  projects: liAutoL9UpgradeProjects.map((p) => ({
+    id: p.key,
+    name: p.name,
+    summary: p.summary,
+    suitableFor: [...p.suitableFor],
+    ...(p.caution ? { caution: p.caution } : {}),
+    category: p.category,
+    imageStatus: p.imageStatus,
+    imagePublicPath: p.publicPath ?? null,
+    imageAlt: p.name,
+    imageWidth: p.width ?? null,
+    imageHeight: p.height ?? null,
+  })),
+  scenarios: liAutoL9Scenarios.map((s) => ({
+    id: s.key,
+    name: s.name,
+    description: s.description,
+    projectIds: [...s.projectKeys],
+  })),
+  serviceFlow: {
+    title: "服务流程",
+    steps: liAutoL9ServiceSteps.map((s) => ({
+      order: s.step,
+      title: s.title,
+      description: s.description,
+    })),
+  },
+  faq: [...liAutoL9Faq],
+};
