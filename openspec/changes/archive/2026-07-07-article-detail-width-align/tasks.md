@@ -1,2 +1,0 @@
-- [x] 统一 Hero/Body/Related 外层 `max-w-7xl` + Body 内 prose `max-w-4xl`
-- [x] `npm run build` 验证通过

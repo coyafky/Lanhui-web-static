@@ -1,12 +1,13 @@
-name: Static CI
+name: CI
+
 on:
   push:
-    branches: [codex/static-site-extraction]
+    branches: [main]
   pull_request:
-    branches: [codex/static-site-extraction]
+    branches: [main]
 
 jobs:
-  static:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -21,7 +22,7 @@ jobs:
       - run: npm test
       - run: npm run verify:static-images
       - run: npm run check:static-boundary
-      - run: npm run build:static
+      - run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://www.lanhui.com
       - run: npm run check:static-output

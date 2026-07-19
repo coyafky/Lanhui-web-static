@@ -1,25 +1,12 @@
 "use client";
 
-let _sentryCapture: ((error: unknown) => void) | null | undefined;
-
-async function getSentryCapture(): Promise<((error: unknown) => void) | null> {
-  if (_sentryCapture !== undefined) return _sentryCapture;
-  if (!process.env.NEXT_PUBLIC_SENTRY_DSN) {
-    _sentryCapture = null;
-    return null;
-  }
-  try {
-    const Sentry = await import("@sentry/nextjs");
-    _sentryCapture = Sentry.captureException;
-    return _sentryCapture;
-  } catch {
-    _sentryCapture = null;
-    return null;
-  }
-}
-
+/**
+ * Client-side error capture for static site.
+ *
+ * In the static-export model there is no runtime server — console.error is the
+ * only available sink. If a third-party error monitoring service is added in
+ * the future, wire it here.
+ */
 export function captureClientException(error: unknown): void {
-  getSentryCapture().then((capture) => {
-    if (capture) capture(error);
-  });
+  console.error("[lanhui]", error);
 }

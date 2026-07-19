@@ -12,8 +12,9 @@ import type { Metadata } from "next";
 import type { Store } from "./store";
 import { brand } from "./brand";
 import { getAmapNavigationUrl } from "./store-map";
+import { getSiteUrl } from "./site-url";
 
-const SITE_URL = "https://lanhui.example.com";
+const SITE_URL = getSiteUrl();
 
 /** 生成地理页面的 SEO metadata */
 export function generateGeoMetadata(

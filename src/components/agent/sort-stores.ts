@@ -2,7 +2,7 @@ import type { Store } from "@/lib/store";
 import {
   compareStoreLevel,
   type StoreLevel,
-} from "@/lib/validations/store";
+} from "@/lib/store-level";
 
 /**
  * 公开站门店排序：默认按等级升序（旗舰优先）。

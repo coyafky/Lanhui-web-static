@@ -10,8 +10,13 @@
  */
 
 import { pinyin } from "pinyin-pro";
-import { createId } from "@paralleldrive/cuid2";
-import { SLUG_REGEX } from "./validations/store";
+import { randomUUID } from "node:crypto";
+import { SLUG_REGEX } from "./store-level";
+
+/** Generate a short URL-safe ID (fallback when pinyin conversion fails). */
+function shortId(): string {
+  return randomUUID().replace(/-/g, "").slice(0, 12);
+}
 
 const MAX_SLUG_LENGTH = 60;
 const MAX_ATTEMPTS = 5;
@@ -26,7 +31,7 @@ export function toBaseSlug(name: string): string {
     .slice(0, MAX_SLUG_LENGTH);
 
   if (!cleaned || !SLUG_REGEX.test(cleaned)) {
-    return createId().toLowerCase().slice(0, 12);
+    return shortId().toLowerCase();
   }
   return cleaned;
 }
@@ -47,7 +52,7 @@ export function generateStoreSlug(
     }
   }
   // 兜底 cuid 后缀;截断 base 保证总长度 ≤ 60
-  const cuidTail = createId().toLowerCase().slice(0, 8);
+  const cuidTail = shortId().toLowerCase().slice(0, 8);
   const prefixMax = MAX_SLUG_LENGTH - cuidTail.length - 1;
   return `${base.slice(0, prefixMax)}-${cuidTail}`;
 }

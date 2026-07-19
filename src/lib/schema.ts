@@ -6,7 +6,7 @@
 
 import { brand } from "./brand";
 
-const SITE_URL = "https://lanhui.example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.lanhui.com";
 
 /** 全站 Organization Schema */
 export function organizationSchema() {

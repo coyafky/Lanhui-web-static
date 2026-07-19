@@ -1,5 +1,5 @@
-import type { StoreLevel } from "@/lib/validations/store";
-import { STORE_LEVEL_LABELS } from "@/lib/validations/store";
+import type { StoreLevel } from "@/lib/store-level";
+import { STORE_LEVEL_LABELS } from "@/lib/store-level";
 import { cn } from "@/lib/utils";
 
 /**
