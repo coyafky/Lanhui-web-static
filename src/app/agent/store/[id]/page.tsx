@@ -137,7 +137,7 @@ export default async function StoreDetailPage({
               <div>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800">
                   <Image
-                    src={store.image ?? "/images/placeholders/store.webp"}
+                    src="/images/stores/image.webp"
                     alt={`${store.name} 门头实景`}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"

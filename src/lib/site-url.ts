@@ -16,7 +16,7 @@ export function getSiteUrl(): string {
   // crash sitemap/robots generation. Replace with your actual domain before
   // going live, or set NEXT_PUBLIC_SITE_URL in your deploy environment.
   if (process.env.NODE_ENV === "production") {
-    return "https://www.lanhui.com";
+    return "https://www.lanhuiqinggai.com";
   }
 
   return "http://localhost:3000";

@@ -81,8 +81,10 @@ function main() {
   if (siteUrl) {
     siteUrl = siteUrl.replace(/\/$/, "");
   } else {
-    siteUrl = "https://www.lanhui.com";
-    warnings.push("NEXT_PUBLIC_SITE_URL not set — using default https://www.lanhui.com for sitemap checks");
+    siteUrl = "https://www.lanhuiqinggai.com";
+    warnings.push(
+      "NEXT_PUBLIC_SITE_URL not set — using default https://www.lanhuiqinggai.com for sitemap checks",
+    );
   }
 
   // 1. Check out/ exists

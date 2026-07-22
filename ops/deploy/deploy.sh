@@ -112,7 +112,7 @@ SMOKE_URLS=(
 
 FAILURES=0
 for path in "${SMOKE_URLS[@]}"; do
-    STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Host: lanhui.example.com" "${BASE_URL}${path}" || echo "000")
+    STATUS=$(curl -s -o /dev/null -w "%{http_code}" -H "Host: www.lanhuiqinggai.com" "${BASE_URL}${path}" || echo "000")
     if [ "$STATUS" = "200" ] || { [ "$path" = "/404.html" ] && [ "$STATUS" = "200" ]; }; then
         log "  OK  ${path} → ${STATUS}"
     else

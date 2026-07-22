@@ -24,7 +24,7 @@ jobs:
       - run: npm run check:static-boundary
       - run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://www.lanhui.com
+          NEXT_PUBLIC_SITE_URL: https://www.lanhuiqinggai.com
       - run: npm run check:static-output
       - uses: actions/upload-artifact@v4
         with:
