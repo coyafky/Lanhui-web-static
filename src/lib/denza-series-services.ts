@@ -8,7 +8,6 @@
  *   - denzaSeriesFaq           8 条 FAQ（具体回答，不用"需到店确认"式空洞话术）
  *   - denzaDouyinHighlights    抖音案例入口 3 项
  *   - DENZA_D9_ENTRY           D9 车型子页入口卡数据
- *   - denzaLocalAnswer         本地问答直接答案（GEO）
  *
  * D9 23 个项目数据仍在 src/lib/denza-d9-products.ts（D9 子页依赖，不迁移）。
  */
@@ -294,8 +293,3 @@ export const DENZA_D9_ENTRY: DenzaD9Entry = {
   confirmedScope: "车衣、隔热膜、360 脚垫、铝地板、小桌板等已按 D9 整理",
   reviewScope: "吸顶电视、平衡杆、包围等按年款、座椅与滑轨配置逐项复核",
 } as const;
-
-// ---- 本地问答直接答案（GEO）----
-
-export const denzaLocalAnswer =
-  "蓝辉轻改顺德大良店为腾势车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护，施工前先确认车型、年款和座椅配置，再报价施工。" as const;

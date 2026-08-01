@@ -92,3 +92,6 @@ backups/
 *.sql.gz
 *.dump
 .seo-cache/
+
+# Playwright dogfood 测试产物
+dogfood-output/

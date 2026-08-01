@@ -7,7 +7,6 @@ import {
   Phone,
   Clock,
   ChevronRight,
-  Navigation,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -15,7 +14,6 @@ import { findStore, listStaticStoreParams } from "@/lib/store-query";
 import { generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/lib/geo";
 import { StoreLevelBadge } from "@/components/agent/StoreLevelBadge";
 import { safeJsonLd } from "@/lib/json-ld";
-import { getAmapNavigationUrl } from "@/lib/store-map";
 
 export const dynamicParams = false;
 
@@ -49,7 +47,6 @@ export default async function StoreDetailPage({
   const { id } = await params;
   const store = findStore(id);
   if (!store) notFound();
-  const navigationUrl = getAmapNavigationUrl(store);
 
   return (
     <>
@@ -214,15 +211,6 @@ export default async function StoreDetailPage({
                   >
                     <Phone className="w-4 h-4 mr-2" />
                     电话咨询
-                  </a>
-                  <a
-                    href={navigationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-medium transition-colors"
-                  >
-                    <Navigation className="w-4 h-4 mr-2" />
-                    高德导航到店
                   </a>
                   <Link
                     href={`/agent/${store.province}/${store.city}`}

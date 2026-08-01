@@ -1,14 +1,10 @@
-"use client";
-
-import { ChevronDown, AlertTriangle, Shield, Wrench } from "lucide-react";
+import { ChevronDown, Shield, Wrench } from "lucide-react";
 import {
   flooringFaqs,
   flooringInstallNotes,
   flooringWarranties,
   flooringMaintenance,
 } from "@/lib/flooring-products";
-import { openWeChatModal } from "@/lib/wechat-modal";
-import { MessageCircle } from "lucide-react";
 
 export function FlooringFaqSection() {
   return (
@@ -128,26 +124,6 @@ export function FlooringFaqSection() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* ─── 底部 CTA ─── */}
-        <div className="rounded-2xl bg-amber-400/[0.06] border border-amber-400/[0.12] p-6 md:flex md:items-center md:justify-between md:gap-6">
-          <div>
-            <h3 className="text-lg font-semibold text-white">
-              不确定你的车型能不能装？
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              发来车型、年款和座椅布局，我们先帮你确认适配，再决定是否到店。
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => openWeChatModal()}
-            className="mt-5 inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-6 text-sm font-semibold text-white shadow-lg shadow-amber-500/20 active:scale-[0.96] transition-transform md:mt-0"
-          >
-            发车型信息确认适配
-            <MessageCircle className="size-4" aria-hidden />
-          </button>
         </div>
       </div>
     </section>

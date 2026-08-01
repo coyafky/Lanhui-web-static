@@ -1,12 +1,8 @@
-"use client";
-
-import Link from "next/link";
-import { ChevronDown, MessageCircle, Store } from "lucide-react";
-import { openWeChatModal } from "@/lib/wechat-modal";
+import { ChevronDown } from "lucide-react";
 import { teslaSeriesFaq } from "@/lib/tesla-series-services";
 
 /**
- * Tesla FAQ 手风琴 + 底部车型咨询 CTA。
+ * Tesla FAQ 手风琴。
  */
 export function TeslaFaqSection() {
   return (
@@ -47,35 +43,6 @@ export function TeslaFaqSection() {
               </p>
             </details>
           ))}
-        </div>
-
-        {/* 底部咨询 CTA */}
-        <div className="mt-10 rounded-3xl bg-gradient-to-br from-red-950/40 to-zinc-900/60 p-8 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] text-center sm:p-10">
-          <h3 className="text-xl font-bold text-white text-balance sm:text-2xl">
-            告诉我们你的 Tesla 车型、年款和最想解决的问题
-          </h3>
-          <p className="mx-auto mt-3 max-w-xl text-base text-zinc-400 leading-relaxed text-pretty">
-            Model 3、Model Y、Model Y L、Model S、Model X
-            都可以聊。先确认摄像头避让范围、配件适配性和施工边界，
-            再安排到店施工，不盲目叠加项目。顺德大良到店施工，OTA 升级后可回店复检。
-          </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={() => openWeChatModal()}
-              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-to-r from-red-500 to-red-600 px-6 text-base font-semibold text-white shadow-lg shadow-red-500/20 transition-transform active:scale-[0.96]"
-            >
-              <MessageCircle className="size-4" aria-hidden />
-              提交车型咨询
-            </button>
-            <Link
-              href="/agent"
-              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-white/[0.04] px-6 text-base font-medium text-zinc-200 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-colors hover:bg-white/[0.08] active:scale-[0.96]"
-            >
-              <Store className="size-4" aria-hidden />
-              查看门店信息
-            </Link>
-          </div>
         </div>
       </div>
     </section>

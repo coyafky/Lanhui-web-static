@@ -6,7 +6,6 @@ import { WheelGallery } from "@/components/product/wheel/WheelGallery";
 import { WheelConstructionProofs } from "@/components/product/wheel/WheelConstructionProofs";
 import { WheelServiceFlow } from "@/components/product/wheel/WheelServiceFlow";
 import { WheelDouyinCta } from "@/components/product/wheel/WheelDouyinCta";
-import { WeChatConsultButton } from "@/components/WeChatConsultButton";
 import { getServiceRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { wheelImagesRich } from "@/lib/wheel-products";
@@ -78,21 +77,6 @@ export default function WheelsPage() {
 
         {/* ====== 抖音真实上车案例 CTA ====== */}
         <WheelDouyinCta />
-
-        {/* ====== 底部车型咨询 CTA ====== */}
-        <section className="py-16 sm:py-20 bg-zinc-900 border-t border-white/[0.05]">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-              告诉我们你的车型和年款
-            </h2>
-            <p className="text-base text-zinc-400 mb-8 max-w-lg mx-auto">
-              携带车型、年款和原轮胎规格，到店确认可安装范围并现场看轮毂实拍效果。
-            </p>
-            <div className="flex justify-center">
-              <WeChatConsultButton />
-            </div>
-          </div>
-        </section>
       </main>
 
       {breadcrumbSchema && (

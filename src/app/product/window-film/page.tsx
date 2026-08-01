@@ -7,7 +7,6 @@ import { WindowFilmExperiences } from "@/components/window-film/WindowFilmExperi
 import { WindowFilmScenarioSelector } from "@/components/window-film/WindowFilmScenarioSelector";
 import { WindowFilmConstructionProofs } from "@/components/window-film/WindowFilmConstructionProofs";
 import { WindowFilmDouyinCta } from "@/components/window-film/WindowFilmDouyinCta";
-import { WeChatConsultButton } from "@/components/WeChatConsultButton";
 import { getProduct } from "@/lib/products";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import {
@@ -194,20 +193,6 @@ export default function WindowFilmPage() {
           </div>
         </section>
 
-        {/* ====== 底部车型咨询 CTA ====== */}
-        <section className="py-16 sm:py-20 bg-zinc-900 border-t border-white/[0.05]">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-              告诉我们你的车型和年款
-            </h2>
-            <p className="text-base text-zinc-400 mb-8 max-w-lg mx-auto">
-              获取适合你车型的前挡＋侧后挡搭配建议，到店看实车效果再决定。
-            </p>
-            <div className="flex justify-center">
-              <WeChatConsultButton />
-            </div>
-          </div>
-        </section>
       </main>
 
       {breadcrumbSchema && (

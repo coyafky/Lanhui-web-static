@@ -7,7 +7,6 @@ import {
   ZeekrModelEntryGrid,
   type ZeekrModelEntry,
 } from "@/components/zeekr/series/ZeekrModelEntryGrid";
-import { ZeekrMoreProjectsList } from "@/components/zeekr/series/ZeekrMoreProjectsList";
 import { ZeekrServiceFlowV2 } from "@/components/zeekr/series/ZeekrServiceFlowV2";
 import { ZeekrFaqSectionV2 } from "@/components/zeekr/series/ZeekrFaqSectionV2";
 import { ZeekrDouyinCta } from "@/components/zeekr/series/ZeekrDouyinCta";
@@ -125,7 +124,6 @@ export default function ZeekrSeriesPage() {
         <ZeekrScenarioSelector />
         <ZeekrBaseServiceGrid />
         <ZeekrModelEntryGrid entries={modelEntries} />
-        <ZeekrMoreProjectsList />
         <ZeekrServiceFlowV2 />
         <ZeekrFaqSectionV2 />
         <ZeekrDouyinCta />

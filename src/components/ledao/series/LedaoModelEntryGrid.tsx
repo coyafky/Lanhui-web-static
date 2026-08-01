@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { openWeChatModal } from "@/lib/wechat-modal";
+import { ArrowRight } from "lucide-react";
 import type { LedaoModelEntryKey } from "@/lib/ledao-series-services";
 
 export type LedaoModelEntry = {
@@ -25,7 +22,6 @@ type LedaoModelEntryGridProps = {
 /**
  * 乐道 L90 车型专属子页入口（整卡可点）。
  * 品牌页只保留入口，21 个专车项目在 /product/ledao/l90 子页展示。
- * 底部提供"L60 / L80 车型"咨询入口，不暗示全系通用。
  */
 export function LedaoModelEntryGrid({ entries }: LedaoModelEntryGridProps) {
   return (
@@ -101,25 +97,6 @@ export function LedaoModelEntryGrid({ entries }: LedaoModelEntryGridProps) {
               </div>
             </Link>
           ))}
-
-          {/* L60 / L80 车型咨询入口 */}
-          <div className="flex flex-col justify-center gap-4 rounded-3xl bg-zinc-900/60 p-6 shadow-[0_0_0_1px_oklch(1_0_0/0.06)]">
-            <h3 className="text-lg font-bold text-white">
-              开的是 L60 或 L80？
-            </h3>
-            <p className="text-base text-zinc-400 leading-relaxed text-pretty">
-              乐道不同车型在车身高度、门体结构、地台形状和座椅布局上有差异，脚垫和踏板不能通用。
-              发来车型、年款和配置，我们先帮你确认哪些基础服务通用、哪些需要专车适配。
-            </p>
-            <button
-              type="button"
-              onClick={() => openWeChatModal()}
-              className="inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-transform active:scale-[0.96]"
-            >
-              <MessageCircle className="size-4" aria-hidden />
-              提交车型确认
-            </button>
-          </div>
         </div>
       </div>
     </section>

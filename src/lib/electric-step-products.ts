@@ -56,12 +56,6 @@ export type ElectricStepVariantComparison = {
   largeLight: string;
 };
 
-export type ElectricStepWarranty = {
-  component: string;
-  coverage: string;
-  period: string;
-};
-
 export type ElectricStepFaq = {
   question: string;
   answer: string;
@@ -232,29 +226,6 @@ export const electricStepVariantComparison: readonly ElectricStepVariantComparis
     noLight: "最广泛，几乎无限制",
     singleLight: "需确认门板走线空间",
     largeLight: "需确认踏板内腔尺寸和电源负载",
-  },
-];
-
-export const electricStepWarranties: readonly ElectricStepWarranty[] = [
-  {
-    component: "驱动电机",
-    coverage: "非人为故障免费更换",
-    period: "2 年",
-  },
-  {
-    component: "控制器模块",
-    coverage: "非人为故障免费更换或维修",
-    period: "2 年",
-  },
-  {
-    component: "踏板结构件",
-    coverage: "非人为变形、开裂免费处理",
-    period: "3 年",
-  },
-  {
-    component: "LED 灯带",
-    coverage: "非人为不亮、严重光衰免费更换",
-    period: "1 年",
   },
 ];
 

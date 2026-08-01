@@ -7,7 +7,6 @@ import {
   WenjieModelEntryGrid,
   type WenjieModelEntry,
 } from "@/components/wenjie/series/WenjieModelEntryGrid";
-import { WenjieMoreProjectsList } from "@/components/wenjie/series/WenjieMoreProjectsList";
 import { WenjieServiceFlowV2 } from "@/components/wenjie/series/WenjieServiceFlowV2";
 import { WenjieFaqSectionV2 } from "@/components/wenjie/series/WenjieFaqSectionV2";
 import { WenjieDouyinCta } from "@/components/wenjie/series/WenjieDouyinCta";
@@ -124,7 +123,6 @@ export default function WenjieSeriesPage() {
         <WenjieScenarioSelector />
         <WenjieBaseServiceGrid />
         <WenjieModelEntryGrid entries={modelEntries} />
-        <WenjieMoreProjectsList />
         <WenjieServiceFlowV2 />
         <WenjieFaqSectionV2 />
         <WenjieDouyinCta />

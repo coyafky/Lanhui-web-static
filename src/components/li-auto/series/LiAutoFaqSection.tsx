@@ -1,12 +1,8 @@
-"use client";
-
-import Link from "next/link";
-import { ChevronDown, MessageCircle, Store } from "lucide-react";
-import { openWeChatModal } from "@/lib/wechat-modal";
+import { ChevronDown } from "lucide-react";
 import { liAutoSeriesFaq } from "@/lib/li-auto-series-services";
 
 /**
- * FAQ 手风琴 + 底部车型咨询 CTA。
+ * FAQ 手风琴。
  */
 export function LiAutoFaqSection() {
   return (
@@ -47,34 +43,6 @@ export function LiAutoFaqSection() {
               </p>
             </details>
           ))}
-        </div>
-
-        {/* 底部咨询 CTA */}
-        <div className="mt-10 rounded-3xl bg-gradient-to-br from-amber-950/40 to-zinc-900/60 p-8 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] text-center sm:p-10">
-          <h3 className="text-xl font-bold text-white text-balance sm:text-2xl">
-            告诉我们你的理想车型、年款和最想解决的问题
-          </h3>
-          <p className="mx-auto mt-3 max-w-xl text-base text-zinc-400 leading-relaxed text-pretty">
-            ONE、i6、i8、L9、MEGA 或其他理想车型都可以聊。先确认哪些服务通用、哪些需要专车适配，
-            再安排到店施工，不盲目叠加项目。顺德大良到店施工，智驾与原车功能完工复检。
-          </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={() => openWeChatModal()}
-              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-6 text-base font-semibold text-white shadow-lg shadow-amber-500/20 transition-transform active:scale-[0.96]"
-            >
-              <MessageCircle className="size-4" aria-hidden />
-              提交车型咨询
-            </button>
-            <Link
-              href="/agent"
-              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-white/[0.04] px-6 text-base font-medium text-zinc-200 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-colors hover:bg-white/[0.08] active:scale-[0.96]"
-            >
-              <Store className="size-4" aria-hidden />
-              查看门店信息
-            </Link>
-          </div>
         </div>
       </div>
     </section>

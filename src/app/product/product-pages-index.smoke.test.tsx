@@ -40,7 +40,7 @@ vi.mock("@/components/cta/PhoneCta", () => ({
   PhoneCta: () => <div data-testid="PhoneCta" />,
 }));
 
-// ---------- Mock 产品页专用组件 (9 个) ----------
+// ---------- Mock 产品页专用组件 (7 个) ----------
 vi.mock("@/components/product/ProductHero", () => ({
   ProductHero: () => <div data-testid="ProductHero">产品中心</div>,
 }));
@@ -65,18 +65,10 @@ vi.mock("@/components/product/VehicleTopicMap", () => ({
     </div>
   ),
 }));
-vi.mock("@/components/product/CollapsibleSection", () => ({
-  CollapsibleSection: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="CollapsibleSection">{children}</div>
-  ),
-}));
 vi.mock("@/components/product/MobileProductContent", () => ({
   MobileProductContent: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="MobileProductContent">{children}</div>
   ),
-}));
-vi.mock("@/components/product/P1ServiceCard", () => ({
-  P1ServiceCard: () => <div data-testid="P1ServiceCard" />,
 }));
 vi.mock("@/components/product/PracticalAccessoryMap", () => ({
   PracticalAccessoryMap: ({
@@ -122,6 +114,11 @@ describe("/product index page", () => {
     await renderProductPage();
     const body = document.body.textContent ?? "";
     expect(body).toContain("产品中心");
+  }, 30000);
+
+  it("does not render the planned services module", async () => {
+    await renderProductPage();
+    expect(document.body.textContent ?? "").not.toContain("更多服务正在整理");
   }, 30000);
 
   it("includes at least one live brand reference", async () => {

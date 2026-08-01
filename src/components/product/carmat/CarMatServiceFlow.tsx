@@ -1,8 +1,5 @@
-"use client";
-
 import { FileText, ChevronDown } from "lucide-react";
-import { carMatProcess, carMatWarranties, carMatFaqs } from "@/lib/carmat-products";
-import { openWeChatModal } from "@/lib/wechat-modal";
+import { carMatProcess, carMatFaqs } from "@/lib/carmat-products";
 
 export function CarMatServiceFlow() {
   return (
@@ -47,32 +44,6 @@ export function CarMatServiceFlow() {
           ))}
         </div>
 
-        {/* 质保信息 */}
-        <div className="mb-8 rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5 sm:p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            质保覆盖范围
-          </h3>
-          <p className="text-sm text-zinc-400 mb-4 leading-relaxed">
-            不同组件享有不同的质保政策。质保范围以施工前双方确认的检查记录为准。
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {carMatWarranties.map((w) => (
-              <div
-                key={w.component}
-                className="rounded-xl bg-white/[0.03] p-4"
-              >
-                <p className="text-sm font-medium text-zinc-300 mb-1">
-                  {w.component}
-                </p>
-                <p className="text-xs text-zinc-500 mb-1">{w.coverage}</p>
-                <p className="text-xs text-amber-400/80 font-medium">
-                  质保 {w.period}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* FAQ */}
         <div className="mb-8 rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5 sm:p-6">
           <h3 className="text-lg font-semibold text-white mb-4">
@@ -98,25 +69,6 @@ export function CarMatServiceFlow() {
               </details>
             ))}
           </div>
-        </div>
-
-        {/* CTA */}
-        <div className="rounded-2xl bg-amber-400/[0.06] border border-amber-400/[0.12] p-6 md:flex md:items-center md:justify-between md:gap-6">
-          <div>
-            <h3 className="text-lg font-semibold text-white">
-              带车型和座椅布局到店，方案更准确
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              建议提前准备车型、年款、座椅布局和主要用车场景，方便判断覆盖区域和施工边界。
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => openWeChatModal()}
-            className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-6 text-sm font-semibold text-white shadow-lg shadow-amber-500/20 active:scale-[0.96] transition-transform md:mt-0"
-          >
-            携带车型和座椅布局咨询
-          </button>
         </div>
       </div>
     </section>

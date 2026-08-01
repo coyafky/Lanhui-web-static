@@ -44,12 +44,6 @@ export type CarMatSafetyCheck = {
   risk: string;
 };
 
-export type CarMatWarranty = {
-  component: string;
-  coverage: string;
-  period: string;
-};
-
 export type CarMatFaq = {
   question: string;
   answer: string;
@@ -288,29 +282,6 @@ export const carMatSafetyChecks: readonly CarMatSafetyCheck[] = [
     description:
       "检查门槛、门框和出风口附近的脚垫边缘是否贴合，关门后不应有挤压或翘起。",
     risk: "翘边可能勾住鞋底导致绊倒，或长期摩擦损坏脚垫包边和原车内饰。",
-  },
-];
-
-export const carMatWarranties: readonly CarMatWarranty[] = [
-  {
-    component: "卡扣与固定件",
-    coverage: "原厂卡扣匹配、防滑底层固定",
-    period: "到店确认",
-  },
-  {
-    component: "包边与缝线",
-    coverage: "边缘包边、拼接缝线",
-    period: "到店确认",
-  },
-  {
-    component: "表层材质",
-    coverage: "耐磨层、防滑纹理",
-    period: "到店确认",
-  },
-  {
-    component: "开线与变形",
-    coverage: "非人为开线、非撞击变形",
-    period: "到店确认",
   },
 ];
 

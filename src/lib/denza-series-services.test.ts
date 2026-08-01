@@ -19,7 +19,6 @@ import {
   denzaSeriesFaq,
   denzaDouyinHighlights,
   DENZA_D9_ENTRY,
-  denzaLocalAnswer,
 } from "./denza-series-services";
 
 const VALID_SERVICE_HREFS = new Set([
@@ -193,12 +192,5 @@ describe("denza-series-services: D9 entry card", () => {
   it("declares confirmed and review scopes", () => {
     expect(DENZA_D9_ENTRY.confirmedScope.length).toBeGreaterThan(10);
     expect(DENZA_D9_ENTRY.reviewScope.length).toBeGreaterThan(10);
-  });
-});
-
-describe("denza-series-services: local answer (GEO)", () => {
-  it("leads with the store and services within a direct answer", () => {
-    expect(denzaLocalAnswer).toContain("顺德大良");
-    expect(denzaLocalAnswer.length).toBeGreaterThan(40);
   });
 });

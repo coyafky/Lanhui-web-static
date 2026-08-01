@@ -60,7 +60,7 @@ export const stores: Store[] = [
       coordinateSystem: "GCJ-02",
     },
     businessHours: "09:00-18:00",
-    image: "/images/stores/cmqdq11se0001j7jchifeqkil.webp",
+    image: "/images/stores/image.webp",
     description:
       "蓝辉轻改旗舰服务中心，位于顺德大良，提供轻改装备与汽车膜系施工服务。",
     level: "flagship",

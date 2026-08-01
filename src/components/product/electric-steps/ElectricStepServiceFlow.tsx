@@ -1,8 +1,5 @@
-"use client";
-
 import { FileText, ChevronDown } from "lucide-react";
-import { electricStepProcess, electricStepWarranties, electricStepFaqs } from "@/lib/electric-step-products";
-import { openWeChatModal } from "@/lib/wechat-modal";
+import { electricStepProcess, electricStepFaqs } from "@/lib/electric-step-products";
 
 export function ElectricStepServiceFlow() {
   return (
@@ -47,32 +44,6 @@ export function ElectricStepServiceFlow() {
           ))}
         </div>
 
-        {/* 质保信息 */}
-        <div className="mb-8 rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5 sm:p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            质保覆盖范围
-          </h3>
-          <p className="text-sm text-zinc-400 mb-4 leading-relaxed">
-            不同组件享有不同的质保期限。质保范围以施工前双方确认的检测和安装记录为准。
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {electricStepWarranties.map((w) => (
-              <div
-                key={w.component}
-                className="rounded-xl bg-white/[0.03] p-4"
-              >
-                <p className="text-sm font-medium text-zinc-300 mb-1">
-                  {w.component}
-                </p>
-                <p className="text-xs text-zinc-500 mb-1">{w.coverage}</p>
-                <p className="text-xs text-orange-400/80 font-medium">
-                  质保 {w.period}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* FAQ */}
         <div className="mb-8 rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5 sm:p-6">
           <h3 className="text-lg font-semibold text-white mb-4">
@@ -98,25 +69,6 @@ export function ElectricStepServiceFlow() {
               </details>
             ))}
           </div>
-        </div>
-
-        {/* CTA */}
-        <div className="rounded-2xl bg-orange-400/[0.06] border border-orange-400/[0.12] p-6 md:flex md:items-center md:justify-between md:gap-6">
-          <div>
-            <h3 className="text-lg font-semibold text-white">
-              带上你的车型，到店确认方案
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              建议提前准备车型、年款、主要乘员和用车场景，现场确认底盘固定点、电气接口、灯带方式和离地间隙。
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => openWeChatModal()}
-            className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-6 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 active:scale-[0.96] transition-transform md:mt-0"
-          >
-            携带车型数据咨询
-          </button>
         </div>
       </div>
     </section>

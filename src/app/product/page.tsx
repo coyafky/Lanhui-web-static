@@ -9,9 +9,7 @@ import { ProductHero } from "@/components/product/ProductHero";
 import { FilmServiceMap } from "@/components/product/FilmServiceMap";
 import { LightModMap } from "@/components/product/LightModMap";
 import { VehicleTopicMap } from "@/components/product/VehicleTopicMap";
-import { CollapsibleSection } from "@/components/product/CollapsibleSection";
 import { MobileProductContent } from "@/components/product/MobileProductContent";
-import { P1ServiceCard } from "@/components/product/P1ServiceCard";
 import { PracticalAccessoryMap } from "@/components/product/PracticalAccessoryMap";
 import { CarCareServiceMap } from "@/components/product/CarCareServiceMap";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
@@ -41,11 +39,6 @@ export default function ProductCenter() {
   );
   const carCareServices = liveServices.filter(
     (s: ServiceRoute) => s.group === "car_care"
-  );
-
-  // P1 planned 服务 — 移动端折叠区显示
-  const p1Services = ALL_SERVICES.filter(
-    (s: ServiceRoute) => s.priority === "P1" && s.status === "planned"
   );
 
   // 移动端 sticky tab — 车型 / 项目内容切换
@@ -109,7 +102,7 @@ export default function ProductCenter() {
             </div>
           </section>
 
-          {/* Tab 2: 按项目 — FilmServiceMap + LightModMap + P1 折叠区 */}
+          {/* Tab 2: 按项目 — FilmServiceMap + LightModMap */}
           <section
             id="service-projects"
             className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900"
@@ -121,36 +114,6 @@ export default function ProductCenter() {
 
               {carCareServices.length > 0 && (
                 <CarCareServiceMap services={carCareServices} />
-              )}
-
-              {/* P1 折叠区 — amber 主题, 移动端前 3 个默认可见 */}
-              {p1Services.length > 0 && (
-                <section
-                  aria-labelledby="p1-services-title"
-                  className="relative overflow-hidden rounded-3xl border border-amber-900/40 bg-zinc-950"
-                >
-                  <div className="p-6 md:p-8">
-                    <div className="mb-6">
-                      <p className="text-xs tracking-widest text-amber-400 mb-2">
-                        P1 SERVICES · 整理中的服务
-                      </p>
-                      <h3
-                        id="p1-services-title"
-                        className="text-xl md:text-2xl font-bold text-white"
-                      >
-                        更多服务正在整理
-                      </h3>
-                      <p className="text-zinc-400 mt-2 text-sm md:text-base">
-                        部分项目仍在打磨方案细节，欢迎到店沟通具体需求。
-                      </p>
-                    </div>
-                    <CollapsibleSection maxVisible={3}>
-                      {p1Services.map((s) => (
-                        <P1ServiceCard key={s.serviceSlug} service={s} />
-                      ))}
-                    </CollapsibleSection>
-                  </div>
-                </section>
               )}
             </div>
           </section>

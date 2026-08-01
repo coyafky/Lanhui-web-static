@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MessageCircle } from "lucide-react";
-import { openWeChatModal } from "@/lib/wechat-modal";
+import { ArrowRight } from "lucide-react";
 import type { VoyahModelEntryKey } from "@/lib/voyah-series-services";
 
 export type VoyahModelEntry = {
@@ -25,7 +22,6 @@ type VoyahModelEntryGridProps = {
 /**
  * 岚图梦想家车型专属子页入口（整卡可点）。
  * 品牌页只保留入口，17 个专车项目在 /product/voyah/dreamer 子页展示。
- * 底部提供"其他岚图车型"咨询入口，不暗示全系通用。
  */
 export function VoyahModelEntryGrid({ entries }: VoyahModelEntryGridProps) {
   return (
@@ -101,25 +97,6 @@ export function VoyahModelEntryGrid({ entries }: VoyahModelEntryGridProps) {
               </div>
             </Link>
           ))}
-
-          {/* 其他岚图车型咨询入口 */}
-          <div className="flex flex-col justify-center gap-4 rounded-3xl bg-zinc-900/60 p-6 shadow-[0_0_0_1px_oklch(1_0_0/0.06)]">
-            <h3 className="text-lg font-bold text-white">
-              开的是其他车型的岚图？
-            </h3>
-            <p className="text-base text-zinc-400 leading-relaxed text-pretty">
-              岚图不同车型在车身形态、门体结构和座椅布局上差异明显。发来车型、年款和配置，
-              我们先帮你确认哪些基础服务通用、哪些需要专车适配。
-            </p>
-            <button
-              type="button"
-              onClick={() => openWeChatModal()}
-              className="inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-gradient-to-r from-violet-500 to-violet-600 px-5 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition-transform active:scale-[0.96]"
-            >
-              <MessageCircle className="size-4" aria-hidden />
-              提交车型确认
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -5,7 +5,6 @@ import { DenzaScenarioSelector } from "@/components/denza/series/DenzaScenarioSe
 import { DenzaBaseServiceGrid } from "@/components/denza/series/DenzaBaseServiceGrid";
 import { DenzaD9EntrySection } from "@/components/denza/series/DenzaD9EntrySection";
 import { DenzaServiceFlowV2 } from "@/components/denza/series/DenzaServiceFlowV2";
-import { DenzaLocalAnswerSection } from "@/components/denza/series/DenzaLocalAnswerSection";
 import { DenzaFaqSectionV2 } from "@/components/denza/series/DenzaFaqSectionV2";
 import { DenzaDouyinCta } from "@/components/denza/series/DenzaDouyinCta";
 import { DenzaMobileCtaBar } from "@/components/denza/series/DenzaMobileCtaBar";
@@ -107,7 +106,6 @@ export default function DenzaBrandPage() {
         <DenzaBaseServiceGrid />
         <DenzaD9EntrySection image={d9Image} />
         <DenzaServiceFlowV2 />
-        <DenzaLocalAnswerSection />
         <DenzaFaqSectionV2 />
         <DenzaDouyinCta />
 
