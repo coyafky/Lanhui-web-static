@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footer";
 import { brand } from "@/lib/brand";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/brand" },
   title: "品牌介绍 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改成立于 2026 年，从顺德大良出发，专注汽车轻改装与膜类服务，提供兼顾颜值、功能与保护的升级方案。",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/business-comfort" },
   title: "商务舒适升级｜蓝辉轻改 LANHUI",
 };
 

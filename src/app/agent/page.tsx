@@ -18,6 +18,7 @@ import { sortStoresByLevel } from "@/components/agent/sort-stores";
 import { StoreSearch } from "@/components/agent/StoreSearch";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/agent" },
   title: "蓝辉轻改门店查询 | 顺德大良汽车轻改服务",
   description:
     "查询蓝辉轻改已开放门店。首期开放佛山顺德大良门店，提供汽车膜、轮毂、踏板、地板、地毯与洗美养护服务。",

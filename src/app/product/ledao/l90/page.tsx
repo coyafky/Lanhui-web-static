@@ -17,6 +17,7 @@ const PAGE_DESCRIPTION =
   "蓝辉轻改整理乐道 L90 21 项热门轻改产品：车衣、隔热膜、彩绘、双拼改色、悬浮顶、铝地板、平衡杆、小桌板、运动包围、360脚垫、底盘护板、轮毂、门槛条、钢化膜等。覆盖新车保护、外观个性、座舱防护、底盘与行车防护、高端质感 5 大用车场景，到店评估按标准流程施工。";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/ledao/l90" },
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   keywords: [

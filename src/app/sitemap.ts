@@ -13,6 +13,7 @@ import {
   listPublishedCities,
 } from "@/lib/store-query";
 import { getSiteUrl } from "@/lib/site-url";
+import { getAllArticles } from "@/lib/blog";
 
 const SITE_URL = getSiteUrl();
 
@@ -56,7 +57,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     routeEntry("/brand/history", 0.5, "yearly"),
     routeEntry("/contact", 0.6, "yearly"),
     routeEntry("/agent", 0.7, "monthly"),
+    routeEntry("/blog", 0.6, "weekly"),
   ];
+
+  // 博客文章页（publishedAt 作为 lastModified）
+  const blogRoutes: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
+    url: `${SITE_URL}/blog/${article.slug}`,
+    lastModified: new Date(`${article.publishedAt}T00:00:00Z`),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   // 品牌系列页（vehicle_brand L1）— 页面存在即收录（含 planned）
   const brandRoutes: MetadataRoute.Sitemap = ALL_BRANDS.map((b) =>
@@ -116,5 +126,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...provinceRoutes,
     ...cityRoutes,
     ...storeRoutes,
+    ...blogRoutes,
   ];
 }

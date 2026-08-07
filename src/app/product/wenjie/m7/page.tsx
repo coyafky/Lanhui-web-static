@@ -15,6 +15,7 @@ const PAGE_DESCRIPTION =
 const HERO_IMAGE = wenjieM7PageConfig.hero.heroImage;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/wenjie/m7" },
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   keywords: [

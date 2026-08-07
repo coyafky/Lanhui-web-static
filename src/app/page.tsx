@@ -1,4 +1,10 @@
 import { Header } from "@/components/Header";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 import { Hero } from "@/components/Hero";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { CoreServices } from "@/components/CoreServices";

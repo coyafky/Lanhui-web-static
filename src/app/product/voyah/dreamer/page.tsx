@@ -17,6 +17,7 @@ const PAGE_DESCRIPTION =
   "蓝辉轻改提供岚图梦想家专属升级方案参考，覆盖车衣、隔热膜、彩绘、双拼改色、360软包脚垫、铝地板、包围、底盘护板、氛围灯、腿托、钢化膜和防虫网等共 17 个项目，按新车保护、外观个性、底盘与行车防护、MPV后排舒适、座舱维护 5 大场景分类。";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/voyah/dreamer" },
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   keywords: [

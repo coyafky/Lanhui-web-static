@@ -6,6 +6,7 @@ import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/ppf" },
   title: "隐形车衣 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改隐形车衣服务，以透明膜覆盖原车漆面，应对日常剐蹭、碎石冲击与洗车划痕等使用场景。",

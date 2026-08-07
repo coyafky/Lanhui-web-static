@@ -11,6 +11,7 @@ import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/color-film" },
   title: "汽车改色膜 | 蓝辉轻改 LANHUI",
   description:
     "让颜色成为你的车型表达。蓝辉轻改改色膜覆盖亮光、哑光、金属、珠光、变色等15大系列，施工前漆面检测、色板确认、专车包边，到店交付。",

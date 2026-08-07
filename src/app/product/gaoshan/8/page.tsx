@@ -17,6 +17,7 @@ const PAGE_DESCRIPTION =
   "蓝辉轻改提供高山 8 专属升级方案参考，覆盖车衣、隔热膜、彩绘、双拼改色、360软包脚垫、铝地板、平衡杆、AMXT包围、BSKT运动包围、底盘护板、电动踏板、中开门、车标灯、日行灯、抬头显示、香氛系统、挡泥板、防虫网、钢化膜、迎宾踏板、黑化81件套、内饰镀膜共 23 个项目，按新车保护、商务外观、外观个性、MPV后排舒适、底盘与行车防护、智能与屏幕保护、座舱维护 7 大场景分类。";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/gaoshan/8" },
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   keywords: [

@@ -17,6 +17,7 @@ import { brand } from "@/lib/brand";
 import { getAmapNavigationUrl } from "@/lib/store-map";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "联系我们 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改顺德大良店联系方式：到店咨询、电话沟通，提供电动踏板、轮毂升级、汽车膜系等一站式轻改服务。",

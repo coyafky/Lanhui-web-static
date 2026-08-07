@@ -31,8 +31,25 @@ export const metadata: Metadata = {
     title: "蓝辉轻改 LANHUI | 汽车轻改装与车身膜服务",
     description:
       "蓝辉轻改专注汽车轻改装与车身膜服务，提供一站式轻改装备与汽车膜系方案，当前服务门店为顺德大良店。",
+    url: "https://www.lanhuiqinggai.com",
+    siteName: "蓝辉轻改 LANHUI",
     locale: "zh_CN",
     type: "website",
+    images: [
+      {
+        url: "/images/social/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "蓝辉轻改 LANHUI - 汽车轻改装与车身膜服务",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "蓝辉轻改 LANHUI | 汽车轻改装与车身膜服务",
+    description:
+      "蓝辉轻改专注汽车轻改装与车身膜服务，提供一站式轻改装备与汽车膜系方案。",
+    images: ["/images/social/og-default.png"],
   },
 };
 

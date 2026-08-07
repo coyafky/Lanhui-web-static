@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { milestones } from "@/lib/history";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/brand/history" },
   title: "品牌历程 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改品牌发展时间线，从 2026 年品牌成立到顺德大良店正式开放，记录品牌从起点到当下的关键节点。",

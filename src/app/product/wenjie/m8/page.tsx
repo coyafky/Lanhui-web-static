@@ -15,6 +15,7 @@ const CANONICAL_PATH = "/product/wenjie/m8";
 const HERO_IMAGE = wenjieM8PageConfig.hero.heroImage;
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/wenjie/m8" },
   title:
     "问界 M8 专属升级方案｜30 个升级项目（必改、商务、实用）｜蓝辉轻改",
   description:

@@ -6,6 +6,7 @@ import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/chassis" },
   title: "底盘升级 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改底盘升级服务，围绕避震、连杆、加强件等部件的轻度升级，让日常驾驶更稳、更有质感。",

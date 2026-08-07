@@ -23,6 +23,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 import { ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/product/window-film" },
   title: "汽车窗膜套餐推荐 | 蓝辉轻改 LANHUI",
   description:
     "一张好膜不只是隔热。蓝辉轻改汽车窗膜覆盖隔热、清晰视野、隐私、信号与长期稳定，按车型匹配前挡+侧后挡方案，专业施工保障。",
