@@ -14,7 +14,7 @@ export const brand = {
   city: "广东佛山 · 顺德大良",
   phone: "18825425068",
   phoneTel: "tel:18825425068",
-  icp: "ICP备案号待备案",
+  icp: "粤ICP备2026102356号-2",
   police: "公安备案号待备案",
   address: "广东省佛山市顺德区大良街道新桂社区云景路31号13栋103铺",
   businessHours: "09:00-18:00",

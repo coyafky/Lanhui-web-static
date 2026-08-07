@@ -126,10 +126,21 @@ export function Footer() {
             <p className="text-xs text-zinc-600">
               © {brand.foundedYear} {brand.en} {brand.zh}. All Rights Reserved.
             </p>
-            <div className="flex items-center gap-4 text-xs text-zinc-600">
-              <span>{brand.icp}</span>
-              <span className="w-px h-3 bg-zinc-800" />
-              <span>{brand.police}</span>
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-zinc-600">
+              <a
+                href="https://beian.miit.gov.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-zinc-400 transition-colors duration-200"
+              >
+                {brand.icp}
+              </a>
+              {brand.police !== "公安备案号待备案" && (
+                <>
+                  <span className="hidden sm:block w-px h-3 bg-zinc-800" />
+                  <span>{brand.police}</span>
+                </>
+              )}
             </div>
           </div>
         </div>
