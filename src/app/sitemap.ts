@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 import { getAllProductSlugs } from "@/lib/products";
 import {
-  getLiveBrands,
-  getLiveServices,
-  getModelsByBrand,
+  ALL_BRANDS,
+  ALL_MODELS,
+  ALL_SERVICES,
   getCanonicalFor,
 } from "@/lib/product-routes";
+import { windowFilmDetails } from "@/lib/window-film-details";
 import {
   listStores,
   listPublishedProvinces,
@@ -54,27 +55,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     routeEntry("/brand", 0.7, "monthly"),
     routeEntry("/brand/history", 0.5, "yearly"),
     routeEntry("/contact", 0.6, "yearly"),
+    routeEntry("/agent", 0.7, "monthly"),
   ];
 
-  // 品牌系列页（vehicle_brand L1）
-  const brandRoutes: MetadataRoute.Sitemap = getLiveBrands().map((b) =>
+  // 品牌系列页（vehicle_brand L1）— 页面存在即收录（含 planned）
+  const brandRoutes: MetadataRoute.Sitemap = ALL_BRANDS.map((b) =>
     routeEntry(b.canonicalPath, priorityOf(b.priority), "monthly")
   );
 
-  // 车型页（vehicle_model L2）：从品牌数据枚举全部车型
-  const modelRoutes: MetadataRoute.Sitemap = [];
-  for (const brand of getLiveBrands()) {
-    for (const model of getModelsByBrand(brand.brandSlug)) {
-      if (model.status !== "live") continue;
-      modelRoutes.push(
-        routeEntry(model.canonicalPath, priorityOf(model.priority), "monthly")
-      );
-    }
-  }
+  // 车型页（vehicle_model L2）：从 ALL_MODELS 枚举全部已构建车型
+  const modelRoutes: MetadataRoute.Sitemap = ALL_MODELS.map((m) =>
+    routeEntry(m.canonicalPath, priorityOf(m.priority), "monthly")
+  );
 
   // 服务/分类页（film / light_mod / car_care 等）
-  const serviceRoutes: MetadataRoute.Sitemap = getLiveServices().map((s) =>
+  const serviceRoutes: MetadataRoute.Sitemap = ALL_SERVICES.map((s) =>
     routeEntry(s.canonicalPath, priorityOf(s.priority), "monthly")
+  );
+
+  // 窗膜套餐页（window-film/[packageSlug]）
+  const windowFilmRoutes: MetadataRoute.Sitemap = Object.keys(
+    windowFilmDetails
+  ).map((slug) =>
+    routeEntry(`/product/window-film/${slug}`, 0.7, "monthly")
   );
 
   // 旧版 getAllProductSlugs 覆盖的历史服务页（保留以兼容）
@@ -108,6 +111,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...brandRoutes,
     ...modelRoutes,
     ...serviceRoutes,
+    ...windowFilmRoutes,
     ...legacyProductRoutes,
     ...provinceRoutes,
     ...cityRoutes,
