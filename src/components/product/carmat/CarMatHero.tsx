@@ -72,7 +72,7 @@ export function CarMatHero({ breadcrumbItems }: { breadcrumbItems?: readonly Bre
                 fill
                 sizes="(min-width: 1024px) 420px, 100vw"
                 className="object-cover outline outline-1 -outline-offset-1 outline-white/10"
-                priority
+            preload
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4">
                 <p className="text-sm font-semibold text-white">

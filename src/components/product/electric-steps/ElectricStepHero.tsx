@@ -74,7 +74,7 @@ export function ElectricStepHero({ breadcrumbItems }: { breadcrumbItems?: readon
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"
                 className="object-contain p-3"
-                priority
+            preload
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4">
                 <p className="text-sm font-semibold text-white">

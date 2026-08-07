@@ -53,7 +53,7 @@ export function Gaoshan8Hero({
             src={heroImage.publicPath}
             alt=""
             fill
-            priority
+            preload
             sizes="100vw"
             className="object-cover opacity-30"
           />
