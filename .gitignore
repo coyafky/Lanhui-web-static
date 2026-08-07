@@ -96,3 +96,5 @@ backups/
 # Playwright dogfood 测试产物
 dogfood-output/
 .alma-snapshots
+.alma/
+Users/
