@@ -3,8 +3,7 @@ import { FilmPageHero } from "@/components/film/FilmPageHero";
 import { SpecsTable } from "@/components/film/SpecsTable";
 import { WindowFilmParameterExplainer } from "@/components/window-film/WindowFilmParameterExplainer";
 import { WindowFilmPackageCard } from "@/components/window-film/WindowFilmPackageCard";
-import { WindowFilmExperiences } from "@/components/window-film/WindowFilmExperiences";
-import { WindowFilmScenarioSelector } from "@/components/window-film/WindowFilmScenarioSelector";
+import { WindowFilmBenefits } from "@/components/window-film/WindowFilmBenefits";
 import { WindowFilmConstructionProofs } from "@/components/window-film/WindowFilmConstructionProofs";
 import { WindowFilmDouyinCta } from "@/components/window-film/WindowFilmDouyinCta";
 import { getProduct } from "@/lib/products";
@@ -16,7 +15,6 @@ import {
 } from "@/lib/window-film-details";
 import {
   PACKAGE_POSITIONING_LABELS,
-  FEATURED_PACKAGE_SLUGS,
   windowFilmFaqs,
 } from "@/lib/window-film-experiences";
 import { safeJsonLd } from "@/lib/json-ld";
@@ -66,86 +64,49 @@ export default function WindowFilmPage() {
   const breadcrumbItems = getProductBreadcrumbs("/product/window-film");
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/window-film");
 
-  const featuredPackages = packages.filter((p) =>
-    (FEATURED_PACKAGE_SLUGS as readonly string[]).includes(p.slug)
-  );
-  const secondaryPackages = packages.filter(
-    (p) => !(FEATURED_PACKAGE_SLUGS as readonly string[]).includes(p.slug)
-  );
-
   return (
     <>
       <FilmPageHero breadcrumbItems={breadcrumbItems} />
 
       <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col bg-zinc-950">
-        {/* ====== 5 项好膜体验 ====== */}
-        <WindowFilmExperiences />
-
-        {/* ====== 3 类用车场景选择 ====== */}
-        <WindowFilmScenarioSelector />
-
-        {/* ====== 主推套餐（3 个） ====== */}
+        {/* ====== 全部 7 个套餐 ====== */}
         <section className="py-16 sm:py-20 bg-zinc-950 border-t border-white/[0.05]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10 lg:mb-12">
-              <p className="text-xs tracking-widest mb-3 text-orange-400 uppercase">
-                推荐方案
-              </p>
+            <div className="mb-10 lg:mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-white">
-                三个典型方案，先看哪个适合你
+                七套窗膜组合，按侧重点选择
               </h2>
-              <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
-                从日常通勤到家庭出行到新能源全景天幕，先看最贴近你的那套。
+              <p className="mt-4 text-zinc-300 max-w-2xl leading-relaxed">
+                每套方案都标明前挡、侧后挡组合与侧重方向，进入详情可继续查看产品特性和完整规格。
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {featuredPackages.map((pkg) => (
-                <WindowFilmPackageCard
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-6">
+              {packages.map((pkg) => (
+                <div
                   key={pkg.slug}
-                  pkg={pkg}
-                  details={windowFilmDetails[pkg.slug]}
-                  variant="featured"
-                  positioningLabel={PACKAGE_POSITIONING_LABELS[pkg.slug]}
-                  id={`pkg-${pkg.slug}`}
-                />
+                  className="min-w-0 md:last:col-span-2 md:last:mx-auto md:last:w-[calc(50%-0.625rem)] xl:col-span-2 xl:last:col-start-3 xl:last:w-auto"
+                >
+                  <WindowFilmPackageCard
+                    pkg={pkg}
+                    details={windowFilmDetails[pkg.slug]}
+                    variant="featured"
+                    positioningLabel={PACKAGE_POSITIONING_LABELS[pkg.slug]}
+                    id={`pkg-${pkg.slug}`}
+                  />
+                </div>
               ))}
             </div>
           </div>
         </section>
+
+        {/* ====== 窗膜核心作用 ====== */}
+        <WindowFilmBenefits />
 
         {/* ====== 参数解释（后移到套餐之后） ====== */}
         <WindowFilmParameterExplainer />
 
         {/* ====== 4 项施工证据 ====== */}
         <WindowFilmConstructionProofs />
-
-        {/* ====== 全部套餐折叠区 + 参数表 ====== */}
-        <section className="py-16 sm:py-20 bg-zinc-950 border-t border-white/[0.05]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <details className="group">
-              <summary className="flex items-center justify-center gap-2 cursor-pointer list-none text-lg font-semibold text-white hover:text-orange-300 transition-colors">
-                查看全部 7 个套餐
-                <ChevronDown className="w-5 h-5 text-zinc-500 group-open:rotate-180 transition-transform" />
-              </summary>
-              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {packages.map((pkg) => (
-                  <WindowFilmPackageCard
-                    key={pkg.slug}
-                    pkg={pkg}
-                    details={windowFilmDetails[pkg.slug]}
-                    variant={
-                      (FEATURED_PACKAGE_SLUGS as readonly string[]).includes(pkg.slug)
-                        ? "featured"
-                        : "secondary"
-                    }
-                    positioningLabel={PACKAGE_POSITIONING_LABELS[pkg.slug]}
-                    id={`pkg-all-${pkg.slug}`}
-                  />
-                ))}
-              </div>
-            </details>
-          </div>
-        </section>
 
         {/* ====== 单品参数表 ====== */}
         {product.specs && product.specs.length > 0 && (

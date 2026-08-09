@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ElectricStepHero } from "@/components/product/electric-steps/ElectricStepHero";
 import { ElectricStepScenarios } from "@/components/product/electric-steps/ElectricStepScenarios";
-import { ElectricStepModelSelector } from "@/components/product/electric-steps/ElectricStepModelSelector";
-import { ElectricStepHeightComparison } from "@/components/product/electric-steps/ElectricStepHeightComparison";
 import { ElectricStepGallery } from "@/components/product/electric-steps/ElectricStepGallery";
-import { ElectricStepFitmentChecklist } from "@/components/product/electric-steps/ElectricStepFitmentChecklist";
 import { ElectricStepServiceFlow } from "@/components/product/electric-steps/ElectricStepServiceFlow";
 import { ElectricStepDouyinCta } from "@/components/product/electric-steps/ElectricStepDouyinCta";
 import { electricStepImages } from "@/lib/electric-step-products";
@@ -64,10 +61,7 @@ export default function ElectricStepsPage() {
         />
         <ElectricStepHero breadcrumbItems={breadcrumbItems} />
         <ElectricStepScenarios />
-        <ElectricStepModelSelector />
-        <ElectricStepHeightComparison />
         <ElectricStepGallery />
-        <ElectricStepFitmentChecklist />
         <ElectricStepServiceFlow />
         <ElectricStepDouyinCta />
       </main>

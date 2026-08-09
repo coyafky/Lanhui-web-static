@@ -1,9 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { ArrowDown, MessageCircle } from "lucide-react";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
-import { openWeChatModal } from "@/lib/wechat-modal";
 
 export function FilmPageHero({
   breadcrumbItems,
@@ -39,24 +35,6 @@ export function FilmPageHero({
             <p className="text-base sm:text-lg text-zinc-300 max-w-xl leading-relaxed mb-8">
               兼顾隔热、清晰视野、隐私、信号与长期稳定，为你的车型匹配前挡＋侧后挡方案，并通过专业施工完整呈现产品性能。
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button
-                type="button"
-                onClick={() => openWeChatModal()}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-6 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 active:scale-[0.97] transition-transform sm:text-base"
-              >
-                <MessageCircle className="w-4 h-4" />
-                按车型获取搭配建议
-              </button>
-              <a
-                href="#construction-proofs"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white/[0.06] px-6 text-sm font-medium text-white shadow-[0_0_0_1px_oklch(1_0_0/0.1)] hover:bg-white/[0.1] active:scale-[0.97] transition-all sm:text-base"
-              >
-                查看施工实拍
-                <ArrowDown className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* 主视觉 */}

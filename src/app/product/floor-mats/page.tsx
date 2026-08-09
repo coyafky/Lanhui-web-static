@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CarMatHero } from "@/components/product/carmat/CarMatHero";
 import { CarMatScenarios } from "@/components/product/carmat/CarMatScenarios";
-import { CarMatModelSelector } from "@/components/product/carmat/CarMatModelSelector";
 import { CarMatGallery } from "@/components/product/carmat/CarMatGallery";
 import { CarMatSafetyChecklist } from "@/components/product/carmat/CarMatSafetyChecklist";
 import { CarMatServiceFlow } from "@/components/product/carmat/CarMatServiceFlow";
@@ -63,7 +62,6 @@ export default function FloorMatsPage() {
         />
         <CarMatHero breadcrumbItems={breadcrumbItems} />
         <CarMatScenarios />
-        <CarMatModelSelector />
         <CarMatGallery />
         <CarMatSafetyChecklist />
         <CarMatServiceFlow />

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WheelHero } from "@/components/product/wheel/WheelHero";
-import { WheelFitmentChecklist } from "@/components/product/wheel/WheelFitmentChecklist";
 import { WheelGallery } from "@/components/product/wheel/WheelGallery";
 import { WheelConstructionProofs } from "@/components/product/wheel/WheelConstructionProofs";
 import { WheelServiceFlow } from "@/components/product/wheel/WheelServiceFlow";
@@ -63,13 +62,10 @@ export default function WheelsPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
 
-        {/* ====== 安全适配清单 ====== */}
-        <WheelFitmentChecklist />
-
         {/* ====== 可筛选/可比较轮毂图库 ====== */}
         <WheelGallery />
 
-        {/* ====== 施工信任 + 铸造/锻造对比 + 合规提醒 ====== */}
+        {/* ====== 施工信任 + 常见问题 ====== */}
         <WheelConstructionProofs />
 
         {/* ====== 图文流程 + 质保售后 ====== */}

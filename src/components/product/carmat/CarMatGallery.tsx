@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
 import {
   carMatCategoryFilterLabels,
   carMatFeaturedImages,
   carMatGalleryImages,
 } from "@/lib/carmat-products";
 import type { CarMatCategory } from "@/lib/carmat-products";
-import { openWeChatModal } from "@/lib/wechat-modal";
 
 const FILTER_CATEGORIES: (CarMatCategory | "all")[] = [
   "all",
@@ -106,18 +104,9 @@ export function CarMatGallery() {
                   </span>
                 </div>
 
-                <p className="text-xs text-zinc-500 mb-3">
+                <p className="text-xs text-zinc-400">
                   适合：{image.recommendFor}
                 </p>
-
-                <button
-                  type="button"
-                  onClick={() => openWeChatModal()}
-                  className="inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-amber-400/10 px-4 text-sm font-medium text-amber-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-all hover:bg-amber-400/20 active:scale-[0.97]"
-                >
-                  咨询此款
-                  <MessageCircle className="size-3.5" aria-hidden />
-                </button>
               </div>
             </div>
           ))}

@@ -5,39 +5,29 @@ import Image from "next/image";
 import { Check, Columns2, X, ChevronDown } from "lucide-react";
 import {
   wheelImagesRich,
-  WHEEL_STYLE_FILTERS,
   WHEEL_SPOKE_FILTERS,
-  WHEEL_COLOR_FILTERS,
   FEATURED_WHEEL_COUNT,
 } from "@/lib/wheel-products";
 
 const MAX_COMPARE = 3;
 
 export function WheelGallery() {
-  const [styleFilter, setStyleFilter] = useState<string>("all");
   const [spokeFilter, setSpokeFilter] = useState<string>("all");
-  const [colorFilter, setColorFilter] = useState<string>("all");
   const [showAll, setShowAll] = useState(false);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const filtered = useMemo(() => {
-    let result = wheelImagesRich;
+    if (spokeFilter === "all") return wheelImagesRich;
+    return wheelImagesRich.filter((wheel) => wheel.spoke === spokeFilter);
+  }, [spokeFilter]);
 
-    if (styleFilter !== "all") {
-      result = result.filter((w) => w.style === styleFilter);
-    }
-    if (spokeFilter !== "all") {
-      result = result.filter((w) => w.spoke === spokeFilter);
-    }
-    if (colorFilter !== "all") {
-      result = result.filter((w) => w.color === colorFilter);
-    }
-
-    return result;
-  }, [styleFilter, spokeFilter, colorFilter]);
-
-  const displayed = showAll ? filtered : filtered.slice(0, FEATURED_WHEEL_COUNT);
-  const hasMore = filtered.length > FEATURED_WHEEL_COUNT && !showAll;
+  const isAllStructures = spokeFilter === "all";
+  const displayed =
+    isAllStructures && !showAll
+      ? filtered.slice(0, FEATURED_WHEEL_COUNT)
+      : filtered;
+  const hasMore =
+    isAllStructures && filtered.length > FEATURED_WHEEL_COUNT && !showAll;
 
   const toggleSelect = (id: string) => {
     setSelectedIds((prev) => {
@@ -66,66 +56,32 @@ export function WheelGallery() {
             {wheelImagesRich.length} 款视觉方案，挑选你喜欢的
           </h2>
           <p className="mt-3 text-zinc-400 max-w-xl">
-            先看风格方向，选中款式（最多 3 款）并排对比；具体尺寸和数据需到店确认。
+            按辐条结构筛选，选中款式（最多 3 款）并排对比；具体颜色、尺寸和适配数据需到店确认。
           </p>
         </div>
 
-        {/* 筛选栏 */}
-        <div className="space-y-3 mb-8">
-          {/* 风格 */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:px-0 sm:mx-0 sm:overflow-visible">
-            <span className="text-xs text-zinc-500 flex-shrink-0 mr-1">风格</span>
-            {WHEEL_STYLE_FILTERS.map((f) => (
-              <button
-                key={f.key}
-                type="button"
-                onClick={() => setStyleFilter(f.key)}
-                className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-[0.97] ${
-                  styleFilter === f.key
-                    ? "bg-white text-zinc-900"
-                    : "bg-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.1]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-          {/* 结构 */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:px-0 sm:mx-0 sm:overflow-visible">
-            <span className="text-xs text-zinc-500 flex-shrink-0 mr-1">结构</span>
-            {WHEEL_SPOKE_FILTERS.map((f) => (
-              <button
-                key={f.key}
-                type="button"
-                onClick={() => setSpokeFilter(f.key)}
-                className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-[0.97] ${
-                  spokeFilter === f.key
-                    ? "bg-white text-zinc-900"
-                    : "bg-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.1]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-          {/* 颜色 */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:px-0 sm:mx-0 sm:overflow-visible">
-            <span className="text-xs text-zinc-500 flex-shrink-0 mr-1">颜色</span>
-            {WHEEL_COLOR_FILTERS.map((f) => (
-              <button
-                key={f.key}
-                type="button"
-                onClick={() => setColorFilter(f.key)}
-                className={`flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-[0.97] ${
-                  colorFilter === f.key
-                    ? "bg-white text-zinc-900"
-                    : "bg-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.1]"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
+        <div
+          role="tablist"
+          aria-label="按轮毂结构筛选"
+          className="mb-8 flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:px-0 sm:mx-0 sm:overflow-visible"
+        >
+          {WHEEL_SPOKE_FILTERS.map((filter) => (
+            <button
+              key={filter.key}
+              type="button"
+              role="tab"
+              aria-selected={spokeFilter === filter.key}
+              aria-controls="wheel-gallery-results"
+              onClick={() => setSpokeFilter(filter.key)}
+              className={`min-h-11 flex-shrink-0 rounded-full px-4 text-sm font-medium transition-all active:scale-[0.97] ${
+                spokeFilter === filter.key
+                  ? "bg-white text-zinc-900"
+                  : "bg-white/[0.06] text-zinc-300 hover:bg-white/[0.1] hover:text-white"
+              }`}
+            >
+              {filter.label}
+            </button>
+          ))}
         </div>
 
         {/* 无结果 */}
@@ -137,7 +93,11 @@ export function WheelGallery() {
         )}
 
         {/* 图库网格 — 桌面 4 列，手机双列 */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div
+          id="wheel-gallery-results"
+          role="tabpanel"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
+        >
           {displayed.map((wheel) => {
             const isSelected = selectedIds.includes(wheel.id);
             return (
@@ -179,13 +139,7 @@ export function WheelGallery() {
                   </h3>
                   <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
                     <span className="text-[10px] text-zinc-400 bg-white/[0.06] px-1.5 py-0.5 rounded-full">
-                      {wheel.styleLabel}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 bg-white/[0.04] px-1.5 py-0.5 rounded-full">
-                      {wheel.color}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 bg-white/[0.04] px-1.5 py-0.5 rounded-full">
-                      {wheel.process}
+                      {wheel.spoke}
                     </span>
                   </div>
                 </div>

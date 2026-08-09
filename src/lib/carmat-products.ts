@@ -49,12 +49,6 @@ export type CarMatFaq = {
   answer: string;
 };
 
-export type CarMatFitmentTag = {
-  name: string;
-  weight: "hero" | "strong" | "normal" | "subtle";
-  note: string;
-};
-
 export const CARMAT_IMAGE_WIDTH = 1086 as const;
 export const CARMAT_IMAGE_HEIGHT = 1448 as const;
 export const CARMAT_IMAGE_ASPECT_RATIO = "3/4" as const;
@@ -317,29 +311,6 @@ export const carMatFaqs: readonly CarMatFaq[] = [
       "脚垫安装通常需要 2-4 小时，具体取决于车型、座椅布局、覆盖范围和层数。价格由这些因素共同决定，建议到店获取车型报价。",
   },
 ];
-
-export const carMatFitmentTags: readonly CarMatFitmentTag[] = [
-  { name: "理想 L9", weight: "hero", note: "家庭大六座 SUV" },
-  { name: "理想 L8", weight: "hero", note: "六座家庭出行" },
-  { name: "理想 L7", weight: "strong", note: "大五座 SUV" },
-  { name: "理想 MEGA", weight: "hero", note: "MPV 后排接待" },
-  { name: "理想 ONE", weight: "strong", note: "经典六座 SUV" },
-  { name: "问界 M7", weight: "hero", note: "家庭 SUV 高频咨询" },
-  { name: "问界 M8", weight: "strong", note: "大六座家庭场景" },
-  { name: "问界 M9", weight: "strong", note: "大型 SUV 旗舰" },
-  { name: "腾势 D9", weight: "hero", note: "商务 MPV 热门车型" },
-  { name: "高山 8", weight: "strong", note: "MPV 商务/家庭" },
-  { name: "岚图梦想家", weight: "strong", note: "MPV 后排方案" },
-  { name: "蔚来 ES8", weight: "strong", note: "大六座 SUV" },
-  { name: "极氪 009", weight: "normal", note: "MPV 接待场景" },
-  { name: "乐道 L90", weight: "normal", note: "大车身 SUV" },
-  { name: "奔驰 V 级", weight: "subtle", note: "商务接待车型" },
-  { name: "别克 GL8", weight: "subtle", note: "商务 MPV 常见咨询" },
-  { name: "传祺 M8", weight: "subtle", note: "MPV 方案确认" },
-];
-
-export const carMatHotModels: readonly CarMatFitmentTag[] =
-  carMatFitmentTags.filter((t) => t.weight === "hero" || t.weight === "strong");
 
 export const carMatProcess: readonly CarMatProcessStep[] = [
   {

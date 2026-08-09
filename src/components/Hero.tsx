@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { brand } from "@/lib/brand";
 import { WeChatConsultButton } from "@/components/WeChatConsultButton";
 
 export function Hero() {
@@ -17,10 +16,6 @@ export function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 sm:pt-20 sm:pb-16 md:py-40">
         <div className="max-w-2xl">
-          <p className="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full bg-blue-950/60 border border-blue-800/50 text-blue-300 text-xs tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
-            {brand.en} · 汽车轻改装
-          </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-white max-w-full break-words">
             蓝辉轻改 LANHUI · 汽车轻改装与车身膜服务
           </h1>

@@ -32,7 +32,7 @@ export async function generateMetadata({
   }
   const title = `${pkg.name}汽车窗膜方案 | 蓝辉轻改 LANHUI`;
   const canonicalPath = `/product/window-film/${packageSlug}`;
-  const description = `${pkg.name}适合${pkg.audience}，前挡采用${pkg.frontProduct}，侧后挡采用${pkg.rearProduct}，围绕隔热、防晒、隐私与日常驾驶舒适度提供汽车窗膜搭配说明。`;
+  const description = `${pkg.name}前挡采用${pkg.frontProduct}，侧后挡采用${pkg.rearProduct}，集中展示组合特性、膜材参数与质保信息。`;
   return {
     title,
     description,

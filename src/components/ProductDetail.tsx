@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
 import { PpfDouyinCta } from "@/components/product/PpfDouyinCta";
 import { PpfMobileCtaBar } from "@/components/product/PpfMobileCtaBar";
+import { PpfProtectionPrinciples } from "@/components/product/PpfProtectionPrinciples";
 import { WeChatConsultButton } from "@/components/WeChatConsultButton";
 import type { Product } from "@/lib/products";
 
@@ -225,30 +226,9 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
               {/* Subtle divider */}
               <div className="h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent mb-10" />
 
-              {/* Part 2: PPF solution — centered banner */}
-              <div className="mb-10 text-center">
-                <h3 className="text-sm font-semibold text-orange-300/80 uppercase tracking-wider mb-4">
-                  最有效的解决方案
-                </h3>
-                <p className="text-xl sm:text-2xl font-bold text-white text-balance mb-5">
-                  隐形车衣：把原厂漆，留在新车那一天
-                </p>
-                <div className="inline-flex flex-wrap items-center justify-center gap-2.5">
-                  {[
-                    { label: "防刮擦", desc: "日常划痕自修复" },
-                    { label: "耐黄变", desc: "脂肪族 TPU 基材" },
-                    { label: "长质保", desc: "最长 12 年" },
-                  ].map((t) => (
-                    <span
-                      key={t.label}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-orange-950/30 px-3.5 py-1.5 text-sm font-medium text-orange-300 shadow-[0_0_0_1px_oklch(1_0_0/0.06)]"
-                      title={t.desc}
-                    >
-                      <Sparkles className="size-3.5" />
-                      {t.label}
-                    </span>
-                  ))}
-                </div>
+              {/* Part 2: PPF protection principles */}
+              <div className="mb-10">
+                <PpfProtectionPrinciples />
               </div>
 
               {/* Subtle divider */}

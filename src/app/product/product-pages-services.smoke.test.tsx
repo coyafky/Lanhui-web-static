@@ -18,7 +18,7 @@ vi.mock("next/link", () => ({
 vi.mock("next/image", () => ({
   default: (props: Record<string, unknown>) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { fill, priority, ...rest } = props;
+    const { fill, priority, preload, unoptimized, ...rest } = props;
     return <img {...rest} />;
   },
 }));
@@ -58,6 +58,7 @@ const serviceSlugPageModuleMap: Record<string, () => Promise<unknown>> = {
   flooring: () => import("@/app/product/flooring/page"),
   "floor-mats": () => import("@/app/product/floor-mats/page"),
   "car-care": () => import("@/app/product/car-care/page"),
+  "car-tv": () => import("@/app/product/car-tv/page"),
 };
 
 describe.each(LIVE_SERVICES)(
@@ -77,3 +78,42 @@ describe.each(LIVE_SERVICES)(
     });
   }
 );
+
+describe("window-film catalog structure", () => {
+  it("shows all seven packages without the removed experience and scenario sections", async () => {
+    await renderServicePage(serviceSlugPageModuleMap["window-film"]);
+
+    const body = document.body.textContent ?? "";
+    const packageLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(
+        'a[href^="/product/window-film/"]',
+      ),
+    ).filter((link) => link.textContent?.includes("查看套餐详情"));
+
+    expect(packageLinks).toHaveLength(7);
+    expect(body).toContain("七套窗膜组合，按侧重点选择");
+    expect(body).toContain("为什么要贴一张好窗膜？");
+    expect(body).toContain("玻璃安全辅助");
+    expect(body).not.toContain("安全防爆");
+    expect(body).toContain("TSER 前 53%");
+    expect(body).not.toContain("一张好膜的 5 个体验");
+    expect(body).not.toContain("三个典型方案，先看哪个适合你");
+    expect(body).not.toContain("查看全部 7 个套餐");
+    expect(body).not.toContain("按车型获取搭配建议");
+  });
+});
+
+describe("car-tv product structure", () => {
+  it("shows the product capabilities, installation boundary and mobile-safe specs", async () => {
+    await renderServicePage(serviceSlugPageModuleMap["car-tv"]);
+
+    const body = document.body.textContent ?? "";
+    expect(body).toContain("18.5 英寸车载电视");
+    expect(body).toContain("1920 × 1080");
+    expect(body).toContain("4G ＋ Wi-Fi");
+    expect(body).toContain("好看的收起状态，来自前期检查");
+    expect(body).toContain("原车功能控制属于适配能力");
+    expect(body).not.toContain("无限流量");
+    expect(body).not.toContain("无损安装");
+  });
+});

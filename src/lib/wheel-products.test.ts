@@ -6,6 +6,7 @@ import {
   WHEEL_IMAGE_HEIGHT,
   WHEEL_IMAGE_WIDTH,
   wheelGalleryImages,
+  wheelImagesRich,
 } from "./wheel-products";
 
 describe("wheel-products", () => {
@@ -32,5 +33,38 @@ describe("wheel-products", () => {
     expect(wheelGalleryImages[0]?.filename).toBe("1-1.webp");
     expect(wheelGalleryImages[9]?.filename).toBe("1-10.webp");
     expect(wheelGalleryImages[20]?.filename).toBe("1-21.webp");
+  });
+
+  it("classifies every wheel by its reviewed spoke structure", () => {
+    expect(wheelImagesRich).toHaveLength(21);
+    expect(wheelImagesRich.map(({ filename, spoke }) => [filename, spoke])).toEqual([
+      ["1-1.webp", "网状"],
+      ["1-2.webp", "多辐"],
+      ["1-3.webp", "网状"],
+      ["1-4.webp", "Y字"],
+      ["1-5.webp", "Y字"],
+      ["1-6.webp", "多辐"],
+      ["1-7.webp", "Y字"],
+      ["1-8.webp", "多辐"],
+      ["1-9.webp", "多辐"],
+      ["1-10.webp", "Y字"],
+      ["1-11.webp", "多辐"],
+      ["1-12.webp", "多辐"],
+      ["1-13.webp", "多辐"],
+      ["1-14.webp", "多辐"],
+      ["1-15.webp", "五辐"],
+      ["1-16.webp", "Y字"],
+      ["1-17.webp", "网状"],
+      ["1-18.webp", "多辐"],
+      ["1-19.webp", "Y字"],
+      ["1-20.webp", "Y字"],
+      ["1-21.webp", "多辐"],
+    ]);
+    expect(
+      wheelImagesRich.reduce<Record<string, number>>((counts, wheel) => {
+        counts[wheel.spoke] = (counts[wheel.spoke] ?? 0) + 1;
+        return counts;
+      }, {})
+    ).toEqual({ 网状: 3, 多辐: 10, Y字: 7, 五辐: 1 });
   });
 });

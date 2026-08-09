@@ -1,11 +1,7 @@
-"use client";
-
 import Image from "next/image";
-import { ArrowDown, MessageCircle, Car, ChevronDown } from "lucide-react";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import type { BreadcrumbItem } from "@/components/Breadcrumbs";
+import { Car } from "lucide-react";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
 import { electricStepImages } from "@/lib/electric-step-products";
-import { openWeChatModal } from "@/lib/wechat-modal";
 
 export function ElectricStepHero({ breadcrumbItems }: { breadcrumbItems?: readonly BreadcrumbItem[] }) {
   const heroImage = electricStepImages[0]!;
@@ -46,24 +42,6 @@ export function ElectricStepHero({ breadcrumbItems }: { breadcrumbItems?: readon
             <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 md:text-lg">
               开门展开，为老人、小孩和频繁上下车的乘员提供更低、更清晰的落脚位置；关门收回，尽量保留原车侧面线条。
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => openWeChatModal()}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 pl-5 pr-[18px] text-base font-semibold text-white shadow-lg shadow-orange-500/20 transition-transform active:scale-[0.96]"
-              >
-                输入车型，查看适配方向
-                <MessageCircle className="size-4" aria-hidden />
-              </button>
-              <a
-                href="#electric-step-scenarios"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white/[0.04] px-5 text-sm font-medium text-zinc-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-transform hover:bg-white/[0.08] active:scale-[0.96]"
-              >
-                看真实上下车演示
-                <ArrowDown className="size-4" aria-hidden />
-              </a>
-            </div>
           </div>
 
           <div className="rounded-[1.75rem] bg-white/[0.05] p-2 shadow-[0_0_0_1px_oklch(1_0_0/0.08),0_24px_64px_-24px_oklch(0_0_0/0.75)]">
@@ -74,7 +52,7 @@ export function ElectricStepHero({ breadcrumbItems }: { breadcrumbItems?: readon
                 fill
                 sizes="(min-width: 1024px) 520px, 100vw"
                 className="object-contain p-3"
-            preload
+                loading="eager"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4">
                 <p className="text-sm font-semibold text-white">

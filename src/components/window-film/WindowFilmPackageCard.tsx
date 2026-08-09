@@ -26,7 +26,7 @@ export function WindowFilmPackageCard({
   return (
     <article
       id={id}
-      className={`group relative flex flex-col rounded-2xl border transition-all overflow-hidden ${
+      className={`group relative flex h-full flex-col rounded-2xl border transition-all overflow-hidden ${
         isFeatured
           ? "bg-zinc-900/60 border-white/[0.06] hover:border-orange-500/40"
           : "bg-zinc-900/30 border-white/[0.04] hover:border-white/[0.08]"
@@ -49,7 +49,7 @@ export function WindowFilmPackageCard({
               </span>
             )}
           </div>
-          <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+          <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
             {details.positioning}
           </p>
         </div>
@@ -78,14 +78,16 @@ export function WindowFilmPackageCard({
         <div className="grid grid-cols-2 gap-2 mb-5 text-xs">
           <div className="flex items-center gap-1.5 text-zinc-300">
             <Sun className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" />
-            <span>TSER 前 {extractFirstPercent(pkg.frontParams, "TSER")}</span>
+            <span>
+              TSER 前 {extractFirstPercent(pkg.frontParams, "总太阳能阻隔率")}
+            </span>
           </div>
           <div className="flex items-center gap-1.5 text-zinc-300">
             <Shield className="w-3.5 h-3.5 text-orange-400 flex-shrink-0" />
             <span>质保 {pkg.warranty}</span>
           </div>
         </div>
-        <p className="text-[10px] text-zinc-600 leading-relaxed mb-4">
+        <p className="text-[10px] text-zinc-500 leading-relaxed mb-4">
           * 阻隔率等参数以品牌方检测报告为准，实际效果因车型与施工环境而异
         </p>
 
@@ -115,8 +117,8 @@ export function WindowFilmPackageCard({
 /** 从 `可见光阻隔率 30%；紫外线阻隔率 99%...` 字符串中抽取指定字段的第一个百分比。 */
 function extractFirstPercent(params: string, label: string): string {
   const idx = params.indexOf(label);
-  if (idx < 0) return "\u2014";
+  if (idx < 0) return "-";
   const tail = params.slice(idx + label.length);
   const match = tail.match(/(\d+(?:\s*-\s*\d+)?\s*%)/);
-  return match ? match[1].replace(/\s+/g, "") : "\u2014";
+  return match ? match[1].replace(/\s+/g, "") : "-";
 }

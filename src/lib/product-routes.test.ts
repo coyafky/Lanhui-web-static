@@ -20,9 +20,9 @@ describe("product-routes registry", () => {
     expect(ALL_MODELS).toHaveLength(19);
   });
 
-  it("contains exactly 10 published services (9 live + 1 planned)", () => {
-    expect(ALL_SERVICES).toHaveLength(10);
-    expect(ALL_SERVICES.filter((s) => s.status === "live")).toHaveLength(9);
+  it("contains exactly 11 published services (10 live + 1 planned)", () => {
+    expect(ALL_SERVICES).toHaveLength(11);
+    expect(ALL_SERVICES.filter((s) => s.status === "live")).toHaveLength(10);
     expect(ALL_SERVICES.filter((s) => s.status === "planned")).toHaveLength(1);
     expect(getServiceRoute("skid-plate")).toBeUndefined();
   });
@@ -63,6 +63,8 @@ describe("product-routes registry", () => {
     expect(getServiceRoute("floor-mats")?.status).toBe("live");
     expect(getServiceRoute("car-care")?.group).toBe("car_care");
     expect(getServiceRoute("car-care")?.status).toBe("live");
+    expect(getServiceRoute("car-tv")?.group).toBe("business_comfort");
+    expect(getServiceRoute("car-tv")?.status).toBe("live");
   });
 
   it("getModelsByBrand() returns models for a brand", () => {

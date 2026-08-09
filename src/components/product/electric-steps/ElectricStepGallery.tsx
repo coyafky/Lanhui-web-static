@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Check, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import {
   electricStepImages,
   electricStepVariantLabels,

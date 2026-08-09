@@ -1,13 +1,14 @@
-"use client";
-
 import Image from "next/image";
-import { Camera, ChevronDown } from "lucide-react";
+import { Camera } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/components/Breadcrumbs";
 import { carMatGalleryImages } from "@/lib/carmat-products";
-import { openWeChatModal } from "@/lib/wechat-modal";
 
-export function CarMatHero({ breadcrumbItems }: { breadcrumbItems?: readonly BreadcrumbItem[] }) {
+export function CarMatHero({
+  breadcrumbItems,
+}: {
+  breadcrumbItems?: readonly BreadcrumbItem[];
+}) {
   const heroImage = carMatGalleryImages[0]!;
 
   return (
@@ -45,23 +46,6 @@ export function CarMatHero({ breadcrumbItems }: { breadcrumbItems?: readonly Bre
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 text-pretty md:text-lg">
               泥沙、水渍、零食碎屑和鞋底磨损，不必直接留在原车地毯上。按车型、年款和座椅布局确认覆盖范围，同时检查主驾踏板安全间隙。
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => openWeChatModal()}
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-6 text-sm font-semibold text-white shadow-lg shadow-amber-500/20 active:scale-[0.96] transition-transform"
-              >
-                输入车型看实装效果
-              </button>
-              <a
-                href="#carmat-scenarios"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white/[0.04] px-6 text-sm font-semibold text-zinc-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] active:scale-[0.96] transition-transform"
-              >
-                看清洁前后对比
-                <ChevronDown className="size-4" aria-hidden />
-              </a>
-            </div>
           </div>
 
           <div className="rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-0 overflow-hidden">
@@ -72,7 +56,7 @@ export function CarMatHero({ breadcrumbItems }: { breadcrumbItems?: readonly Bre
                 fill
                 sizes="(min-width: 1024px) 420px, 100vw"
                 className="object-cover outline outline-1 -outline-offset-1 outline-white/10"
-            preload
+                preload
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4">
                 <p className="text-sm font-semibold text-white">

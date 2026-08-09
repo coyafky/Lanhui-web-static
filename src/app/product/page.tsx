@@ -12,13 +12,14 @@ import { VehicleTopicMap } from "@/components/product/VehicleTopicMap";
 import { MobileProductContent } from "@/components/product/MobileProductContent";
 import { PracticalAccessoryMap } from "@/components/product/PracticalAccessoryMap";
 import { CarCareServiceMap } from "@/components/product/CarCareServiceMap";
+import { BusinessComfortMap } from "@/components/product/BusinessComfortMap";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: "产品中心 | 蓝辉轻改 LANHUI",
   description:
-    "蓝辉轻改产品中心，按车型找方案，按项目看服务。覆盖汽车膜系（隐形车衣、窗膜、改色膜）、轻改装备（电动踏板、轮毂升级、底盘升级）与问界、小米、极氪等热门新能源车型升级方案。",
+    "蓝辉轻改产品中心，按车型找方案，按项目看服务。覆盖汽车膜系、轻改装备、车载电视、座舱实用配件与热门新能源车型升级方案。",
 };
 
 export default function ProductCenter() {
@@ -37,6 +38,9 @@ export default function ProductCenter() {
   const practicalAccessoryServices = liveServices.filter(
     (s: ServiceRoute) => s.group === "practical_accessory"
   );
+  const businessComfortServices = liveServices.filter(
+    (s: ServiceRoute) => s.group === "business_comfort"
+  );
   const carCareServices = liveServices.filter(
     (s: ServiceRoute) => s.group === "car_care"
   );
@@ -53,7 +57,7 @@ export default function ProductCenter() {
     "@type": "CollectionPage",
     name: "产品中心 | 蓝辉轻改 LANHUI",
     description:
-      "蓝辉轻改产品中心，按车型找方案，按项目看服务。覆盖汽车膜系、轻改装备与 11 个热门新能源车型升级方案。",
+      "蓝辉轻改产品中心，按车型找方案，按项目看服务。覆盖汽车膜系、轻改装备、后排影音、座舱配件与 12 个热门新能源品牌升级方案。",
     url: "/product",
     mainEntity: {
       "@type": "ItemList",
@@ -110,6 +114,7 @@ export default function ProductCenter() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
               <FilmServiceMap services={filmServices} />
               <LightModMap services={lightModServices} />
+              <BusinessComfortMap services={businessComfortServices} />
               <PracticalAccessoryMap services={practicalAccessoryServices} />
 
               {carCareServices.length > 0 && (

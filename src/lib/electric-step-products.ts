@@ -17,29 +17,11 @@ export type ElectricStepImage = {
   positioning: string;
 };
 
-export type ElectricStepValue = {
-  title: string;
-  description: string;
-};
-
-export type ElectricStepFitmentCheck = {
-  label: string;
-  title: string;
-  description: string;
-  risk: string;
-};
-
 export type ElectricStepProcessStep = {
   step: string;
   title: string;
   description: string;
   deliverable: string;
-};
-
-export type ElectricStepFitmentTag = {
-  name: string;
-  weight: "hero" | "strong" | "normal" | "subtle";
-  note: string;
 };
 
 export type ElectricStepScenario = {
@@ -140,56 +122,6 @@ export const electricStepScenarios: readonly ElectricStepScenario[] = [
   },
 ];
 
-export const electricStepValues: readonly ElectricStepValue[] = [
-  {
-    title: "开门展开，上下车更从容",
-    description:
-      "开门自动展开，降低上下车高度，为老人、小孩和频繁上下车的乘员提供更低、更清晰的落脚位置。",
-  },
-  {
-    title: "关门收回，保留原车姿态",
-    description:
-      "收起后尽量贴合车侧线条，减少对原车外观完整度的影响，不让车辆显得笨重。",
-  },
-  {
-    title: "结构与承重按车型确认",
-    description:
-      "结合车型底盘固定点、侧裙结构和日常乘员使用场景确认方案，不做全车型通用承诺。",
-  },
-  {
-    title: "电气与防夹现场确认",
-    description:
-      "门体信号、电源接口、防夹逻辑和灯带方式必须现场确认，确保与原车系统稳定兼容。",
-  },
-];
-
-export const electricStepFitmentChecks: readonly ElectricStepFitmentCheck[] = [
-  {
-    label: "MOUNT",
-    title: "底盘固定点",
-    description: "确认原车安装位、侧裙结构和离地间隙，避免影响通过性。",
-    risk: "安装位不匹配可能导致踏板松动、异响，严重时影响底盘结构安全。收起后离地间隙不足可能刮蹭减速带或地库坡道。",
-  },
-  {
-    label: "SIGNAL",
-    title: "门体信号",
-    description: "确认开关门信号读取方式，保证踏板展开和收回逻辑稳定。",
-    risk: "信号读取异常会导致踏板不展开、不收回或延迟响应，影响正常使用和安全。不同车型信号协议差异大，不可通用。",
-  },
-  {
-    label: "POWER",
-    title: "电气接口",
-    description: "确认供电、线束走向、防水和检修边界，避免破坏原车结构。",
-    risk: "接线不当可能触发原车电路故障码、电瓶亏电，严重时影响车辆质保。防水处理不到位会导致泡水后短路或腐蚀。",
-  },
-  {
-    label: "SAFETY",
-    title: "防夹与复查",
-    description: "交付前检查展开/收回、防夹、异响、灯带和固定点状态。",
-    risk: "防夹功能失效可能导致夹伤风险；未复查的固定点在长期使用后可能松动。建议行驶 100-200km 后回店免费复查。",
-  },
-];
-
 export const electricStepVariantComparison: readonly ElectricStepVariantComparison[] = [
   {
     aspect: "灯光方式",
@@ -255,32 +187,6 @@ export const electricStepFaqs: readonly ElectricStepFaq[] = [
     answer:
       "如遇踏板卡住不收回，请勿强行行驶。联系蓝辉门店，我们会尽快安排检查。交付时会告知你异常情况的判断方式和应急处理建议。",
   },
-  {
-    question: "大概多少钱？",
-    answer:
-      "价格由车型结构、踏板款式（无灯/单流光/大灯带）和安装难度共同决定。建议携带车型、年款信息到店或微信咨询，获取针对你车型的方案和报价。",
-  },
-];
-
-export const electricStepFitmentTags: readonly ElectricStepFitmentTag[] = [
-  { name: "问界 M7", weight: "hero", note: "家庭 SUV 高频上下车" },
-  { name: "问界 M8", weight: "hero", note: "大六座家庭场景" },
-  { name: "问界 M9", weight: "strong", note: "大型 SUV 便利升级" },
-  { name: "理想 L9", weight: "hero", note: "老人小孩上下车" },
-  { name: "理想 MEGA", weight: "strong", note: "MPV 后排接待" },
-  { name: "理想 ONE", weight: "normal", note: "高底盘家用 SUV" },
-  { name: "理想 i8", weight: "normal", note: "家庭出行场景" },
-  { name: "高山 8", weight: "hero", note: "MPV 商务/家庭" },
-  { name: "腾势 D9", weight: "strong", note: "商务 MPV 高频上下车" },
-  { name: "岚图梦想家", weight: "strong", note: "MPV 后排便利" },
-  { name: "乐道 L90", weight: "normal", note: "大车身 SUV" },
-  { name: "蔚来 ES8", weight: "normal", note: "大六座 SUV" },
-  { name: "小鹏 GX", weight: "subtle", note: "到店确认安装位" },
-  { name: "极氪 9X", weight: "normal", note: "大型 SUV 方案确认" },
-  { name: "极氪 009", weight: "strong", note: "MPV 接待场景" },
-  { name: "奔驰 V 级", weight: "subtle", note: "商务接待车型" },
-  { name: "传祺 M8", weight: "subtle", note: "MPV 上下车便利" },
-  { name: "别克 GL8", weight: "subtle", note: "商务 MPV 常见咨询" },
 ];
 
 export const electricStepProcess: readonly ElectricStepProcessStep[] = [
@@ -309,13 +215,3 @@ export const electricStepProcess: readonly ElectricStepProcessStep[] = [
     deliverable: "交付检查清单 + 复查提醒",
   },
 ];
-
-/** hero + strong 权重的热门车型，用于 ModelSelector 列表 */
-export const electricStepHotModels = electricStepFitmentTags
-  .filter((t) => t.weight === "hero" || t.weight === "strong")
-  .map((t) => ({
-    ...t,
-    status: t.weight === "hero"
-      ? ("mature" as const)
-      : ("check" as const),
-  }));

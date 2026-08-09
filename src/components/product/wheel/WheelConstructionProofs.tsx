@@ -1,5 +1,4 @@
-import { ClipboardList, Car, Gauge, Wrench, AlertTriangle } from "lucide-react";
-import { WHEEL_PROCESS_COMPARISON } from "@/lib/wheel-products";
+import { Car, ChevronDown, ClipboardList, Gauge, Wrench } from "lucide-react";
 
 const PROOFS = [
   {
@@ -25,6 +24,29 @@ const PROOFS = [
     title: "扭矩工具交付复查",
     description:
       "使用扭力扳手按规范力矩锁紧每颗螺栓，交付时标注复查里程。建议行驶 100-200km 后回店免费复查。",
+  },
+] as const;
+
+const WHEEL_FAQS = [
+  {
+    question: "铸造和锻造有什么区别？",
+    answer:
+      "铸造轮毂通常更适合日常通勤和外观升级；锻造轮毂通常重量更低、强度余量更高，预算也相对更高。具体选择还需要结合车型、尺寸、使用场景和预算确认。",
+  },
+  {
+    question: "更换轮毂需要注意哪些合规问题？",
+    answer:
+      "轮毂尺寸或规格变化可能影响车辆年检、保险和道路行驶要求，各地执行规则可能不同。确定方案前可向当地车管部门和保险公司确认，蓝辉提供车型适配与安装建议，不替代官方意见。",
+  },
+  {
+    question: "售后与复查如何安排？",
+    answer:
+      "安装完成后会说明轮毂及表面工艺的售后范围，并约定首次扭矩复查。具体项目、期限和处理方式以施工前双方确认的内容为准。",
+  },
+  {
+    question: "轮毂风格和颜色怎么选？",
+    answer:
+      "可以先看车身比例和整车气质。五辐与 Y 字结构通常更显运动，多辐与网状结构更偏精致；亮黑对比更强，银色更清爽，枪灰和古铜更有层次。页面先按结构选款，具体颜色以实物和车型搭配确认。",
   },
 ] as const;
 
@@ -65,89 +87,25 @@ export function WheelConstructionProofs() {
           ))}
         </div>
 
-        {/* 铸造 vs 锻造对比表 */}
-        <div className="mb-6 rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5 sm:p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            铸造 vs 锻造 — 选轮毂前先了解工艺差异
-          </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-white/[0.06]">
-                  <th className="py-2.5 pr-4 text-left font-medium text-zinc-400" />
-                  <th className="py-2.5 pr-4 text-left font-medium text-orange-400">
-                    铸造
-                  </th>
-                  <th className="py-2.5 text-left font-medium text-orange-400">
-                    锻造
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {WHEEL_PROCESS_COMPARISON.map((row) => (
-                  <tr
-                    key={row.aspect}
-                    className="border-b border-white/[0.04]"
-                  >
-                    <td className="py-2.5 pr-4 text-zinc-300 font-medium">
-                      {row.aspect}
-                    </td>
-                    <td className="py-2.5 pr-4 text-zinc-400">{row.cast}</td>
-                    <td className="py-2.5 text-zinc-400">{row.forged}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* 合规提醒 */}
-        <div className="rounded-2xl bg-amber-400/[0.06] border border-amber-400/[0.12] p-5 sm:p-6">
-          <div className="flex gap-3">
-            <AlertTriangle className="size-5 text-amber-400/80 flex-shrink-0 mt-0.5" />
-            <div>
-              <h4 className="text-sm font-semibold text-amber-300 mb-1.5">
-                关于轮毂改装与合规的重要说明
-              </h4>
-              <p className="text-sm text-zinc-400 leading-relaxed">
-                轮毂尺寸和规格变更可能影响车辆年检、保险理赔和道路行驶合规性，具体取决于你所在地区的法规要求。我们建议在施工前向当地车管部门或保险公司确认允许的变更范围。蓝辉轻改在施工前会与你确认原车数据，并在可安装范围内给出建议，但不替代官方法规咨询。质保范围以施工前双方确认的检测和安装记录为准。
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* 售后说明 */}
-        <div className="mt-6 rounded-2xl bg-zinc-900/50 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5 sm:p-6">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            质保与售后服务
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                title: "质保范围",
-                desc: "轮毂结构质保期内非人为变形、开裂免费处理；表面工艺（漆面/拉丝/电镀）质保涵盖正常使用下的氧化、脱漆。",
-              },
-              {
-                title: "表面养护",
-                desc: "建议每 2-4 周清洗轮毂，使用中性清洁剂；避免使用含酸性或研磨成分的清洁产品，防止损伤表面工艺。",
-              },
-              {
-                title: "异常处理",
-                desc: "行驶中出现方向盘抖动、异响、胎压异常报警，请尽快回店检查，不建议继续高速行驶。",
-              },
-              {
-                title: "定期复查",
-                desc: "建议行驶 100-200km 后回店免费复查螺丝扭矩；每 1 万公里或换胎时检查动平衡状态。",
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl bg-white/[0.03] p-4">
-                <p className="text-sm font-medium text-zinc-300 mb-1">
-                  {item.title}
+        <div className="rounded-2xl bg-zinc-900/50 p-5 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] sm:p-6">
+          <h3 className="mb-4 text-lg font-semibold text-white">常见问题</h3>
+          <div className="space-y-2">
+            {WHEEL_FAQS.map((faq) => (
+              <details
+                key={faq.question}
+                className="group rounded-xl bg-white/[0.03]"
+              >
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 p-4 text-sm font-medium text-zinc-100 marker:content-none">
+                  {faq.question}
+                  <ChevronDown
+                    className="size-4 flex-shrink-0 text-orange-400 transition-transform group-open:rotate-180"
+                    aria-hidden="true"
+                  />
+                </summary>
+                <p className="px-4 pb-4 text-sm leading-relaxed text-zinc-300">
+                  {faq.answer}
                 </p>
-                <p className="text-xs text-zinc-500 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
+              </details>
             ))}
           </div>
         </div>

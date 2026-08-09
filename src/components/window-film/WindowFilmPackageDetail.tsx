@@ -2,15 +2,12 @@ import Link from "next/link";
 import { ChevronLeft, Shield, Sun } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/components/Breadcrumbs";
-import { ServiceGuaranteeSection } from "@/components/film/ServiceGuaranteeSection";
-import { WindowFilmScenarioGrid } from "@/components/window-film/WindowFilmScenarioGrid";
 import type { WindowFilmPackageFull } from "@/lib/window-film-details";
 
 /**
- * PRD §7 — 套餐详情页主体
+ * 套餐详情页主体
  *
- * 区块顺序：Hero → 适合谁 → 套餐作用 → 参数解读 → 典型场景 → 效果展示 → 施工验收
- * 禁止出现电话咨询 / 立即预约等强转化 CTA。
+ * 只保留套餐搭配、产品特性与规格参数。
  */
 
 type Props = {
@@ -41,7 +38,7 @@ export function WindowFilmPackageDetail({ pkg, breadcrumbItems }: Props) {
           </p>
           <h1 className="text-4xl md:text-5xl font-bold">{pkg.name}</h1>
           <p className="mt-4 text-base md:text-lg text-zinc-300 max-w-3xl leading-relaxed">
-            {pkg.headline}
+            前挡采用 {pkg.frontProduct}，侧后挡采用 {pkg.rearProduct}。以下集中展示组合特性、膜材参数与质保信息。
           </p>
 
           {/* 搭配 + 质保速览 */}
@@ -78,39 +75,14 @@ export function WindowFilmPackageDetail({ pkg, breadcrumbItems }: Props) {
         </div>
       </section>
 
-      {/* ====== 适合谁 ====== */}
+      {/* ====== 产品特性 ====== */}
       <section className="py-12 bg-zinc-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs tracking-widest mb-3 text-orange-400 uppercase">
-            适合人群
+            产品特性
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-white">
-            这个套餐适合什么样的车主？
-          </h2>
-          <p className="mt-3 text-zinc-400 max-w-3xl leading-relaxed">
-            {pkg.audience}
-          </p>
-          <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {pkg.painPoints.map((point) => (
-              <li
-                key={point}
-                className="rounded-lg bg-zinc-900/60 border border-white/5 p-4 text-sm text-zinc-300"
-              >
-                {point}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ====== 套餐作用 ====== */}
-      <section className="py-12 bg-zinc-950 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs tracking-widest mb-3 text-orange-400 uppercase">
-            套餐作用
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white">
-            前挡 + 侧后挡为什么这样搭配？
+            前挡与侧后挡的组合特点
           </h2>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             {pkg.benefits.map((b) => (
@@ -119,7 +91,7 @@ export function WindowFilmPackageDetail({ pkg, breadcrumbItems }: Props) {
                 className="rounded-xl bg-zinc-900/60 border border-white/5 p-5 sm:p-6"
               >
                 <p className="text-base font-semibold text-white">{b.title}</p>
-                <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+                <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
                   {b.description}
                 </p>
               </div>
@@ -128,14 +100,14 @@ export function WindowFilmPackageDetail({ pkg, breadcrumbItems }: Props) {
         </div>
       </section>
 
-      {/* ====== 参数解读 ====== */}
+      {/* ====== 产品规格 ====== */}
       <section className="py-12 bg-zinc-950 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs tracking-widest mb-3 text-orange-400 uppercase">
-            参数解读
+            产品规格
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-white">
-            这些参数和真实体验有什么关系？
+            前挡与侧后挡参数
           </h2>
 
           {/* 桌面表格 */}
@@ -214,16 +186,6 @@ export function WindowFilmPackageDetail({ pkg, breadcrumbItems }: Props) {
           </p>
         </div>
       </section>
-
-      {/* ====== 典型用车场景 ====== */}
-      <WindowFilmScenarioGrid
-        scenarios={pkg.scenarios}
-        title="典型用车场景"
-        eyebrow="场景案例"
-      />
-
-      {/* ====== 施工与验收 ====== */}
-      <ServiceGuaranteeSection />
 
       {/* ====== 返回 ====== */}
       <section className="py-12 bg-zinc-950 border-t border-white/5">

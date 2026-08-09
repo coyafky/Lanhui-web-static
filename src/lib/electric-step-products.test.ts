@@ -1,10 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import {
-  electricStepFitmentTags,
-  electricStepImages,
-} from "./electric-step-products";
+import { electricStepFaqs, electricStepImages } from "./electric-step-products";
 
 describe("electric-step-products", () => {
   it("registers all 3 electric step images", () => {
@@ -41,10 +38,8 @@ describe("electric-step-products", () => {
     ]);
   });
 
-  it("provides a broad fitment cloud without claiming universal fit", () => {
-    expect(electricStepFitmentTags.length).toBeGreaterThanOrEqual(16);
-    expect(electricStepFitmentTags.some((tag) => tag.name === "问界 M7")).toBe(true);
-    expect(electricStepFitmentTags.some((tag) => tag.name === "高山 8")).toBe(true);
-    expect(electricStepFitmentTags.every((tag) => tag.note.length > 0)).toBe(true);
+  it("does not include a price question in the FAQ", () => {
+    expect(electricStepFaqs.some((faq) => faq.question.includes("多少钱"))).toBe(false);
+    expect(electricStepFaqs).toHaveLength(5);
   });
 });
