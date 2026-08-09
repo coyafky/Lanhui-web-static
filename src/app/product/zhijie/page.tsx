@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ZhijieSeriesHero } from "@/components/zhijie/series/ZhijieSeriesHero";
-import { ZhijieScenarioSelector } from "@/components/zhijie/series/ZhijieScenarioSelector";
 import { ZhijieBaseServiceGrid } from "@/components/zhijie/series/ZhijieBaseServiceGrid";
 import {
   ZhijieModelEntryGrid,
@@ -117,7 +116,6 @@ export default function ZhijieBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <ZhijieSeriesHero breadcrumbItems={breadcrumbItems} />
-        <ZhijieScenarioSelector />
         <ZhijieBaseServiceGrid />
         <ZhijieModelEntryGrid entries={modelEntries} />
         <ZhijieServiceFlow />

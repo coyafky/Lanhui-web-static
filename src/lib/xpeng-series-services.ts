@@ -3,12 +3,10 @@
  *
  * 结构（复用 zeekr-series-services 的基础服务模式）：
  *   - xpengBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - xpengScenarioEntries     4 个高频场景入口（场景 → 推荐服务）
  *   - xpengSeriesServiceSteps  6 步服务流程（含传感器 / 线束 / 固定点核对）
  *   - xpengSeriesFaq           8 条 FAQ（具体回答，不用"需到店确认"式空洞话术）
  *   - xpengDouyinHighlights    抖音案例入口 3 项
  *   - XPENG_GX_ENTRY           GX 车型子页入口卡数据
- *   - xpengLocalAnswer         本地问答直接答案（GEO）
  *
  * GX 15 个项目数据仍在 src/lib/xpeng-gx-products.ts（GX 子页依赖，不迁移）。
  */
@@ -101,64 +99,6 @@ export const xpengBaseServices: readonly XpengBaseService[] = [
       "轮毂刹车粉尘、玻璃油膜、门缝积灰和内饰高频使用痕迹，普通洗车处理不到位。",
     suitableFor: "希望定期深度整理车辆状态的车主",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（4 个高频入口）----
-
-export type XpengScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "exterior"
-  | "daily-care";
-
-export type XpengScenarioEntry = {
-  id: XpengScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly XpengBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const xpengScenarioEntries: readonly XpengScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "家庭用车",
-    description: "常载老人儿童，后排和尾箱使用频率高",
-    serviceIds: ["electric-step", "flooring", "floor-mats", "car-care"],
-    recommendation:
-      "电动踏板（适配车型）+ 地板总成 + 脚垫 + 内饰清洁，围绕上下车便利和后排好收拾。",
-  },
-  {
-    id: "exterior",
-    iconName: "Palette",
-    title: "外观个性",
-    description: "想让整车姿态和辨识度更强",
-    serviceIds: ["car-film", "wheels", "car-care"],
-    recommendation:
-      "改色膜 + 轮毂 + 漆面养护，轮毂尺寸、孔距和胎压系统先确认再决定。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 内饰清洁 + 玻璃油膜和轮毂维护，按周期保持车况。",
   },
 ] as const;
 
@@ -294,8 +234,3 @@ export const XPENG_GX_ENTRY: XpengGxEntry = {
   confirmedScope: "车衣、隔热膜、改色膜、彩绘、360 脚垫、钢化膜等已按 GX 整理",
   reviewScope: "电动门、平衡杆、底盘护板等按年款与配置逐项复核",
 } as const;
-
-// ---- 本地问答直接答案（GEO）----
-
-export const xpengLocalAnswer =
-  "蓝辉轻改顺德大良店为小鹏车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护，施工前先确认车型、年款和配置，再报价施工。" as const;

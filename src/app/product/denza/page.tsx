@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DenzaSeriesHeroV2 } from "@/components/denza/series/DenzaSeriesHeroV2";
-import { DenzaScenarioSelector } from "@/components/denza/series/DenzaScenarioSelector";
 import { DenzaBaseServiceGrid } from "@/components/denza/series/DenzaBaseServiceGrid";
 import { DenzaD9EntrySection } from "@/components/denza/series/DenzaD9EntrySection";
 import { DenzaServiceFlowV2 } from "@/components/denza/series/DenzaServiceFlowV2";
@@ -21,7 +20,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 
 const PAGE_TITLE = "腾势汽车贴膜与舒适升级｜顺德大良蓝辉轻改 LANHUI";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改顺德大良店为腾势车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护。先按用车需求选择基础服务，再结合车型、年款和座椅配置确认适配；腾势 D9 已整理 23 项专属方案子页。";
+  "蓝辉轻改为腾势车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护服务，并设有腾势 D9 专属方案。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -102,7 +101,6 @@ export default function DenzaBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <DenzaSeriesHeroV2 breadcrumbItems={breadcrumbItems} />
-        <DenzaScenarioSelector />
         <DenzaBaseServiceGrid />
         <DenzaD9EntrySection image={d9Image} />
         <DenzaServiceFlowV2 />

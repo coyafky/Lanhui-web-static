@@ -1,7 +1,7 @@
 import { denzaSeriesServiceSteps } from "@/lib/denza-series-services";
 
 /**
- * 服务流程与施工边界：6 步（车型核对 → 方案边界 → 到店评估 → 施工保护 → 功能复检 → 交付售后）。
+ * 6 步服务流程（车型核对 → 方案边界 → 到店评估 → 施工保护 → 功能复检 → 交付售后）。
  * H2 使用问题型标题（GEO）。
  */
 export function DenzaServiceFlowV2() {
@@ -45,12 +45,6 @@ export function DenzaServiceFlowV2() {
           ))}
         </ol>
 
-        <div className="mt-6 rounded-2xl bg-orange-950/20 p-5 shadow-[0_0_0_1px_oklch(0.705_0.213_47.6/0.15)]">
-          <p className="text-sm text-zinc-300 leading-relaxed text-pretty">
-            施工边界：涉及拆装、打孔、线路或座椅滑轨结构改动的项目，会在施工前逐项书面告知影响范围，
-            你确认后才动工。新能源 MPV 的座椅固定点、滑轨和线束差异较大，方案以你的具体车辆为准。
-          </p>
-        </div>
       </div>
     </section>
   );

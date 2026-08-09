@@ -3,7 +3,6 @@
  *
  * 结构（2026-07-15 重构）：
  *   - wenjieBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - wenjieScenarioEntries     4 个高频场景入口（场景 → 推荐服务）
  *   - wenjieSeriesFeaturedProjects / wenjieSeriesOptionalProjects
  *     34 个升级项目（M6/M7/M8 子页仍依赖；一级页收进折叠清单）
  *   - wenjieSeriesServiceSteps  6 步服务流程（含方案边界与功能复检）
@@ -484,64 +483,6 @@ export const wenjieBaseServices: readonly WenjieBaseService[] = [
       "普通洗车难处理门缝、轮毂、玻璃油膜、座椅缝和内饰异味，越攒越难清。",
     suitableFor: "希望定期深度整理车辆状态的车主",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（4 个高频入口）----
-
-export type WenjieScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "exterior"
-  | "daily-care";
-
-export type WenjieScenarioEntry = {
-  id: WenjieScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly WenjieBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const wenjieScenarioEntries: readonly WenjieScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "家庭乘坐",
-    description: "常载老人儿童，后排使用频率高",
-    serviceIds: ["electric-step", "flooring", "floor-mats", "car-care"],
-    recommendation:
-      "电动踏板 + 地板总成 + 脚垫 + 内饰清洁，围绕上下车便利和后排好收拾。",
-  },
-  {
-    id: "exterior",
-    iconName: "Palette",
-    title: "外观升级",
-    description: "想让整车姿态和辨识度更强",
-    serviceIds: ["car-film", "wheels", "car-care"],
-    recommendation:
-      "改色膜 + 轮毂 + 漆面养护，轮毂尺寸与适配先确认再决定。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 内饰清洁 + 玻璃油膜和轮毂维护，按周期保持车况。",
   },
 ] as const;
 

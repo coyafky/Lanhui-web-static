@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GaoshanSeriesHero } from "@/components/gaoshan/series/GaoshanSeriesHero";
-import { GaoshanScenarioSelector } from "@/components/gaoshan/series/GaoshanScenarioSelector";
 import { GaoshanBaseServiceGrid } from "@/components/gaoshan/series/GaoshanBaseServiceGrid";
 import {
   GaoshanModelEntryGrid,
@@ -116,7 +115,6 @@ export default function GaoshanBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <GaoshanSeriesHero breadcrumbItems={breadcrumbItems} />
-        <GaoshanScenarioSelector />
         <GaoshanBaseServiceGrid />
         <GaoshanModelEntryGrid entries={modelEntries} />
         <GaoshanServiceFlow />

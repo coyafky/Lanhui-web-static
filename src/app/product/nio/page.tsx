@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NioSeriesHero } from "@/components/nio/series/NioSeriesHero";
-import { NioScenarioSelector } from "@/components/nio/series/NioScenarioSelector";
 import { NioBaseServiceGrid } from "@/components/nio/series/NioBaseServiceGrid";
 import {
   NioModelEntryGrid,
@@ -118,7 +117,6 @@ export default function NioBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <NioSeriesHero breadcrumbItems={breadcrumbItems} />
-        <NioScenarioSelector />
         <NioBaseServiceGrid />
         <NioModelEntryGrid entries={modelEntries} />
         <NioServiceFlow />

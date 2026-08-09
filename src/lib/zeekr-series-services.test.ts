@@ -2,19 +2,17 @@
  * 极氪一级页数据 — vitest 单元测试
  *
  * 验证项（2026-07-15 重构）：
- *   1. 长度字面量（baseServices=6, scenarioEntries=4, steps=6, faq=8, douyin=3）
+ *   1. 长度字面量（baseServices=6, steps=6, faq=8, douyin=3）
  *   2. id 唯一 / step 单调递增
  *   3. 基础服务 href 均指向已存在的产品路由
- *   4. 场景 serviceIds 均指向有效基础服务
- *   5. FAQ 无"需到店确认"式空洞话术
- *   6. 车型入口文案仅含 9X / 8X（009 未发布不提供入口）
+ *   4. FAQ 无"需到店确认"式空洞话术
+ *   5. 车型入口文案仅含 9X / 8X（009 未发布不提供入口）
  */
 
 import { describe, it, expect } from "vitest";
 
 import {
   zeekrBaseServices,
-  zeekrScenarioEntries,
   zeekrSeriesServiceSteps,
   zeekrSeriesFaq,
   zeekrDouyinHighlights,
@@ -35,10 +33,6 @@ const VALID_SERVICE_HREFS = new Set([
 describe("zeekr-series-services: lengths (literal constraints)", () => {
   it("base services has exactly 6 entries", () => {
     expect(zeekrBaseServices).toHaveLength(6);
-  });
-
-  it("scenario entries has exactly 4 entries", () => {
-    expect(zeekrScenarioEntries).toHaveLength(4);
   });
 
   it("service steps has exactly 6 entries", () => {
@@ -89,29 +83,6 @@ describe("zeekr-series-services: base services", () => {
   it("electric-step explicitly states it is not universal for all models", () => {
     const step = zeekrBaseServices.find((s) => s.id === "electric-step");
     expect(step?.painPoint).toContain("不是极氪全系通用");
-  });
-});
-
-describe("zeekr-series-services: scenario entries", () => {
-  it("all scenario ids are unique", () => {
-    const ids = zeekrScenarioEntries.map((s) => s.id);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
-  it("all scenario serviceIds reference valid base services", () => {
-    const validIds = new Set(zeekrBaseServices.map((s) => s.id));
-    for (const scenario of zeekrScenarioEntries) {
-      expect(scenario.serviceIds.length).toBeGreaterThanOrEqual(2);
-      for (const id of scenario.serviceIds) {
-        expect(validIds.has(id)).toBe(true);
-      }
-    }
-  });
-
-  it("each scenario has a recommendation", () => {
-    for (const scenario of zeekrScenarioEntries) {
-      expect(scenario.recommendation.length).toBeGreaterThan(10);
-    }
   });
 });
 

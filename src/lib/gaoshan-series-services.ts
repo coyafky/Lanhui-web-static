@@ -6,7 +6,6 @@
  *
  * 结构：
  *   - gaoshanBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - gaoshanScenarioEntries     5 个高频场景入口（场景 → 推荐服务）
  *   - gaoshanSeriesServiceSteps  6 步服务流程（确认车型 → 交付养护）
  *   - gaoshanSeriesFaq           6 条 FAQ（全系适配 / 踏板 / 滑轨 / 轮毂 / 车膜 / 工期）
  *   - gaoshanDouyinHighlights    抖音案例入口 3 项
@@ -103,74 +102,6 @@ export const gaoshanBaseServices: readonly GaoshanBaseService[] = [
       "座椅滑轨积灰、门缝和杯架残渣、玻璃油膜与内饰高频使用痕迹，普通洗车处理不到位。",
     suitableFor: "商务接待前整备、或希望定期深度整理车况的车主",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（5 个高频入口）----
-
-export type GaoshanScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "business"
-  | "boarding"
-  | "daily-care";
-
-export type GaoshanScenarioEntry = {
-  id: GaoshanScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly GaoshanBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const gaoshanScenarioEntries: readonly GaoshanScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把暴晒和高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "家庭耐用",
-    description: "常载家人，后排和尾箱使用频率高",
-    serviceIds: ["flooring", "floor-mats", "car-care"],
-    recommendation:
-      "地板总成 + 专车脚垫 + 内饰清洁，零食渣和泥沙不再卡进滑轨缝隙，日常好收拾。",
-  },
-  {
-    id: "business",
-    iconName: "Briefcase",
-    title: "商务质感",
-    description: "兼顾接待，希望整车更体面",
-    serviceIds: ["car-film", "wheels", "car-care"],
-    recommendation:
-      "深色隔热膜 + 轮毂升级 + 定期精洗，隐私、姿态和车况一起照顾到。",
-  },
-  {
-    id: "boarding",
-    iconName: "DoorOpen",
-    title: "上下车便利",
-    description: "老人儿童登车吃力，想改善便利性",
-    serviceIds: ["electric-step", "floor-mats"],
-    recommendation:
-      "电动踏板（按年款和门体结构确认适配）+ 防滑脚垫，改善登车高度和落脚稳定性。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常清洁",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 滑轨与内饰深度清洁 + 玻璃油膜处理，按周期保持座舱状态。",
   },
 ] as const;
 

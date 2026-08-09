@@ -6,7 +6,6 @@
  *
  * 结构：
  *   - ledaoBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - ledaoScenarioEntries     5 个高频场景入口（场景 → 推荐服务）
  *   - ledaoSeriesServiceSteps  6 步服务流程（确认车型 → 交付养护）
  *   - ledaoSeriesFaq           6 条 FAQ（全系适配 / 车型通用性 / 信号 / L90 / 续航 / 工期）
  *   - ledaoDouyinHighlights    抖音案例入口 3 项
@@ -103,74 +102,6 @@ export const ledaoBaseServices: readonly LedaoBaseService[] = [
       "零食碎屑、饮料渍、鞋底泥沙、座椅背板脚印、屏幕指纹和尾箱杂物痕迹，加上浅色内饰的儿童污渍，普通洗车处理不到位。",
     suitableFor: "带娃家庭、浅色内饰车主和定期养护的用户",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（5 个高频入口）----
-
-export type LedaoScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "long-trip"
-  | "outdoor"
-  | "daily-care";
-
-export type LedaoScenarioEntry = {
-  id: LedaoScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly LedaoBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const ledaoScenarioEntries: readonly LedaoScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把漆面和高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "带娃通勤",
-    description: "每天接送，后排和地台最容易脏",
-    serviceIds: ["flooring", "floor-mats", "car-care"],
-    recommendation:
-      "地板总成（按车型确认固定点）+ 易清洁脚垫 + 内饰清洁，零食碎屑和鞋印好收拾。",
-  },
-  {
-    id: "long-trip",
-    iconName: "Route",
-    title: "家庭长途",
-    description: "节假日全家出行，暴晒和疲劳并存",
-    serviceIds: ["car-film", "electric-step", "car-care"],
-    recommendation:
-      "隔热膜改善暴晒与夜间视野 + 踏板（适配车型）方便老人儿童上下 + 出行前整备。",
-  },
-  {
-    id: "outdoor",
-    iconName: "Mountain",
-    title: "露营户外",
-    description: "常跑郊外，路况复杂、装备多",
-    serviceIds: ["car-film", "floor-mats", "flooring"],
-    recommendation:
-      "车衣应对石子树胶 + 防水脚垫 + 地板保护尾箱与地台，装备进出更省心。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 内饰与座椅养护 + 玻璃油膜处理，按周期保持座舱和漆面状态。",
   },
 ] as const;
 

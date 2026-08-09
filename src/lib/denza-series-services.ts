@@ -3,7 +3,6 @@
  *
  * 结构（复用 xpeng-series-services 的基础服务模式）：
  *   - denzaBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - denzaScenarioEntries     4 个高频场景入口（场景 → 推荐服务，MPV 版：家庭 / 商务）
  *   - denzaSeriesServiceSteps  6 步服务流程（含座椅固定点 / 滑轨 / 线束核对）
  *   - denzaSeriesFaq           8 条 FAQ（具体回答，不用"需到店确认"式空洞话术）
  *   - denzaDouyinHighlights    抖音案例入口 3 项
@@ -100,64 +99,6 @@ export const denzaBaseServices: readonly DenzaBaseService[] = [
       "内饰高频使用痕迹、皮革座椅缝隙污渍、玻璃油膜和轮毂刹车粉尘，普通洗车处理不到位。",
     suitableFor: "希望定期深度整理车辆状态的车主",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（4 个高频入口，MPV 版）----
-
-export type DenzaScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "business"
-  | "daily-care";
-
-export type DenzaScenarioEntry = {
-  id: DenzaScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly DenzaBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const denzaScenarioEntries: readonly DenzaScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把漆面和高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "家庭出行",
-    description: "常载老人儿童，二三排使用频率高",
-    serviceIds: ["electric-step", "flooring", "floor-mats", "car-care"],
-    recommendation:
-      "电动踏板（适配车型）+ 地板总成 + 脚垫 + 内饰清洁，围绕上下车便利和后排好收拾。",
-  },
-  {
-    id: "business",
-    iconName: "Briefcase",
-    title: "商务接待",
-    description: "高频载客，在意隐私、隔热和整车质感",
-    serviceIds: ["car-film", "flooring", "car-care"],
-    recommendation:
-      "前挡与侧后挡隔热膜 + 地板总成 + 定期内饰养护，兼顾后排隐私和接待体验。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 内饰清洁 + 玻璃油膜和轮毂维护，按周期保持车况。",
   },
 ] as const;
 

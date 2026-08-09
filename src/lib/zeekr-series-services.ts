@@ -3,7 +3,6 @@
  *
  * 结构（复用 wenjie-series-upgrade-projects 的基础服务模式）：
  *   - zeekrBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - zeekrScenarioEntries     4 个高频场景入口（场景 → 推荐服务）
  *   - zeekrSeriesServiceSteps  6 步服务流程（含方案边界与功能复检）
  *   - zeekrSeriesFaq           8 条 FAQ（具体回答，不用"需到店确认"式空洞话术）
  *   - zeekrDouyinHighlights    抖音案例入口 3 项
@@ -100,64 +99,6 @@ export const zeekrBaseServices: readonly ZeekrBaseService[] = [
       "轮毂刹车粉尘、玻璃油膜、门缝积灰和内饰高频使用痕迹，普通洗车处理不到位。",
     suitableFor: "希望定期深度整理车辆状态的车主",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（4 个高频入口）----
-
-export type ZeekrScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "exterior"
-  | "daily-care";
-
-export type ZeekrScenarioEntry = {
-  id: ZeekrScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly ZeekrBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const zeekrScenarioEntries: readonly ZeekrScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "家庭出行",
-    description: "常载老人儿童，后排和尾箱使用频率高",
-    serviceIds: ["electric-step", "flooring", "floor-mats", "car-care"],
-    recommendation:
-      "电动踏板（适配车型）+ 地板总成 + 脚垫 + 内饰清洁，围绕上下车便利和后排好收拾。",
-  },
-  {
-    id: "exterior",
-    iconName: "Palette",
-    title: "外观个性",
-    description: "想让整车姿态和辨识度更强",
-    serviceIds: ["car-film", "wheels", "car-care"],
-    recommendation:
-      "改色膜 + 轮毂 + 漆面养护，轮毂尺寸、孔距和胎压系统先确认再决定。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 内饰清洁 + 玻璃油膜和轮毂维护，按周期保持车况。",
   },
 ] as const;
 

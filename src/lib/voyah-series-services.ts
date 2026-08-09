@@ -6,7 +6,6 @@
  *
  * 结构：
  *   - voyahBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - voyahScenarioEntries     5 个高频场景入口（场景 → 推荐服务）
  *   - voyahSeriesServiceSteps  6 步服务流程（确认车型 → 交付养护）
  *   - voyahSeriesFaq           6 条 FAQ（全系适配 / 信号 / 踏板 / 地板 / 内饰 / 工期）
  *   - voyahDouyinHighlights    抖音案例入口 3 项
@@ -103,74 +102,6 @@ export const voyahBaseServices: readonly VoyahBaseService[] = [
       "浅色内饰的座椅染色、儿童污渍、门板脚印和屏幕指纹，以及漆面与真皮座椅的长期养护，普通洗车处理不到位。",
     suitableFor: "浅色内饰车主、商务接待前整备和定期养护的用户",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（5 个高频入口）----
-
-export type VoyahScenarioEntryId =
-  | "new-car"
-  | "family"
-  | "business"
-  | "outdoor"
-  | "daily-care";
-
-export type VoyahScenarioEntry = {
-  id: VoyahScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly VoyahBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const voyahScenarioEntries: readonly VoyahScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把漆面和高频磨损位保护起来。",
-  },
-  {
-    id: "family",
-    iconName: "Users",
-    title: "家庭耐用",
-    description: "常载家人，后排和尾箱使用频率高",
-    serviceIds: ["flooring", "floor-mats", "car-care"],
-    recommendation:
-      "地板总成（MPV 按滑轨结构确认）+ 专车脚垫 + 内饰清洁，日常好收拾。",
-  },
-  {
-    id: "business",
-    iconName: "Briefcase",
-    title: "商务质感",
-    description: "兼顾接待，希望整车更体面",
-    serviceIds: ["car-film", "wheels", "car-care"],
-    recommendation:
-      "深色隔热膜 + 轮毂升级 + 定期精洗，隐私、姿态和车况一起照顾到。",
-  },
-  {
-    id: "outdoor",
-    iconName: "Mountain",
-    title: "户外出行",
-    description: "常跑长途和郊外，路况更复杂",
-    serviceIds: ["car-film", "electric-step", "floor-mats"],
-    recommendation:
-      "车衣应对石子树胶 + 踏板（适配车型）方便上下 + 易清洁脚垫，长途更省心。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "日常养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 浅色内饰与真皮座椅养护 + 玻璃油膜处理，按周期保持座舱状态。",
   },
 ] as const;
 

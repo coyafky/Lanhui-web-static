@@ -2,24 +2,21 @@
  * 小鹏一级页数据 — vitest 单元测试
  *
  * 验证项（2026-07-15 重构）：
- *   1. 长度字面量（baseServices=6, scenarioEntries=4, steps=6, faq=8, douyin=3）
+ *   1. 长度字面量（baseServices=6, steps=6, faq=8, douyin=3）
  *   2. id 唯一 / step 单调递增
  *   3. 基础服务 href 均指向已存在的产品路由
- *   4. 场景 serviceIds 均指向有效基础服务
- *   5. FAQ 无"需到店确认"式空洞话术
- *   6. GX 入口卡 topNeeds 恰 3 项，路径指向 /product/xpeng/gx
+ *   4. FAQ 无"需到店确认"式空洞话术
+ *   5. GX 入口卡 topNeeds 恰 3 项，路径指向 /product/xpeng/gx
  */
 
 import { describe, it, expect } from "vitest";
 
 import {
   xpengBaseServices,
-  xpengScenarioEntries,
   xpengSeriesServiceSteps,
   xpengSeriesFaq,
   xpengDouyinHighlights,
   XPENG_GX_ENTRY,
-  xpengLocalAnswer,
 } from "./xpeng-series-services";
 
 const VALID_SERVICE_HREFS = new Set([
@@ -36,10 +33,6 @@ const VALID_SERVICE_HREFS = new Set([
 describe("xpeng-series-services: lengths (literal constraints)", () => {
   it("base services has exactly 6 entries", () => {
     expect(xpengBaseServices).toHaveLength(6);
-  });
-
-  it("scenario entries has exactly 4 entries", () => {
-    expect(xpengScenarioEntries).toHaveLength(4);
   });
 
   it("service steps has exactly 6 entries", () => {
@@ -100,29 +93,6 @@ describe("xpeng-series-services: base services", () => {
   });
 });
 
-describe("xpeng-series-services: scenario entries", () => {
-  it("all scenario ids are unique", () => {
-    const ids = xpengScenarioEntries.map((s) => s.id);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
-  it("all scenario serviceIds reference valid base services", () => {
-    const validIds = new Set(xpengBaseServices.map((s) => s.id));
-    for (const scenario of xpengScenarioEntries) {
-      expect(scenario.serviceIds.length).toBeGreaterThanOrEqual(2);
-      for (const id of scenario.serviceIds) {
-        expect(validIds.has(id)).toBe(true);
-      }
-    }
-  });
-
-  it("each scenario has a recommendation", () => {
-    for (const scenario of xpengScenarioEntries) {
-      expect(scenario.recommendation.length).toBeGreaterThan(10);
-    }
-  });
-});
-
 describe("xpeng-series-services: service steps", () => {
   it("steps are numbered 1..6 sequentially", () => {
     const steps = xpengSeriesServiceSteps.map((s) => s.step);
@@ -177,12 +147,5 @@ describe("xpeng-series-services: GX entry card", () => {
   it("declares confirmed and review scopes", () => {
     expect(XPENG_GX_ENTRY.confirmedScope.length).toBeGreaterThan(10);
     expect(XPENG_GX_ENTRY.reviewScope.length).toBeGreaterThan(10);
-  });
-});
-
-describe("xpeng-series-services: local answer (GEO)", () => {
-  it("leads with the store and services within a direct answer", () => {
-    expect(xpengLocalAnswer).toContain("顺德大良");
-    expect(xpengLocalAnswer.length).toBeGreaterThan(40);
   });
 });

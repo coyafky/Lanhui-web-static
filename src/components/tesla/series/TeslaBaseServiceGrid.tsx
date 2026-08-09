@@ -7,7 +7,6 @@ import {
   Car,
   Sparkles,
   Footprints,
-  Zap,
   ArrowRight,
   MessageCircle,
 } from "lucide-react";
@@ -20,17 +19,16 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Car,
   Sparkles,
   Footprints,
-  Zap,
 };
 
 /**
- * 6 类基础服务（Tesla 全系均可咨询）。
- * 车膜保护含 3 个子入口；谨慎型电气项目无产品页 → 渲染微信咨询按钮。
- * 必须为 client component：electrical-careful 卡片需要 openWeChatModal。
+ * 5 类基础服务（Tesla 车型需结合年款与原车结构确认）。
+ * 车膜保护含 3 个子入口；无产品页的服务保留微信咨询兜底。
  */
 export function TeslaBaseServiceGrid() {
   return (
     <section
+      id="tesla-services"
       aria-labelledby="tesla-services-title"
       className="py-16 sm:py-20 bg-black border-t border-white/[0.05]"
     >

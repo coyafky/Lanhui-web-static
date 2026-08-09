@@ -2,19 +2,16 @@
  * 特斯拉品牌一级页数据（2026-07-15 重构，参照 gaoshan / voyah / ledao / zhijie / nio / xiaomi / li-auto series 模式）
  *
  * 定位：Tesla 车膜保护与日常用车升级服务入口（顺德大良）。
- * 特殊点：Tesla 在 product-routes.ts 中 modelSlugs: []，无任何车型子页——
- * 车型入口为「需求说明卡 + 微信咨询」，不放假链接、不写项目数。
  * Tesla 差异化：纯视觉智驾（前挡与车身摄像头避让）+ 电气项目质保边界
  * （接线方式/可恢复性/OTA 复检）+ 前备厢储物保护贯穿文案。
  *
  * 结构：
  *   - TESLA_HERO_IMAGE          Hero 右侧主视觉 + OG 共用（方案示意图）
- *   - teslaBaseServices         6 类基础服务（href 可选——谨慎型电气项目无产品页，卡片渲染咨询按钮）
+ *   - teslaBaseServices         5 类基础服务
  *   - teslaScenarioEntries      5 个高频场景入口（含特斯拉特有「暴晒隔热」「轮毂与底盘」）
  *   - teslaSeriesServiceSteps   6 步服务流程（含摄像头与举升点确认）
  *   - teslaSeriesFaq            6 条 FAQ（基础服务 / 车衣先后 / 摄像头避让 / 通用性 / 电气边界 / 本地）
  *   - teslaDouyinHighlights     抖音案例入口 3 项
- *   - TESLA_MODEL_COPY          Model 3 / Y / Y L / S / X 五车型需求文案
  */
 
 // ---- Hero 主视觉（方案示意图，1448×1086，4:3）----
@@ -35,15 +32,14 @@ export const TESLA_HERO_IMAGE: TeslaHeroImage = {
   aspectRatio: "4/3",
 };
 
-// ---- 基础服务（6 类）----
+// ---- 基础服务（5 类）----
 
 export type TeslaBaseServiceId =
   | "car-film"
   | "wheels"
   | "floor-mats"
   | "car-care"
-  | "electric-step"
-  | "electrical-careful";
+  | "electric-step";
 
 export type TeslaBaseServiceSubLink = {
   label: string;
@@ -58,7 +54,7 @@ export type TeslaBaseService = {
   painPoint: string;
   /** 适合谁 */
   suitableFor: string;
-  /** 对应产品页；谨慎型电气项目无产品页 → 卡片渲染微信咨询按钮 */
+  /** 对应产品页 */
   href?: string;
   /** 车膜类含 3 个子入口 */
   subLinks?: readonly TeslaBaseServiceSubLink[];
@@ -114,14 +110,6 @@ export const teslaBaseServices: readonly TeslaBaseService[] = [
       "Model 3、Model Y 车身高度较低，电动踏板通常不是首要需求；Model X 或有特殊上下车需求的车主，需先确认门体结构、线束走向和离地间隙再评估，不作为全系推荐项目。",
     suitableFor: "Model X 车主或确有上下车便利需求的用户",
     href: "/product/electric-steps",
-  },
-  {
-    id: "electrical-careful",
-    iconName: "Zap",
-    title: "谨慎型电气项目",
-    painPoint:
-      "电动门把手、智能仪表、电动前备厢等涉及低压线路的项目，会提前书面告知接线方式、是否可恢复原状和质保边界；施工留存记录，OTA 升级后可回店复检相关功能。",
-    suitableFor: "明确了解质保边界、愿意按流程逐项确认的车主",
   },
 ] as const;
 
@@ -291,59 +279,3 @@ export const teslaSeriesFaq: readonly TeslaSeriesFaqItem[] = [
       "蓝辉轻改门店位于佛山顺德大良，提供特斯拉车膜、轮毂、脚垫和洗美养护等服务，支持到店咨询和预约施工。发来车型、年款和需求，先确认方案与工期再安排到店。",
   },
 ] as const;
-
-// ---- Model 3 / Y / Y L / S / X 五车型需求文案（无子页，仅需求说明 + 咨询）----
-
-export type TeslaModelEntryKey =
-  | "model-3"
-  | "model-y"
-  | "model-y-l"
-  | "model-s"
-  | "model-x";
-
-export type TeslaModelCopy = {
-  /** 车型名称（展示用） */
-  modelName: string;
-  /** 车型定位（卡片 Badge 用） */
-  positioning: string;
-  scenario: string;
-  topNeeds: readonly [string, string, string];
-};
-
-export const TESLA_MODEL_COPY: Record<TeslaModelEntryKey, TeslaModelCopy> = {
-  "model-3": {
-    modelName: "Model 3",
-    positioning: "低车身通勤轿车",
-    scenario:
-      "日常通勤高频使用，重点是隔热膜、车衣、轮毂数据适配、专车脚垫和低底盘施工边界确认。",
-    topNeeds: ["车衣 / 隔热膜", "轮毂适配", "专车脚垫"],
-  },
-  "model-y": {
-    modelName: "Model Y",
-    positioning: "家庭 SUV",
-    scenario:
-      "家庭使用最广，重点是玻璃隔热、后备厢与儿童宠物场景、脚垫全覆盖和车漆保护。",
-    topNeeds: ["隔热膜", "专车脚垫", "车衣"],
-  },
-  "model-y-l": {
-    modelName: "Model Y L",
-    positioning: "更大空间版本",
-    scenario:
-      "空间更大的家庭版本，座舱保护和多人出行需求突出；车型尺寸与配件需按版本专项确认。",
-    topNeeds: ["座舱保护", "专车脚垫", "隔热膜"],
-  },
-  "model-s": {
-    modelName: "Model S",
-    positioning: "高性能轿车",
-    scenario:
-      "高性能轿车，重点是轮毂与漆面养护、内饰养护；配件按年款和进口版本现场确认。",
-    topNeeds: ["漆面养护", "轮毂适配", "内饰养护"],
-  },
-  "model-x": {
-    modelName: "Model X",
-    positioning: "大型 SUV",
-    scenario:
-      "鹰翼门结构特殊，上下车便利、脚垫覆盖和电气项目需专项评估后再确认方案。",
-    topNeeds: ["上下车便利", "专车脚垫", "车膜保护"],
-  },
-} as const;

@@ -88,7 +88,7 @@ const SERVICES: readonly ServiceRoute[] = [
   { type: "service_category", serviceSlug: "color-film",      title: "改色膜",            navLabel: "改色膜",       group: "film",                  status: "live",    priority: "P0", canonicalPath: "/product/color-film" },
   { type: "service_category", serviceSlug: "electric-steps",  title: "电动踏板",          navLabel: "电动踏板",     group: "light_mod",             status: "live",    priority: "P0", canonicalPath: "/product/electric-steps" },
   { type: "service_category", serviceSlug: "wheels",          title: "轮毂升级",          navLabel: "轮毂升级",     group: "light_mod",             status: "live",    priority: "P0", canonicalPath: "/product/wheels" },
-  { type: "service_category", serviceSlug: "chassis",         title: "底盘升级",          navLabel: "底盘升级",     group: "light_mod",             status: "live",    priority: "P0", canonicalPath: "/product/chassis" },
+  { type: "service_category", serviceSlug: "chassis",         title: "底盘护板",          navLabel: "底盘护板",     group: "light_mod",             status: "live",    priority: "P0", canonicalPath: "/product/chassis" },
   { type: "service_category", serviceSlug: "flooring",        title: "汽车地板",          navLabel: "汽车地板",     group: "practical_accessory",   status: "live",    priority: "P1", canonicalPath: "/product/flooring" },
   { type: "service_category", serviceSlug: "floor-mats",      title: "360 软包脚垫",      navLabel: "360 软包脚垫", group: "practical_accessory",   status: "live",    priority: "P1", canonicalPath: "/product/floor-mats" },
   { type: "service_category", serviceSlug: "car-tv",          title: "车载电视",          navLabel: "车载电视",     group: "business_comfort",      status: "live",    priority: "P1", canonicalPath: "/product/car-tv" },

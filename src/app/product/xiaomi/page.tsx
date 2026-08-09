@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { XiaomiSeriesHero } from "@/components/xiaomi/series/XiaomiSeriesHero";
-import { XiaomiScenarioSelector } from "@/components/xiaomi/series/XiaomiScenarioSelector";
 import { XiaomiBaseServiceGrid } from "@/components/xiaomi/series/XiaomiBaseServiceGrid";
 import {
   XiaomiModelEntryGrid,
@@ -30,7 +29,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 const PAGE_TITLE =
   "小米汽车全系保护与个性升级｜车膜、轮毂、脚垫与洗美养护｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改（佛山顺德大良）为小米汽车 SU7、YU7 提供车衣、隔热膜、改色膜、轮毂、电动踏板、专车脚垫与洗美养护服务，施工前确认摄像头、雷达与激光雷达感知区域，SU7 有 12 项、YU7 有 9 项专车适配方案。先确认车型与版本，再安排到店施工。";
+  "蓝辉轻改为小米汽车 SU7、YU7 提供车衣、隔热膜、改色膜、轮毂、电动踏板、专车脚垫与洗美养护服务，并设有 SU7、YU7 专属方案。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -137,7 +136,6 @@ export default function XiaomiBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <XiaomiSeriesHero breadcrumbItems={breadcrumbItems} />
-        <XiaomiScenarioSelector />
         <XiaomiBaseServiceGrid />
         <XiaomiModelEntryGrid entries={modelEntries} />
         <XiaomiServiceFlow />

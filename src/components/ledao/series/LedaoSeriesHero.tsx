@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MapPin, BadgeCheck, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { openWeChatModal } from "@/lib/wechat-modal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/components/Breadcrumbs";
@@ -27,11 +27,6 @@ export function LedaoSeriesHero({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* 左侧文案 */}
           <div className="space-y-6">
-            <p className="inline-flex min-h-10 items-center gap-2 rounded-full bg-blue-400/10 px-4 text-sm font-medium text-blue-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]">
-              <MapPin className="size-4" aria-hidden />
-              乐道全系 · 顺德大良
-            </p>
-
             <h1 className="max-w-xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
               乐道全系家庭用车保护与舒适升级
             </h1>
@@ -39,11 +34,6 @@ export function LedaoSeriesHero({
             <p className="max-w-lg text-pretty text-base leading-relaxed text-zinc-300 sm:text-lg">
               从新车漆面、隔热视野到座舱清洁，根据车型与家庭使用场景匹配方案。
               乐道覆盖 L60、L80、L90 等车型，全系均可到店咨询。
-            </p>
-
-            <p className="inline-flex items-center gap-2 text-sm font-medium text-blue-400/80">
-              <BadgeCheck className="size-4" aria-hidden />
-              服务乐道全系，L90 提供独立专车方案
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
@@ -63,10 +53,6 @@ export function LedaoSeriesHero({
                 <ArrowRight className="size-4" aria-hidden />
               </Link>
             </div>
-
-            <p className="text-sm text-zinc-500">
-              顺德大良到店施工 · 车型与年款现场核验 · 完工功能复检
-            </p>
           </div>
 
           <div className="lg:flex lg:items-center lg:justify-center">

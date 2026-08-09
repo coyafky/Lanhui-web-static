@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { TeslaSeriesHero } from "@/components/tesla/series/TeslaSeriesHero";
 import { TeslaScenarioSelector } from "@/components/tesla/series/TeslaScenarioSelector";
 import { TeslaBaseServiceGrid } from "@/components/tesla/series/TeslaBaseServiceGrid";
-import { TeslaModelEntryGrid } from "@/components/tesla/series/TeslaModelEntryGrid";
 import { TeslaServiceFlow } from "@/components/tesla/series/TeslaServiceFlow";
 import { TeslaFaqSection } from "@/components/tesla/series/TeslaFaqSection";
 import { TeslaDouyinCta } from "@/components/tesla/series/TeslaDouyinCta";
@@ -22,7 +21,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 const PAGE_TITLE =
   "Tesla 特斯拉贴膜与轻改服务｜车膜、轮毂、脚垫与洗美养护｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改（佛山顺德大良）为 Tesla Model 3、Model Y、Model Y L、Model S、Model X 提供车衣、隔热膜、改色膜、轮毂适配、专车脚垫与洗美养护服务，施工前确认摄像头避让区域、举升点与低压线束位置，完工逐项检查摄像头提示与辅助驾驶功能。先确认车型、年款和需求，再安排到店施工。";
+  "蓝辉轻改（佛山顺德大良）为 Tesla 车主提供车衣、隔热膜、改色膜、轮毂适配、专车脚垫与洗美养护服务。具体方案结合车型、年款和原车状态确认。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -93,7 +92,6 @@ export default function TeslaBrandPage() {
         <TeslaSeriesHero breadcrumbItems={breadcrumbItems} />
         <TeslaScenarioSelector />
         <TeslaBaseServiceGrid />
-        <TeslaModelEntryGrid />
         <TeslaServiceFlow />
         <TeslaFaqSection />
         <TeslaDouyinCta />

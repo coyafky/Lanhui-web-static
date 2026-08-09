@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ZeekrSeriesHeroV2 } from "@/components/zeekr/series/ZeekrSeriesHeroV2";
-import { ZeekrScenarioSelector } from "@/components/zeekr/series/ZeekrScenarioSelector";
 import { ZeekrBaseServiceGrid } from "@/components/zeekr/series/ZeekrBaseServiceGrid";
 import {
   ZeekrModelEntryGrid,
@@ -30,7 +29,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 const PAGE_TITLE =
   "极氪全系日常保护与个性升级｜车衣、隔热膜、轮毂、踏板、地板与洗美养护｜蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "极氪 9X、8X 车主服务入口：先从车膜、轮毂、电动踏板、地板总成、专车脚垫和洗美养护中选择基础服务，再结合车型、年款与原车配置进入专属方案。先确认适配，再安排施工。";
+  "极氪 9X、8X 车主服务入口，提供车膜、轮毂、电动踏板、地板总成、专车脚垫和洗美养护，并设有对应车型方案。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -121,7 +120,6 @@ export default function ZeekrSeriesPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <ZeekrSeriesHeroV2 breadcrumbItems={breadcrumbItems} />
-        <ZeekrScenarioSelector />
         <ZeekrBaseServiceGrid />
         <ZeekrModelEntryGrid entries={modelEntries} />
         <ZeekrServiceFlowV2 />

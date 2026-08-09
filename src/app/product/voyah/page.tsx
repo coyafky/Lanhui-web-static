@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { VoyahSeriesHero } from "@/components/voyah/series/VoyahSeriesHero";
-import { VoyahScenarioSelector } from "@/components/voyah/series/VoyahScenarioSelector";
 import { VoyahBaseServiceGrid } from "@/components/voyah/series/VoyahBaseServiceGrid";
 import {
   VoyahModelEntryGrid,
@@ -116,7 +115,6 @@ export default function VoyahBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <VoyahSeriesHero breadcrumbItems={breadcrumbItems} />
-        <VoyahScenarioSelector />
         <VoyahBaseServiceGrid />
         <VoyahModelEntryGrid entries={modelEntries} />
         <VoyahServiceFlow />

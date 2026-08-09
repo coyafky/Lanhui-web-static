@@ -117,3 +117,21 @@ describe("car-tv product structure", () => {
     expect(body).not.toContain("无损安装");
   });
 });
+
+describe("chassis product structure", () => {
+  it("shows the five-zone alloy protection structure and honest usage boundary", async () => {
+    await renderServicePage(serviceSlugPageModuleMap.chassis);
+
+    const body = document.body.textContent ?? "";
+    expect(body).toContain("铝镁合金底盘护板");
+    expect(body).toContain("前电机护板");
+    expect(body).toContain("线束护板");
+    expect(body).toContain("前电池护板");
+    expect(body).toContain("后电池护板");
+    expect(body).toContain("后电机护板");
+    expect(body).toContain("安装护板后，车主能得到什么");
+    expect(body).toContain("不能承诺电池、电机或底盘零损伤");
+    expect(body).not.toContain("绝对防撞");
+    expect(body).not.toContain("无损安装");
+  });
+});

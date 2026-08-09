@@ -1,8 +1,6 @@
 import { gaoshanSeriesServiceSteps } from "@/lib/gaoshan-series-services";
 
-/**
- * 服务流程与施工边界：6 步（确认车型 → 检查原车 → 方案确认 → 遮蔽施工 → 功能复检 → 交付养护）。
- */
+/** 6 步服务流程：确认车型 → 检查原车 → 方案确认 → 遮蔽施工 → 功能复检 → 交付养护。 */
 export function GaoshanServiceFlow() {
   return (
     <section
@@ -40,14 +38,6 @@ export function GaoshanServiceFlow() {
             </li>
           ))}
         </ol>
-
-        <div className="mt-6 rounded-2xl bg-teal-950/20 p-5 shadow-[0_0_0_1px_oklch(0.6_0.118_184.7/0.15)]">
-          <p className="text-sm text-zinc-300 leading-relaxed text-pretty">
-            施工边界：涉及电路、座椅滑轨、门体、底盘、轮毂载荷或原车功能的项目，
-            会在施工前逐项书面告知影响范围，你确认后才动工。
-            可为高山全系提供基础服务咨询，具体方案需根据车型、年款、配置、原车状态及施工条件现场确认。
-          </p>
-        </div>
       </div>
     </section>
   );

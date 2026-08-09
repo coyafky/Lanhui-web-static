@@ -2,19 +2,17 @@
  * 腾势一级页数据 — vitest 单元测试
  *
  * 验证项（2026-07-15 重构）：
- *   1. 长度字面量（baseServices=6, scenarioEntries=4, steps=6, faq=8, douyin=3）
+ *   1. 长度字面量（baseServices=6, steps=6, faq=8, douyin=3）
  *   2. id 唯一 / step 单调递增
  *   3. 基础服务 href 均指向已存在的产品路由
- *   4. 场景 serviceIds 均指向有效基础服务
- *   5. FAQ 无"需到店确认"式空洞话术
- *   6. D9 入口卡 topNeeds 恰 3 项，路径指向 /product/denza/d9
+ *   4. FAQ 无"需到店确认"式空洞话术
+ *   5. D9 入口卡 topNeeds 恰 3 项，路径指向 /product/denza/d9
  */
 
 import { describe, it, expect } from "vitest";
 
 import {
   denzaBaseServices,
-  denzaScenarioEntries,
   denzaSeriesServiceSteps,
   denzaSeriesFaq,
   denzaDouyinHighlights,
@@ -35,10 +33,6 @@ const VALID_SERVICE_HREFS = new Set([
 describe("denza-series-services: lengths (literal constraints)", () => {
   it("base services has exactly 6 entries", () => {
     expect(denzaBaseServices).toHaveLength(6);
-  });
-
-  it("scenario entries has exactly 4 entries", () => {
-    expect(denzaScenarioEntries).toHaveLength(4);
   });
 
   it("service steps has exactly 6 entries", () => {
@@ -101,35 +95,6 @@ describe("denza-series-services: base services", () => {
     expect(wheels?.painPoint).toContain("孔距");
     expect(wheels?.painPoint).toContain("ET");
     expect(wheels?.painPoint).toContain("胎压系统");
-  });
-});
-
-describe("denza-series-services: scenario entries", () => {
-  it("all scenario ids are unique", () => {
-    const ids = denzaScenarioEntries.map((s) => s.id);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
-  it("includes MPV-specific family and business scenarios", () => {
-    const ids = denzaScenarioEntries.map((s) => s.id);
-    expect(ids).toContain("family");
-    expect(ids).toContain("business");
-  });
-
-  it("all scenario serviceIds reference valid base services", () => {
-    const validIds = new Set(denzaBaseServices.map((s) => s.id));
-    for (const scenario of denzaScenarioEntries) {
-      expect(scenario.serviceIds.length).toBeGreaterThanOrEqual(2);
-      for (const id of scenario.serviceIds) {
-        expect(validIds.has(id)).toBe(true);
-      }
-    }
-  });
-
-  it("each scenario has a recommendation", () => {
-    for (const scenario of denzaScenarioEntries) {
-      expect(scenario.recommendation.length).toBeGreaterThan(10);
-    }
   });
 });
 

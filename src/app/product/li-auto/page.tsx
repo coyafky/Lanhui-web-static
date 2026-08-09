@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LiAutoSeriesHero } from "@/components/li-auto/series/LiAutoSeriesHero";
-import { LiAutoScenarioSelector } from "@/components/li-auto/series/LiAutoScenarioSelector";
 import { LiAutoBaseServiceGrid } from "@/components/li-auto/series/LiAutoBaseServiceGrid";
 import {
   LiAutoModelEntryGrid,
@@ -30,7 +29,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 const PAGE_TITLE =
   "理想汽车家庭用车保护与舒适升级｜车膜、踏板、地板与洗美养护｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改（佛山顺德大良）为理想汽车 ONE、i6、i8、L9、MEGA 提供车衣、隔热膜、电动踏板、地板总成、专车脚垫与洗美养护服务，施工前确认摄像头、雷达与激光雷达感知区域，五个车型均有独立专车方案。先确认车型、年款与座椅布局，再安排到店施工。";
+  "蓝辉轻改为理想汽车 ONE、i6、i8、L9、MEGA 提供车衣、隔热膜、电动踏板、地板总成、专车脚垫与洗美养护服务，并设有五个车型的专属方案。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -167,7 +166,6 @@ export default function LiAutoBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <LiAutoSeriesHero breadcrumbItems={breadcrumbItems} />
-        <LiAutoScenarioSelector />
         <LiAutoBaseServiceGrid />
         <LiAutoModelEntryGrid entries={modelEntries} />
         <LiAutoServiceFlow />

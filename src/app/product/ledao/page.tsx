@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LedaoSeriesHero } from "@/components/ledao/series/LedaoSeriesHero";
-import { LedaoScenarioSelector } from "@/components/ledao/series/LedaoScenarioSelector";
 import { LedaoBaseServiceGrid } from "@/components/ledao/series/LedaoBaseServiceGrid";
 import {
   LedaoModelEntryGrid,
@@ -116,7 +115,6 @@ export default function LedaoBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <LedaoSeriesHero breadcrumbItems={breadcrumbItems} />
-        <LedaoScenarioSelector />
         <LedaoBaseServiceGrid />
         <LedaoModelEntryGrid entries={modelEntries} />
         <LedaoServiceFlow />

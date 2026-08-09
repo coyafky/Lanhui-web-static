@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { WenjieSeriesHeroV2 } from "@/components/wenjie/series/WenjieSeriesHeroV2";
-import { WenjieScenarioSelector } from "@/components/wenjie/series/WenjieScenarioSelector";
 import { WenjieBaseServiceGrid } from "@/components/wenjie/series/WenjieBaseServiceGrid";
 import {
   WenjieModelEntryGrid,
@@ -23,7 +22,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 const PAGE_TITLE =
   "问界日常保护与舒适升级｜车衣、隔热膜、踏板、地板、脚垫与洗美养护｜蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "问界 M6、M7、M8 车主服务入口：先从车膜、轮毂、电动踏板、地板总成、专车脚垫和洗美养护中选择基础服务，再结合车型、年款和配置进入专属方案。先确认、再报价、不盲目叠加项目。";
+  "问界 M6、M7、M8 车主服务入口，提供车膜、轮毂、电动踏板、地板总成、专车脚垫和洗美养护，并设有对应车型方案。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -120,7 +119,6 @@ export default function WenjieSeriesPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <WenjieSeriesHeroV2 breadcrumbItems={breadcrumbItems} />
-        <WenjieScenarioSelector />
         <WenjieBaseServiceGrid />
         <WenjieModelEntryGrid entries={modelEntries} />
         <WenjieServiceFlowV2 />

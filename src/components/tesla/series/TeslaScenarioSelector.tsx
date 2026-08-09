@@ -28,7 +28,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
 
 /**
  * 5 个高频 Tesla 用车场景选择器：点击高亮 → 显示推荐服务组合。
- * 服务卡片链接到对应产品页；无 href 的服务（如谨慎型电气项目）渲染咨询按钮。
+ * 服务卡片链接到对应产品页；无 href 的服务渲染咨询按钮。
  */
 export function TeslaScenarioSelector() {
   const [activeId, setActiveId] = useState<TeslaScenarioEntryId>(

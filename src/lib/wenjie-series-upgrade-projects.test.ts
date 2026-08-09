@@ -2,11 +2,10 @@
  * 问界系列专题页数据 — vitest 单元测试
  *
  * 验证项（2026-07-15 重构后）：
- *   1. 长度字面量（featured=10, optional=24, baseServices=6, scenarioEntries=4, steps=6, faq=8, douyin=3）
+ *   1. 长度字面量（featured=10, optional=24, baseServices=6, steps=6, faq=8, douyin=3）
  *   2. key 唯一 / order 单调递增
  *   3. 基础服务 href 均指向已存在的产品路由
- *   4. 场景 serviceIds 均指向有效基础服务
- *   5. FAQ 无"需到店确认"式空洞话术
+ *   4. FAQ 无"需到店确认"式空洞话术
  */
 
 import { describe, it, expect } from "vitest";
@@ -15,7 +14,6 @@ import {
   wenjieSeriesFeaturedProjects,
   wenjieSeriesOptionalProjects,
   wenjieBaseServices,
-  wenjieScenarioEntries,
   wenjieSeriesServiceSteps,
   wenjieSeriesFaq,
   wenjieDouyinHighlights,
@@ -43,10 +41,6 @@ describe("wenjie-series-upgrade-projects: lengths (literal constraints)", () => 
 
   it("base services has exactly 6 entries", () => {
     expect(wenjieBaseServices).toHaveLength(6);
-  });
-
-  it("scenario entries has exactly 4 entries", () => {
-    expect(wenjieScenarioEntries).toHaveLength(4);
   });
 
   it("service steps has exactly 6 entries", () => {
@@ -91,29 +85,6 @@ describe("wenjie-series-upgrade-projects: base services", () => {
     for (const svc of wenjieBaseServices) {
       expect(svc.painPoint.length).toBeGreaterThan(10);
       expect(svc.suitableFor.length).toBeGreaterThan(0);
-    }
-  });
-});
-
-describe("wenjie-series-upgrade-projects: scenario entries", () => {
-  it("all scenario ids are unique", () => {
-    const ids = wenjieScenarioEntries.map((s) => s.id);
-    expect(new Set(ids).size).toBe(ids.length);
-  });
-
-  it("all scenario serviceIds reference valid base services", () => {
-    const validIds = new Set(wenjieBaseServices.map((s) => s.id));
-    for (const scenario of wenjieScenarioEntries) {
-      expect(scenario.serviceIds.length).toBeGreaterThanOrEqual(2);
-      for (const id of scenario.serviceIds) {
-        expect(validIds.has(id)).toBe(true);
-      }
-    }
-  });
-
-  it("each scenario has a recommendation", () => {
-    for (const scenario of wenjieScenarioEntries) {
-      expect(scenario.recommendation.length).toBeGreaterThan(10);
     }
   });
 });

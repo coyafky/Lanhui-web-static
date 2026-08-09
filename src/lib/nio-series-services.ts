@@ -7,7 +7,6 @@
  *
  * 结构：
  *   - nioBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - nioScenarioEntries     5 个高频场景入口（场景 → 推荐服务）
  *   - nioSeriesServiceSteps  6 步服务流程（确认车型 → 交付养护，含感知与底盘确认）
  *   - nioSeriesFaq           6 条 FAQ（全系适配 / 车型通用性 / 智驾与信号 / 换电底盘 / ES8 / 工期）
  *   - nioDouyinHighlights    抖音案例入口 3 项
@@ -104,74 +103,6 @@ export const nioBaseServices: readonly NioBaseService[] = [
       "浅色座椅的染色、儿童污渍、宠物毛发、门板脚印和大屏指纹，加上漆面与内饰板的长期养护和尾箱清洁，普通洗车处理不到位。",
     suitableFor: "浅色内饰车主、家庭用车和定期养护的用户",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（5 个高频入口）----
-
-export type NioScenarioEntryId =
-  | "new-car"
-  | "city-commute"
-  | "family-trip"
-  | "outdoor"
-  | "daily-care";
-
-export type NioScenarioEntry = {
-  id: NioScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly NioBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const nioScenarioEntries: readonly NioScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把漆面和高频磨损位保护起来，感知区域和隐藏把手提前确认避让。",
-  },
-  {
-    id: "city-commute",
-    iconName: "Route",
-    title: "城市通勤",
-    description: "日常上下班，暴晒和轻微剐蹭最常见",
-    serviceIds: ["car-film", "floor-mats"],
-    recommendation:
-      "前挡和信号敏感区用不影响 ETC、导航和车载通信的隔热膜，配合专车脚垫，通勤高频使用也好收拾。",
-  },
-  {
-    id: "family-trip",
-    iconName: "Users",
-    title: "家庭长途",
-    description: "常载家人出行，二三排使用频率高",
-    serviceIds: ["flooring", "floor-mats", "car-care"],
-    recommendation:
-      "地板总成（ES8 等大空间车型）+ 专车脚垫 + 内饰清洁，长途出行前后座舱都保持好状态。",
-  },
-  {
-    id: "outdoor",
-    iconName: "Mountain",
-    title: "户外出行",
-    description: "周末露营郊游，底盘和漆面考验更多",
-    serviceIds: ["car-film", "wheels", "car-care"],
-    recommendation:
-      "车衣重点覆盖前杠、门槛等易剐蹭位，轮毂先核对载荷与续航影响；回程做漆面与底盘检查清洁。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "长期养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 浅色座椅与内饰板养护 + 大屏与门板清洁，按周期保持座舱和漆面状态。",
   },
 ] as const;
 

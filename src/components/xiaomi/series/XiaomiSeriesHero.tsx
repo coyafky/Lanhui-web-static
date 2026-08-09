@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, BadgeCheck, MessageCircle, LayoutGrid } from "lucide-react";
+import { MessageCircle, LayoutGrid } from "lucide-react";
 import { openWeChatModal } from "@/lib/wechat-modal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/components/Breadcrumbs";
@@ -32,11 +32,6 @@ export function XiaomiSeriesHero({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* 左侧文案 */}
           <div className="space-y-6">
-            <p className="inline-flex min-h-10 items-center gap-2 rounded-full bg-orange-400/10 px-4 text-sm font-medium text-orange-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]">
-              <MapPin className="size-4" aria-hidden />
-              小米汽车全系 · 顺德大良
-            </p>
-
             <h1 className="max-w-xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
               小米汽车保护与个性升级
             </h1>
@@ -44,11 +39,6 @@ export function XiaomiSeriesHero({
             <p className="max-w-lg text-pretty text-base leading-relaxed text-zinc-300 sm:text-lg">
               从漆面保护、隔热视野到运动个性与家庭耐用，根据 SU7、YU7
               的车型特点匹配方案，兼顾智驾硬件与原车功能。
-            </p>
-
-            <p className="inline-flex items-center gap-2 text-sm font-medium text-orange-400/80">
-              <BadgeCheck className="size-4" aria-hidden />
-              服务小米汽车全系，SU7、YU7 提供独立专车方案
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
@@ -69,10 +59,6 @@ export function XiaomiSeriesHero({
                 选择 SU7 或 YU7
               </button>
             </div>
-
-            <p className="text-sm text-zinc-500">
-              感知区域提前确认 · 原车状态检查 · 完工功能复检
-            </p>
           </div>
 
           <div className="lg:flex lg:items-center lg:justify-center">

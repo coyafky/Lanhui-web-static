@@ -9,7 +9,6 @@
  *
  * 结构：
  *   - liAutoBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
- *   - liAutoScenarioEntries     5 个高频场景入口（含理想特有「上下车便利」）
  *   - liAutoSeriesServiceSteps  6 步服务流程（确认车型 → 交付养护，含感知与设备确认）
  *   - liAutoSeriesFaq           6 条 FAQ（全系适配 / L9 踏板 / 地板脚垫通用性 / 感知避让 / 本地 / 工期）
  *   - liAutoDouyinHighlights    抖音案例入口 3 项
@@ -106,74 +105,6 @@ export const liAutoBaseServices: readonly LiAutoBaseService[] = [
       "儿童污渍、宠物毛发、皮革折痕、大屏指纹、顶棚和门板脚印，普通洗车处理不到位。按周期做座舱深度清洁和漆面养护，让家庭用车长期保持好状态。",
     suitableFor: "浅色内饰车主、带娃家庭和定期养护的用户",
     href: "/product/car-care",
-  },
-] as const;
-
-// ---- 场景选择器（5 个高频入口，含理想特有「上下车便利」）----
-
-export type LiAutoScenarioEntryId =
-  | "new-car"
-  | "easy-access"
-  | "family-cabin"
-  | "long-trip"
-  | "daily-care";
-
-export type LiAutoScenarioEntry = {
-  id: LiAutoScenarioEntryId;
-  iconName: string;
-  title: string;
-  description: string;
-  /** 关联的基础服务 */
-  serviceIds: readonly LiAutoBaseServiceId[];
-  /** 推荐组合一句话 */
-  recommendation: string;
-};
-
-export const liAutoScenarioEntries: readonly LiAutoScenarioEntry[] = [
-  {
-    id: "new-car",
-    iconName: "ShieldCheck",
-    title: "新车保护",
-    description: "刚提车，想把基础防护一次做齐",
-    serviceIds: ["car-film", "floor-mats", "car-care"],
-    recommendation:
-      "车衣或隔热膜 + 专车脚垫 + 基础洗美，交付初期先把漆面和高频磨损位保护起来，摄像头、雷达和激光雷达感知区域提前确认避让。",
-  },
-  {
-    id: "easy-access",
-    iconName: "Users",
-    title: "老人孩子上下车",
-    description: "高车身跨度大，家人上下车不方便",
-    serviceIds: ["electric-step", "floor-mats"],
-    recommendation:
-      "电动踏板按年款、离地间隙和线束先确认适配，再配踏板区脚垫防滑；L9、MEGA 等高车身车型收益最明显，安装前后功能逐项复检。",
-  },
-  {
-    id: "family-cabin",
-    iconName: "Baby",
-    title: "座舱耐脏易清洁",
-    description: "孩子零食饮料、雨天泥沙，车厢难收拾",
-    serviceIds: ["flooring", "floor-mats", "car-care"],
-    recommendation:
-      "地板总成（按车型与座椅布局确认）+ 全覆盖专车脚垫 + 座舱深度清洁，零食碎屑和泥水都好收拾，二排通道和后备厢重点覆盖。",
-  },
-  {
-    id: "long-trip",
-    iconName: "Route",
-    title: "长途出行舒适",
-    description: "常跑长途，暴晒、隐私和视野都要兼顾",
-    serviceIds: ["car-film", "wheels"],
-    recommendation:
-      "前挡和大面积玻璃用兼顾隔热、夜间视野与信号的隔热膜，轮毂方案核对载荷与能耗数据，长途行驶更安静省心。",
-  },
-  {
-    id: "daily-care",
-    iconName: "Droplets",
-    title: "长期养护",
-    description: "不改装，只想把车况维持在好状态",
-    serviceIds: ["car-care", "floor-mats"],
-    recommendation:
-      "精洗 + 皮革与内饰板养护 + 大屏与顶棚清洁，按周期保持座舱和漆面状态，交车前后都能约。",
   },
 ] as const;
 

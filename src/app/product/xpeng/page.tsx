@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { XpengSeriesHeroV2 } from "@/components/xpeng/series/XpengSeriesHeroV2";
-import { XpengScenarioSelector } from "@/components/xpeng/series/XpengScenarioSelector";
 import { XpengBaseServiceGrid } from "@/components/xpeng/series/XpengBaseServiceGrid";
 import { XpengGxEntrySection } from "@/components/xpeng/series/XpengGxEntrySection";
 import { XpengServiceFlowV2 } from "@/components/xpeng/series/XpengServiceFlowV2";
-import { XpengLocalAnswerSection } from "@/components/xpeng/series/XpengLocalAnswerSection";
 import { XpengFaqSectionV2 } from "@/components/xpeng/series/XpengFaqSectionV2";
 import { XpengDouyinCta } from "@/components/xpeng/series/XpengDouyinCta";
 import { XpengMobileCtaBar } from "@/components/xpeng/series/XpengMobileCtaBar";
@@ -22,7 +20,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 
 const PAGE_TITLE = "小鹏汽车贴膜与轻改服务｜顺德大良蓝辉轻改 LANHUI";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改顺德大良店为小鹏车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护。先按用车需求选择基础服务，再结合车型、年款和配置确认适配；小鹏 GX 已整理专属方案子页。";
+  "蓝辉轻改为小鹏车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护服务，小鹏 GX 已整理专属方案。";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -103,11 +101,9 @@ export default function XpengBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <XpengSeriesHeroV2 breadcrumbItems={breadcrumbItems} />
-        <XpengScenarioSelector />
         <XpengBaseServiceGrid />
         <XpengGxEntrySection image={gxImage} />
         <XpengServiceFlowV2 />
-        <XpengLocalAnswerSection />
         <XpengFaqSectionV2 />
         <XpengDouyinCta />
 

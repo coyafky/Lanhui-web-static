@@ -1,8 +1,6 @@
 import { liAutoSeriesServiceSteps } from "@/lib/li-auto-series-services";
 
-/**
- * 服务流程与施工边界：6 步（确认车型 → 感知与设备确认 → 方案确认 → 保护施工 → 功能复检 → 交付养护）。
- */
+/** 6 步服务流程：确认车型 → 感知与设备确认 → 方案确认 → 保护施工 → 功能复检 → 交付养护。 */
 export function LiAutoServiceFlow() {
   return (
     <section
@@ -40,14 +38,6 @@ export function LiAutoServiceFlow() {
             </li>
           ))}
         </ol>
-
-        <div className="mt-6 rounded-2xl bg-amber-950/20 p-5 shadow-[0_0_0_1px_oklch(0.666_0.179_58.318/0.15)]">
-          <p className="text-sm text-zinc-300 leading-relaxed text-pretty">
-            施工边界：涉及电路、门体、底盘、电池包、轮毂载荷、智驾传感器或原车功能的项目，
-            会在施工前逐项书面告知影响范围，你确认后才动工。
-            可为理想汽车全系提供车膜、脚垫、轮毂和洗美养护等基础服务咨询，电动踏板、地板总成及其他专车项目需根据车型、年款、座椅布局和实际安装条件确认，并非所有车型通用。
-          </p>
-        </div>
       </div>
     </section>
   );

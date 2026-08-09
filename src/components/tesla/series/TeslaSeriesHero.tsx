@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin, BadgeCheck, MessageCircle, LayoutGrid } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { openWeChatModal } from "@/lib/wechat-modal";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/components/Breadcrumbs";
@@ -12,12 +12,6 @@ export function TeslaSeriesHero({
 }: {
   breadcrumbItems?: readonly BreadcrumbItem[];
 }) {
-  const scrollToModels = () => {
-    document
-      .getElementById("tesla-models")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-red-950/40 via-zinc-950 to-zinc-950">
       <div
@@ -32,11 +26,6 @@ export function TeslaSeriesHero({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* 左侧文案 */}
           <div className="space-y-6">
-            <p className="inline-flex min-h-10 items-center gap-2 rounded-full bg-red-400/10 px-4 text-sm font-medium text-red-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]">
-              <MapPin className="size-4" aria-hidden />
-              特斯拉全系 · 顺德大良
-            </p>
-
             <h1 className="max-w-xl text-balance text-4xl font-bold leading-[1.08] tracking-[-0.025em] text-white sm:text-5xl lg:text-6xl">
               Tesla 车膜保护与日常用车升级
             </h1>
@@ -46,12 +35,7 @@ export function TeslaSeriesHero({
               踏板、地板及电气项目需结合车型、年款和原车结构确认。
             </p>
 
-            <p className="inline-flex items-center gap-2 text-sm font-medium text-red-400/80">
-              <BadgeCheck className="size-4" aria-hidden />
-              施工前核对摄像头区域、原车状态与举升位置，交付前检查灯光、门锁、摄像头提示和相关功能
-            </p>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
+            <div className="pt-2">
               <button
                 type="button"
                 onClick={() => openWeChatModal()}
@@ -60,19 +44,7 @@ export function TeslaSeriesHero({
                 <MessageCircle className="size-4" aria-hidden />
                 获取我的车型方案
               </button>
-              <button
-                type="button"
-                onClick={scrollToModels}
-                className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-white/[0.04] px-6 text-base font-medium text-zinc-200 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-colors hover:bg-white/[0.08] active:scale-[0.96]"
-              >
-                <LayoutGrid className="size-4" aria-hidden />
-                先选 Model 3 / Model Y
-              </button>
             </div>
-
-            <p className="text-sm text-zinc-500">
-              摄像头区域精确避让 · 举升点核验 · OTA 升级后可回店复检
-            </p>
           </div>
 
           {/* 右侧主视觉 — 真实 hero.webp + 方案示意 badge */}

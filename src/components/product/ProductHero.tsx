@@ -102,7 +102,7 @@ export function ProductHero({ liveBrands, breadcrumbItems }: Props) {
             </div>
           </div>
 
-          {/* 右侧：文案 + 11 品牌矩阵 */}
+          {/* 右侧：文案 + 品牌矩阵 */}
           <div className="lg:col-span-2 order-1 lg:order-2 text-center lg:text-left">
             <h1
               id="product-hero-title"
@@ -118,11 +118,8 @@ export function ProductHero({ liveBrands, breadcrumbItems }: Props) {
               提供涵盖产品选型、车型适配与专业施工的一站式服务。
             </p>
 
-            {/* 11 品牌矩阵 */}
+            {/* 品牌矩阵 */}
             <div className="mb-4">
-              <p className="text-xs tracking-widest text-zinc-500 mb-3 uppercase">
-                车型方案地图 · {liveBrands.length} 品牌
-              </p>
               <BrandMatrixMap brands={liveBrands} />
             </div>
 
