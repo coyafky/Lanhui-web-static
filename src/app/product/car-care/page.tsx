@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CarCareHero } from "@/components/product/car-care/CarCareHero";
 import { CarCarePainPoints } from "@/components/product/car-care/CarCarePainPoints";
-import { CarCareConditionSelector } from "@/components/product/car-care/CarCareConditionSelector";
 import { CarCareServiceGrid } from "@/components/product/car-care/CarCareServiceGrid";
-import { CarCareCaseShowcase } from "@/components/product/car-care/CarCareCaseShowcase";
 import { CarCareServiceFlow } from "@/components/product/car-care/CarCareServiceFlow";
-import { CarCareDeliveryChecklist } from "@/components/product/car-care/CarCareDeliveryChecklist";
 import { CarCareDouyinCta } from "@/components/product/car-care/CarCareDouyinCta";
 import { carCareServiceDetails } from "@/lib/car-care-products";
 import { getServiceRoute } from "@/lib/product-routes";
@@ -16,11 +13,11 @@ import { safeJsonLd } from "@/lib/json-ld";
 export const metadata: Metadata = {
   title: "洗美养护｜把干净做到看得见的细节里｜蓝辉轻改 LANHUI",
   description:
-    "门缝积灰、轮毂发黑、玻璃油膜、车内异味——先看车况再选清洁方案。外观精洗、内饰深度清洁、轮毂专项、玻璃油膜去除，不盲目叠加项目。",
+    "蓝辉轻改顺德大良店提供普洗、精洗与轮毂定向清洗。服务前沟通车况、清洁范围、预计时间与费用，再按确认内容施工。",
   openGraph: {
     title: "洗美养护｜把干净做到看得见的细节里｜蓝辉轻改 LANHUI",
     description:
-      "蓝辉轻改洗美养护服务：外观精洗、内饰深度清洁、轮毂专项、玻璃油膜去除。先看车况再选方案，不盲目叠加项目。",
+      "蓝辉轻改洗美养护提供普洗、精洗与轮毂定向清洗，服务范围、预计时间和费用会在施工前确认。",
     images: [
       {
         url: "/images/producthero/car-care-hero.webp",
@@ -64,11 +61,8 @@ export default function CarCarePage() {
         />
         <CarCareHero breadcrumbItems={breadcrumbItems} />
         <CarCarePainPoints />
-        <CarCareConditionSelector />
         <CarCareServiceGrid />
-        <CarCareCaseShowcase />
         <CarCareServiceFlow />
-        <CarCareDeliveryChecklist />
         <CarCareDouyinCta />
       </main>
       {breadcrumbSchema && (

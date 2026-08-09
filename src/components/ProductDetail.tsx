@@ -5,7 +5,7 @@ import { Breadcrumbs, type BreadcrumbItem } from "@/components/Breadcrumbs";
 import { PpfDouyinCta } from "@/components/product/PpfDouyinCta";
 import { PpfMobileCtaBar } from "@/components/product/PpfMobileCtaBar";
 import { WeChatConsultButton } from "@/components/WeChatConsultButton";
-import { serviceGuarantee, type Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
 
 const SPEC_COLUMN_MAP = [
   { key: "model", label: "型号" },
@@ -29,13 +29,6 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
   const isChassis = product.slug === "chassis";
   const accentText = isLightMod ? "text-blue-400" : "text-orange-400";
   const accentBg = isLightMod ? "bg-blue-500" : "bg-orange-500";
-  const accentGradient = isLightMod
-    ? "from-blue-500 to-blue-700"
-    : "from-orange-500 to-orange-600";
-  const serviceSectionBg =
-    product.slug === "ppf"
-      ? "bg-black border-y border-zinc-900"
-      : "bg-zinc-950";
   const hero = isChassis
     ? {
         title: "底盘升级，先从车况与需求出发",
@@ -47,7 +40,7 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
     : {
         title: "蓝辉隐形车衣",
         description:
-          "脂肪族 TPU、专车专用电脑裁膜、3–12 年质保，按车型与用车场景推荐，不盲目堆参数。",
+          "6 款隐形车衣覆盖 6.5mil 至 10mil、3 至 12 年质保，按材质、厚度与用车需求选择。",
         image: "/images/producthero/ppf-hero.webp",
         imageAlt: "蓝辉隐形车衣透明保护膜施工效果",
       };
@@ -58,12 +51,7 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
         { icon: ClipboardCheck, label: "规范扭矩施工" },
         { icon: FileBadge, label: "路试复检交付" },
       ]
-    : [
-        { icon: Monitor, label: "专车电脑裁膜" },
-        { icon: Scissors, label: "尽量不动刀施工" },
-        { icon: ClipboardCheck, label: "施工验收标准" },
-        { icon: FileBadge, label: "电子质保" },
-      ];
+    : [];
 
   return (
       <main className="flex-grow flex flex-col">
@@ -87,19 +75,21 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
                 <p className="text-xl sm:text-2xl font-semibold text-white/90 mb-4">
                   {product.tagline}
                 </p>
-                <p className="text-base sm:text-lg text-zinc-300 max-w-xl text-pretty leading-7 mb-8">
+                <p className={`text-base sm:text-lg text-zinc-300 max-w-xl text-pretty leading-7 ${isChassis ? "mb-8" : ""}`}>
                   {hero.description}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <WeChatConsultButton />
-                  <Link
-                    href="/contact"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white/[0.06] px-6 text-sm font-medium text-white shadow-[0_0_0_1px_oklch(1_0_0/0.1)] hover:bg-white/[0.1] transition-colors"
-                  >
-                    获取车型方案
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
+                {isChassis && (
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <WeChatConsultButton />
+                    <Link
+                      href="/contact"
+                      className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white/[0.06] px-6 text-sm font-medium text-white shadow-[0_0_0_1px_oklch(1_0_0/0.1)] hover:bg-white/[0.1] transition-colors"
+                    >
+                      获取车型方案
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                )}
               </div>
               {/* Right: product image */}
               <div>
@@ -120,20 +110,22 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
         </section>
 
         {/* Trust badges — 4-icon strip */}
-        <section className="bg-zinc-900/50 backdrop-blur border-b border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {trustBadges.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 text-sm text-zinc-300">
-                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.05] shadow-[0_0_0_1px_oklch(1_0_0/0.06)]">
-                    <Icon className="size-4 text-orange-400" />
-                  </span>
-                  {label}
-                </div>
-              ))}
+        {trustBadges.length > 0 && (
+          <section className="bg-zinc-900/50 backdrop-blur border-b border-white/[0.06]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {trustBadges.map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-3 text-sm text-zinc-300">
+                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.05] shadow-[0_0_0_1px_oklch(1_0_0/0.06)]">
+                      <Icon className="size-4 text-orange-400" />
+                    </span>
+                    {label}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Selling Points — 1 main + auxiliary grid */}
         {product.sellingPoints && product.sellingPoints.length > 0 && (() => {
@@ -336,70 +328,44 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
 
         {/* ====== PPF: Series Selection Guide ====== */}
         {product.slug === "ppf" && product.series && (() => {
-          const tiers = [
-            { label: "入门防护", desc: "基础漆面保护，性价比之选", slugs: ["pixiu", "qinglong"] },
-            { label: "均衡之选", desc: "性能与价格的均衡之选", slugs: ["baihu", "zhuque"] },
-            { label: "高防护", desc: "更强防护，适合高端车型", slugs: ["xuanwu", "fenghuang"] },
-            { label: "旗舰", desc: "高规格材质，全面漆面守护", slugs: ["qilin", "zhulong"] },
-          ];
-          const seriesMap = new Map(product.series.map(s => [s.slug, s]));
-
           return (
             <section className="py-16 sm:py-20 bg-zinc-950">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-10">
                   <p className="text-xs tracking-widest text-orange-400 mb-3">如何选择</p>
                   <h2 className="text-2xl md:text-3xl font-bold text-white">
-                    按需求选择适合你的系列
+                    6 款隐形车衣产品
                   </h2>
-                  <p className="text-zinc-400 mt-3 text-sm max-w-xl text-pretty">
-                    不确定选哪款？根据预算和防护需求快速定位。每档包含两款可选型号，到店看实物再做决定。
+                  <p className="text-zinc-300 mt-3 text-sm max-w-2xl text-pretty leading-relaxed">
+                    根据材质、厚度、涂层与质保年限了解各款差异，具体适配以车型和实际用车需求为准。
                   </p>
                 </div>
 
-                {/* Tier cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-                  {tiers.map((tier, i) => {
-                    const items = tier.slugs.map(slug => seriesMap.get(slug)).filter(Boolean) as typeof product.series;
-                    const isLast = i === tiers.length - 1;
-                    return (
-                      <div
-                        key={tier.label}
-                        className={`bg-zinc-900/80 rounded-2xl p-5 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] flex flex-col ${
-                          isLast ? "ring-1 ring-orange-500/20 shadow-lg shadow-orange-500/5" : ""
-                        }`}
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-10">
+                  {product.series.map((series) => (
+                      <article
+                        key={series.slug}
+                        className="flex flex-col rounded-2xl bg-zinc-900/80 p-5 sm:p-6 shadow-[0_0_0_1px_oklch(1_0_0/0.07)]"
                       >
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className={`text-lg font-bold ${isLast ? "text-orange-400" : "text-white"}`}>
-                            {tier.label}
-                          </h3>
-                          {isLast && (
-                            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-orange-950/50 text-orange-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]">
-                              推荐
-                            </span>
-                          )}
+                        <div>
+                          <h3 className="text-xl font-bold text-white">{series.name}</h3>
+                          <p className="mt-1 text-sm font-medium text-orange-300 tabular-nums">
+                            {series.model}
+                          </p>
                         </div>
-                        <p className="text-xs text-zinc-500 mb-4">{tier.desc}</p>
-                        <div className="space-y-3 flex-1">
-                          {items.map(s => (
-                            <div key={s!.slug} className="border-t border-white/[0.06] pt-3 first:border-t-0 first:pt-0">
-                              <div className="flex items-baseline justify-between mb-1">
-                                <span className="text-sm font-semibold text-white">{s!.name}</span>
-                                <span className="text-xs text-zinc-500 tabular-nums">{s!.model}</span>
-                              </div>
-                              <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-zinc-400">
-                                <span>{s!.thickness}</span>
-                                <span className="text-zinc-600">|</span>
-                                <span>{s!.material}</span>
-                                <span className="text-zinc-600">|</span>
-                                <span>质保 {s!.warranty}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
+
+                        <dl className="mt-5 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm">
+                          <dt className="text-zinc-400">厚度</dt>
+                          <dd className="text-right text-zinc-100">{series.thickness}</dd>
+                          <dt className="text-zinc-400">材质</dt>
+                          <dd className="text-right text-zinc-100">{series.material}</dd>
+                          <dt className="text-zinc-400">涂层</dt>
+                          <dd className="text-right text-zinc-100">{series.coating}</dd>
+                          <dt className="text-zinc-400">质保</dt>
+                          <dd className="text-right font-semibold text-zinc-100">{series.warranty}</dd>
+                        </dl>
+                      </article>
+                  ))}
                 </div>
 
                 {/* Collapsible full parameter table */}
@@ -593,43 +559,6 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* ====== Shared Film: Service Guarantee ====== */}
-        {(product.slug === "ppf" || product.slug === "window-film" || product.slug === "color-film") && (
-          <section className={`py-16 ${serviceSectionBg}`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white">
-                  专车专用施工保障
-                </h2>
-              </div>
-              <div>
-                {/* Acceptance standards */}
-                <h3 className="text-lg font-semibold text-orange-400 mb-4">
-                  验收标准
-                </h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-orange-950/40 text-orange-300">
-                        <th className="px-4 py-2 text-left font-semibold border border-zinc-800">项目</th>
-                        <th className="px-4 py-2 text-left font-semibold border border-zinc-800">标准</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {serviceGuarantee.acceptance.map((a) => (
-                        <tr key={a.item} className="border-b border-zinc-800">
-                          <td className="px-4 py-2 border-x border-zinc-800 text-zinc-300">{a.item}</td>
-                          <td className="px-4 py-2 border-x border-zinc-800 text-zinc-300">{a.standard}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
               </div>
             </div>
           </section>

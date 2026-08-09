@@ -9,7 +9,6 @@
 import React from "react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
-import { renderProductPage } from "@/test/product-page-test-utils";
 
 // ---------- Mock 基础设施 ----------
 vi.mock("next/navigation", () => ({
@@ -25,7 +24,9 @@ vi.mock("next/link", () => ({
   }) => <a href={href}>{children}</a>,
 }));
 vi.mock("next/image", () => ({
-  default: (props: Record<string, unknown>) => <img {...props} />,
+  default: (props: Record<string, unknown>) => (
+    <span data-image-alt={String(props.alt ?? "")} />
+  ),
 }));
 
 // ---------- Mock Header / Footer ----------
@@ -43,20 +44,11 @@ vi.mock("@/components/product/car-care/CarCareHero", () => ({
 vi.mock("@/components/product/car-care/CarCarePainPoints", () => ({
   CarCarePainPoints: () => <section data-testid="CarCarePainPoints" />,
 }));
-vi.mock("@/components/product/car-care/CarCareConditionSelector", () => ({
-  CarCareConditionSelector: () => <section data-testid="CarCareConditionSelector" />,
-}));
 vi.mock("@/components/product/car-care/CarCareServiceGrid", () => ({
   CarCareServiceGrid: () => <section data-testid="CarCareServiceGrid" />,
 }));
-vi.mock("@/components/product/car-care/CarCareCaseShowcase", () => ({
-  CarCareCaseShowcase: () => <section data-testid="CarCareCaseShowcase" />,
-}));
 vi.mock("@/components/product/car-care/CarCareServiceFlow", () => ({
   CarCareServiceFlow: () => <section data-testid="CarCareServiceFlow" />,
-}));
-vi.mock("@/components/product/car-care/CarCareDeliveryChecklist", () => ({
-  CarCareDeliveryChecklist: () => <section data-testid="CarCareDeliveryChecklist" />,
 }));
 vi.mock("@/components/product/car-care/CarCareDouyinCta", () => ({
   CarCareDouyinCta: () => <section data-testid="CarCareDouyinCta" />,
@@ -89,11 +81,8 @@ describe("CarCarePage", () => {
     render(<Page />);
     expect(screen.getByTestId("CarCareHero")).toBeDefined();
     expect(screen.getByTestId("CarCarePainPoints")).toBeDefined();
-    expect(screen.getByTestId("CarCareConditionSelector")).toBeDefined();
     expect(screen.getByTestId("CarCareServiceGrid")).toBeDefined();
-    expect(screen.getByTestId("CarCareCaseShowcase")).toBeDefined();
     expect(screen.getByTestId("CarCareServiceFlow")).toBeDefined();
-    expect(screen.getByTestId("CarCareDeliveryChecklist")).toBeDefined();
     expect(screen.getByTestId("CarCareDouyinCta")).toBeDefined();
   });
 
@@ -106,10 +95,9 @@ describe("CarCarePage", () => {
     const jsonLd = JSON.parse(scripts[0]?.innerHTML ?? "{}");
     expect(jsonLd["@type"]).toBe("CollectionPage");
     expect(jsonLd.mainEntity["@type"]).toBe("ItemList");
-    expect(jsonLd.mainEntity.itemListElement).toHaveLength(4);
-    expect(jsonLd.mainEntity.itemListElement[0].name).toBe("外观精洗");
-    expect(jsonLd.mainEntity.itemListElement[1].name).toBe("内饰深度清洁");
-    expect(jsonLd.mainEntity.itemListElement[2].name).toBe("轮毂专项清洁");
-    expect(jsonLd.mainEntity.itemListElement[3].name).toBe("玻璃油膜去除");
+    expect(jsonLd.mainEntity.itemListElement).toHaveLength(3);
+    expect(jsonLd.mainEntity.itemListElement[0].name).toBe("普洗");
+    expect(jsonLd.mainEntity.itemListElement[1].name).toBe("精洗");
+    expect(jsonLd.mainEntity.itemListElement[2].name).toBe("轮毂定向清洗");
   });
 });

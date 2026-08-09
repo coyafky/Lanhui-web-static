@@ -44,10 +44,10 @@ export function CarCareDouyinCta() {
             id="carcare-douyin-title"
             className="max-w-2xl text-balance text-3xl font-bold leading-tight tracking-[-0.025em] sm:text-4xl lg:text-5xl"
           >
-            先看真实洗前洗后，再决定做哪一项
+            蓝辉抖音记录真实清洁过程
           </h2>
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-zinc-300 sm:text-lg">
-            在蓝辉轻改官方抖音查看门缝、轮毂、内饰和玻璃油膜的实际施工过程。
+            可查看普洗、精洗与轮毂定向清洗的实际服务过程和清洁细节。
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

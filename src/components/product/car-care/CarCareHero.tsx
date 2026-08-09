@@ -1,20 +1,13 @@
-"use client";
-
 import Image from "next/image";
-import { ArrowDown, Video } from "lucide-react";
+import { Video } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import type { BreadcrumbItem } from "@/components/Breadcrumbs";
-import { openWeChatModal } from "@/lib/wechat-modal";
 
 export function CarCareHero({
   breadcrumbItems,
 }: {
   breadcrumbItems?: readonly BreadcrumbItem[];
 }) {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-emerald-950/60 via-zinc-950 to-zinc-950">
       <div
@@ -39,27 +32,9 @@ export function CarCareHero({
             </h1>
 
             <p className="max-w-lg text-pretty text-base leading-relaxed text-zinc-300 sm:text-lg">
-              门缝积灰、轮毂发黑、玻璃油膜、车内异味——不是每辆车都需要深度清洁。
-              先看车况，再选择需要的清洁，不盲目叠加项目。
+              蓝辉提供普洗、精洗与轮毂定向清洗。到店后会先了解车况和清洁需求，
+              再与您确认适合的服务内容。
             </p>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
-              <button
-                type="button"
-                onClick={() => scrollTo("car-care-condition")}
-                className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 text-base font-semibold text-white shadow-lg shadow-emerald-500/20 transition-transform active:scale-[0.96]"
-              >
-                按车况选择服务
-                <ArrowDown className="size-4" aria-hidden />
-              </button>
-              <button
-                type="button"
-                onClick={() => openWeChatModal()}
-                className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-white/[0.04] px-6 text-base font-medium text-zinc-200 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-colors hover:bg-white/[0.08] active:scale-[0.96]"
-              >
-                看真实洗前洗后
-              </button>
-            </div>
           </div>
 
           {/* 右侧主视觉 */}

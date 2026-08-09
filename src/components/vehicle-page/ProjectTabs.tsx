@@ -16,6 +16,11 @@ interface ProjectTabsProps {
  * - 移动端不再需要划过 30 个同构卡片
  * - 非当前分类的图片不进入 DOM → 图片按需加载，缓解白屏
  * - 桌面端行为不变（保留"全部"Tab）
+ *
+ * 响应式要点（2026-08-09 修复）：
+ * - Header 是 sticky top-0 z-50，滚动后 h-16(64px) → Tab 吸顶位置用 top-16
+ * - 移动端横向滚动 + 隐藏滚动条（scrollbar-none 需自定义，Tailwind 4 无内置）
+ * - 桌面端 sm: 自动换行居中，不滚动
  */
 export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
   const [activeTab, setActiveTab] = useState<string>("全部");
@@ -53,12 +58,12 @@ export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
 
   return (
     <div>
-      {/* Tab 栏：移动端横向滚动，桌面居中 */}
-      <div className="sticky top-0 z-30 -mx-4 px-4 sm:mx-0 sm:px-0 bg-zinc-950/95 backdrop-blur-sm border-b border-zinc-900">
+      {/* Tab 栏：移动端吸顶在 Header(64px) 下方横向滚动；桌面端换行居中 */}
+      <div className="sticky top-16 z-40 -mx-4 px-4 sm:mx-0 sm:px-0 bg-zinc-950/95 backdrop-blur-sm border-b border-zinc-900">
         <div
           role="tablist"
           aria-label="升级项目分类"
-          className="flex gap-2 overflow-x-auto pb-3 pt-2 scrollbar-none sm:flex-wrap sm:justify-center sm:overflow-visible"
+          className="flex gap-2 overflow-x-auto pb-3 pt-2 scrollbar-hide sm:flex-wrap sm:justify-center sm:overflow-visible"
         >
           {categories.map((c) => (
             <button

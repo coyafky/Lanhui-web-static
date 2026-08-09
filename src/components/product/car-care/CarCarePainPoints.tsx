@@ -1,4 +1,4 @@
-import { Car, Wind, Eye } from "lucide-react";
+import { Car, Droplets, CircleDot } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { carCareScenarios } from "@/lib/car-care-products";
 import type { CarCareScenario } from "@/lib/car-care-products";
@@ -6,9 +6,8 @@ import { ChevronDown } from "lucide-react";
 
 const ICON_MAP: Record<CarCareScenario["icon"], LucideIcon> = {
   Car,
-  Wind,
-  Nose: Wind, // 用 Wind 代替嗅觉 icon
-  Eye,
+  Droplets,
+  CircleDot,
 };
 
 function ScenarioIcon({ icon }: { icon: CarCareScenario["icon"] }) {
@@ -29,21 +28,21 @@ export function CarCarePainPoints() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 lg:mb-10">
           <p className="text-xs tracking-widest mb-3 text-emerald-400 uppercase">
-            你遇到的是哪一种脏？
+            常见清洁需求
           </p>
           <h2
             id="carcare-pain-title"
             className="text-2xl md:text-3xl font-bold text-white"
           >
-            普通洗车能处理表面浮尘，但这些情况往往需要针对性清洁
+            从日常清洁到重点处理，按实际车况安排
           </h2>
-          <p className="mt-3 text-zinc-400 max-w-xl">
-            不是每辆车都需要深度清洁。先看看你的车况属于哪一类，再选择匹配的方案。
+          <p className="mt-3 text-zinc-300 max-w-xl leading-relaxed">
+            不同车况需要的清洁程度不同，我们会结合车辆状态说明适合的服务。
           </p>
         </div>
 
-        {/* Desktop: 4-column grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Desktop: 3-column grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-4 sm:gap-5">
           {carCareScenarios.map((scenario) => (
             <div
               key={scenario.id}
@@ -53,7 +52,7 @@ export function CarCarePainPoints() {
               <h3 className="mt-4 text-base font-semibold text-white">
                 {scenario.title}
               </h3>
-              <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+              <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
                 {scenario.description}
               </p>
             </div>
@@ -80,7 +79,7 @@ export function CarCarePainPoints() {
                 />
               </summary>
               <div className="px-5 pb-5 pl-[68px]">
-                <p className="text-sm text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-300 leading-relaxed">
                   {scenario.description}
                 </p>
               </div>

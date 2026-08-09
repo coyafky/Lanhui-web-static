@@ -128,3 +128,11 @@
     @apply font-sans;
   }
 }
+/* 隐藏横向滚动条（Tab 栏等横向滚动容器，Tailwind 4 无内置 scrollbar-none） */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
