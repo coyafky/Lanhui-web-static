@@ -83,7 +83,7 @@ export default function ProductCenter() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
 
-        {/* Phase 1: ProductHero — 车辆剪影 + 4 材质切片 + 11 品牌矩阵 */}
+        {/* Phase 1: ProductHero，真实服务画廊 + 4 材质切片 + 品牌矩阵 */}
         <ProductHero
           liveBrands={liveBrands}
           plannedCount={ALL_SERVICES.length}

@@ -199,9 +199,9 @@ export const electricStepVariantComparison: readonly ElectricStepVariantComparis
   },
   {
     aspect: "视觉风格",
-    noLight: "极致低调，与原车融为一体",
+    noLight: "低调融入，与原车融为一体",
     singleLight: "克制而有识别度",
-    largeLight: "迎宾氛围感最强",
+    largeLight: "迎宾氛围感更突出",
   },
   {
     aspect: "夜间价值",

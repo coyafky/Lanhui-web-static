@@ -423,7 +423,7 @@ export const products: Product[] = [
     group: "film",
     groupLabel: "汽车膜系",
     tagline: "选对膜，更要贴得对",
-    cardDescription: "TPU透明膜防刮自修复，剐蹭碎石都不怕。",
+    cardDescription: "TPU 透明膜具备自修复能力，可有效减轻轻微剐蹭与碎石冲击。",
     heroDescription:
       "隐形车衣以透明膜覆盖原车漆面，保护原厂车漆免受划痕、剐蹭、酸雨、水垢、鸟粪、树胶等日常伤害，适合新车车主及重视漆面保值的车主。",
     audience: ["新车车主", "高端车型车主", "重视保值率和漆面保护的车主"],
@@ -436,17 +436,17 @@ export const products: Product[] = [
       {
         title: "制造设备",
         description:
-          "美国进口流延与涂布设备，与龙膜/XP 同款专业设备；亚洲精选特色委托制造加工上市公司",
+          "高性能流延与涂布设备，配套成熟膜材制造供应链",
       },
       {
         title: "生产工艺",
         description:
-          "独创流延成膜核心生产工艺，金属交联自修复涂层，使膜面长期保持高抗污与修复功能",
+          "流延成膜生产工艺，配合金属交联自修复涂层，膜面具备良好的抗污与修复表现",
       },
       {
         title: "技术服务",
         description:
-          "系统用户服务保障体系、完善质保信息体系、平台数据安全保障体系、超10万个车型数据库裁膜软件，支持不动刀施工",
+          "完善的服务与质保体系、覆盖主流车型的裁膜数据库，支持不动刀施工",
       },
     ],
     process: PROCESS_TEMPLATE,
@@ -478,7 +478,7 @@ export const products: Product[] = [
         highlight: "专业团队 · 精准施工",
       },
       {
-        title: "新车是贴膜的最佳时机",
+        title: "新车是贴膜的推荐时机",
         description:
           "新车无划痕、无氧化层，是做漆面防护的理想阶段。提前装贴保护膜，能从源头隔绝各类轻微漆面损伤，不用频繁去做抛光、补漆修复，长期来看反而能省下不少养护成本。",
         highlight: "无划痕 · 无氧化层",
@@ -493,7 +493,7 @@ export const products: Product[] = [
         title: "材质只认脂肪族TPU",
         description:
           'PVC是\u201C毁容膜\u201D，选膜只认脂肪族TPU材质。厚度方面，7.5mil-8.5mil是最佳区间\u2014\u2014太薄防护不够，太厚影响贴合度和曲面表现。',
-        highlight: "7.5-8.5mil 最佳厚度",
+        highlight: "7.5-8.5mil 推荐厚度",
       },
       {
         title: "TPU材质是底线，佛山高温天尤其重要",

@@ -11,16 +11,16 @@ import { VehiclePageRenderer } from "@/components/vehicle-page";
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "小米 SU7 轻改项目｜车衣隔热膜Ultra机盖方向盘｜蓝辉轻改",
+  title: "小米 SU7 轻改项目｜车衣隔热膜运动机盖方向盘｜蓝辉轻改",
   description:
-    "蓝辉轻改提供小米 SU7 专属轻改方案参考，覆盖车衣、隔热膜、改色膜、360软包脚垫、底盘护板、氛围灯、仪表中置、电动尾翼、电动遮阳帘、Ultra机盖、Ultra方向盘、Ultra前后包围等 21 项轻改项目。",
+    "蓝辉轻改提供小米 SU7 专属轻改方案参考，覆盖车衣、隔热膜、改色膜、360软包脚垫、底盘护板、氛围灯、仪表中置、电动尾翼、电动遮阳帘、运动机盖、运动方向盘、运动包围等 21 项轻改项目。",
   alternates: {
     canonical: "/product/xiaomi/su7",
   },
   openGraph: {
-    title: "小米 SU7 轻改项目｜车衣隔热膜Ultra机盖方向盘｜蓝辉轻改",
+    title: "小米 SU7 轻改项目｜车衣隔热膜运动机盖方向盘｜蓝辉轻改",
     description:
-      "蓝辉轻改提供小米 SU7 专属轻改方案参考，覆盖车衣、隔热膜、改色膜、360软包脚垫、底盘护板、氛围灯、仪表中置、电动尾翼、电动遮阳帘、Ultra机盖、Ultra方向盘、Ultra前后包围等 21 项轻改项目。",
+      "蓝辉轻改提供小米 SU7 专属轻改方案参考，覆盖车衣、隔热膜、改色膜、360软包脚垫、底盘护板、氛围灯、仪表中置、电动尾翼、电动遮阳帘、运动机盖、运动方向盘、运动包围等 21 项轻改项目。",
     images: [
       {
         url: XIAOMI_SU7_HERO_IMAGE.publicPath,

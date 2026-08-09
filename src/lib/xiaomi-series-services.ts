@@ -67,7 +67,7 @@ export const xiaomiBaseServices: readonly XiaomiBaseService[] = [
     iconName: "CircleDot",
     title: "轮毂升级",
     painPoint:
-      "轮毂不能只看 Ultra 风格：尺寸、ET 值、重量、载荷等级、胎压监测、制动空间和能耗续航要一起核验；SU7 低底盘还要确认轮拱间隙，再结合驾驶需求确认方案。",
+      "轮毂不能只看 运动风格：尺寸、ET 值、重量、载荷等级、胎压监测、制动空间和能耗续航要一起核验；SU7 低底盘还要确认轮拱间隙，再结合驾驶需求确认方案。",
     suitableFor: "关注整车姿态、愿意先核对数据适配再决定的车主",
     href: "/product/wheels",
   },
@@ -143,7 +143,7 @@ export const xiaomiScenarioEntries: readonly XiaomiScenarioEntry[] = [
     id: "sport-style",
     iconName: "Zap",
     title: "运动个性",
-    description: "想要 Ultra 风格，又不想影响原车",
+    description: "想要 运动风格，又不想影响原车",
     serviceIds: ["car-film", "wheels"],
     recommendation:
       "改色膜或双拼配色先出效果，轮毂升级先核对尺寸、载荷与能耗数据；SU7 低底盘的前唇、侧裙项目会提前确认离地间隙和施工边界。",
@@ -287,7 +287,7 @@ export type XiaomiModelCopy = {
 export const XIAOMI_MODEL_COPY: Record<XiaomiModelEntryKey, XiaomiModelCopy> = {
   su7: {
     scenario:
-      "运动轿跑，已整理 12 个专车适配项目，覆盖新车保护、外观个性、驾驶触点与 Ultra 风格。",
+      "运动轿跑，已整理 12 个专车适配项目，覆盖新车保护、外观个性、驾驶触点与 运动风格。",
     topNeeds: ["车衣 / 隔热膜", "轮毂升级", "改色膜"],
   },
   yu7: {

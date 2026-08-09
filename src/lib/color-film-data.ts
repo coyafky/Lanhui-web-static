@@ -46,7 +46,7 @@ export const colorFilmSeriesRich: ColorFilmSeriesRich[] = [
     texture: "亮光",
     colorFamily: "粉紫",
     styleLabel: "柔和甜美",
-    description: "低饱和柔和色调，年轻不张扬，新能源车首选",
+    description: "低饱和柔和色调，年轻不张扬，受新能源车主欢迎",
   },
   {
     slug: "galaxy",

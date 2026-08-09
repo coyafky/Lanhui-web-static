@@ -30,7 +30,7 @@ export const xiaomiSu7PageConfig = {
     title: "小米 SU7 轻改升级方案",
     subtitle: "21 项升级项目 · 5 大用车场景",
     description:
-      "蓝辉轻改提供小米 SU7 专属轻改方案参考，覆盖车衣、隔热膜、改色膜、360软包脚垫、底盘护板、氛围灯、仪表中置、电动尾翼、电动遮阳帘、Ultra机盖、Ultra方向盘、Ultra前后包围等 21 项轻改项目。",
+      "蓝辉轻改提供小米 SU7 专属轻改方案参考，覆盖车衣、隔热膜、改色膜、360软包脚垫、底盘护板、氛围灯、仪表中置、电动尾翼、电动遮阳帘、运动风格机盖、运动风格方向盘、运动风格前后包围等 21 项轻改项目。",
     heroImage: {
       src: XIAOMI_SU7_HERO_IMAGE.publicPath,
       alt: XIAOMI_SU7_HERO_IMAGE.alt,

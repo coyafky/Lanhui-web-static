@@ -62,7 +62,7 @@ export const stores: Store[] = [
     businessHours: "09:00-18:00",
     image: "/images/stores/image.webp",
     description:
-      "蓝辉轻改旗舰服务中心，位于顺德大良，提供轻改装备与汽车膜系施工服务。",
+      "蓝辉轻改服务中心，位于顺德大良，提供轻改装备与汽车膜系施工服务。",
     level: "flagship",
     isActive: true,
   },

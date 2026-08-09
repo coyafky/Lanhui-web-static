@@ -85,6 +85,9 @@ export function WindowFilmPackageCard({
             <span>质保 {pkg.warranty}</span>
           </div>
         </div>
+        <p className="text-[10px] text-zinc-600 leading-relaxed mb-4">
+          * 阻隔率等参数以品牌方检测报告为准，实际效果因车型与施工环境而异
+        </p>
 
         {/* CTA */}
         {isFeatured ? (

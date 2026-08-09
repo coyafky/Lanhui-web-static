@@ -2,16 +2,16 @@
  * ProductHero — /product 入口页 Hero 容器
  *
  * 视觉构成：
- * - 左侧 60%（desktop）：车辆剪影 + 4 材质切片
+ * - 左侧 60%（desktop）：真实服务画廊 + 4 材质切片
  * - 右侧 40%（desktop）：文案（eyebrow + H1 + 副标题）+ 11 品牌矩阵
  *
- * 移动端：垂直堆叠（车辆剪影 → 文案 → 材质切片 → 品牌矩阵）
+ * 移动端：垂直堆叠（文案 → 真实服务画廊 → 材质切片）
  *
  * 这是 PRD v3 Phase 1 的入口视觉块。后续 phase 会接 StickyTabBar 和三大业务地图。
  */
 
+import Image from "next/image";
 import Link from "next/link";
-import { VehicleSilhouette } from "./VehicleSilhouette";
 import { MaterialSlice, type MaterialKey } from "./MaterialSlice";
 import { BrandMatrixMap } from "./BrandMatrixMap";
 import type { VehicleBrandRoute } from "@/lib/product-routes";
@@ -57,13 +57,36 @@ export function ProductHero({ liveBrands, plannedCount, breadcrumbItems }: Props
 
         {/* Desktop 双栏 / Mobile 单栏 */}
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-          {/* 左侧：车辆剪影 + 4 材质切片 */}
+          {/* 左侧：真实服务画廊 + 4 材质切片 */}
           <div className="lg:col-span-3 order-2 lg:order-1">
-            {/* 车辆剪影 */}
-            <div className="relative aspect-[5/2] max-h-[280px] text-zinc-600">
-              <VehicleSilhouette variant="suv" className="w-full h-full" />
-              <div className="absolute top-3 left-3 text-[10px] tracking-widest text-zinc-600 uppercase">
-                车型方案示意
+            <div className="grid aspect-[4/3] max-h-[420px] grid-cols-5 grid-rows-2 gap-2 overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900 p-2 shadow-2xl shadow-black/30 sm:aspect-[5/2]">
+              <div className="relative col-span-3 row-span-2 overflow-hidden rounded-xl">
+                <Image
+                  src="/images/producthero/ppf-hero.webp"
+                  alt="蓝辉轻改汽车车衣施工"
+                  fill
+                  preload
+                  sizes="(max-width: 1023px) 60vw, 36vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative col-span-2 overflow-hidden rounded-xl">
+                <Image
+                  src="/images/producthero/window-film-hero.webp"
+                  alt="蓝辉轻改汽车窗膜施工"
+                  fill
+                  sizes="(max-width: 1023px) 40vw, 24vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative col-span-2 overflow-hidden rounded-xl">
+                <Image
+                  src="/images/producthero/wheels-hero.webp"
+                  alt="新能源车轮毂升级效果"
+                  fill
+                  sizes="(max-width: 1023px) 40vw, 24vw"
+                  className="object-cover"
+                />
               </div>
             </div>
 

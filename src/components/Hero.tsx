@@ -22,13 +22,13 @@ export function Hero() {
             {brand.en} · 汽车轻改装
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-4 leading-tight text-white max-w-full break-words">
-            {brand.zh}
+            蓝辉轻改 LANHUI · 汽车轻改装与车身膜服务
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 mt-2 max-w-full break-words leading-snug">
-            源头工厂制造能力,新能源车主一站式升级服务
+            新能源车主一站式汽车轻改升级服务
           </p>
           <p className="text-base sm:text-lg md:text-xl text-zinc-300 mb-10 leading-relaxed max-w-full break-words">
-            依托 800 亩制造厂区与轻改产品供应链,蓝辉轻改围绕汽车膜、轮毂、电动踏板、地板总成、改装件等产品,为新能源车主提供车型适配、产品推荐与到店施工服务。
+            蓝辉轻改围绕汽车膜、轮毂、电动踏板、地板总成、改装件等产品，为新能源车主提供车型适配、产品推荐与到店施工服务，当前门店位于佛山顺德大良。
           </p>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
             <WeChatConsultButton />

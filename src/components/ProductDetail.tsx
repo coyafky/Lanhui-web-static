@@ -338,9 +338,9 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
         {product.slug === "ppf" && product.series && (() => {
           const tiers = [
             { label: "入门防护", desc: "基础漆面保护，性价比之选", slugs: ["pixiu", "qinglong"] },
-            { label: "均衡之选", desc: "性能与价格的最佳平衡", slugs: ["baihu", "zhuque"] },
+            { label: "均衡之选", desc: "性能与价格的均衡之选", slugs: ["baihu", "zhuque"] },
             { label: "高防护", desc: "更强防护，适合高端车型", slugs: ["xuanwu", "fenghuang"] },
-            { label: "旗舰", desc: "顶级材质，全方位漆面守护", slugs: ["qilin", "zhulong"] },
+            { label: "旗舰", desc: "高规格材质，全面漆面守护", slugs: ["qilin", "zhulong"] },
           ];
           const seriesMap = new Map(product.series.map(s => [s.slug, s]));
 
@@ -526,6 +526,9 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
                     ))}
                   </tbody>
                 </table>
+                <p className="mt-3 text-xs text-zinc-600">
+                  * 阻隔率、厚度等参数以品牌方检测报告为准，实际效果因车型与施工环境而异。
+                </p>
               </div>
             </div>
           </section>
