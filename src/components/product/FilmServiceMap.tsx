@@ -3,7 +3,7 @@
  *
  * PRD v3 §4.3.1。视觉差异化：
  * - 背景: linear-gradient(135deg, cyan-400/10 0%, transparent 60%) + backdrop-blur-md
- * - 卡片: 半透明膜片 (border cyan-800/50, bg cyan-950/20) + 内嵌 4-6 条光透射线
+ * - 卡片：半透明膜片 (border cyan-800/50, bg cyan-950/20) + 内嵌 4-6 条光透射线
  * - Hover: backdrop-blur-xl + 1.02 scale, 200ms ease-out-expo
  * - 3 列紧凑网格, P0 live film 服务 (ppf / window-film / color-film)
  *

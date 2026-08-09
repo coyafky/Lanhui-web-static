@@ -5,7 +5,7 @@
  *  1. name -> 转拼音(用 pinyin-pro,带 tone 风格)
  *  2. 转小写、替换非 [a-z0-9]+ 为 -,去除首尾 -,限制 60 字符
  *  3. 若转换后为空(纯特殊字符/中文标点等),fallback 到 cuid
- *  4. 与 existingSlugs 比对: 重名追加 -2, -3, ..., -99
+ *  4. 与 existingSlugs 比对：重名追加 -2, -3, ..., -99
  *  5. 重试 5 次失败后 fallback cuid 后缀
  */
 
@@ -36,7 +36,7 @@ export function toBaseSlug(name: string): string {
   return cleaned;
 }
 
-/** 生成不与 existingSlugs 冲突的唯一 slug;最多 5 次重试,之后 fallback cuid 后缀 */
+/** 生成不与 existingSlugs 冲突的唯一 slug;最多 5 次重试，之后 fallback cuid 后缀 */
 export function generateStoreSlug(
   name: string,
   existingSlugs: ReadonlyArray<string>,
@@ -51,7 +51,7 @@ export function generateStoreSlug(
       return candidate;
     }
   }
-  // 兜底 cuid 后缀;截断 base 保证总长度 ≤ 60
+  // 兜底 cuid 后缀；截断 base 保证总长度 ≤ 60
   const cuidTail = shortId().toLowerCase().slice(0, 8);
   const prefixMax = MAX_SLUG_LENGTH - cuidTail.length - 1;
   return `${base.slice(0, prefixMax)}-${cuidTail}`;

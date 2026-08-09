@@ -7,7 +7,7 @@
  * - ZeekrImageWidth / Height / AspectRatio 用字面量类型,TS 编译期禁止图片规格漂移。
  * - matched 产品的 image 字段全部必填,missing/pending-review 全部 null。
  * - 23 个产品行(9X 16 + 8X 6 + 009 1),totalProducts/totalModels 也是字面量。
- * - 不引用微信缓存路径,所有 publicPath 以 /images/products/zeekr/ 开头。
+ * - 不引用微信缓存路径，所有 publicPath 以 /images/products/zeekr/ 开头。
  *
  * name vs rawName (§6.5 清洗规则):
  * - name: 前端展示的清洗后名称(去掉多余空格)
@@ -45,7 +45,7 @@ export interface ZeekrProductImage {
   /** matched 时为 /images/products/zeekr/... 路径;pending-review/missing 时为 null */
   publicPath: string | null;
   alt: string;
-  /** matched 时必填,字面量;pending-review/missing 时为 null(为业务后续补图留口子) */
+  /** matched 时必填，字面量;pending-review/missing 时为 null(为业务后续补图留口子) */
   width: ZeekrImageWidth | null;
   height: ZeekrImageHeight | null;
   aspectRatio: ZeekrImageAspectRatio | null;
@@ -68,8 +68,8 @@ export interface ZeekrProduct {
 export interface ZeekrTopicMeta {
   title: string;
   description: string;
-  totalProducts: 23; // 字面量,禁止漂移
-  totalModels: 3; // 字面量,禁止漂移
+  totalProducts: 23; // 字面量，禁止漂移
+  totalModels: 3; // 字面量，禁止漂移
   previewImage: string;
   ogImage: string;
 }
@@ -145,7 +145,7 @@ function product(
 }
 
 /**
- * 简易 slug 化:中文保留(无法转 ASCII),仅处理英文/数字/空格/标点
+ * 简易 slug 化：中文保留(无法转 ASCII),仅处理英文/数字/空格/标点
  * 用于根据展示名生成 ASCII 文件名(与 migrate-zeekr-images.mjs 实际命名对齐)
  */
 function slugify(name: string): string {
@@ -176,7 +176,7 @@ function slugify(name: string): string {
   const cleaned = name.replace(/[\s+]/g, "");
   if (manualSlugs[cleaned]) return manualSlugs[cleaned]!;
 
-  // 兜底:pinyin 不可靠,直接返回 hex hash(避免空 slug)
+  // 兜底:pinyin 不可靠，直接返回 hex hash(避免空 slug)
   return `unknown-${simpleHash(cleaned)}`;
 }
 
@@ -321,7 +321,7 @@ export const zeekrProducts: ZeekrProduct[] = [
     "matched",
     matchedImage("9X", 14, "三段式方向盘"),
   ),
-  // 行 15:源 `后备箱储物.webp` 与 PRD 命名 `后备箱储物盒` 差异,需业务核对
+  // 行 15:源 `后备箱储物.webp` 与 PRD 命名 `后备箱储物盒` 差异，需业务核对
   product(
     "9X",
     15,
@@ -342,7 +342,7 @@ export const zeekrProducts: ZeekrProduct[] = [
   ),
 
   // ===== 8X — 6 款(PRD §6.3 行 1-6)=====
-  // 行 1 源文件名 `尾箱垫 7件套` 含 1 空格,清洗为 `尾箱垫7件套`
+  // 行 1 源文件名 `尾箱垫 7件套` 含 1 空格，清洗为 `尾箱垫7件套`
   product(
     "8X",
     1,
@@ -352,7 +352,7 @@ export const zeekrProducts: ZeekrProduct[] = [
     "matched",
     matchedImage("8X", 1, "尾箱垫7件套"),
   ),
-  // 行 2 源文件名 `挡泥板+内衬  6件套` 含 2 空格,清洗为 `挡泥板+内衬6件套`
+  // 行 2 源文件名 `挡泥板+内衬  6件套` 含 2 空格，清洗为 `挡泥板+内衬6件套`
   product(
     "8X",
     2,
@@ -400,7 +400,7 @@ export const zeekrProducts: ZeekrProduct[] = [
   ),
 
   // ===== 009 — 1 款(PRD §6.4 行 1)=====
-  // 源文件名 `1-borad.webp` 是 `board` 拼写错误,产品全名「地板+尾箱地板」
+  // 源文件名 `1-borad.webp` 是 `board` 拼写错误，产品全名「地板+尾箱地板」
   product(
     "009",
     1,
@@ -445,7 +445,7 @@ export const zeekrModelSubdir: Record<ZeekrModel, string> = {
 export const zeekrTopicMeta: ZeekrTopicMeta = {
   title: "极氪改装专题",
   description:
-    "覆盖极氪 9X、极氪 8X、极氪 009 三款车型共 23 款改装配件,按车型适配,座舱与尾箱统一升级,防护与便利并重。",
+    "覆盖极氪 9X、极氪 8X、极氪 009 三款车型共 23 款改装配件，按车型适配，座舱与尾箱统一升级，防护与便利并重。",
   totalProducts: 23,
   totalModels: 3,
   previewImage: "/images/products/zeekr/preview.webp",

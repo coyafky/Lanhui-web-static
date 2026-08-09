@@ -443,7 +443,7 @@ export const ledaoL90Scenarios: readonly LedaoL90Scenario[] = [
   {
     id: "new-car-protection",
     name: "新车保护",
-    description: "适合刚提车用户,优先解决保护和日常使用问题",
+    description: "适合刚提车用户，优先解决保护和日常使用问题",
     projectIds: [
       "ledao-l90-ppf",
       "ledao-l90-window-film",
@@ -542,7 +542,7 @@ export const ledaoL90ServiceSteps: readonly LedaoL90ServiceStep[] = [
 export const ledaoL90Faq: readonly LedaoL90FaqItem[] = [
   {
     question: "是否所有乐道 L90 都能安装?",
-    answer: "不同批次和配置可能不同,需到店确认。",
+    answer: "不同批次和配置可能不同，需到店确认。",
   },
   {
     question: "新车最推荐先做哪些项目?",
@@ -554,11 +554,11 @@ export const ledaoL90Faq: readonly LedaoL90FaqItem[] = [
   },
   {
     question: "可以只做单个项目吗?",
-    answer: "可以,页面只是组合参考。",
+    answer: "可以，页面只是组合参考。",
   },
   {
     question: "是否影响原车质保?",
-    answer: "不做承诺,以车主车辆情况和项目评估为准。",
+    answer: "不做承诺，以车主车辆情况和项目评估为准。",
   },
   {
     question: "工期多久?",

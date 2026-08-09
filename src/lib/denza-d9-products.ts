@@ -173,7 +173,7 @@ export const denzaD9UpgradeProjects: readonly DenzaD9UpgradeProject[] = [
     order: 7,
     name: "平衡杆",
     category: "handling",
-    summary: "提升车身支撑和驾驶稳定感,需到店评估",
+    summary: "提升车身支撑和驾驶稳定感，需到店评估",
     suitableFor: ["关注驾驶稳定感的车主"],
     caution: "需到店评估",
     imageStatus: "product-preview",
@@ -185,7 +185,7 @@ export const denzaD9UpgradeProjects: readonly DenzaD9UpgradeProject[] = [
     order: 8,
     name: "amxt包围",
     category: "exterior_parts",
-    summary: "强化前后包围视觉,提升整车辨识度",
+    summary: "强化前后包围视觉，提升整车辨识度",
     suitableFor: ["追求运动外观的车主"],
     caution: "需确认版本适配",
     imageStatus: "product-preview",
@@ -197,7 +197,7 @@ export const denzaD9UpgradeProjects: readonly DenzaD9UpgradeProject[] = [
     order: 9,
     name: "bskt运动包围",
     category: "exterior_parts",
-    summary: "更运动化的外观风格,需确认版本适配",
+    summary: "更运动化的外观风格，需确认版本适配",
     suitableFor: ["追求运动外观的车主"],
     caution: "需确认版本适配",
     imageStatus: "product-preview",
@@ -253,7 +253,7 @@ export const denzaD9UpgradeProjects: readonly DenzaD9UpgradeProject[] = [
     order: 14,
     name: "抬头显示",
     category: "infotainment",
-    summary: "行车信息显示便利,提升驾驶体验",
+    summary: "行车信息显示便利，提升驾驶体验",
     suitableFor: ["关注科技便利的车主"],
     caution: "需确认安装位",
     imageStatus: "product-preview",
@@ -265,7 +265,7 @@ export const denzaD9UpgradeProjects: readonly DenzaD9UpgradeProject[] = [
     order: 15,
     name: "吸顶电视",
     category: "infotainment",
-    summary: "后排影音娱乐,适合家庭和商务场景",
+    summary: "后排影音娱乐，适合家庭和商务场景",
     suitableFor: ["家庭用户", "商务接待场景"],
     imageStatus: "product-preview",
     image: generatedImage("ceiling-screen.webp", "吸顶电视"),
@@ -367,7 +367,7 @@ export const denzaD9Scenarios: readonly DenzaD9Scenario[] = [
   {
     id: "new-car-protection",
     name: "新车保护",
-    description: "适合刚提车用户,优先解决保护和日常使用问题",
+    description: "适合刚提车用户，优先解决保护和日常使用问题",
     projectIds: [
       "denza-d9-ppf",
       "denza-d9-window-film",
@@ -451,7 +451,7 @@ export const denzaD9ServiceSteps: readonly DenzaD9ServiceStep[] = [
   {
     order: 4,
     title: "施工安装",
-    description: "按项目标准施工,过程保护车辆",
+    description: "按项目标准施工，过程保护车辆",
   },
   {
     order: 5,
@@ -469,7 +469,7 @@ export const denzaD9ServiceSteps: readonly DenzaD9ServiceStep[] = [
 export const denzaD9Faq: readonly DenzaD9FaqItem[] = [
   {
     question: "是否所有腾势 D9 都能安装?",
-    answer: "不同年份和配置可能不同,需到店确认。",
+    answer: "不同年份和配置可能不同，需到店确认。",
   },
   {
     question: "新车最推荐先做哪些项目?",
@@ -481,11 +481,11 @@ export const denzaD9Faq: readonly DenzaD9FaqItem[] = [
   },
   {
     question: "可以只做单个项目吗?",
-    answer: "可以,页面只是组合参考。",
+    answer: "可以，页面只是组合参考。",
   },
   {
     question: "是否影响原车质保?",
-    answer: "不做承诺,以车主车辆情况和项目评估为准。",
+    answer: "不做承诺，以车主车辆情况和项目评估为准。",
   },
   {
     question: "工期多久?",

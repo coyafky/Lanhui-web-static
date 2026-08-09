@@ -1,7 +1,7 @@
 ---
 title: 新能源汽车窗膜怎么选？看懂隔热参数再下单
 slug: new-energy-window-film-guide
-description: 新能源车主选窗膜,重点看总太阳能阻隔率、紫外线阻隔率与可见光透过率三项参数。本文用通俗语言讲清参数含义与选购要点,附顺德门店实测建议。
+description: 新能源车主选窗膜，重点看总太阳能阻隔率、紫外线阻隔率与可见光透过率三项参数。本文用通俗语言讲清参数含义与选购要点，附顺德门店实测建议。
 category: 窗膜
 publishedAt: 2026-08-08
 featuredImage: /images/producthero/window-film-hero.webp

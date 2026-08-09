@@ -53,7 +53,7 @@ export interface XpengGxUpgradeProject {
   readonly summary: string;
   /** 适合人群 */
   readonly suitableFor: readonly string[];
-  /** 注意事项 (可选, 电动门必填) */
+  /** 注意事项 (可选，电动门必填) */
   readonly caution?: string;
   readonly imageStatus: XpengGxImageStatus;
   readonly image: XpengGxProductImage;
@@ -138,7 +138,7 @@ export const xpengGxUpgradeProjects: readonly XpengGxUpgradeProject[] = [
     name: "彩绘",
     category: "appearance",
     saleStatus: "available",
-    summary: "主题化车身视觉表达,提升辨识度",
+    summary: "主题化车身视觉表达，提升辨识度",
     suitableFor: ["追求个性化外观的车主"],
     imageStatus: "product-preview",
     image: generatedImage("graphic-wrap.webp", "彩绘"),
@@ -150,7 +150,7 @@ export const xpengGxUpgradeProjects: readonly XpengGxUpgradeProject[] = [
     name: "改色膜",
     category: "appearance",
     saleStatus: "available",
-    summary: "改变车身视觉风格,满足个性化表达",
+    summary: "改变车身视觉风格，满足个性化表达",
     suitableFor: ["希望低成本换色的车主"],
     imageStatus: "product-preview",
     image: generatedImage("color-change-film.webp", "改色膜"),
@@ -164,7 +164,7 @@ export const xpengGxUpgradeProjects: readonly XpengGxUpgradeProject[] = [
     saleStatus: "preorder",
     summary: "电动开闭便利和科技感",
     suitableFor: ["关注科技便利的车主"],
-    caution: "项目处于预售或待确认状态,需到店确认排期和适配",
+    caution: "项目处于预售或待确认状态，需到店确认排期和适配",
     imageStatus: "product-preview",
     image: generatedImage("electric-door.webp", "电动门"),
     sourceArea: "poster_project_matrix",
@@ -175,7 +175,7 @@ export const xpengGxUpgradeProjects: readonly XpengGxUpgradeProject[] = [
     name: "平衡杆",
     category: "chassis",
     saleStatus: "available",
-    summary: "车身支撑和驾驶稳定感,需到店评估",
+    summary: "车身支撑和驾驶稳定感，需到店评估",
     suitableFor: ["关注驾驶稳定感的车主"],
     caution: "需到店评估",
     imageStatus: "product-preview",
@@ -188,7 +188,7 @@ export const xpengGxUpgradeProjects: readonly XpengGxUpgradeProject[] = [
     name: "底盘护板",
     category: "chassis",
     saleStatus: "available",
-    summary: "保护底部关键区域,适合新车基础防护",
+    summary: "保护底部关键区域，适合新车基础防护",
     suitableFor: ["新车用户", "路况复杂用车环境"],
     imageStatus: "product-preview",
     image: generatedImage("underbody-skid-plate.webp", "底盘护板"),
@@ -285,7 +285,7 @@ export const xpengGxUpgradeProjects: readonly XpengGxUpgradeProject[] = [
     name: "牌照框",
     category: "appearance",
     saleStatus: "available",
-    summary: "优化车头/车尾细节,提升视觉完整度",
+    summary: "优化车头/车尾细节，提升视觉完整度",
     suitableFor: ["关注外观细节的车主"],
     imageStatus: "product-preview",
     image: generatedImage("license-plate-frame.webp", "牌照框"),
@@ -298,7 +298,7 @@ export const xpengGxScenarios: readonly XpengGxScenario[] = [
   {
     key: "scenario-new-car-protection",
     name: "新车保护",
-    description: "适合刚提车用户,优先解决保护和日常使用问题",
+    description: "适合刚提车用户，优先解决保护和日常使用问题",
     projectIds: [
       "xpeng-gx-ppf",
       "xpeng-gx-window-film",
@@ -322,7 +322,7 @@ export const xpengGxScenarios: readonly XpengGxScenario[] = [
   {
     key: "scenario-electric-convenience",
     name: "电动便利",
-    description: "强调科技便利,必须提示预售和适配确认",
+    description: "强调科技便利，必须提示预售和适配确认",
     projectIds: ["xpeng-gx-electric-door"],
   },
   {
@@ -345,7 +345,7 @@ export const xpengGxScenarios: readonly XpengGxScenario[] = [
   {
     key: "scenario-cabin-care",
     name: "座舱维护",
-    description: "降低高频使用磨损,保持车内质感",
+    description: "降低高频使用磨损，保持车内质感",
     projectIds: [
       "xpeng-gx-floor-mats",
       "xpeng-gx-door-sill",
@@ -413,7 +413,7 @@ export const xpengGxServiceSteps: readonly XpengGxServiceStep[] = [
   {
     step: 5,
     title: "施工安装",
-    description: "按项目标准施工,并做好车身和内饰保护",
+    description: "按项目标准施工，并做好车身和内饰保护",
   },
   {
     step: 6,
@@ -431,7 +431,7 @@ export const xpengGxServiceSteps: readonly XpengGxServiceStep[] = [
 export const xpengGxFaq: readonly XpengGxFaqItem[] = [
   {
     question: "小鹏 GX 的这些项目是否都能安装?",
-    answer: "不同年份、版本和配置可能不同,需到店评估确认。",
+    answer: "不同年份、版本和配置可能不同，需到店评估确认。",
   },
   {
     question: "新车最推荐先做什么?",
@@ -440,7 +440,7 @@ export const xpengGxFaq: readonly XpengGxFaqItem[] = [
   },
   {
     question: "电动门为什么标注预售?",
-    answer: "表示项目处于预售或待确认状态,需到店确认排期和适配。",
+    answer: "表示项目处于预售或待确认状态，需到店确认排期和适配。",
   },
   {
     question: "外观个性项目有哪些?",
@@ -452,11 +452,11 @@ export const xpengGxFaq: readonly XpengGxFaqItem[] = [
   },
   {
     question: "可以只做单个项目吗?",
-    answer: "可以,页面项目既支持单项了解,也支持组合方案。",
+    answer: "可以，页面项目既支持单项了解，也支持组合方案。",
   },
   {
     question: "是否影响原车质保?",
-    answer: "不做不影响质保的承诺,具体以车辆情况和项目评估为准。",
+    answer: "不做不影响质保的承诺，具体以车辆情况和项目评估为准。",
   },
   {
     question: "工期多久?",
@@ -474,7 +474,7 @@ export const XPENG_GX_CATEGORY_LABELS: Readonly<Record<XpengGxCategory, string>>
   cabin_care: "座舱维护",
 } as const;
 
-// ---- Runtime 断言 (开发期触发, 复制自 SPEC §2.3) ----
+// ---- Runtime 断言 (开发期触发，复制自 SPEC §2.3) ----
 function assertXpengGxDataShape(): void {
   if (xpengGxUpgradeProjects.length !== 15) {
     throw new Error(

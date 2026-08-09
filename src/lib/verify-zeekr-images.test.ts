@@ -67,14 +67,14 @@ describe("PRD §8.6 verify-zeekr-images 集成行为", () => {
     mkdirSync(dirname(injected), { recursive: true });
     copyFileSync(src, injected);
 
-    // 改大小写或扩展名绕过命名规则:这里直接 overwrite 文件大小(>3MB 不行)
-    // 简单办法:在文件名前加 "BadName!" 字符
+    // 改大小写或扩展名绕过命名规则：这里直接 overwrite 文件大小(>3MB 不行)
+    // 简单办法：在文件名前加 "BadName!" 字符
     const badName = join(scanRoot, "9x/_bad-name-!.webp");
     copyFileSync(src, badName);
 
     try {
       const result = runScript();
-      // 失败时总数=22 ≠ 21,会先报总数错;不论哪种,必须 exit 1
+      // 失败时总数=22 ≠ 21,会先报总数错；不论哪种，必须 exit 1
       expect(result.status, `expected exit 1, got ${result.status}`).toBe(1);
       // stderr 应包含 [FAIL] 或 [ERROR]
       const combined = (result.stdout ?? "") + (result.stderr ?? "");

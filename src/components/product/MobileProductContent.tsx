@@ -4,10 +4,10 @@
  * MobileProductContent — 移动端分段切换 + 桌面端平铺
  *
  * PRD v3 §4.4:
- * - 移动端 (< 768px): StickyTabBar 显示, 仅 active tab 内容可见
+ * - 移动端 (< 768px): StickyTabBar 显示，仅 active tab 内容可见
  * - 桌面端 (≥ 768px): StickyTabBar 隐藏 (md:hidden), 内容区块平铺
  *
- * 用法: 父组件按 tabs 顺序传入 ReactNode
+ * 用法：父组件按 tabs 顺序传入 ReactNode
  * 注意: children 顺序必须与 tabs 顺序一致
  */
 

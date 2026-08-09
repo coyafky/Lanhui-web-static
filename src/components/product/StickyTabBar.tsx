@@ -10,8 +10,8 @@
  * - z-index: z-50
  * - 背景: zinc-950/80 backdrop-blur-md
  * - Tab 数: 3 (按车型 / 按项目 / 组合)
- * - Active 标识: 下划线 4px, 对应业务色
- * - 状态: useState 本地, 不持久化
+ * - Active 标识：下划线 4px, 对应业务色
+ * - 状态: useState 本地，不持久化
  *
  * 配套 MobileProductContent 使用 — 桌面端 md:hidden, 移动端 sticky
  */

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "蓝辉轻改专注汽车轻改装与车身膜服务，提供电动踏板、轮毂、底盘升级、汽车窗膜、改色膜、隐形车衣等一站式方案，当前服务门店为顺德大良店。",
   keywords:
-    "蓝辉轻改, LANHUI, 汽车轻改, 电动踏板, 轮毂升级, 底盘升级, 汽车窗膜, 改色膜, 隐形车衣, 顺德大良汽车改装",
+    "蓝辉轻改, LANHUI, 汽车轻改，电动踏板，轮毂升级，底盘升级，汽车窗膜，改色膜，隐形车衣，顺德大良汽车改装",
   icons: {
     icon: [
       { url: "/favicon/favicon.ico", sizes: "any" },

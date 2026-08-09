@@ -8,7 +8,7 @@
  *  3. 外观姿态升级 (sparkles / pink)
  *  4. 日常实用防护 (wrench / amber)
  *
- * 设计: 2x2 网格, 每张卡片左 icon + 右侧 title/desc/includes/suitableFor
+ * 设计: 2x2 网格，每张卡片左 icon + 右侧 title/desc/includes/suitableFor
  * 替换 Phase 3 的 CombosPlaceholder
  */
 
@@ -65,7 +65,7 @@ export function RecommendationCombos() {
             围绕用车场景的升级组合
           </h2>
           <p className="text-zinc-400 text-sm md:text-base">
-            以到店沟通为准。常用组合已纳入服务流程,具体方案欢迎到店。
+            以到店沟通为准。常用组合已纳入服务流程，具体方案欢迎到店。
           </p>
         </div>
 

@@ -71,7 +71,7 @@ describe("PRD §6.2/§6.3/§6.4 车型分组", () => {
     });
   }
 
-  it("9X 的 orderInModel = 1..16 各 1 条,无重复", () => {
+  it("9X 的 orderInModel = 1..16 各 1 条，无重复", () => {
     const orders9x = zeekrProducts
       .filter((p) => p.model === "9X")
       .map((p) => p.orderInModel)
@@ -79,7 +79,7 @@ describe("PRD §6.2/§6.3/§6.4 车型分组", () => {
     expect(orders9x).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
   });
 
-  it("8X 的 orderInModel = 1..6 各 1 条,无重复", () => {
+  it("8X 的 orderInModel = 1..6 各 1 条，无重复", () => {
     const orders8x = zeekrProducts
       .filter((p) => p.model === "8X")
       .map((p) => p.orderInModel)

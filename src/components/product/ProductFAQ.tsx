@@ -7,7 +7,7 @@
  * 分类: general / service / vehicle / compliance
  *
  * "use client" 因为需要 useState 管理展开状态
- * 实现: 单展开模式 (展开一项自动收起其他) — 减少视觉噪音
+ * 实现：单展开模式 (展开一项自动收起其他) — 减少视觉噪音
  */
 
 import { useState } from "react";

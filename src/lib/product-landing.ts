@@ -5,7 +5,7 @@
  * - ProductCombo: 4 个推荐组合 (围绕用车场景)
  * - ProductFAQ: 5 个常见问题 (general / service / vehicle / compliance)
  *
- * 静态数据 — 不需要从 DB 加载, 跟 products.ts 一样按关注点分文件
+ * 静态数据 — 不需要从 DB 加载，跟 products.ts 一样按关注点分文件
  */
 
 export type ProductComboSlug =

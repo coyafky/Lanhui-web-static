@@ -33,7 +33,7 @@ const SLICE_TO_HREF: Record<MaterialKey, string> = {
 
 const SLICE_KEYS: readonly MaterialKey[] = ["ppf", "window-film", "wheel", "step"];
 
-export function ProductHero({ liveBrands, plannedCount, breadcrumbItems }: Props) {
+export function ProductHero({ liveBrands, breadcrumbItems }: Props) {
   return (
     <section
       className="relative bg-zinc-950 text-white overflow-hidden border-b border-zinc-900"
@@ -110,34 +110,34 @@ export function ProductHero({ liveBrands, plannedCount, breadcrumbItems }: Props
             >
               产品中心
             </h1>
-            <p className="text-base md:text-lg text-zinc-400 mb-8 leading-relaxed">
-              按车型找方案，按项目看服务。
+            <p className="text-base md:text-lg text-zinc-300 mb-8 leading-relaxed">
+              按车型匹配方案，按项目选择服务。
               <br className="hidden md:block" />
-              蓝辉轻改围绕新能源车主的用车场景，
+              蓝辉轻改专注新能源车型的汽车膜系与轻改装备，
               <br className="hidden md:block" />
-              提供汽车膜系、轻改装备与车型专属升级方案。
+              提供产品选型、车型适配、专业施工一站式升级服务。
             </p>
 
             {/* 11 品牌矩阵 */}
             <div className="mb-4">
               <p className="text-xs tracking-widest text-zinc-500 mb-3 uppercase">
-                车型方案地图 · {liveBrands.length} 品牌{liveBrands.length + plannedCount > liveBrands.length ? ` · ${liveBrands.length + plannedCount} 含整理中` : ""}
+                车型方案地图 · {liveBrands.length} 品牌
               </p>
               <BrandMatrixMap brands={liveBrands} />
             </div>
 
             {/* 双入口提示 */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs text-zinc-500">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-zinc-300 lg:hidden">
               <Link
                 href="#vehicle-topics"
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-zinc-800 hover:border-zinc-700 transition-colors"
+                className="inline-flex min-h-11 items-center gap-1 rounded-full border border-zinc-700 px-4 py-2 transition-colors hover:border-zinc-600 hover:text-white"
               >
                 按车型找
                 <span aria-hidden="true">→</span>
               </Link>
               <Link
                 href="#service-projects"
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-zinc-800 hover:border-zinc-700 transition-colors"
+                className="inline-flex min-h-11 items-center gap-1 rounded-full border border-zinc-700 px-4 py-2 transition-colors hover:border-zinc-600 hover:text-white"
               >
                 按项目看
                 <span aria-hidden="true">→</span>

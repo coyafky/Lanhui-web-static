@@ -7,7 +7,7 @@
  * - 背景: radial-gradient 模拟紫色辉光
  * - 卡片: 11 品牌色块矩阵 + 3 重点品牌 (wenjie/xiaomi/zeekr) 放大显示
  * - Hover: 色块放大 + 第一人称文案浮现 ("我是 [品牌] 车主")
- * - 视角: 车主第一人称 (与 Film/LightMod 的"项目"视角对照)
+ * - 视角：车主第一人称 (与 Film/LightMod 的"项目"视角对照)
  * - 文案: "我是 [品牌] 车主" / 实际车型
  *
  * "use client" 因为需要 useState 管理 hover 状态

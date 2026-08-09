@@ -3,7 +3,7 @@
  *
  * PRD v3 §4.3.2。视觉差异化（与 FilmServiceMap 完全不同）：
  * - 背景: repeating-linear-gradient 模拟金属拉丝纹理
- * - 卡片: 厚边框 border-2 + 内阴影 + 4 角螺丝孔点装饰
+ * - 卡片：厚边框 border-2 + 内阴影 + 4 角螺丝孔点装饰
  * - Hover: 边框颜色由 orange-700/40 → orange-500 + 金属反光扫过
  * - 2 列大卡片（少而精，强调金属装备感）
  * - P0 live light_mod 服务 (electric-steps / wheels / chassis)
@@ -39,7 +39,7 @@ export function LightModMap({ services }: Props) {
       aria-labelledby="lightmod-map-title"
       className="relative overflow-hidden rounded-3xl border-2 border-orange-900/40 bg-zinc-950"
     >
-      {/* 背景: 金属拉丝纹理 */}
+      {/* 背景：金属拉丝纹理 */}
       <div
         aria-hidden="true"
         className="absolute inset-0"

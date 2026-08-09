@@ -396,7 +396,7 @@ export const gaoshan8Scenarios: readonly Gaoshan8Scenario[] = [
   {
     key: "scenario-new-car-protection",
     name: "新车保护",
-    description: "适合刚提车用户,优先解决保护和日常使用问题",
+    description: "适合刚提车用户，优先解决保护和日常使用问题",
     projectIds: [
       "gaoshan-8-ppf",
       "gaoshan-8-window-film",

@@ -25,7 +25,7 @@ export function generateGeoMetadata(
     return {
       title: `${brand.zh}${city.label}门店 | ${brand.zh}`,
       description: `${brand.zh}在${province.label}${city.label}的授权门店，提供电动踏板、轮毂升级、汽车窗膜、改色膜、隐形车衣等轻改装服务。`,
-      keywords: `${brand.zh},${city.label},汽车轻改,电动踏板,轮毂升级,汽车贴膜`,
+      keywords: `${brand.zh},${city.label},汽车轻改，电动踏板，轮毂升级，汽车贴膜`,
       alternates: {
         canonical: `${SITE_URL}/agent/${province.slug}/${city.slug}`,
       },
@@ -35,7 +35,7 @@ export function generateGeoMetadata(
   return {
     title: `${brand.zh}${province.label}门店 | ${brand.zh}`,
     description: `${brand.zh}在${province.label}的授权门店网络，覆盖多个城市，提供专业新能源汽车轻改装服务。`,
-    keywords: `${brand.zh},${province.label},汽车轻改,门店`,
+    keywords: `${brand.zh},${province.label},汽车轻改，门店`,
     alternates: {
       canonical: `${SITE_URL}/agent/${province.slug}`,
     },

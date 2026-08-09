@@ -22,7 +22,7 @@ export function CombosPlaceholder() {
             围绕用车场景的升级组合
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
-            以到店沟通为准。常用组合已纳入服务流程,具体方案欢迎到店。
+            以到店沟通为准。常用组合已纳入服务流程，具体方案欢迎到店。
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export function CombosPlaceholder() {
             推荐组合即将上线
           </h3>
           <p className="text-sm text-zinc-400 leading-relaxed max-w-md mx-auto mb-4">
-              我们正在准备围绕&ldquo;上下车·外观·质感·舒适&rdquo;四大场景的组合方案,持续打磨车主视角的内容。
+              我们正在准备围绕&ldquo;上下车·外观·质感·舒适&rdquo;四大场景的组合方案，持续打磨车主视角的内容。
           </p>
           <div className="inline-flex items-center gap-1.5 text-xs text-zinc-500">
             <Clock className="w-3.5 h-3.5" aria-hidden="true" />
