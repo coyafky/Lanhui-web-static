@@ -16,7 +16,7 @@ export function CarCareServiceMap({ services }: Props) {
         <div className="flex-1 min-w-0">
           <p className="text-xs tracking-widest text-emerald-400 mb-1">CAR CARE</p>
           <h3 className="text-xl md:text-2xl font-bold text-white">{service.title}</h3>
-          <p className="text-sm text-zinc-400 mt-1">
+          <p className="text-sm text-zinc-300 mt-1">
             专业洗车与内饰深度清洁，日常养护到轻改装贴膜全覆盖，一条龙服务更省心。
           </p>
         </div>

@@ -113,9 +113,9 @@ export function ProductHero({ liveBrands, breadcrumbItems }: Props) {
             <p className="text-base md:text-lg text-zinc-300 mb-8 leading-relaxed">
               按车型匹配方案，按项目选择服务。
               <br className="hidden md:block" />
-              蓝辉轻改专注新能源车型的汽车膜系与轻改装备，
+              蓝辉轻改专注新能源车型的汽车膜系与轻改装备升级，
               <br className="hidden md:block" />
-              提供产品选型、车型适配、专业施工一站式升级服务。
+              提供涵盖产品选型、车型适配与专业施工的一站式服务。
             </p>
 
             {/* 11 品牌矩阵 */}

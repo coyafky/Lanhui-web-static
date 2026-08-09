@@ -60,7 +60,7 @@ export function LightModMap({ services }: Props) {
           >
             围绕姿态与上下车的金属升级
           </h2>
-          <p className="text-zinc-400 mt-2 text-sm md:text-base">
+          <p className="text-zinc-300 mt-2 text-sm md:text-base">
             不破线束 · 不伤原车结构 · 视觉与功能双重提升
           </p>
         </div>
@@ -127,7 +127,7 @@ export function LightModMap({ services }: Props) {
                     <p className="text-[10px] tracking-wider text-orange-500/70 mt-0.5 mb-2">
                       {service.navLabel.toUpperCase()}
                     </p>
-                    <p className="text-sm text-zinc-400 leading-relaxed">
+                    <p className="text-sm text-zinc-300 leading-relaxed">
                       {tagline}
                     </p>
                   </div>

@@ -111,7 +111,7 @@ export function VehicleTopicMap({ brands }: Props) {
           >
             我是 [品牌] 车主 · 按车型找方案
           </h2>
-          <p className="text-zinc-400 mt-2 text-sm md:text-base">
+          <p className="text-zinc-300 mt-2 text-sm md:text-base">
             11 个热门品牌 + 13 款主流车型 · 围绕车主视角聚合升级方案
           </p>
         </div>
@@ -145,14 +145,14 @@ export function VehicleTopicMap({ brands }: Props) {
         {/* 第一人称提示 — 鼠标悬停时同步显示 */}
         <div
           aria-live="polite"
-          className="mt-6 h-6 text-sm text-zinc-400 text-center"
+          className="mt-6 h-6 text-sm text-zinc-300 text-center"
         >
           {hoveredSlug ? (
             <span className="text-violet-300">
               {FIRST_PERSON_MAP[hoveredSlug] ?? "查看此品牌车型方案"}
             </span>
           ) : (
-            <span className="text-zinc-500">悬停品牌色块，查看车主视角</span>
+            <span className="text-zinc-400">悬停品牌色块，查看车主视角</span>
           )}
         </div>
       </div>

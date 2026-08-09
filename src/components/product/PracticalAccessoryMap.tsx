@@ -42,7 +42,7 @@ export function PracticalAccessoryMap({ services }: Props) {
           >
             围绕座舱日常使用的保护与质感升级
           </h2>
-          <p className="text-zinc-400 mt-2 text-sm md:text-base">
+          <p className="text-zinc-300 mt-2 text-sm md:text-base">
             从汽车地板到汽车垫，优先解决清洁维护、空间整洁和内饰统一感。
           </p>
         </div>
@@ -79,7 +79,7 @@ export function PracticalAccessoryMap({ services }: Props) {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm leading-relaxed text-zinc-400">
+                    <p className="text-sm leading-relaxed text-zinc-300">
                       {tagline}
                     </p>
                   </CardContent>

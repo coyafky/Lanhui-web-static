@@ -75,7 +75,7 @@ export function FilmServiceMap({ services }: Props) {
           >
             漆面与玻璃的全方位膜系
           </h2>
-          <p className="text-zinc-400 mt-2 text-sm md:text-base">
+          <p className="text-zinc-300 mt-2 text-sm md:text-base">
             漆面保护的隐形盾牌 · 玻璃的隔热卫士 · 改色的视觉表达
           </p>
         </div>
@@ -117,7 +117,7 @@ export function FilmServiceMap({ services }: Props) {
                       </p>
                     </div>
                   </div>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-sm text-zinc-300 leading-relaxed">
                     {tagline}
                   </p>
                 </div>

@@ -1,6 +1,6 @@
 import type { VehiclePageConfig } from "./vehicle-page.schema";
 import { VehicleHero } from "./VehicleHero";
-import { ProjectGrid } from "./ProjectGrid";
+import { ProjectTabs } from "./ProjectTabs";
 import { ScenarioMatrix } from "./ScenarioMatrix";
 import { ServiceFlow } from "./ServiceFlow";
 import { FaqSection } from "./FaqSection";
@@ -25,7 +25,7 @@ export function VehiclePageRenderer({ config }: Props) {
         </div>
       )}
       <VehicleHero config={config.hero} theme={config.theme} />
-      <ProjectGrid projects={config.projects} theme={config.theme} />
+      <ProjectTabs projects={config.projects} theme={config.theme} />
       <ScenarioMatrix scenarios={config.scenarios} theme={config.theme} />
       <ServiceFlow config={config.serviceFlow} theme={config.theme} />
       <FaqSection items={config.faq} theme={config.theme} />

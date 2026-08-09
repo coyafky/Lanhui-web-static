@@ -30,7 +30,7 @@ export function Footer() {
             >
               <Logo className="h-9 w-auto brightness-110" />
             </Link>
-            <p className="text-sm leading-relaxed text-zinc-500 max-w-xs">
+            <p className="text-sm leading-relaxed text-zinc-400 max-w-xs">
               {brand.shortDescription}
             </p>
             {/* Slogan */}
@@ -49,7 +49,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-1 text-sm text-zinc-500 hover:text-white transition-colors duration-200"
+                    className="group inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors duration-200"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" />
@@ -69,7 +69,7 @@ export function Footer() {
                 <li key={p.slug}>
                   <Link
                     href={`/product/${p.slug}`}
-                    className="group inline-flex items-center gap-1 text-sm text-zinc-500 hover:text-white transition-colors duration-200"
+                    className="group inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors duration-200"
                   >
                     {p.name}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200" />
@@ -89,7 +89,7 @@ export function Footer() {
                 <span className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-orange-500/10 transition-colors duration-200">
                   <MapPin className="w-4 h-4 text-orange-400" />
                 </span>
-                <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors duration-200">
+                <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors duration-200">
                   {brand.address}
                 </span>
               </li>
@@ -97,7 +97,7 @@ export function Footer() {
                 <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-orange-500/10 transition-colors duration-200">
                   <Phone className="w-4 h-4 text-orange-400" />
                 </span>
-                <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors duration-200">
+                <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors duration-200">
                   {brand.phone}
                 </span>
               </li>
@@ -105,7 +105,7 @@ export function Footer() {
                 <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-orange-500/10 transition-colors duration-200">
                   <Clock className="w-4 h-4 text-orange-400" />
                 </span>
-                <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors duration-200">
+                <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors duration-200">
                   {brand.businessHours}
                 </span>
               </li>
@@ -113,7 +113,7 @@ export function Footer() {
                 <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-orange-500/10 transition-colors duration-200">
                   <Mail className="w-4 h-4 text-orange-400" />
                 </span>
-                <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors duration-200">
+                <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors duration-200">
                   {brand.email}
                 </span>
               </li>
@@ -124,10 +124,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="py-6 border-t border-white/5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-zinc-600">
+            <p className="text-xs text-zinc-500">
               © {brand.foundedYear} {brand.en} {brand.zh}. All Rights Reserved.
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-zinc-600">
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-zinc-500">
               <a
                 href="https://beian.miit.gov.cn/"
                 target="_blank"
