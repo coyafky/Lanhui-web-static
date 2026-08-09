@@ -152,12 +152,12 @@ export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
 
   return (
     <div className="relative">
-      {/* Tab 栏：移动端也无需横向滚动（5 个以内），吸顶便于切换 */}
-      <div className="sticky top-16 z-30 -mx-4 px-4 sm:mx-0 sm:px-0 bg-zinc-950/95 backdrop-blur-sm border-b border-zinc-900 overflow-hidden">
+      {/* Tab 栏：移动端自动换行一屏放下，吸顶便于切换 */}
+      <div className="sticky top-16 z-30 bg-zinc-950/95 backdrop-blur-sm border-b border-zinc-900 overflow-x-clip">
         <div
           role="tablist"
           aria-label="升级项目分类"
-          className="flex gap-2 py-3 overflow-x-auto sm:justify-center sm:flex-wrap scrollbar-hide"
+          className="flex flex-wrap gap-2 py-3 justify-start sm:justify-center"
         >
           {TABS.map((t) => {
             const count =
@@ -169,7 +169,7 @@ export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveTab(t.id)}
-                className={`shrink-0 inline-flex items-center justify-center min-h-[44px] px-4 rounded-full border text-sm font-medium transition-colors ${
+                className={`inline-flex items-center justify-center min-h-[44px] px-3.5 rounded-full border text-sm font-medium transition-colors ${
                   isActive ? tabActive : tabInactive
                 }`}
               >
