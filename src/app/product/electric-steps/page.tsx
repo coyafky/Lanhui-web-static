@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "电动踏板方案｜高底盘的距离，交给一块会收起的踏板｜蓝辉轻改 LANHUI",
   description:
     "开门展开为老人、小孩提供更低落脚位置，关门收回保留原车线条。三款方案可选，到店确认车型、底盘和电路适配。",
+  alternates: { canonical: "/product/electric-steps" },
   openGraph: {
     title: "电动踏板方案｜蓝辉轻改 LANHUI",
     description:

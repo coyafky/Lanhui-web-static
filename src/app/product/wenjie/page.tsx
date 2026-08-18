@@ -38,6 +38,7 @@ export const metadata: Metadata = {
     "地板总成",
     "蓝辉轻改",
   ],
+  alternates: { canonical: "/product/wenjie" },
   openGraph: {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,

@@ -40,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `${cityData.label}门店 | 蓝辉轻改 LANHUI`,
     description: `蓝辉轻改在 ${cityData.label} 的门店列表，共 ${cityData.storeCount} 家门店。`,
+    alternates: { canonical: `/agent/${slug}/${city}` },
   };
 }
 

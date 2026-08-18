@@ -35,6 +35,7 @@ export async function generateMetadata({
   return {
     title: `${province.label}门店 | 蓝辉轻改 LANHUI`,
     description: `蓝辉轻改在 ${province.label} 的门店信息，覆盖 ${province.cityCount} 个城市。`,
+    alternates: { canonical: `/agent/${slug}` },
   };
 }
 

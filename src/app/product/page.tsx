@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "产品中心 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改产品中心，按车型找方案，按项目看服务。覆盖汽车膜系、轻改装备、车载电视、座舱实用配件与热门新能源车型升级方案。",
+  alternates: { canonical: "/product" },
 };
 
 export default function ProductCenter() {

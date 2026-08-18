@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "洗美养护｜把干净做到看得见的细节里｜蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改顺德大良店提供普洗、精洗与轮毂定向清洗。服务前沟通车况、清洁范围、预计时间与费用，再按确认内容施工。",
+  alternates: { canonical: "/product/car-care" },
   openGraph: {
     title: "洗美养护｜把干净做到看得见的细节里｜蓝辉轻改 LANHUI",
     description:

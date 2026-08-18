@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "铝地板",
     "蓝辉轻改",
   ],
+  alternates: { canonical: "/product/denza" },
   openGraph: {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,

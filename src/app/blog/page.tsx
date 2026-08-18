@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "品牌资讯 | 蓝辉轻改 LANHUI",
   description:
     "蓝辉轻改官方博客：汽车改色膜、窗膜、隐形车衣选购指南，新能源轻改干货，以及门店施工流程与质保说明。",
+  alternates: { canonical: "/blog" },
   openGraph: {
     title: "品牌资讯 | 蓝辉轻改 LANHUI",
     description:

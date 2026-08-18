@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "轮毂升级",
     "蓝辉轻改",
   ],
+  alternates: { canonical: "/product/xpeng" },
   openGraph: {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,

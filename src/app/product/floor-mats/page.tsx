@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "360 软包脚垫｜把每天带进车里的脏，留在更容易清理的一层｜蓝辉轻改 LANHUI",
   description:
     "按车型定制 360 软包脚垫，覆盖主驾到尾箱。可拆洗污染隔离方案，安装前检查主驾踏板安全间隙。",
+  alternates: { canonical: "/product/floor-mats" },
   openGraph: {
     title: "360 软包脚垫｜蓝辉轻改 LANHUI",
     description:

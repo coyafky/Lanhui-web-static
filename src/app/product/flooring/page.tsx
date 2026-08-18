@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "汽车地板改装｜把难打理的后排，变成每天都好收拾的空间｜蓝辉轻改 LANHUI",
   description:
     "孩子零食、雨天泥水、滑轨积灰——原车织物地毯难清理。蓝辉轻改地板总成按车型、年款和座椅布局确认适配方案，让地板、滑轨、脚踏和尾箱形成完整统一的使用空间。",
+  alternates: { canonical: "/product/flooring" },
   openGraph: {
     title: "汽车地板改装｜把难打理的后排，变成每天都好收拾的空间｜蓝辉轻改 LANHUI",
     description:

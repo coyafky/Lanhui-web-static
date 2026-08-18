@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "轮毂升级与整车姿态方案｜蓝辉轻改 LANHUI",
   description:
     "让轮毂决定整车侧面的气质。蓝辉轻改轮毂升级围绕原车数据确认、刹车间隙、动平衡和扭矩复查，提供21款视觉方案供选择。",
+  alternates: { canonical: "/product/wheels" },
   openGraph: {
     title: "轮毂升级与整车姿态方案｜蓝辉轻改 LANHUI",
     description:

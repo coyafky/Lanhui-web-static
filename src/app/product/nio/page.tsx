@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     "顺德汽车贴膜",
     "蓝辉轻改",
   ],
+  alternates: { canonical: "/product/nio" },
   openGraph: {
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,

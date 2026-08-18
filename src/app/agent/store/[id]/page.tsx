@@ -36,6 +36,7 @@ export async function generateMetadata({
   return {
     title: `${store.name} | 蓝辉轻改 LANHUI`,
     description: `${store.name}位于${store.address}，提供蓝辉轻改轻改装备与汽车膜系服务。`,
+    alternates: { canonical: `/agent/store/${id}` },
   };
 }
 
