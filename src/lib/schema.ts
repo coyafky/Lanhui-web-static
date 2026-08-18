@@ -7,7 +7,7 @@
 import { brand } from "./brand";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.lanhuiqinggai.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://lanhuiqinggai.com";
 
 /** 全站 Organization Schema */
 export function organizationSchema() {

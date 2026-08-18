@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lanhuiqinggai.com",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://lanhuiqinggai.com",
   ),
   title: "蓝辉轻改 LANHUI | 汽车轻改装与车身膜服务",
   description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "蓝辉轻改 LANHUI | 汽车轻改装与车身膜服务",
     description:
       "蓝辉轻改专注汽车轻改装与车身膜服务，提供一站式轻改装备与汽车膜系方案，当前服务门店为顺德大良店。",
-    url: "https://www.lanhuiqinggai.com",
+    url: "https://lanhuiqinggai.com",
     siteName: "蓝辉轻改 LANHUI",
     locale: "zh_CN",
     type: "website",
