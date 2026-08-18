@@ -79,9 +79,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // 服务/分类页（film / light_mod / car_care 等）
-  const serviceRoutes: MetadataRoute.Sitemap = ALL_SERVICES.map((s) =>
-    routeEntry(s.canonicalPath, priorityOf(s.priority), "monthly")
-  );
+  // ⚠️ 只收录 live 状态服务：planned 占位页（如 business-comfort notFound()）不进 sitemap
+  const serviceRoutes: MetadataRoute.Sitemap = ALL_SERVICES.filter(
+    (s) => s.status === "live"
+  ).map((s) => routeEntry(s.canonicalPath, priorityOf(s.priority), "monthly"));
 
   // 窗膜套餐页（window-film/[packageSlug]）
   const windowFilmRoutes: MetadataRoute.Sitemap = Object.keys(
