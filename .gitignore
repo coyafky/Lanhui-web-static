@@ -98,3 +98,6 @@ dogfood-output/
 .alma-snapshots
 .alma/
 Users/
+
+# 本地大体积备份包(不入库)
+public/images.zip

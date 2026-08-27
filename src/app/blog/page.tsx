@@ -3,8 +3,14 @@ import { Newspaper } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ArticleCard } from "@/components/blog/ArticleCard";
+import { CategoryNav } from "@/components/blog/CategoryNav";
+import { Pagination } from "@/components/blog/Pagination";
 import { PhoneCta } from "@/components/cta/PhoneCta";
-import { getAllArticles } from "@/lib/blog";
+import {
+  getAllArticles,
+  getAllCategories,
+  paginateArticles,
+} from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "品牌资讯 | 蓝辉轻改 LANHUI",
@@ -20,7 +26,10 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const articles = getAllArticles();
+  const categories = getAllCategories();
+  const allArticles = getAllArticles();
+  // /blog 始终是第 1 页（无页码 URL）
+  const articles = paginateArticles(allArticles, 1);
 
   return (
     <>
@@ -49,15 +58,21 @@ export default function BlogPage() {
         {/* ── 文章列表 ── */}
         <section className="py-16 md:py-20 bg-zinc-950 border-t border-zinc-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-10">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-orange-500/10">
-                <Newspaper className="w-5 h-5 text-orange-400" />
+            <div className="flex items-end justify-between gap-3 mb-8 flex-wrap">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-orange-500/10">
+                  <Newspaper className="w-5 h-5 text-orange-400" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-white">最新文章</h2>
+                  <p className="text-sm text-zinc-500 mt-0.5">
+                    共 {allArticles.length} 篇
+                  </p>
+                </div>
               </div>
-              <h2 className="text-2xl font-bold text-white">最新文章</h2>
-              <span className="text-sm text-zinc-500">
-                共 {articles.length} 篇
-              </span>
             </div>
+
+            <CategoryNav categories={categories} />
 
             {articles.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -70,6 +85,8 @@ export default function BlogPage() {
                 <p className="text-zinc-400">暂无文章，敬请期待。</p>
               </div>
             )}
+
+            <Pagination currentPage={1} totalPages={Math.ceil(allArticles.length / 9)} />
           </div>
         </section>
 

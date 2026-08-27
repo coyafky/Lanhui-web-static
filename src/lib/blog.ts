@@ -207,3 +207,83 @@ export function formatArticleDate(isoDate: string): string {
   if (!year || !month || !day) return isoDate;
   return `${Number(year)}年${Number(month)}月${Number(day)}日`;
 }
+
+/** 默认每页文章数（3×3 网格） */
+export const BLOG_PAGE_SIZE = 9;
+
+/**
+ * 分类中文显示名 → URL slug。
+ * 分类 URL 用英文 slug（避免中文动态段在 output:export 的双编码问题，
+ * 且 URL 更短、更利于 SEO/GEO 与分享）。新增分类时在此登记映射。
+ */
+const CATEGORY_SLUGS: Record<string, string> = {
+  改色膜: "cat-paint-film",
+  窗膜: "cat-window-film",
+  轮毂: "cat-wheel",
+  门店服务: "cat-store-service",
+  车主案例: "cat-case",
+};
+
+/** 分类显示名 → URL slug（未登记的用 encodeURIComponent 兜底） */
+export function getCategorySlug(category: string): string {
+  return CATEGORY_SLUGS[category] ?? encodeURIComponent(category);
+}
+
+/** URL slug → 分类显示名（未匹配到返回 undefined） */
+export function getCategoryBySlug(slug: string): string | undefined {
+  const entry = Object.entries(CATEGORY_SLUGS).find(([, s]) => s === slug);
+  if (entry) return entry[0];
+  // fallback：尝试反向解码（兼容旧的中文 URL）
+  try {
+    const decoded = decodeURIComponent(slug);
+    if (Object.values(CATEGORY_SLUGS).includes(slug) || getAllCategories().includes(decoded)) {
+      return decoded;
+    }
+  } catch {
+    /* ignore */
+  }
+  return undefined;
+}
+
+/**
+ * 去重并保序的分类列表（按文章首次出现顺序，可读性好）。
+ */
+export function getAllCategories(): string[] {
+  const seen = new Set<string>();
+  for (const article of getAllArticles()) {
+    if (article.category && !seen.has(article.category)) {
+      seen.add(article.category);
+    }
+  }
+  return [...seen];
+}
+
+/** 按分类过滤（不存在的分类返回空数组） */
+export function getArticlesByCategory(category: string): Article[] {
+  return getAllArticles().filter((a) => a.category === category);
+}
+
+/**
+ * 静态分页：把文章切到指定页。
+ * - page 从 1 开始，越界时返回空数组（由调用方决定回退到第 1 页）
+ * - 纯函数，便于测试与静态导出
+ */
+export function paginateArticles(
+  articles: readonly Article[],
+  page: number,
+  perPage = BLOG_PAGE_SIZE,
+): Article[] {
+  if (!Number.isInteger(page) || page < 1 || perPage < 1) return [];
+  const start = (page - 1) * perPage;
+  if (start >= articles.length) return [];
+  return articles.slice(start, start + perPage);
+}
+
+/** 总页数（至少 1） */
+export function getTotalPages(
+  total: number,
+  perPage = BLOG_PAGE_SIZE,
+): number {
+  if (total <= 0 || perPage < 1) return 1;
+  return Math.ceil(total / perPage);
+}

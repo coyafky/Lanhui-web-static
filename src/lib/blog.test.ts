@@ -3,7 +3,13 @@ import {
   formatArticleDate,
   getAdjacentArticles,
   getAllArticles,
+  getAllCategories,
+  getArticlesByCategory,
   getArticleBySlug,
+  getCategoryBySlug,
+  getCategorySlug,
+  getTotalPages,
+  paginateArticles,
   parseArticleFile,
   parseFrontmatter,
   sortAndFilterArticles,
@@ -134,9 +140,9 @@ describe("formatArticleDate", () => {
 });
 
 describe("real articles (integration)", () => {
-  it("reads 3 published articles from src/content/articles", () => {
+  it("reads 12 published articles from src/content/articles", () => {
     const articles = getAllArticles();
-    expect(articles).toHaveLength(3);
+    expect(articles).toHaveLength(12);
   });
 
   it("orders real articles newest first", () => {
@@ -168,6 +174,84 @@ describe("real articles (integration)", () => {
       expect(article.publishedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
       expect(article.featuredImage).toBeTruthy();
       expect(article.content.length).toBeGreaterThan(200);
+    }
+  });
+});
+
+describe("paginateArticles / getTotalPages", () => {
+  function make(slug: string, publishedAt = "2026-08-01") {
+    return parseArticleFile(
+      `${slug}.md`,
+      `---\ntitle: ${slug}\nslug: ${slug}\npublishedAt: ${publishedAt}\n---\n正文`,
+    );
+  }
+  const items = Array.from({ length: 12 }, (_, i) => make(`a${i + 1}`));
+
+  it("returns perPage items for each page", () => {
+    expect(paginateArticles(items, 1)).toHaveLength(9);
+    expect(paginateArticles(items, 2)).toHaveLength(3);
+    expect(paginateArticles(items, 1, 4)).toHaveLength(4);
+  });
+
+  it("returns slices in order", () => {
+    expect(paginateArticles(items, 1)[0].slug).toBe("a1");
+    expect(paginateArticles(items, 2)[0].slug).toBe("a10");
+  });
+
+  it("returns empty for out-of-range pages", () => {
+    expect(paginateArticles(items, 0)).toEqual([]);
+    expect(paginateArticles(items, 3)).toEqual([]);
+    expect(paginateArticles(items, -1)).toEqual([]);
+  });
+
+  it("computes total pages (min 1)", () => {
+    expect(getTotalPages(12)).toBe(2);
+    expect(getTotalPages(9)).toBe(1);
+    expect(getTotalPages(0)).toBe(1);
+    expect(getTotalPages(10, 4)).toBe(3);
+  });
+});
+
+describe("getAllCategories / getArticlesByCategory", () => {
+  it("returns deduped, ordered categories from real articles", () => {
+    const cats = getAllCategories();
+    expect(cats.length).toBeGreaterThanOrEqual(1);
+    // 顺序 = 最新文章在前，所以第一个分类来自最新文章
+    expect(cats).toContain("窗膜");
+    expect(new Set(cats).size).toBe(cats.length);
+  });
+
+  it("filters articles by category (real data)", () => {
+    const wheel = getArticlesByCategory("轮毂");
+    expect(wheel.length).toBeGreaterThanOrEqual(1);
+    expect(wheel.every((a) => a.category === "轮毂")).toBe(true);
+    // 空分类返回空
+    expect(getArticlesByCategory("不存在的分类")).toEqual([]);
+  });
+});
+
+describe("category slug mapping", () => {
+  it("maps known categories to stable english slugs", () => {
+    expect(getCategorySlug("车主案例")).toBe("cat-case");
+    expect(getCategorySlug("改色膜")).toBe("cat-paint-film");
+    expect(getCategorySlug("窗膜")).toBe("cat-window-film");
+    expect(getCategorySlug("轮毂")).toBe("cat-wheel");
+    expect(getCategorySlug("门店服务")).toBe("cat-store-service");
+  });
+
+  it("round-trips slug back to category name", () => {
+    expect(getCategoryBySlug("cat-case")).toBe("车主案例");
+    expect(getCategoryBySlug("cat-paint-film")).toBe("改色膜");
+  });
+
+  it("returns undefined for unknown slug", () => {
+    expect(getCategoryBySlug("cat-unknown")).toBeUndefined();
+  });
+
+  it("every real article category has a resolvable slug", () => {
+    for (const a of getAllArticles()) {
+      const slug = getCategorySlug(a.category);
+      expect(getCategoryBySlug(slug)).toBe(a.category);
     }
   });
 });
