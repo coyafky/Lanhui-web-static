@@ -20,10 +20,11 @@ describe("product-routes registry", () => {
     expect(ALL_MODELS).toHaveLength(19);
   });
 
-  it("contains exactly 11 published services (10 live + 1 planned)", () => {
-    expect(ALL_SERVICES).toHaveLength(11);
-    expect(ALL_SERVICES.filter((s) => s.status === "live")).toHaveLength(10);
+  it("contains exactly 12 published services (11 live + 1 planned)", () => {
+    expect(ALL_SERVICES).toHaveLength(12);
+    expect(ALL_SERVICES.filter((s) => s.status === "live")).toHaveLength(11);
     expect(ALL_SERVICES.filter((s) => s.status === "planned")).toHaveLength(1);
+    expect(getServiceRoute("tei-brake")).toBeDefined();
     expect(getServiceRoute("skid-plate")).toBeUndefined();
   });
 

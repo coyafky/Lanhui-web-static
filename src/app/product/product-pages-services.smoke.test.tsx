@@ -59,6 +59,7 @@ const serviceSlugPageModuleMap: Record<string, () => Promise<unknown>> = {
   "floor-mats": () => import("@/app/product/floor-mats/page"),
   "car-care": () => import("@/app/product/car-care/page"),
   "car-tv": () => import("@/app/product/car-tv/page"),
+  "tei-brake": () => import("@/app/product/tei-brake/page"),
 };
 
 describe.each(LIVE_SERVICES)(
