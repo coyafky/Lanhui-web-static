@@ -140,9 +140,9 @@ describe("formatArticleDate", () => {
 });
 
 describe("real articles (integration)", () => {
-  it("reads 12 published articles from src/content/articles", () => {
+  it("reads 13 published articles from src/content/articles", () => {
     const articles = getAllArticles();
-    expect(articles).toHaveLength(12);
+    expect(articles).toHaveLength(13);
   });
 
   it("orders real articles newest first", () => {
