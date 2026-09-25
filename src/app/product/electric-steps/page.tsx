@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ElectricStepHero } from "@/components/product/electric-steps/ElectricStepHero";
+import { ElectricStepFitmentEntry } from "@/components/product/electric-steps/ElectricStepFitmentEntry";
 import { ElectricStepScenarios } from "@/components/product/electric-steps/ElectricStepScenarios";
 import { ElectricStepGallery } from "@/components/product/electric-steps/ElectricStepGallery";
 import { ElectricStepServiceFlow } from "@/components/product/electric-steps/ElectricStepServiceFlow";
@@ -61,6 +62,7 @@ export default function ElectricStepsPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <ElectricStepHero breadcrumbItems={breadcrumbItems} />
+        <ElectricStepFitmentEntry />
         <ElectricStepScenarios />
         <ElectricStepGallery />
         <ElectricStepServiceFlow />
