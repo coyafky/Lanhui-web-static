@@ -14,6 +14,10 @@ const PUBLIC_IMAGES = resolve("public/images");
 // verify 脚本保护的目录（质量门禁要求存在，绝不删除）
 const PROTECTED_PREFIXES = [
   "/images/products/zeekr",     // verify-zeekr-images.mjs
+  // 轮毂目录：src/lib/wheels.data.ts 只登记详情图廓路径，卡片图路径由
+  // wheelCardImagePath(modelId) 在运行时派生（`<编号>-card.webp`），源码里没有字面量，
+  // 否则会被本脚本误判为死文件。真正的孤儿图判定归 scripts/verify-wheel-data.mjs。
+  "/images/products/wheel",     // verify-wheel-data.mjs + src/lib/wheels.data.ts
 ];
 
 const references = new Set();

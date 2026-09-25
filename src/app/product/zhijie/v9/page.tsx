@@ -6,6 +6,7 @@ import { zhijieV9PageConfig } from "@/lib/zhijie-v9-page-config";
 import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { safeJsonLd } from "@/lib/json-ld";
 
 const PAGE_TITLE = "智界 V9 专属升级方案｜车衣隔热膜铝地板钢化膜｜蓝辉轻改";
@@ -74,6 +75,8 @@ export default function ZhijieV9TopicPage() {
 
 
         <VehiclePageRenderer config={zhijieV9PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="zhijie" modelSlug="v9" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

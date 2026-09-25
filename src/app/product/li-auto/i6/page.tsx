@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { liAutoI6PageConfig } from "@/lib/li-auto-i6-page-config";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import {
@@ -65,6 +66,8 @@ export default function LiAutoI6Page() {
 
 
         <VehiclePageRenderer config={liAutoI6PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="li-auto" modelSlug="i6" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

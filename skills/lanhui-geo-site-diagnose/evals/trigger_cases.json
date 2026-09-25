@@ -1,0 +1,7 @@
+[
+  {"id": "lanhui-diagnose-1", "input": "对兰辉官网做GEO诊断", "expect": "run lanhui-geo-site-diagnose", "url": "https://lanhuiqinggai.com"},
+  {"id": "lanhui-diagnose-2", "input": "蓝辉轻改网站GEO体检", "expect": "run lanhui-geo-site-diagnose", "url": "https://lanhuiqinggai.com"},
+  {"id": "lanhui-diagnose-3", "input": "全站GEO审计 lanhuiqinggai.com", "expect": "run lanhui-geo-site-diagnose", "url": "https://lanhuiqinggai.com"},
+  {"id": "lanhui-diagnose-4", "input": "帮我看看官网GEO怎么样", "expect": "run lanhui-geo-site-diagnose", "url": "https://lanhuiqinggai.com"},
+  {"id": "lanhui-single-1", "input": "诊断单页 https://lanhuiqinggai.com/product/", "expect": "route to yao-geo-page-audit, NOT site-diagnose"}
+]

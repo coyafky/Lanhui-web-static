@@ -102,6 +102,9 @@ export function GET() {
         `- [${s.title}](${SITE_URL}${s.canonicalPath}/): ${s.title}产品与施工服务。`
       );
     }
+    lines.push(
+      `- [电动踏板适配车型](${SITE_URL}/product/electric-steps/fitment/): 已核实的 21 个车型电动踏板适配年款、车身形式、取信号方式与备注总表。`
+    );
     lines.push("");
   }
   if (interiorServices.length > 0) {

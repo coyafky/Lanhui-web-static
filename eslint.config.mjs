@@ -12,6 +12,17 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local, uncommitted working directories at the repo root (agent/tooling
+    // artifacts and vendored third-party repos). They are not part of the site
+    // source and are absent from clean checkouts; ignoring them keeps
+    // `npm run lint` deterministic regardless of local scratch state.
+    "geo-seo-hub/**",
+    "outputs/**",
+    "runs/**",
+    "skill-plan/**",
+    "skills/**",
+    "Volumes/**",
+    "官网素材导出/**",
   ]),
 ]);
 

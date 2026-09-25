@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { gaoshan8PageConfig } from "@/lib/gaoshan-8-page-config";
 import {
   GAOSHAN_8_HERO_IMAGE,
@@ -14,7 +15,7 @@ import { safeJsonLd } from "@/lib/json-ld";
 
 const PAGE_TITLE = "高山 8 专属升级方案｜车衣隔热膜铝地板电动踏板｜蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改提供高山 8 专属升级方案参考，覆盖车衣、隔热膜、彩绘、双拼改色、360软包脚垫、铝地板、平衡杆、AMXT包围、BSKT运动包围、底盘护板、电动踏板、中开门、车标灯、日行灯、抬头显示、香氛系统、挡泥板、防虫网、钢化膜、迎宾踏板、黑化81件套、内饰镀膜共 23 个项目，按新车保护、商务外观、外观个性、MPV后排舒适、底盘与行车防护、智能与屏幕保护、座舱维护 7 大场景分类。";
+  "蓝辉轻改提供高山 8 专属升级方案参考，覆盖车衣、隔热膜、彩绘、双拼改色、360软包脚垫、铝地板、平衡杆、外观包围、运动包围、底盘护板、电动踏板、中开门、车标灯、日行灯、抬头显示、香氛系统、挡泥板、防虫网、钢化膜、迎宾踏板、黑化81件套、内饰镀膜共 23 个项目，按新车保护、商务外观、外观个性、MPV后排舒适、底盘与行车防护、智能与屏幕保护、座舱维护 7 大场景分类。";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/product/gaoshan/8" },
@@ -81,6 +82,8 @@ export default function Gaoshan8TopicPage() {
 
 
         <VehiclePageRenderer config={gaoshan8PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="gaoshan" modelSlug="8" />
 
         <section className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

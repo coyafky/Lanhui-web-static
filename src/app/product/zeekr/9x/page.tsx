@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { zeekr9xPageConfig } from "@/lib/zeekr-9x-page-config";
 import {
   ZEEKR_9X_HERO_IMAGE,
@@ -79,6 +80,8 @@ export default function Zeekr9xPage() {
 
 
         <VehiclePageRenderer config={zeekr9xPageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="zeekr" modelSlug="9x" />
 
         {/* Footer CTA */}
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">

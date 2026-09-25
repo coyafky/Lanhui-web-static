@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { liAutoOnePageConfig } from "@/lib/li-auto-one-page-config";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import {
@@ -65,6 +66,8 @@ export default function LiAutoOnePage() {
 
 
         <VehiclePageRenderer config={liAutoOnePageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="li-auto" modelSlug="one" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

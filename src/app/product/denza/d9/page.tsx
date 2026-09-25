@@ -8,11 +8,12 @@ import { denzaD9PageConfig } from "@/lib/denza-d9-page-config";
 import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { safeJsonLd } from "@/lib/json-ld";
 
 const PAGE_TITLE = "腾势 D9 专属升级方案｜车衣隔热膜铝地板小桌板｜蓝辉轻改";
 const PAGE_DESCRIPTION =
-  "蓝辉轻改整理腾势 D9 23 项热门轻改产品：车衣、隔热膜、彩绘、双拼改色、360软包脚垫、铝地板、平衡杆、amxt包围、bskt运动包围、底盘护板、小桌板、氛围灯、日行灯、抬头显示、吸顶电视、D柱灯、铝合金行李架、挡泥板、防虫网、钢化膜、门槛条、牌照框和内饰镀膜。覆盖新车保护、外观个性、座舱防护、底盘与行车防护、高端质感 5 大用车场景，到店评估按标准流程施工。";
+  "蓝辉轻改整理腾势 D9 23 项热门轻改产品：车衣、隔热膜、彩绘、双拼改色、360软包脚垫、铝地板、平衡杆、外观包围、运动包围、底盘护板、小桌板、氛围灯、日行灯、抬头显示、吸顶电视、D柱灯、铝合金行李架、挡泥板、防虫网、钢化膜、门槛条、牌照框和内饰镀膜。覆盖新车保护、外观个性、座舱防护、底盘与行车防护、高端质感 5 大用车场景，到店评估按标准流程施工。";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/product/denza/d9" },
@@ -77,6 +78,8 @@ export default function DenzaD9TopicPage() {
 
 
         <VehiclePageRenderer config={denzaD9PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="denza" modelSlug="d9" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

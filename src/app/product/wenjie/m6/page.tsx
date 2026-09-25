@@ -5,6 +5,7 @@ import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { getWenjieModelHeroImage } from "@/lib/wenjie-preview-images";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { wenjieM6PageConfig } from "@/lib/wenjie-m6-page-config";
 import { wenjieM6UpgradeProjects } from "@/lib/wenjie-m6-upgrade-projects";
 import { safeJsonLd } from "@/lib/json-ld";
@@ -73,6 +74,8 @@ export default function WenjieM6Page() {
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col bg-zinc-950">
         <VehiclePageRenderer config={wenjieM6PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="wenjie" modelSlug="m6" />
 
         {/* 底部 CTA */}
         <section

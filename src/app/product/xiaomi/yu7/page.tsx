@@ -8,6 +8,7 @@ import {
 } from "@/lib/xiaomi-yu7-upgrade-projects";
 import { xiaomiYu7PageConfig } from "@/lib/xiaomi-yu7-page-config";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
@@ -65,6 +66,8 @@ export default async function XiaomiYu7Page() {
 
       <main id="main-content" tabIndex={-1} className="flex-grow">
         <VehiclePageRenderer config={xiaomiYu7PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="xiaomi" modelSlug="yu7" />
 
         {/* CTA section */}
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">

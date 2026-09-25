@@ -7,6 +7,8 @@ import {
   getCanonicalFor,
 } from "@/lib/product-routes";
 import { windowFilmDetails } from "@/lib/window-film-details";
+import { WHEEL_CATALOG_PATH } from "@/lib/wheel-catalog";
+import { wheelCatalogItems } from "@/lib/wheel-catalog-projection";
 import {
   listStores,
   listPublishedProvinces,
@@ -53,6 +55,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     routeEntry("/", 1.0, "weekly"),
     routeEntry("/product", 0.9, "weekly"),
+    // 电动踏板适配车型总表（服务页 L1 子页）
+    routeEntry("/product/electric-steps/fitment", 0.8, "monthly"),
     routeEntry("/brand", 0.7, "monthly"),
     routeEntry("/brand/history", 0.5, "yearly"),
     routeEntry("/contact", 0.6, "yearly"),
@@ -91,6 +95,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     routeEntry(`/product/window-film/${slug}`, 0.7, "monthly")
   );
 
+  // 轮毂单品详情页（/product/wheels/[model]）：与 generateStaticParams 同源，
+  // 404 条编号不多不少 —— 未生成的编号不在这里，构建产物里也不存在。
+  const wheelDetailRoutes: MetadataRoute.Sitemap = wheelCatalogItems.map((item) =>
+    routeEntry(`${WHEEL_CATALOG_PATH}/${item.id}`, 0.6, "monthly")
+  );
+
   // 旧版 getAllProductSlugs 覆盖的历史服务页（保留以兼容）
   const legacyProductRoutes: MetadataRoute.Sitemap = getAllProductSlugs()
     .map((slug) => getCanonicalFor(`/product/${slug}`))
@@ -123,6 +133,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...modelRoutes,
     ...serviceRoutes,
     ...windowFilmRoutes,
+    ...wheelDetailRoutes,
     ...legacyProductRoutes,
     ...provinceRoutes,
     ...cityRoutes,

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { ledaoL90PageConfig } from "@/lib/ledao-l90-page-config";
 import {
   LEDAO_L90_HERO_IMAGE,
@@ -76,6 +77,8 @@ export default function LedaoL90TopicPage() {
 
 
         <VehiclePageRenderer config={ledaoL90PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="ledao" modelSlug="l90" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

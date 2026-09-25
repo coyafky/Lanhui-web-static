@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { voyahDreamerPageConfig } from "@/lib/voyah-dreamer-page-config";
 import {
   voyahDreamerUpgradeProjects,
@@ -82,6 +83,8 @@ export default function VoyahDreamerTopicPage() {
 
 
         <VehiclePageRenderer config={voyahDreamerPageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="voyah" modelSlug="dreamer" />
 
         <section className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

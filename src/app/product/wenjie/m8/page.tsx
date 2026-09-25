@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { WenjieM8ElectricDoorCautionCard } from "@/components/wenjie/model/WenjieM8ElectricDoorCautionCard";
 import { wenjieM8PageConfig } from "@/lib/wenjie-m8-page-config";
 import { wenjieM8UpgradeProjects, wenjieM8ElectricDoorProject } from "@/lib/wenjie-m8-upgrade-projects";
@@ -70,6 +71,8 @@ export default async function WenjieM8Page() {
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow bg-zinc-950">
         <VehiclePageRenderer config={wenjieM8PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="wenjie" modelSlug="m8" />
 
         <section
           className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900"

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { nioEs8PageConfig } from "@/lib/nio-es8-page-config";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { safeJsonLd } from "@/lib/json-ld";
 
 const MODEL_NAME = "蔚来 ES8";
@@ -70,6 +71,8 @@ export default function NioEs8Page() {
 
 
         <VehiclePageRenderer config={nioEs8PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="nio" modelSlug="es8" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

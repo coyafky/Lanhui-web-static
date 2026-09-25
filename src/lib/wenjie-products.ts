@@ -218,10 +218,10 @@ export const wenjieProducts: WenjieProduct[] = [
     vehicleModel: "M8",
     orderInModel: 9,
     sourceRow: 20,
-    productName: "AMXT全套包围[前+后+侧裙]",
+    productName: "外观包围[前+后+侧裙]",
     category: "外观套件",
     imageStatus: "pending",
-    image: { publicPath: null, alt: buildPendingAlt("M8", "AMXT全套包围") },
+    image: { publicPath: null, alt: buildPendingAlt("M8", "外观包围") },
   },
   {
     id: "wenjie-m8-010",

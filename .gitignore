@@ -101,3 +101,15 @@ Users/
 
 # 本地大体积备份包(不入库)
 public/images.zip
+
+# OpenCode / agent platform project config (local tooling, do not ship to business branches)
+/opencode.json
+
+# Stray path mirrors accidentally created inside the repo (not project content)
+/Volumes/
+
+# Standalone project dropped inside the repo (has its own repo/venv/build)
+/geo-seo-hub/
+
+# GEO diagnosis run artifacts (regenerable via the lanhui-geo-site-diagnose skill)
+/runs/

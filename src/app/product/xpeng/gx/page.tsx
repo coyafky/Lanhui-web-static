@@ -6,6 +6,7 @@ import { xpengGxPageConfig } from "@/lib/xpeng-gx-page-config";
 import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { safeJsonLd } from "@/lib/json-ld";
 
 const CANONICAL_PATH = "/product/xpeng/gx";
@@ -81,6 +82,8 @@ export default function XpengGxTopicPage() {
 
 
         <VehiclePageRenderer config={xpengGxPageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="xpeng" modelSlug="gx" />
 
         <section className="py-16 md:py-20 bg-black border-t border-zinc-900">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

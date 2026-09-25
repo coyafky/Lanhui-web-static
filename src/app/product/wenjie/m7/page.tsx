@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getModelRoute } from "@/lib/product-routes";
 import { getProductBreadcrumbs, getProductBreadcrumbSchema } from "@/lib/product-breadcrumbs";
 import { VehiclePageRenderer } from "@/components/vehicle-page";
+import { ElectricStepFitmentCard } from "@/components/product/electric-steps/ElectricStepFitmentCard";
 import { wenjieM7PageConfig } from "@/lib/wenjie-m7-page-config";
 import { wenjieM7UpgradeProjects } from "@/lib/wenjie-m7-upgrade-projects";
 import { safeJsonLd } from "@/lib/json-ld";
@@ -65,6 +66,8 @@ export default function WenjieM7Page() {
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col">
         <VehiclePageRenderer config={wenjieM7PageConfig} />
+
+        <ElectricStepFitmentCard brandSlug="wenjie" modelSlug="m7" />
 
         {/* 底部导航 + 合规说明 */}
         <section className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900">
