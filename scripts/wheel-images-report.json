@@ -1,0 +1,6608 @@
+{
+  "generatedAt": "2026-09-21T10:55:35.985Z",
+  "recipe": "encoder=cwebp | flags=-m 6 -pass 10 -metadata none -sharp_yuv | detail=800x800@q86 | card=480x480@q80 | scope=one-main-image-per-model",
+  "encoder": "cwebp",
+  "sourceRoot": "/Volumes/usb/蓝辉轻改资料库/02-产品Product/轮毂",
+  "outputDir": "public/images/products/wheel",
+  "tiers": {
+    "card": {
+      "size": 480,
+      "quality": 80,
+      "files": 378
+    },
+    "detail": {
+      "size": 800,
+      "quality": 86,
+      "files": 378
+    }
+  },
+  "counts": {
+    "outputs": 756,
+    "written": 756,
+    "skipped": 0,
+    "failed": 0,
+    "cardFiles": 378,
+    "detailFiles": 378,
+    "modelsWithImages": 378,
+    "modelsMissingImages": 26,
+    "upscaledOutputs": 326,
+    "stretchedOutputs": 534,
+    "angleFilesRemoved": 0,
+    "angleBytesRemoved": 0,
+    "generatedAngleLeftovers": 0,
+    "legacyAnglePatternFiles": 8,
+    "allocationCompacted": 708,
+    "appleDoubleRemoved": 0,
+    "appleDoubleBytes": 0,
+    "prunedObsoleteFiles": 0
+  },
+  "bytes": {
+    "card": 14710632,
+    "detail": 36035748,
+    "generatedTotal": 50746380,
+    "wheelDirTotal": 52847072,
+    "wheelDirAllocated": 54435840,
+    "wheelGeneratedOnly": 50746380,
+    "wheelDirBefore": 52847072
+  },
+  "upscaled": [
+    {
+      "modelId": "GZ022",
+      "tier": "detail",
+      "source": "GZ022.png",
+      "sourceSize": "639x655",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ023",
+      "tier": "detail",
+      "source": "GZ023.png",
+      "sourceSize": "592x542",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ025",
+      "tier": "detail",
+      "source": "GZ025.png",
+      "sourceSize": "650x605",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ026",
+      "tier": "detail",
+      "source": "GZ026.png",
+      "sourceSize": "648x605",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ027",
+      "tier": "detail",
+      "source": "GZ027.png",
+      "sourceSize": "620x571",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ035",
+      "tier": "detail",
+      "source": "GZ035.png",
+      "sourceSize": "749x852",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ036",
+      "tier": "detail",
+      "source": "GZ036.png",
+      "sourceSize": "618x619",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ037",
+      "tier": "detail",
+      "source": "GZ037.png",
+      "sourceSize": "316x316",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ037",
+      "tier": "card",
+      "source": "GZ037.png",
+      "sourceSize": "316x316",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ040",
+      "tier": "detail",
+      "source": "GZ040.png",
+      "sourceSize": "819x736",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ041",
+      "tier": "detail",
+      "source": "GZ041.png",
+      "sourceSize": "866x784",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ045",
+      "tier": "detail",
+      "source": "GZ045.png",
+      "sourceSize": "777x775",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ050",
+      "tier": "detail",
+      "source": "GZ050.png",
+      "sourceSize": "193x193",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ050",
+      "tier": "card",
+      "source": "GZ050.png",
+      "sourceSize": "193x193",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ051",
+      "tier": "detail",
+      "source": "GZ051.png",
+      "sourceSize": "203x203",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ051",
+      "tier": "card",
+      "source": "GZ051.png",
+      "sourceSize": "203x203",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ052",
+      "tier": "detail",
+      "source": "GZ052.png",
+      "sourceSize": "294x293",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ052",
+      "tier": "card",
+      "source": "GZ052.png",
+      "sourceSize": "294x293",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ055",
+      "tier": "detail",
+      "source": "GZ055.png",
+      "sourceSize": "666x658",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ056",
+      "tier": "detail",
+      "source": "GZ056.png",
+      "sourceSize": "647x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ057",
+      "tier": "detail",
+      "source": "GZ057.png",
+      "sourceSize": "164x164",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ057",
+      "tier": "card",
+      "source": "GZ057.png",
+      "sourceSize": "164x164",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ058",
+      "tier": "detail",
+      "source": "GZ058.png",
+      "sourceSize": "653x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ059",
+      "tier": "detail",
+      "source": "GZ059.png",
+      "sourceSize": "622x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ060",
+      "tier": "detail",
+      "source": "GZ060.png",
+      "sourceSize": "614x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ061",
+      "tier": "detail",
+      "source": "GZ061.png",
+      "sourceSize": "572x573",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ062",
+      "tier": "detail",
+      "source": "GZ062.png",
+      "sourceSize": "622x577",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ063",
+      "tier": "detail",
+      "source": "GZ063.png",
+      "sourceSize": "628x602",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ064",
+      "tier": "detail",
+      "source": "GZ064.png",
+      "sourceSize": "645x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ066",
+      "tier": "detail",
+      "source": "GZ066.png",
+      "sourceSize": "320x320",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ066",
+      "tier": "card",
+      "source": "GZ066.png",
+      "sourceSize": "320x320",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ067",
+      "tier": "detail",
+      "source": "GZ067.png",
+      "sourceSize": "209x209",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ067",
+      "tier": "card",
+      "source": "GZ067.png",
+      "sourceSize": "209x209",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ068",
+      "tier": "detail",
+      "source": "GZ068.png",
+      "sourceSize": "239x239",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ068",
+      "tier": "card",
+      "source": "GZ068.png",
+      "sourceSize": "239x239",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ069",
+      "tier": "detail",
+      "source": "GZ069.png",
+      "sourceSize": "316x317",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ069",
+      "tier": "card",
+      "source": "GZ069.png",
+      "sourceSize": "316x317",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ070",
+      "tier": "detail",
+      "source": "GZ070.png",
+      "sourceSize": "317x316",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ070",
+      "tier": "card",
+      "source": "GZ070.png",
+      "sourceSize": "317x316",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ071",
+      "tier": "detail",
+      "source": "GZ071.png",
+      "sourceSize": "318x317",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ071",
+      "tier": "card",
+      "source": "GZ071.png",
+      "sourceSize": "318x317",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ072",
+      "tier": "detail",
+      "source": "GZ072.png",
+      "sourceSize": "301x301",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ072",
+      "tier": "card",
+      "source": "GZ072.png",
+      "sourceSize": "301x301",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ073",
+      "tier": "detail",
+      "source": "GZ073.png",
+      "sourceSize": "286x287",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ073",
+      "tier": "card",
+      "source": "GZ073.png",
+      "sourceSize": "286x287",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ074",
+      "tier": "detail",
+      "source": "GZ074.png",
+      "sourceSize": "287x287",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ074",
+      "tier": "card",
+      "source": "GZ074.png",
+      "sourceSize": "287x287",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ075",
+      "tier": "detail",
+      "source": "GZ075.png",
+      "sourceSize": "313x313",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ075",
+      "tier": "card",
+      "source": "GZ075.png",
+      "sourceSize": "313x313",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ076",
+      "tier": "detail",
+      "source": "GZ076.png",
+      "sourceSize": "167x167",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ076",
+      "tier": "card",
+      "source": "GZ076.png",
+      "sourceSize": "167x167",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ077",
+      "tier": "detail",
+      "source": "GZ077.png",
+      "sourceSize": "279x279",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ077",
+      "tier": "card",
+      "source": "GZ077.png",
+      "sourceSize": "279x279",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ078",
+      "tier": "detail",
+      "source": "GZ078.png",
+      "sourceSize": "167x167",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ078",
+      "tier": "card",
+      "source": "GZ078.png",
+      "sourceSize": "167x167",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ079",
+      "tier": "detail",
+      "source": "GZ079.png",
+      "sourceSize": "316x316",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ079",
+      "tier": "card",
+      "source": "GZ079.png",
+      "sourceSize": "316x316",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ080",
+      "tier": "detail",
+      "source": "GZ080.png",
+      "sourceSize": "315x315",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ080",
+      "tier": "card",
+      "source": "GZ080.png",
+      "sourceSize": "315x315",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ081",
+      "tier": "detail",
+      "source": "GZ081.png",
+      "sourceSize": "158x158",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ081",
+      "tier": "card",
+      "source": "GZ081.png",
+      "sourceSize": "158x158",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ082",
+      "tier": "detail",
+      "source": "GZ082.png",
+      "sourceSize": "266x266",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ082",
+      "tier": "card",
+      "source": "GZ082.png",
+      "sourceSize": "266x266",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ084",
+      "tier": "detail",
+      "source": "GZ084.png",
+      "sourceSize": "313x313",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ084",
+      "tier": "card",
+      "source": "GZ084.png",
+      "sourceSize": "313x313",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "GZ086",
+      "tier": "detail",
+      "source": "GZ086.png",
+      "sourceSize": "669x673",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ094",
+      "tier": "detail",
+      "source": "GZ094.png",
+      "sourceSize": "1125x750",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZ108",
+      "tier": "detail",
+      "source": "GZ108.png",
+      "sourceSize": "816x790",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ002",
+      "tier": "detail",
+      "source": "BENZ002.png",
+      "sourceSize": "594x552",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ003",
+      "tier": "detail",
+      "source": "BENZ003.png",
+      "sourceSize": "618x587",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ009",
+      "tier": "detail",
+      "source": "BENZ009.png",
+      "sourceSize": "623x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ012",
+      "tier": "detail",
+      "source": "BENZ012.png",
+      "sourceSize": "647x602",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ013",
+      "tier": "detail",
+      "source": "BENZ013.png",
+      "sourceSize": "642x605",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ014",
+      "tier": "detail",
+      "source": "BENZ014.png",
+      "sourceSize": "175x175",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ014",
+      "tier": "card",
+      "source": "BENZ014.png",
+      "sourceSize": "175x175",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "BENZ015",
+      "tier": "detail",
+      "source": "BENZ015.png",
+      "sourceSize": "172x155",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ015",
+      "tier": "card",
+      "source": "BENZ015.png",
+      "sourceSize": "172x155",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "BENZ016",
+      "tier": "detail",
+      "source": "BENZ016.png",
+      "sourceSize": "667x607",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ017",
+      "tier": "detail",
+      "source": "BENZ017.png",
+      "sourceSize": "643x621",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ020",
+      "tier": "detail",
+      "source": "BENZ020.png",
+      "sourceSize": "617x584",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ021",
+      "tier": "detail",
+      "source": "BENZ021.png",
+      "sourceSize": "638x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BENZ022",
+      "tier": "detail",
+      "source": "BENZ022.png",
+      "sourceSize": "641x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW002",
+      "tier": "detail",
+      "source": "BMW002.png",
+      "sourceSize": "676x674",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW003",
+      "tier": "detail",
+      "source": "BMW003.png",
+      "sourceSize": "621x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW004",
+      "tier": "detail",
+      "source": "BMW004.png",
+      "sourceSize": "653x652",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW005",
+      "tier": "detail",
+      "source": "BMW005.png",
+      "sourceSize": "657x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW006",
+      "tier": "detail",
+      "source": "BMW006.png",
+      "sourceSize": "637x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW007",
+      "tier": "detail",
+      "source": "BMW007.png",
+      "sourceSize": "603x611",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW008",
+      "tier": "detail",
+      "source": "BMW008.png",
+      "sourceSize": "655x616",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW009",
+      "tier": "detail",
+      "source": "BMW009.png",
+      "sourceSize": "662x638",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW010",
+      "tier": "detail",
+      "source": "BMW010.png",
+      "sourceSize": "612x616",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW011",
+      "tier": "detail",
+      "source": "BMW011.png",
+      "sourceSize": "626x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW013",
+      "tier": "detail",
+      "source": "BMW013.png",
+      "sourceSize": "167x351",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW013",
+      "tier": "card",
+      "source": "BMW013.png",
+      "sourceSize": "167x351",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "BMW014",
+      "tier": "detail",
+      "source": "BMW014.png",
+      "sourceSize": "859x735",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW016",
+      "tier": "detail",
+      "source": "BMW016.png",
+      "sourceSize": "604x598",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW017",
+      "tier": "detail",
+      "source": "BMW017.png",
+      "sourceSize": "653x653",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW018",
+      "tier": "detail",
+      "source": "BMW018.png",
+      "sourceSize": "193x191",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "BMW018",
+      "tier": "card",
+      "source": "BMW018.png",
+      "sourceSize": "193x191",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "BMW020",
+      "tier": "detail",
+      "source": "BMW020.png",
+      "sourceSize": "852x770",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI002",
+      "tier": "detail",
+      "source": "AUDI002.png",
+      "sourceSize": "647x621",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI003",
+      "tier": "detail",
+      "source": "AUDI003.png",
+      "sourceSize": "642x607",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI007",
+      "tier": "detail",
+      "source": "AUDI007.png",
+      "sourceSize": "585x609",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI008",
+      "tier": "detail",
+      "source": "AUDI008.png",
+      "sourceSize": "651x636",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI009",
+      "tier": "detail",
+      "source": "AUDI009.png",
+      "sourceSize": "639x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI010",
+      "tier": "detail",
+      "source": "AUDI010.png",
+      "sourceSize": "167x160",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI010",
+      "tier": "card",
+      "source": "AUDI010.png",
+      "sourceSize": "167x160",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "AUDI011",
+      "tier": "detail",
+      "source": "AUDI011.png",
+      "sourceSize": "182x181",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI011",
+      "tier": "card",
+      "source": "AUDI011.png",
+      "sourceSize": "182x181",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "AUDI013",
+      "tier": "detail",
+      "source": "AUDI013.png",
+      "sourceSize": "599x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI014",
+      "tier": "detail",
+      "source": "AUDI014.png",
+      "sourceSize": "622x635",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI020",
+      "tier": "detail",
+      "source": "AUDI020.png",
+      "sourceSize": "634x608",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "AUDI021",
+      "tier": "detail",
+      "source": "AUDI021.png",
+      "sourceSize": "642x636",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TYT001",
+      "tier": "detail",
+      "source": "TYT001.png",
+      "sourceSize": "641x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TYT002",
+      "tier": "detail",
+      "source": "TYT002.png",
+      "sourceSize": "632x599",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TYT003",
+      "tier": "detail",
+      "source": "TYT003.png",
+      "sourceSize": "624x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TYT006",
+      "tier": "detail",
+      "source": "TYT006.png",
+      "sourceSize": "650x644",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TYT007",
+      "tier": "detail",
+      "source": "TYT007.png",
+      "sourceSize": "622x614",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "LRP001",
+      "tier": "detail",
+      "source": "LRP001.png",
+      "sourceSize": "581x599",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "LRP002",
+      "tier": "detail",
+      "source": "LRP002.png",
+      "sourceSize": "589x609",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "LRP003",
+      "tier": "detail",
+      "source": "LRP003.png",
+      "sourceSize": "621x608",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "LRP005",
+      "tier": "detail",
+      "source": "LRP005.png",
+      "sourceSize": "586x611",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "LRP006",
+      "tier": "detail",
+      "source": "LRP006.png",
+      "sourceSize": "626x639",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GM08001",
+      "tier": "detail",
+      "source": "GM08001.png",
+      "sourceSize": "661x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GM08015",
+      "tier": "detail",
+      "source": "GM08015.png",
+      "sourceSize": "651x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM520",
+      "tier": "detail",
+      "source": "GZM520.png",
+      "sourceSize": "658x633",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM521",
+      "tier": "detail",
+      "source": "GZM521.png",
+      "sourceSize": "674x633",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM522",
+      "tier": "detail",
+      "source": "GZM522.png",
+      "sourceSize": "684x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM523",
+      "tier": "detail",
+      "source": "GZM523.png",
+      "sourceSize": "640x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM524",
+      "tier": "detail",
+      "source": "GZM524.png",
+      "sourceSize": "630x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM525",
+      "tier": "detail",
+      "source": "GZM525.png",
+      "sourceSize": "676x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM526",
+      "tier": "detail",
+      "source": "GZM526.png",
+      "sourceSize": "624x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM527",
+      "tier": "detail",
+      "source": "GZM527.png",
+      "sourceSize": "687x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM530",
+      "tier": "detail",
+      "source": "GZM530.png",
+      "sourceSize": "651x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM531",
+      "tier": "detail",
+      "source": "GZM531.png",
+      "sourceSize": "620x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM532",
+      "tier": "detail",
+      "source": "GZM532.png",
+      "sourceSize": "646x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM535",
+      "tier": "detail",
+      "source": "GZM535.png",
+      "sourceSize": "677x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "GZM542",
+      "tier": "detail",
+      "source": "GZM542.png",
+      "sourceSize": "628x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ08017",
+      "tier": "detail",
+      "source": "TJ08017.png",
+      "sourceSize": "703x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "DZSTT07",
+      "tier": "detail",
+      "source": "DZSTT07.png",
+      "sourceSize": "672x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07001",
+      "tier": "detail",
+      "source": "TJ07001.png",
+      "sourceSize": "625x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07005",
+      "tier": "detail",
+      "source": "TJ07005.png",
+      "sourceSize": "637x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07006",
+      "tier": "detail",
+      "source": "TJ07006.png",
+      "sourceSize": "642x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07010",
+      "tier": "detail",
+      "source": "TJ07010.png",
+      "sourceSize": "636x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07019",
+      "tier": "detail",
+      "source": "TJ07019.png",
+      "sourceSize": "629x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07028",
+      "tier": "detail",
+      "source": "TJ07028.png",
+      "sourceSize": "627x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ07035",
+      "tier": "detail",
+      "source": "TJ07035.png",
+      "sourceSize": "634x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ08007",
+      "tier": "detail",
+      "source": "TJ08007.png",
+      "sourceSize": "657x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ24005",
+      "tier": "detail",
+      "source": "TJ24005.png",
+      "sourceSize": "679x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ30002",
+      "tier": "detail",
+      "source": "TJ30002.png",
+      "sourceSize": "640x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05001",
+      "tier": "detail",
+      "source": "TJ05001.png",
+      "sourceSize": "627x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05002",
+      "tier": "detail",
+      "source": "TJ05002.png",
+      "sourceSize": "676x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05003",
+      "tier": "detail",
+      "source": "TJ05003.png",
+      "sourceSize": "654x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05005",
+      "tier": "detail",
+      "source": "TJ05005.png",
+      "sourceSize": "500x500",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05006",
+      "tier": "detail",
+      "source": "TJ05006.png",
+      "sourceSize": "643x618",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05008",
+      "tier": "detail",
+      "source": "TJ05008.png",
+      "sourceSize": "642x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05010",
+      "tier": "detail",
+      "source": "TJ05010.png",
+      "sourceSize": "649x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05011",
+      "tier": "detail",
+      "source": "TJ05011.png",
+      "sourceSize": "646x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05012",
+      "tier": "detail",
+      "source": "TJ05012.png",
+      "sourceSize": "651x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05013",
+      "tier": "detail",
+      "source": "TJ05013.png",
+      "sourceSize": "641x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05014",
+      "tier": "detail",
+      "source": "TJ05014.png",
+      "sourceSize": "627x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05015",
+      "tier": "detail",
+      "source": "TJ05015.png",
+      "sourceSize": "653x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05016",
+      "tier": "detail",
+      "source": "TJ05016.png",
+      "sourceSize": "648x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05019",
+      "tier": "detail",
+      "source": "TJ05019.png",
+      "sourceSize": "643x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05020",
+      "tier": "detail",
+      "source": "TJ05020.png",
+      "sourceSize": "638x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05021",
+      "tier": "detail",
+      "source": "TJ05021.png",
+      "sourceSize": "646x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05022",
+      "tier": "detail",
+      "source": "TJ05022.png",
+      "sourceSize": "637x636",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05023",
+      "tier": "detail",
+      "source": "TJ05023.png",
+      "sourceSize": "630x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05024",
+      "tier": "detail",
+      "source": "TJ05024.png",
+      "sourceSize": "634x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05025",
+      "tier": "detail",
+      "source": "TJ05025.png",
+      "sourceSize": "648x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ05029",
+      "tier": "detail",
+      "source": "TJ05029.png",
+      "sourceSize": "650x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ17003",
+      "tier": "detail",
+      "source": "TJ17003.png",
+      "sourceSize": "652x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02001",
+      "tier": "detail",
+      "source": "TJ02001.png",
+      "sourceSize": "624x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02002",
+      "tier": "detail",
+      "source": "TJ02002.png",
+      "sourceSize": "646x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02003",
+      "tier": "detail",
+      "source": "TJ02003.png",
+      "sourceSize": "649x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02004",
+      "tier": "detail",
+      "source": "TJ02004.png",
+      "sourceSize": "678x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02006",
+      "tier": "detail",
+      "source": "TJ02006.png",
+      "sourceSize": "622x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02008",
+      "tier": "detail",
+      "source": "TJ02008.png",
+      "sourceSize": "647x633",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02009",
+      "tier": "detail",
+      "source": "TJ02009.png",
+      "sourceSize": "634x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02010",
+      "tier": "detail",
+      "source": "TJ02010.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02012",
+      "tier": "detail",
+      "source": "TJ02012.png",
+      "sourceSize": "636x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02013",
+      "tier": "detail",
+      "source": "TJ02013.png",
+      "sourceSize": "649x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02014",
+      "tier": "detail",
+      "source": "TJ02014.png",
+      "sourceSize": "674x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02015",
+      "tier": "detail",
+      "source": "TJ02015.png",
+      "sourceSize": "641x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02016",
+      "tier": "detail",
+      "source": "TJ02016.png",
+      "sourceSize": "676x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02020",
+      "tier": "detail",
+      "source": "TJ02020.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02024",
+      "tier": "detail",
+      "source": "TJ02024.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02027",
+      "tier": "detail",
+      "source": "TJ02027.png",
+      "sourceSize": "667x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02028",
+      "tier": "detail",
+      "source": "TJ02028.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02028",
+      "tier": "card",
+      "source": "TJ02028.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ02031",
+      "tier": "detail",
+      "source": "TJ02031.png",
+      "sourceSize": "636x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02032",
+      "tier": "detail",
+      "source": "TJ02032.png",
+      "sourceSize": "679x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02037",
+      "tier": "detail",
+      "source": "TJ02037.png",
+      "sourceSize": "662x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02038",
+      "tier": "detail",
+      "source": "TJ02038.png",
+      "sourceSize": "602x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02039",
+      "tier": "detail",
+      "source": "TJ02039.png",
+      "sourceSize": "622x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02041",
+      "tier": "detail",
+      "source": "TJ02041.png",
+      "sourceSize": "646x616",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02044",
+      "tier": "detail",
+      "source": "TJ02044.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02044",
+      "tier": "card",
+      "source": "TJ02044.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ02046",
+      "tier": "detail",
+      "source": "TJ02046.png",
+      "sourceSize": "631x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02051",
+      "tier": "detail",
+      "source": "TJ02051.png",
+      "sourceSize": "616x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02053",
+      "tier": "detail",
+      "source": "TJ02053.png",
+      "sourceSize": "639x613",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02054",
+      "tier": "detail",
+      "source": "TJ02054.png",
+      "sourceSize": "656x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02055",
+      "tier": "detail",
+      "source": "TJ02055.png",
+      "sourceSize": "629x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02056",
+      "tier": "detail",
+      "source": "TJ02056.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02058",
+      "tier": "detail",
+      "source": "TJ02058.png",
+      "sourceSize": "632x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02061",
+      "tier": "detail",
+      "source": "TJ02061.png",
+      "sourceSize": "650x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02066",
+      "tier": "detail",
+      "source": "TJ02066.png",
+      "sourceSize": "633x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02072",
+      "tier": "detail",
+      "source": "TJ02072.png",
+      "sourceSize": "520x520",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02076",
+      "tier": "detail",
+      "source": "TJ02076.png",
+      "sourceSize": "633x616",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02079",
+      "tier": "detail",
+      "source": "TJ02079.png",
+      "sourceSize": "626x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02084",
+      "tier": "detail",
+      "source": "TJ02084.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02085",
+      "tier": "detail",
+      "source": "TJ02085.png",
+      "sourceSize": "674x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02086",
+      "tier": "detail",
+      "source": "TJ02086.png",
+      "sourceSize": "642x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02087",
+      "tier": "detail",
+      "source": "TJ02087.png",
+      "sourceSize": "644x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02097",
+      "tier": "detail",
+      "source": "TJ02097.png",
+      "sourceSize": "615x614",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02099",
+      "tier": "detail",
+      "source": "TJ02099.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ02102",
+      "tier": "detail",
+      "source": "TJ02102.png",
+      "sourceSize": "632x612",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01001",
+      "tier": "detail",
+      "source": "TJ01001.png",
+      "sourceSize": "620x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01002",
+      "tier": "detail",
+      "source": "TJ01002.png",
+      "sourceSize": "633x617",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01003",
+      "tier": "detail",
+      "source": "TJ01003.png",
+      "sourceSize": "640x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01004",
+      "tier": "detail",
+      "source": "TJ01004.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01005",
+      "tier": "detail",
+      "source": "TJ01005.png",
+      "sourceSize": "669x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01009",
+      "tier": "detail",
+      "source": "TJ01009.png",
+      "sourceSize": "649x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01010",
+      "tier": "detail",
+      "source": "TJ01010.png",
+      "sourceSize": "646x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01012",
+      "tier": "detail",
+      "source": "TJ01012.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01012",
+      "tier": "card",
+      "source": "TJ01012.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ01013",
+      "tier": "detail",
+      "source": "TJ01013.png",
+      "sourceSize": "653x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01016",
+      "tier": "detail",
+      "source": "TJ01016.png",
+      "sourceSize": "646x635",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01017",
+      "tier": "detail",
+      "source": "TJ01017.png",
+      "sourceSize": "630x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01018",
+      "tier": "detail",
+      "source": "TJ01018.png",
+      "sourceSize": "630x635",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01020",
+      "tier": "detail",
+      "source": "TJ01020.png",
+      "sourceSize": "631x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01023",
+      "tier": "detail",
+      "source": "TJ01023.png",
+      "sourceSize": "649x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01024",
+      "tier": "detail",
+      "source": "TJ01024.png",
+      "sourceSize": "642x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01025",
+      "tier": "detail",
+      "source": "TJ01025.png",
+      "sourceSize": "638x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01028",
+      "tier": "detail",
+      "source": "TJ01028.png",
+      "sourceSize": "653x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01030",
+      "tier": "detail",
+      "source": "TJ01030.png",
+      "sourceSize": "659x635",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01031",
+      "tier": "detail",
+      "source": "TJ01031.png",
+      "sourceSize": "633x619",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01033",
+      "tier": "detail",
+      "source": "TJ01033.png",
+      "sourceSize": "641x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01034",
+      "tier": "detail",
+      "source": "TJ01034.png",
+      "sourceSize": "639x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01038",
+      "tier": "detail",
+      "source": "TJ01038.png",
+      "sourceSize": "633x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ01039",
+      "tier": "detail",
+      "source": "TJ01039.png",
+      "sourceSize": "632x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "DZSBM08",
+      "tier": "detail",
+      "source": "DZSBM08.png",
+      "sourceSize": "639x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03001",
+      "tier": "detail",
+      "source": "TJ03001.png",
+      "sourceSize": "683x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03002",
+      "tier": "detail",
+      "source": "TJ03002.png",
+      "sourceSize": "644x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03003",
+      "tier": "detail",
+      "source": "TJ03003.png",
+      "sourceSize": "634x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03005",
+      "tier": "detail",
+      "source": "TJ03005.png",
+      "sourceSize": "638x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03006",
+      "tier": "detail",
+      "source": "TJ03006.png",
+      "sourceSize": "660x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03016",
+      "tier": "detail",
+      "source": "TJ03016.png",
+      "sourceSize": "630x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03017",
+      "tier": "detail",
+      "source": "TJ03017.png",
+      "sourceSize": "655x617",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03020",
+      "tier": "detail",
+      "source": "TJ03020.png",
+      "sourceSize": "641x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03021",
+      "tier": "detail",
+      "source": "TJ03021.png",
+      "sourceSize": "635x617",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03022",
+      "tier": "detail",
+      "source": "TJ03022.png",
+      "sourceSize": "646x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03025",
+      "tier": "detail",
+      "source": "TJ03025.png",
+      "sourceSize": "650x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03027",
+      "tier": "detail",
+      "source": "TJ03027.png",
+      "sourceSize": "630x616",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03028",
+      "tier": "detail",
+      "source": "TJ03028.png",
+      "sourceSize": "630x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03029",
+      "tier": "detail",
+      "source": "TJ03029.png",
+      "sourceSize": "633x610",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03030",
+      "tier": "detail",
+      "source": "TJ03030.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03031",
+      "tier": "detail",
+      "source": "TJ03031.png",
+      "sourceSize": "672x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03032",
+      "tier": "detail",
+      "source": "TJ03032.png",
+      "sourceSize": "643x631",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03034",
+      "tier": "detail",
+      "source": "TJ03034.png",
+      "sourceSize": "624x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03036",
+      "tier": "detail",
+      "source": "TJ03036.png",
+      "sourceSize": "635x618",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03037",
+      "tier": "detail",
+      "source": "TJ03037.png",
+      "sourceSize": "642x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03038",
+      "tier": "detail",
+      "source": "TJ03038.png",
+      "sourceSize": "641x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03039",
+      "tier": "detail",
+      "source": "TJ03039.png",
+      "sourceSize": "623x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03040",
+      "tier": "detail",
+      "source": "TJ03040.png",
+      "sourceSize": "625x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03041",
+      "tier": "detail",
+      "source": "TJ03041.png",
+      "sourceSize": "635x633",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03042",
+      "tier": "detail",
+      "source": "TJ03042.png",
+      "sourceSize": "646x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03044",
+      "tier": "detail",
+      "source": "TJ03044.png",
+      "sourceSize": "661x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03045",
+      "tier": "detail",
+      "source": "TJ03045.png",
+      "sourceSize": "639x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03046",
+      "tier": "detail",
+      "source": "TJ03046.png",
+      "sourceSize": "650x633",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03048",
+      "tier": "detail",
+      "source": "TJ03048.png",
+      "sourceSize": "646x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03050",
+      "tier": "detail",
+      "source": "TJ03050.png",
+      "sourceSize": "621x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03051",
+      "tier": "detail",
+      "source": "TJ03051.png",
+      "sourceSize": "650x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03052",
+      "tier": "detail",
+      "source": "TJ03052.png",
+      "sourceSize": "628x620",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03053",
+      "tier": "detail",
+      "source": "TJ03053.png",
+      "sourceSize": "630x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03054",
+      "tier": "detail",
+      "source": "TJ03054.png",
+      "sourceSize": "653x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03055",
+      "tier": "detail",
+      "source": "TJ03055.png",
+      "sourceSize": "600x600",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03056",
+      "tier": "detail",
+      "source": "TJ03056.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03056",
+      "tier": "card",
+      "source": "TJ03056.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ03057",
+      "tier": "detail",
+      "source": "TJ03057.png",
+      "sourceSize": "683x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03059",
+      "tier": "detail",
+      "source": "TJ03059.png",
+      "sourceSize": "661x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03060",
+      "tier": "detail",
+      "source": "TJ03060.png",
+      "sourceSize": "663x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03067",
+      "tier": "detail",
+      "source": "TJ03067.png",
+      "sourceSize": "631x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03068",
+      "tier": "detail",
+      "source": "TJ03068.png",
+      "sourceSize": "647x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03072",
+      "tier": "detail",
+      "source": "TJ03072.png",
+      "sourceSize": "631x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03076",
+      "tier": "detail",
+      "source": "TJ03076.png",
+      "sourceSize": "651x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03090",
+      "tier": "detail",
+      "source": "TJ03090.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ03090",
+      "tier": "card",
+      "source": "TJ03090.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "DZSXM02",
+      "tier": "detail",
+      "source": "DZSXM02.png",
+      "sourceSize": "667x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11004",
+      "tier": "detail",
+      "source": "TJ11004.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11004",
+      "tier": "card",
+      "source": "TJ11004.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ11005",
+      "tier": "detail",
+      "source": "TJ11005.png",
+      "sourceSize": "624x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11008",
+      "tier": "detail",
+      "source": "TJ11008.png",
+      "sourceSize": "638x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11010",
+      "tier": "detail",
+      "source": "TJ11010.png",
+      "sourceSize": "654x632",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11011",
+      "tier": "detail",
+      "source": "TJ11011.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11011",
+      "tier": "card",
+      "source": "TJ11011.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ15006",
+      "tier": "detail",
+      "source": "TJ15006.png",
+      "sourceSize": "637x623",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ37004",
+      "tier": "detail",
+      "source": "TJ37004.png",
+      "sourceSize": "400x362",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ37004",
+      "tier": "card",
+      "source": "TJ37004.png",
+      "sourceSize": "400x362",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ37005",
+      "tier": "detail",
+      "source": "TJ37005.png",
+      "sourceSize": "648x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ37009",
+      "tier": "detail",
+      "source": "TJ37009.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ37009",
+      "tier": "card",
+      "source": "TJ37009.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ37010",
+      "tier": "detail",
+      "source": "TJ37010.png",
+      "sourceSize": "400x400",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ37010",
+      "tier": "card",
+      "source": "TJ37010.png",
+      "sourceSize": "400x400",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ37011",
+      "tier": "detail",
+      "source": "TJ37011.png",
+      "sourceSize": "649x618",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "DZSWJ03",
+      "tier": "detail",
+      "source": "DZSWJ03.png",
+      "sourceSize": "704x625",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "DZSWJ05",
+      "tier": "detail",
+      "source": "DZSWJ05.png",
+      "sourceSize": "689x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "DZSWJ06",
+      "tier": "detail",
+      "source": "DZSWJ06.png",
+      "sourceSize": "693x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ09001",
+      "tier": "detail",
+      "source": "TJ09001.png",
+      "sourceSize": "631x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ09002",
+      "tier": "detail",
+      "source": "TJ09002.png",
+      "sourceSize": "624x629",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ09012",
+      "tier": "detail",
+      "source": "TJ09012.png",
+      "sourceSize": "639x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ10002",
+      "tier": "detail",
+      "source": "TJ10002.png",
+      "sourceSize": "625x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ10004",
+      "tier": "detail",
+      "source": "TJ10004.png",
+      "sourceSize": "620x633",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ10005",
+      "tier": "detail",
+      "source": "TJ10005.png",
+      "sourceSize": "641x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ11003",
+      "tier": "detail",
+      "source": "TJ11003.png",
+      "sourceSize": "610x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26001",
+      "tier": "detail",
+      "source": "TJ26001.png",
+      "sourceSize": "642x627",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26002",
+      "tier": "detail",
+      "source": "TJ26002.png",
+      "sourceSize": "643x622",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26003",
+      "tier": "detail",
+      "source": "TJ26003.png",
+      "sourceSize": "620x634",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26010",
+      "tier": "detail",
+      "source": "TJ26010.png",
+      "sourceSize": "661x628",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26013",
+      "tier": "detail",
+      "source": "TJ26013.png",
+      "sourceSize": "626x626",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26015",
+      "tier": "detail",
+      "source": "TJ26015.png",
+      "sourceSize": "625x624",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26017",
+      "tier": "detail",
+      "source": "TJ26017.png",
+      "sourceSize": "400x317",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26017",
+      "tier": "card",
+      "source": "TJ26017.png",
+      "sourceSize": "400x317",
+      "targetSize": "480x480"
+    },
+    {
+      "modelId": "TJ26021",
+      "tier": "detail",
+      "source": "TJ26021.png",
+      "sourceSize": "658x630",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26023",
+      "tier": "detail",
+      "source": "TJ26023.png",
+      "sourceSize": "626x614",
+      "targetSize": "800x800"
+    },
+    {
+      "modelId": "TJ26030",
+      "tier": "detail",
+      "source": "TJ26030.png",
+      "sourceSize": "663x628",
+      "targetSize": "800x800"
+    }
+  ],
+  "stretched": [
+    {
+      "modelId": "GZ003",
+      "tier": "detail",
+      "source": "GZ003.png",
+      "sourceSize": "1440x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.333
+    },
+    {
+      "modelId": "GZ003",
+      "tier": "card",
+      "source": "GZ003.png",
+      "sourceSize": "1440x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.333
+    },
+    {
+      "modelId": "GZ022",
+      "tier": "detail",
+      "source": "GZ022.png",
+      "sourceSize": "639x655",
+      "targetSize": "800x800",
+      "aspectRatio": 0.976
+    },
+    {
+      "modelId": "GZ022",
+      "tier": "card",
+      "source": "GZ022.png",
+      "sourceSize": "639x655",
+      "targetSize": "480x480",
+      "aspectRatio": 0.976
+    },
+    {
+      "modelId": "GZ023",
+      "tier": "detail",
+      "source": "GZ023.png",
+      "sourceSize": "592x542",
+      "targetSize": "800x800",
+      "aspectRatio": 1.092
+    },
+    {
+      "modelId": "GZ023",
+      "tier": "card",
+      "source": "GZ023.png",
+      "sourceSize": "592x542",
+      "targetSize": "480x480",
+      "aspectRatio": 1.092
+    },
+    {
+      "modelId": "GZ025",
+      "tier": "detail",
+      "source": "GZ025.png",
+      "sourceSize": "650x605",
+      "targetSize": "800x800",
+      "aspectRatio": 1.074
+    },
+    {
+      "modelId": "GZ025",
+      "tier": "card",
+      "source": "GZ025.png",
+      "sourceSize": "650x605",
+      "targetSize": "480x480",
+      "aspectRatio": 1.074
+    },
+    {
+      "modelId": "GZ026",
+      "tier": "detail",
+      "source": "GZ026.png",
+      "sourceSize": "648x605",
+      "targetSize": "800x800",
+      "aspectRatio": 1.071
+    },
+    {
+      "modelId": "GZ026",
+      "tier": "card",
+      "source": "GZ026.png",
+      "sourceSize": "648x605",
+      "targetSize": "480x480",
+      "aspectRatio": 1.071
+    },
+    {
+      "modelId": "GZ027",
+      "tier": "detail",
+      "source": "GZ027.png",
+      "sourceSize": "620x571",
+      "targetSize": "800x800",
+      "aspectRatio": 1.086
+    },
+    {
+      "modelId": "GZ027",
+      "tier": "card",
+      "source": "GZ027.png",
+      "sourceSize": "620x571",
+      "targetSize": "480x480",
+      "aspectRatio": 1.086
+    },
+    {
+      "modelId": "GZ029",
+      "tier": "detail",
+      "source": "GZ029.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "800x800",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ029",
+      "tier": "card",
+      "source": "GZ029.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "480x480",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ031",
+      "tier": "detail",
+      "source": "GZ031.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "800x800",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ031",
+      "tier": "card",
+      "source": "GZ031.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "480x480",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ032",
+      "tier": "detail",
+      "source": "GZ032.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "800x800",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ032",
+      "tier": "card",
+      "source": "GZ032.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "480x480",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ033",
+      "tier": "detail",
+      "source": "GZ033.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "800x800",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ033",
+      "tier": "card",
+      "source": "GZ033.png",
+      "sourceSize": "1276x1702",
+      "targetSize": "480x480",
+      "aspectRatio": 0.75
+    },
+    {
+      "modelId": "GZ035",
+      "tier": "detail",
+      "source": "GZ035.png",
+      "sourceSize": "749x852",
+      "targetSize": "800x800",
+      "aspectRatio": 0.879
+    },
+    {
+      "modelId": "GZ035",
+      "tier": "card",
+      "source": "GZ035.png",
+      "sourceSize": "749x852",
+      "targetSize": "480x480",
+      "aspectRatio": 0.879
+    },
+    {
+      "modelId": "GZ036",
+      "tier": "detail",
+      "source": "GZ036.png",
+      "sourceSize": "618x619",
+      "targetSize": "800x800",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "GZ036",
+      "tier": "card",
+      "source": "GZ036.png",
+      "sourceSize": "618x619",
+      "targetSize": "480x480",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "GZ040",
+      "tier": "detail",
+      "source": "GZ040.png",
+      "sourceSize": "819x736",
+      "targetSize": "800x800",
+      "aspectRatio": 1.113
+    },
+    {
+      "modelId": "GZ040",
+      "tier": "card",
+      "source": "GZ040.png",
+      "sourceSize": "819x736",
+      "targetSize": "480x480",
+      "aspectRatio": 1.113
+    },
+    {
+      "modelId": "GZ041",
+      "tier": "detail",
+      "source": "GZ041.png",
+      "sourceSize": "866x784",
+      "targetSize": "800x800",
+      "aspectRatio": 1.105
+    },
+    {
+      "modelId": "GZ041",
+      "tier": "card",
+      "source": "GZ041.png",
+      "sourceSize": "866x784",
+      "targetSize": "480x480",
+      "aspectRatio": 1.105
+    },
+    {
+      "modelId": "GZ045",
+      "tier": "detail",
+      "source": "GZ045.png",
+      "sourceSize": "777x775",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ045",
+      "tier": "card",
+      "source": "GZ045.png",
+      "sourceSize": "777x775",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ047",
+      "tier": "detail",
+      "source": "GZ047.png",
+      "sourceSize": "897x875",
+      "targetSize": "800x800",
+      "aspectRatio": 1.025
+    },
+    {
+      "modelId": "GZ047",
+      "tier": "card",
+      "source": "GZ047.png",
+      "sourceSize": "897x875",
+      "targetSize": "480x480",
+      "aspectRatio": 1.025
+    },
+    {
+      "modelId": "GZ052",
+      "tier": "detail",
+      "source": "GZ052.png",
+      "sourceSize": "294x293",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ052",
+      "tier": "card",
+      "source": "GZ052.png",
+      "sourceSize": "294x293",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ055",
+      "tier": "detail",
+      "source": "GZ055.png",
+      "sourceSize": "666x658",
+      "targetSize": "800x800",
+      "aspectRatio": 1.012
+    },
+    {
+      "modelId": "GZ055",
+      "tier": "card",
+      "source": "GZ055.png",
+      "sourceSize": "666x658",
+      "targetSize": "480x480",
+      "aspectRatio": 1.012
+    },
+    {
+      "modelId": "GZ056",
+      "tier": "detail",
+      "source": "GZ056.png",
+      "sourceSize": "647x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "GZ056",
+      "tier": "card",
+      "source": "GZ056.png",
+      "sourceSize": "647x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "GZ058",
+      "tier": "detail",
+      "source": "GZ058.png",
+      "sourceSize": "653x634",
+      "targetSize": "800x800",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "GZ058",
+      "tier": "card",
+      "source": "GZ058.png",
+      "sourceSize": "653x634",
+      "targetSize": "480x480",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "GZ059",
+      "tier": "detail",
+      "source": "GZ059.png",
+      "sourceSize": "622x628",
+      "targetSize": "800x800",
+      "aspectRatio": 0.99
+    },
+    {
+      "modelId": "GZ059",
+      "tier": "card",
+      "source": "GZ059.png",
+      "sourceSize": "622x628",
+      "targetSize": "480x480",
+      "aspectRatio": 0.99
+    },
+    {
+      "modelId": "GZ060",
+      "tier": "detail",
+      "source": "GZ060.png",
+      "sourceSize": "614x613",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "GZ060",
+      "tier": "card",
+      "source": "GZ060.png",
+      "sourceSize": "614x613",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "GZ061",
+      "tier": "detail",
+      "source": "GZ061.png",
+      "sourceSize": "572x573",
+      "targetSize": "800x800",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "GZ061",
+      "tier": "card",
+      "source": "GZ061.png",
+      "sourceSize": "572x573",
+      "targetSize": "480x480",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "GZ062",
+      "tier": "detail",
+      "source": "GZ062.png",
+      "sourceSize": "622x577",
+      "targetSize": "800x800",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "GZ062",
+      "tier": "card",
+      "source": "GZ062.png",
+      "sourceSize": "622x577",
+      "targetSize": "480x480",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "GZ063",
+      "tier": "detail",
+      "source": "GZ063.png",
+      "sourceSize": "628x602",
+      "targetSize": "800x800",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "GZ063",
+      "tier": "card",
+      "source": "GZ063.png",
+      "sourceSize": "628x602",
+      "targetSize": "480x480",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "GZ064",
+      "tier": "detail",
+      "source": "GZ064.png",
+      "sourceSize": "645x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "GZ064",
+      "tier": "card",
+      "source": "GZ064.png",
+      "sourceSize": "645x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "GZ069",
+      "tier": "detail",
+      "source": "GZ069.png",
+      "sourceSize": "316x317",
+      "targetSize": "800x800",
+      "aspectRatio": 0.997
+    },
+    {
+      "modelId": "GZ069",
+      "tier": "card",
+      "source": "GZ069.png",
+      "sourceSize": "316x317",
+      "targetSize": "480x480",
+      "aspectRatio": 0.997
+    },
+    {
+      "modelId": "GZ070",
+      "tier": "detail",
+      "source": "GZ070.png",
+      "sourceSize": "317x316",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ070",
+      "tier": "card",
+      "source": "GZ070.png",
+      "sourceSize": "317x316",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ071",
+      "tier": "detail",
+      "source": "GZ071.png",
+      "sourceSize": "318x317",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ071",
+      "tier": "card",
+      "source": "GZ071.png",
+      "sourceSize": "318x317",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ073",
+      "tier": "detail",
+      "source": "GZ073.png",
+      "sourceSize": "286x287",
+      "targetSize": "800x800",
+      "aspectRatio": 0.997
+    },
+    {
+      "modelId": "GZ073",
+      "tier": "card",
+      "source": "GZ073.png",
+      "sourceSize": "286x287",
+      "targetSize": "480x480",
+      "aspectRatio": 0.997
+    },
+    {
+      "modelId": "GZ086",
+      "tier": "detail",
+      "source": "GZ086.png",
+      "sourceSize": "669x673",
+      "targetSize": "800x800",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "GZ086",
+      "tier": "card",
+      "source": "GZ086.png",
+      "sourceSize": "669x673",
+      "targetSize": "480x480",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "GZ090",
+      "tier": "detail",
+      "source": "GZ090.png",
+      "sourceSize": "893x890",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ090",
+      "tier": "card",
+      "source": "GZ090.png",
+      "sourceSize": "893x890",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "GZ091",
+      "tier": "detail",
+      "source": "GZ091.png",
+      "sourceSize": "893x897",
+      "targetSize": "800x800",
+      "aspectRatio": 0.996
+    },
+    {
+      "modelId": "GZ091",
+      "tier": "card",
+      "source": "GZ091.png",
+      "sourceSize": "893x897",
+      "targetSize": "480x480",
+      "aspectRatio": 0.996
+    },
+    {
+      "modelId": "GZ092",
+      "tier": "detail",
+      "source": "GZ092.png",
+      "sourceSize": "890x895",
+      "targetSize": "800x800",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "GZ092",
+      "tier": "card",
+      "source": "GZ092.png",
+      "sourceSize": "890x895",
+      "targetSize": "480x480",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "GZ093",
+      "tier": "detail",
+      "source": "GZ093.png",
+      "sourceSize": "895x902",
+      "targetSize": "800x800",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "GZ093",
+      "tier": "card",
+      "source": "GZ093.png",
+      "sourceSize": "895x902",
+      "targetSize": "480x480",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "GZ094",
+      "tier": "detail",
+      "source": "GZ094.png",
+      "sourceSize": "1125x750",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ094",
+      "tier": "card",
+      "source": "GZ094.png",
+      "sourceSize": "1125x750",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ095",
+      "tier": "detail",
+      "source": "GZ095.png",
+      "sourceSize": "894x899",
+      "targetSize": "800x800",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "GZ095",
+      "tier": "card",
+      "source": "GZ095.png",
+      "sourceSize": "894x899",
+      "targetSize": "480x480",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "GZ097",
+      "tier": "detail",
+      "source": "GZ097.png",
+      "sourceSize": "895x893",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "GZ097",
+      "tier": "card",
+      "source": "GZ097.png",
+      "sourceSize": "895x893",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "GZ098",
+      "tier": "detail",
+      "source": "GZ098.png",
+      "sourceSize": "1080x1620",
+      "targetSize": "800x800",
+      "aspectRatio": 0.667
+    },
+    {
+      "modelId": "GZ098",
+      "tier": "card",
+      "source": "GZ098.png",
+      "sourceSize": "1080x1620",
+      "targetSize": "480x480",
+      "aspectRatio": 0.667
+    },
+    {
+      "modelId": "GZ099",
+      "tier": "detail",
+      "source": "GZ099.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ099",
+      "tier": "card",
+      "source": "GZ099.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ100",
+      "tier": "detail",
+      "source": "GZ100.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ100",
+      "tier": "card",
+      "source": "GZ100.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ101",
+      "tier": "detail",
+      "source": "GZ101.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ101",
+      "tier": "card",
+      "source": "GZ101.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ102",
+      "tier": "detail",
+      "source": "GZ102.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ102",
+      "tier": "card",
+      "source": "GZ102.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ104",
+      "tier": "detail",
+      "source": "GZ104.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ104",
+      "tier": "card",
+      "source": "GZ104.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ105",
+      "tier": "detail",
+      "source": "GZ105.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ105",
+      "tier": "card",
+      "source": "GZ105.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ106",
+      "tier": "detail",
+      "source": "GZ106.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ106",
+      "tier": "card",
+      "source": "GZ106.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ107",
+      "tier": "detail",
+      "source": "GZ107.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ107",
+      "tier": "card",
+      "source": "GZ107.png",
+      "sourceSize": "1620x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.5
+    },
+    {
+      "modelId": "GZ108",
+      "tier": "detail",
+      "source": "GZ108.png",
+      "sourceSize": "816x790",
+      "targetSize": "800x800",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "GZ108",
+      "tier": "card",
+      "source": "GZ108.png",
+      "sourceSize": "816x790",
+      "targetSize": "480x480",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "BENZ002",
+      "tier": "detail",
+      "source": "BENZ002.png",
+      "sourceSize": "594x552",
+      "targetSize": "800x800",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "BENZ002",
+      "tier": "card",
+      "source": "BENZ002.png",
+      "sourceSize": "594x552",
+      "targetSize": "480x480",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "BENZ003",
+      "tier": "detail",
+      "source": "BENZ003.png",
+      "sourceSize": "618x587",
+      "targetSize": "800x800",
+      "aspectRatio": 1.053
+    },
+    {
+      "modelId": "BENZ003",
+      "tier": "card",
+      "source": "BENZ003.png",
+      "sourceSize": "618x587",
+      "targetSize": "480x480",
+      "aspectRatio": 1.053
+    },
+    {
+      "modelId": "BENZ009",
+      "tier": "detail",
+      "source": "BENZ009.png",
+      "sourceSize": "623x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.005
+    },
+    {
+      "modelId": "BENZ009",
+      "tier": "card",
+      "source": "BENZ009.png",
+      "sourceSize": "623x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.005
+    },
+    {
+      "modelId": "BENZ012",
+      "tier": "detail",
+      "source": "BENZ012.png",
+      "sourceSize": "647x602",
+      "targetSize": "800x800",
+      "aspectRatio": 1.075
+    },
+    {
+      "modelId": "BENZ012",
+      "tier": "card",
+      "source": "BENZ012.png",
+      "sourceSize": "647x602",
+      "targetSize": "480x480",
+      "aspectRatio": 1.075
+    },
+    {
+      "modelId": "BENZ013",
+      "tier": "detail",
+      "source": "BENZ013.png",
+      "sourceSize": "642x605",
+      "targetSize": "800x800",
+      "aspectRatio": 1.061
+    },
+    {
+      "modelId": "BENZ013",
+      "tier": "card",
+      "source": "BENZ013.png",
+      "sourceSize": "642x605",
+      "targetSize": "480x480",
+      "aspectRatio": 1.061
+    },
+    {
+      "modelId": "BENZ015",
+      "tier": "detail",
+      "source": "BENZ015.png",
+      "sourceSize": "172x155",
+      "targetSize": "800x800",
+      "aspectRatio": 1.11
+    },
+    {
+      "modelId": "BENZ015",
+      "tier": "card",
+      "source": "BENZ015.png",
+      "sourceSize": "172x155",
+      "targetSize": "480x480",
+      "aspectRatio": 1.11
+    },
+    {
+      "modelId": "BENZ016",
+      "tier": "detail",
+      "source": "BENZ016.png",
+      "sourceSize": "667x607",
+      "targetSize": "800x800",
+      "aspectRatio": 1.099
+    },
+    {
+      "modelId": "BENZ016",
+      "tier": "card",
+      "source": "BENZ016.png",
+      "sourceSize": "667x607",
+      "targetSize": "480x480",
+      "aspectRatio": 1.099
+    },
+    {
+      "modelId": "BENZ017",
+      "tier": "detail",
+      "source": "BENZ017.png",
+      "sourceSize": "643x621",
+      "targetSize": "800x800",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "BENZ017",
+      "tier": "card",
+      "source": "BENZ017.png",
+      "sourceSize": "643x621",
+      "targetSize": "480x480",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "BENZ018",
+      "tier": "detail",
+      "source": "BENZ018.png",
+      "sourceSize": "1441x1080",
+      "targetSize": "800x800",
+      "aspectRatio": 1.334
+    },
+    {
+      "modelId": "BENZ018",
+      "tier": "card",
+      "source": "BENZ018.png",
+      "sourceSize": "1441x1080",
+      "targetSize": "480x480",
+      "aspectRatio": 1.334
+    },
+    {
+      "modelId": "BENZ020",
+      "tier": "detail",
+      "source": "BENZ020.png",
+      "sourceSize": "617x584",
+      "targetSize": "800x800",
+      "aspectRatio": 1.057
+    },
+    {
+      "modelId": "BENZ020",
+      "tier": "card",
+      "source": "BENZ020.png",
+      "sourceSize": "617x584",
+      "targetSize": "480x480",
+      "aspectRatio": 1.057
+    },
+    {
+      "modelId": "BENZ021",
+      "tier": "detail",
+      "source": "BENZ021.png",
+      "sourceSize": "638x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.009
+    },
+    {
+      "modelId": "BENZ021",
+      "tier": "card",
+      "source": "BENZ021.png",
+      "sourceSize": "638x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.009
+    },
+    {
+      "modelId": "BENZ022",
+      "tier": "detail",
+      "source": "BENZ022.png",
+      "sourceSize": "641x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.031
+    },
+    {
+      "modelId": "BENZ022",
+      "tier": "card",
+      "source": "BENZ022.png",
+      "sourceSize": "641x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.031
+    },
+    {
+      "modelId": "BMW002",
+      "tier": "detail",
+      "source": "BMW002.png",
+      "sourceSize": "676x674",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "BMW002",
+      "tier": "card",
+      "source": "BMW002.png",
+      "sourceSize": "676x674",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "BMW003",
+      "tier": "detail",
+      "source": "BMW003.png",
+      "sourceSize": "621x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "BMW003",
+      "tier": "card",
+      "source": "BMW003.png",
+      "sourceSize": "621x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "BMW004",
+      "tier": "detail",
+      "source": "BMW004.png",
+      "sourceSize": "653x652",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "BMW004",
+      "tier": "card",
+      "source": "BMW004.png",
+      "sourceSize": "653x652",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "BMW005",
+      "tier": "detail",
+      "source": "BMW005.png",
+      "sourceSize": "657x634",
+      "targetSize": "800x800",
+      "aspectRatio": 1.036
+    },
+    {
+      "modelId": "BMW005",
+      "tier": "card",
+      "source": "BMW005.png",
+      "sourceSize": "657x634",
+      "targetSize": "480x480",
+      "aspectRatio": 1.036
+    },
+    {
+      "modelId": "BMW006",
+      "tier": "detail",
+      "source": "BMW006.png",
+      "sourceSize": "637x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "BMW006",
+      "tier": "card",
+      "source": "BMW006.png",
+      "sourceSize": "637x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "BMW007",
+      "tier": "detail",
+      "source": "BMW007.png",
+      "sourceSize": "603x611",
+      "targetSize": "800x800",
+      "aspectRatio": 0.987
+    },
+    {
+      "modelId": "BMW007",
+      "tier": "card",
+      "source": "BMW007.png",
+      "sourceSize": "603x611",
+      "targetSize": "480x480",
+      "aspectRatio": 0.987
+    },
+    {
+      "modelId": "BMW008",
+      "tier": "detail",
+      "source": "BMW008.png",
+      "sourceSize": "655x616",
+      "targetSize": "800x800",
+      "aspectRatio": 1.063
+    },
+    {
+      "modelId": "BMW008",
+      "tier": "card",
+      "source": "BMW008.png",
+      "sourceSize": "655x616",
+      "targetSize": "480x480",
+      "aspectRatio": 1.063
+    },
+    {
+      "modelId": "BMW009",
+      "tier": "detail",
+      "source": "BMW009.png",
+      "sourceSize": "662x638",
+      "targetSize": "800x800",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "BMW009",
+      "tier": "card",
+      "source": "BMW009.png",
+      "sourceSize": "662x638",
+      "targetSize": "480x480",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "BMW010",
+      "tier": "detail",
+      "source": "BMW010.png",
+      "sourceSize": "612x616",
+      "targetSize": "800x800",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "BMW010",
+      "tier": "card",
+      "source": "BMW010.png",
+      "sourceSize": "612x616",
+      "targetSize": "480x480",
+      "aspectRatio": 0.994
+    },
+    {
+      "modelId": "BMW011",
+      "tier": "detail",
+      "source": "BMW011.png",
+      "sourceSize": "626x634",
+      "targetSize": "800x800",
+      "aspectRatio": 0.987
+    },
+    {
+      "modelId": "BMW011",
+      "tier": "card",
+      "source": "BMW011.png",
+      "sourceSize": "626x634",
+      "targetSize": "480x480",
+      "aspectRatio": 0.987
+    },
+    {
+      "modelId": "BMW013",
+      "tier": "detail",
+      "source": "BMW013.png",
+      "sourceSize": "167x351",
+      "targetSize": "800x800",
+      "aspectRatio": 0.476
+    },
+    {
+      "modelId": "BMW013",
+      "tier": "card",
+      "source": "BMW013.png",
+      "sourceSize": "167x351",
+      "targetSize": "480x480",
+      "aspectRatio": 0.476
+    },
+    {
+      "modelId": "BMW014",
+      "tier": "detail",
+      "source": "BMW014.png",
+      "sourceSize": "859x735",
+      "targetSize": "800x800",
+      "aspectRatio": 1.169
+    },
+    {
+      "modelId": "BMW014",
+      "tier": "card",
+      "source": "BMW014.png",
+      "sourceSize": "859x735",
+      "targetSize": "480x480",
+      "aspectRatio": 1.169
+    },
+    {
+      "modelId": "BMW016",
+      "tier": "detail",
+      "source": "BMW016.png",
+      "sourceSize": "604x598",
+      "targetSize": "800x800",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "BMW016",
+      "tier": "card",
+      "source": "BMW016.png",
+      "sourceSize": "604x598",
+      "targetSize": "480x480",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "BMW018",
+      "tier": "detail",
+      "source": "BMW018.png",
+      "sourceSize": "193x191",
+      "targetSize": "800x800",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "BMW018",
+      "tier": "card",
+      "source": "BMW018.png",
+      "sourceSize": "193x191",
+      "targetSize": "480x480",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "BMW020",
+      "tier": "detail",
+      "source": "BMW020.png",
+      "sourceSize": "852x770",
+      "targetSize": "800x800",
+      "aspectRatio": 1.106
+    },
+    {
+      "modelId": "BMW020",
+      "tier": "card",
+      "source": "BMW020.png",
+      "sourceSize": "852x770",
+      "targetSize": "480x480",
+      "aspectRatio": 1.106
+    },
+    {
+      "modelId": "AUDI002",
+      "tier": "detail",
+      "source": "AUDI002.png",
+      "sourceSize": "647x621",
+      "targetSize": "800x800",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "AUDI002",
+      "tier": "card",
+      "source": "AUDI002.png",
+      "sourceSize": "647x621",
+      "targetSize": "480x480",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "AUDI003",
+      "tier": "detail",
+      "source": "AUDI003.png",
+      "sourceSize": "642x607",
+      "targetSize": "800x800",
+      "aspectRatio": 1.058
+    },
+    {
+      "modelId": "AUDI003",
+      "tier": "card",
+      "source": "AUDI003.png",
+      "sourceSize": "642x607",
+      "targetSize": "480x480",
+      "aspectRatio": 1.058
+    },
+    {
+      "modelId": "AUDI007",
+      "tier": "detail",
+      "source": "AUDI007.png",
+      "sourceSize": "585x609",
+      "targetSize": "800x800",
+      "aspectRatio": 0.961
+    },
+    {
+      "modelId": "AUDI007",
+      "tier": "card",
+      "source": "AUDI007.png",
+      "sourceSize": "585x609",
+      "targetSize": "480x480",
+      "aspectRatio": 0.961
+    },
+    {
+      "modelId": "AUDI008",
+      "tier": "detail",
+      "source": "AUDI008.png",
+      "sourceSize": "651x636",
+      "targetSize": "800x800",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "AUDI008",
+      "tier": "card",
+      "source": "AUDI008.png",
+      "sourceSize": "651x636",
+      "targetSize": "480x480",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "AUDI009",
+      "tier": "detail",
+      "source": "AUDI009.png",
+      "sourceSize": "639x613",
+      "targetSize": "800x800",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "AUDI009",
+      "tier": "card",
+      "source": "AUDI009.png",
+      "sourceSize": "639x613",
+      "targetSize": "480x480",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "AUDI010",
+      "tier": "detail",
+      "source": "AUDI010.png",
+      "sourceSize": "167x160",
+      "targetSize": "800x800",
+      "aspectRatio": 1.044
+    },
+    {
+      "modelId": "AUDI010",
+      "tier": "card",
+      "source": "AUDI010.png",
+      "sourceSize": "167x160",
+      "targetSize": "480x480",
+      "aspectRatio": 1.044
+    },
+    {
+      "modelId": "AUDI011",
+      "tier": "detail",
+      "source": "AUDI011.png",
+      "sourceSize": "182x181",
+      "targetSize": "800x800",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "AUDI011",
+      "tier": "card",
+      "source": "AUDI011.png",
+      "sourceSize": "182x181",
+      "targetSize": "480x480",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "AUDI013",
+      "tier": "detail",
+      "source": "AUDI013.png",
+      "sourceSize": "599x613",
+      "targetSize": "800x800",
+      "aspectRatio": 0.977
+    },
+    {
+      "modelId": "AUDI013",
+      "tier": "card",
+      "source": "AUDI013.png",
+      "sourceSize": "599x613",
+      "targetSize": "480x480",
+      "aspectRatio": 0.977
+    },
+    {
+      "modelId": "AUDI014",
+      "tier": "detail",
+      "source": "AUDI014.png",
+      "sourceSize": "622x635",
+      "targetSize": "800x800",
+      "aspectRatio": 0.98
+    },
+    {
+      "modelId": "AUDI014",
+      "tier": "card",
+      "source": "AUDI014.png",
+      "sourceSize": "622x635",
+      "targetSize": "480x480",
+      "aspectRatio": 0.98
+    },
+    {
+      "modelId": "AUDI020",
+      "tier": "detail",
+      "source": "AUDI020.png",
+      "sourceSize": "634x608",
+      "targetSize": "800x800",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "AUDI020",
+      "tier": "card",
+      "source": "AUDI020.png",
+      "sourceSize": "634x608",
+      "targetSize": "480x480",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "AUDI021",
+      "tier": "detail",
+      "source": "AUDI021.png",
+      "sourceSize": "642x636",
+      "targetSize": "800x800",
+      "aspectRatio": 1.009
+    },
+    {
+      "modelId": "AUDI021",
+      "tier": "card",
+      "source": "AUDI021.png",
+      "sourceSize": "642x636",
+      "targetSize": "480x480",
+      "aspectRatio": 1.009
+    },
+    {
+      "modelId": "TYT001",
+      "tier": "detail",
+      "source": "TYT001.png",
+      "sourceSize": "641x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TYT001",
+      "tier": "card",
+      "source": "TYT001.png",
+      "sourceSize": "641x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TYT002",
+      "tier": "detail",
+      "source": "TYT002.png",
+      "sourceSize": "632x599",
+      "targetSize": "800x800",
+      "aspectRatio": 1.055
+    },
+    {
+      "modelId": "TYT002",
+      "tier": "card",
+      "source": "TYT002.png",
+      "sourceSize": "632x599",
+      "targetSize": "480x480",
+      "aspectRatio": 1.055
+    },
+    {
+      "modelId": "TYT003",
+      "tier": "detail",
+      "source": "TYT003.png",
+      "sourceSize": "624x613",
+      "targetSize": "800x800",
+      "aspectRatio": 1.018
+    },
+    {
+      "modelId": "TYT003",
+      "tier": "card",
+      "source": "TYT003.png",
+      "sourceSize": "624x613",
+      "targetSize": "480x480",
+      "aspectRatio": 1.018
+    },
+    {
+      "modelId": "TYT006",
+      "tier": "detail",
+      "source": "TYT006.png",
+      "sourceSize": "650x644",
+      "targetSize": "800x800",
+      "aspectRatio": 1.009
+    },
+    {
+      "modelId": "TYT006",
+      "tier": "card",
+      "source": "TYT006.png",
+      "sourceSize": "650x644",
+      "targetSize": "480x480",
+      "aspectRatio": 1.009
+    },
+    {
+      "modelId": "TYT007",
+      "tier": "detail",
+      "source": "TYT007.png",
+      "sourceSize": "622x614",
+      "targetSize": "800x800",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TYT007",
+      "tier": "card",
+      "source": "TYT007.png",
+      "sourceSize": "622x614",
+      "targetSize": "480x480",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "LRP001",
+      "tier": "detail",
+      "source": "LRP001.png",
+      "sourceSize": "581x599",
+      "targetSize": "800x800",
+      "aspectRatio": 0.97
+    },
+    {
+      "modelId": "LRP001",
+      "tier": "card",
+      "source": "LRP001.png",
+      "sourceSize": "581x599",
+      "targetSize": "480x480",
+      "aspectRatio": 0.97
+    },
+    {
+      "modelId": "LRP002",
+      "tier": "detail",
+      "source": "LRP002.png",
+      "sourceSize": "589x609",
+      "targetSize": "800x800",
+      "aspectRatio": 0.967
+    },
+    {
+      "modelId": "LRP002",
+      "tier": "card",
+      "source": "LRP002.png",
+      "sourceSize": "589x609",
+      "targetSize": "480x480",
+      "aspectRatio": 0.967
+    },
+    {
+      "modelId": "LRP003",
+      "tier": "detail",
+      "source": "LRP003.png",
+      "sourceSize": "621x608",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "LRP003",
+      "tier": "card",
+      "source": "LRP003.png",
+      "sourceSize": "621x608",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "LRP005",
+      "tier": "detail",
+      "source": "LRP005.png",
+      "sourceSize": "586x611",
+      "targetSize": "800x800",
+      "aspectRatio": 0.959
+    },
+    {
+      "modelId": "LRP005",
+      "tier": "card",
+      "source": "LRP005.png",
+      "sourceSize": "586x611",
+      "targetSize": "480x480",
+      "aspectRatio": 0.959
+    },
+    {
+      "modelId": "LRP006",
+      "tier": "detail",
+      "source": "LRP006.png",
+      "sourceSize": "626x639",
+      "targetSize": "800x800",
+      "aspectRatio": 0.98
+    },
+    {
+      "modelId": "LRP006",
+      "tier": "card",
+      "source": "LRP006.png",
+      "sourceSize": "626x639",
+      "targetSize": "480x480",
+      "aspectRatio": 0.98
+    },
+    {
+      "modelId": "GM08001",
+      "tier": "detail",
+      "source": "GM08001.png",
+      "sourceSize": "661x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "GM08001",
+      "tier": "card",
+      "source": "GM08001.png",
+      "sourceSize": "661x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "GM08015",
+      "tier": "detail",
+      "source": "GM08015.png",
+      "sourceSize": "651x624",
+      "targetSize": "800x800",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "GM08015",
+      "tier": "card",
+      "source": "GM08015.png",
+      "sourceSize": "651x624",
+      "targetSize": "480x480",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "GZM520",
+      "tier": "detail",
+      "source": "GZM520.png",
+      "sourceSize": "658x633",
+      "targetSize": "800x800",
+      "aspectRatio": 1.039
+    },
+    {
+      "modelId": "GZM520",
+      "tier": "card",
+      "source": "GZM520.png",
+      "sourceSize": "658x633",
+      "targetSize": "480x480",
+      "aspectRatio": 1.039
+    },
+    {
+      "modelId": "GZM521",
+      "tier": "detail",
+      "source": "GZM521.png",
+      "sourceSize": "674x633",
+      "targetSize": "800x800",
+      "aspectRatio": 1.065
+    },
+    {
+      "modelId": "GZM521",
+      "tier": "card",
+      "source": "GZM521.png",
+      "sourceSize": "674x633",
+      "targetSize": "480x480",
+      "aspectRatio": 1.065
+    },
+    {
+      "modelId": "GZM522",
+      "tier": "detail",
+      "source": "GZM522.png",
+      "sourceSize": "684x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.087
+    },
+    {
+      "modelId": "GZM522",
+      "tier": "card",
+      "source": "GZM522.png",
+      "sourceSize": "684x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.087
+    },
+    {
+      "modelId": "GZM523",
+      "tier": "detail",
+      "source": "GZM523.png",
+      "sourceSize": "640x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "GZM523",
+      "tier": "card",
+      "source": "GZM523.png",
+      "sourceSize": "640x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "GZM525",
+      "tier": "detail",
+      "source": "GZM525.png",
+      "sourceSize": "676x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "GZM525",
+      "tier": "card",
+      "source": "GZM525.png",
+      "sourceSize": "676x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "GZM526",
+      "tier": "detail",
+      "source": "GZM526.png",
+      "sourceSize": "624x634",
+      "targetSize": "800x800",
+      "aspectRatio": 0.984
+    },
+    {
+      "modelId": "GZM526",
+      "tier": "card",
+      "source": "GZM526.png",
+      "sourceSize": "624x634",
+      "targetSize": "480x480",
+      "aspectRatio": 0.984
+    },
+    {
+      "modelId": "GZM527",
+      "tier": "detail",
+      "source": "GZM527.png",
+      "sourceSize": "687x624",
+      "targetSize": "800x800",
+      "aspectRatio": 1.101
+    },
+    {
+      "modelId": "GZM527",
+      "tier": "card",
+      "source": "GZM527.png",
+      "sourceSize": "687x624",
+      "targetSize": "480x480",
+      "aspectRatio": 1.101
+    },
+    {
+      "modelId": "GZM530",
+      "tier": "detail",
+      "source": "GZM530.png",
+      "sourceSize": "651x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "GZM530",
+      "tier": "card",
+      "source": "GZM530.png",
+      "sourceSize": "651x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "GZM531",
+      "tier": "detail",
+      "source": "GZM531.png",
+      "sourceSize": "620x629",
+      "targetSize": "800x800",
+      "aspectRatio": 0.986
+    },
+    {
+      "modelId": "GZM531",
+      "tier": "card",
+      "source": "GZM531.png",
+      "sourceSize": "620x629",
+      "targetSize": "480x480",
+      "aspectRatio": 0.986
+    },
+    {
+      "modelId": "GZM532",
+      "tier": "detail",
+      "source": "GZM532.png",
+      "sourceSize": "646x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "GZM532",
+      "tier": "card",
+      "source": "GZM532.png",
+      "sourceSize": "646x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "GZM535",
+      "tier": "detail",
+      "source": "GZM535.png",
+      "sourceSize": "677x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "GZM535",
+      "tier": "card",
+      "source": "GZM535.png",
+      "sourceSize": "677x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "GZM542",
+      "tier": "detail",
+      "source": "GZM542.png",
+      "sourceSize": "628x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "GZM542",
+      "tier": "card",
+      "source": "GZM542.png",
+      "sourceSize": "628x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "TJ08017",
+      "tier": "detail",
+      "source": "TJ08017.png",
+      "sourceSize": "703x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.112
+    },
+    {
+      "modelId": "TJ08017",
+      "tier": "card",
+      "source": "TJ08017.png",
+      "sourceSize": "703x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.112
+    },
+    {
+      "modelId": "DZSTT07",
+      "tier": "detail",
+      "source": "DZSTT07.png",
+      "sourceSize": "672x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.068
+    },
+    {
+      "modelId": "DZSTT07",
+      "tier": "card",
+      "source": "DZSTT07.png",
+      "sourceSize": "672x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.068
+    },
+    {
+      "modelId": "TJ07001",
+      "tier": "detail",
+      "source": "TJ07001.png",
+      "sourceSize": "625x628",
+      "targetSize": "800x800",
+      "aspectRatio": 0.995
+    },
+    {
+      "modelId": "TJ07001",
+      "tier": "card",
+      "source": "TJ07001.png",
+      "sourceSize": "625x628",
+      "targetSize": "480x480",
+      "aspectRatio": 0.995
+    },
+    {
+      "modelId": "TJ07005",
+      "tier": "detail",
+      "source": "TJ07005.png",
+      "sourceSize": "637x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.014
+    },
+    {
+      "modelId": "TJ07005",
+      "tier": "card",
+      "source": "TJ07005.png",
+      "sourceSize": "637x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.014
+    },
+    {
+      "modelId": "TJ07006",
+      "tier": "detail",
+      "source": "TJ07006.png",
+      "sourceSize": "642x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ07006",
+      "tier": "card",
+      "source": "TJ07006.png",
+      "sourceSize": "642x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ07010",
+      "tier": "detail",
+      "source": "TJ07010.png",
+      "sourceSize": "636x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ07010",
+      "tier": "card",
+      "source": "TJ07010.png",
+      "sourceSize": "636x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ07028",
+      "tier": "detail",
+      "source": "TJ07028.png",
+      "sourceSize": "627x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.011
+    },
+    {
+      "modelId": "TJ07028",
+      "tier": "card",
+      "source": "TJ07028.png",
+      "sourceSize": "627x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.011
+    },
+    {
+      "modelId": "TJ07035",
+      "tier": "detail",
+      "source": "TJ07035.png",
+      "sourceSize": "634x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ07035",
+      "tier": "card",
+      "source": "TJ07035.png",
+      "sourceSize": "634x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ08007",
+      "tier": "detail",
+      "source": "TJ08007.png",
+      "sourceSize": "657x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.048
+    },
+    {
+      "modelId": "TJ08007",
+      "tier": "card",
+      "source": "TJ08007.png",
+      "sourceSize": "657x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.048
+    },
+    {
+      "modelId": "TJ24005",
+      "tier": "detail",
+      "source": "TJ24005.png",
+      "sourceSize": "679x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.085
+    },
+    {
+      "modelId": "TJ24005",
+      "tier": "card",
+      "source": "TJ24005.png",
+      "sourceSize": "679x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.085
+    },
+    {
+      "modelId": "TJ30002",
+      "tier": "detail",
+      "source": "TJ30002.png",
+      "sourceSize": "640x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.017
+    },
+    {
+      "modelId": "TJ30002",
+      "tier": "card",
+      "source": "TJ30002.png",
+      "sourceSize": "640x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.017
+    },
+    {
+      "modelId": "TJ05001",
+      "tier": "detail",
+      "source": "TJ05001.png",
+      "sourceSize": "627x634",
+      "targetSize": "800x800",
+      "aspectRatio": 0.989
+    },
+    {
+      "modelId": "TJ05001",
+      "tier": "card",
+      "source": "TJ05001.png",
+      "sourceSize": "627x634",
+      "targetSize": "480x480",
+      "aspectRatio": 0.989
+    },
+    {
+      "modelId": "TJ05002",
+      "tier": "detail",
+      "source": "TJ05002.png",
+      "sourceSize": "676x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "TJ05002",
+      "tier": "card",
+      "source": "TJ05002.png",
+      "sourceSize": "676x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "TJ05003",
+      "tier": "detail",
+      "source": "TJ05003.png",
+      "sourceSize": "654x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ05003",
+      "tier": "card",
+      "source": "TJ05003.png",
+      "sourceSize": "654x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ05006",
+      "tier": "detail",
+      "source": "TJ05006.png",
+      "sourceSize": "643x618",
+      "targetSize": "800x800",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ05006",
+      "tier": "card",
+      "source": "TJ05006.png",
+      "sourceSize": "643x618",
+      "targetSize": "480x480",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ05008",
+      "tier": "detail",
+      "source": "TJ05008.png",
+      "sourceSize": "642x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ05008",
+      "tier": "card",
+      "source": "TJ05008.png",
+      "sourceSize": "642x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ05010",
+      "tier": "detail",
+      "source": "TJ05010.png",
+      "sourceSize": "649x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ05010",
+      "tier": "card",
+      "source": "TJ05010.png",
+      "sourceSize": "649x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ05011",
+      "tier": "detail",
+      "source": "TJ05011.png",
+      "sourceSize": "646x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ05011",
+      "tier": "card",
+      "source": "TJ05011.png",
+      "sourceSize": "646x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ05012",
+      "tier": "detail",
+      "source": "TJ05012.png",
+      "sourceSize": "651x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "TJ05012",
+      "tier": "card",
+      "source": "TJ05012.png",
+      "sourceSize": "651x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "TJ05013",
+      "tier": "detail",
+      "source": "TJ05013.png",
+      "sourceSize": "641x631",
+      "targetSize": "800x800",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ05013",
+      "tier": "card",
+      "source": "TJ05013.png",
+      "sourceSize": "641x631",
+      "targetSize": "480x480",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ05014",
+      "tier": "detail",
+      "source": "TJ05014.png",
+      "sourceSize": "627x632",
+      "targetSize": "800x800",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "TJ05014",
+      "tier": "card",
+      "source": "TJ05014.png",
+      "sourceSize": "627x632",
+      "targetSize": "480x480",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "TJ05015",
+      "tier": "detail",
+      "source": "TJ05015.png",
+      "sourceSize": "653x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ05015",
+      "tier": "card",
+      "source": "TJ05015.png",
+      "sourceSize": "653x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ05016",
+      "tier": "detail",
+      "source": "TJ05016.png",
+      "sourceSize": "648x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ05016",
+      "tier": "card",
+      "source": "TJ05016.png",
+      "sourceSize": "648x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ05019",
+      "tier": "detail",
+      "source": "TJ05019.png",
+      "sourceSize": "643x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ05019",
+      "tier": "card",
+      "source": "TJ05019.png",
+      "sourceSize": "643x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ05020",
+      "tier": "detail",
+      "source": "TJ05020.png",
+      "sourceSize": "638x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ05020",
+      "tier": "card",
+      "source": "TJ05020.png",
+      "sourceSize": "638x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ05021",
+      "tier": "detail",
+      "source": "TJ05021.png",
+      "sourceSize": "646x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.037
+    },
+    {
+      "modelId": "TJ05021",
+      "tier": "card",
+      "source": "TJ05021.png",
+      "sourceSize": "646x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.037
+    },
+    {
+      "modelId": "TJ05022",
+      "tier": "detail",
+      "source": "TJ05022.png",
+      "sourceSize": "637x636",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ05022",
+      "tier": "card",
+      "source": "TJ05022.png",
+      "sourceSize": "637x636",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ05023",
+      "tier": "detail",
+      "source": "TJ05023.png",
+      "sourceSize": "630x625",
+      "targetSize": "800x800",
+      "aspectRatio": 1.008
+    },
+    {
+      "modelId": "TJ05023",
+      "tier": "card",
+      "source": "TJ05023.png",
+      "sourceSize": "630x625",
+      "targetSize": "480x480",
+      "aspectRatio": 1.008
+    },
+    {
+      "modelId": "TJ05024",
+      "tier": "detail",
+      "source": "TJ05024.png",
+      "sourceSize": "634x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "TJ05024",
+      "tier": "card",
+      "source": "TJ05024.png",
+      "sourceSize": "634x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "TJ05025",
+      "tier": "detail",
+      "source": "TJ05025.png",
+      "sourceSize": "648x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "TJ05025",
+      "tier": "card",
+      "source": "TJ05025.png",
+      "sourceSize": "648x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "TJ05029",
+      "tier": "detail",
+      "source": "TJ05029.png",
+      "sourceSize": "650x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.037
+    },
+    {
+      "modelId": "TJ05029",
+      "tier": "card",
+      "source": "TJ05029.png",
+      "sourceSize": "650x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.037
+    },
+    {
+      "modelId": "TJ17003",
+      "tier": "detail",
+      "source": "TJ17003.png",
+      "sourceSize": "652x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.032
+    },
+    {
+      "modelId": "TJ17003",
+      "tier": "card",
+      "source": "TJ17003.png",
+      "sourceSize": "652x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.032
+    },
+    {
+      "modelId": "TJ02001",
+      "tier": "detail",
+      "source": "TJ02001.png",
+      "sourceSize": "624x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ02001",
+      "tier": "card",
+      "source": "TJ02001.png",
+      "sourceSize": "624x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ02002",
+      "tier": "detail",
+      "source": "TJ02002.png",
+      "sourceSize": "646x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ02002",
+      "tier": "card",
+      "source": "TJ02002.png",
+      "sourceSize": "646x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ02003",
+      "tier": "detail",
+      "source": "TJ02003.png",
+      "sourceSize": "649x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "TJ02003",
+      "tier": "card",
+      "source": "TJ02003.png",
+      "sourceSize": "649x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.043
+    },
+    {
+      "modelId": "TJ02004",
+      "tier": "detail",
+      "source": "TJ02004.png",
+      "sourceSize": "678x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.08
+    },
+    {
+      "modelId": "TJ02004",
+      "tier": "card",
+      "source": "TJ02004.png",
+      "sourceSize": "678x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.08
+    },
+    {
+      "modelId": "TJ02006",
+      "tier": "detail",
+      "source": "TJ02006.png",
+      "sourceSize": "622x625",
+      "targetSize": "800x800",
+      "aspectRatio": 0.995
+    },
+    {
+      "modelId": "TJ02006",
+      "tier": "card",
+      "source": "TJ02006.png",
+      "sourceSize": "622x625",
+      "targetSize": "480x480",
+      "aspectRatio": 0.995
+    },
+    {
+      "modelId": "TJ02008",
+      "tier": "detail",
+      "source": "TJ02008.png",
+      "sourceSize": "647x633",
+      "targetSize": "800x800",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ02008",
+      "tier": "card",
+      "source": "TJ02008.png",
+      "sourceSize": "647x633",
+      "targetSize": "480x480",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ02009",
+      "tier": "detail",
+      "source": "TJ02009.png",
+      "sourceSize": "634x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "TJ02009",
+      "tier": "card",
+      "source": "TJ02009.png",
+      "sourceSize": "634x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.01
+    },
+    {
+      "modelId": "TJ02012",
+      "tier": "detail",
+      "source": "TJ02012.png",
+      "sourceSize": "636x634",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ02012",
+      "tier": "card",
+      "source": "TJ02012.png",
+      "sourceSize": "636x634",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ02013",
+      "tier": "detail",
+      "source": "TJ02013.png",
+      "sourceSize": "649x631",
+      "targetSize": "800x800",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ02013",
+      "tier": "card",
+      "source": "TJ02013.png",
+      "sourceSize": "649x631",
+      "targetSize": "480x480",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ02014",
+      "tier": "detail",
+      "source": "TJ02014.png",
+      "sourceSize": "674x625",
+      "targetSize": "800x800",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "TJ02014",
+      "tier": "card",
+      "source": "TJ02014.png",
+      "sourceSize": "674x625",
+      "targetSize": "480x480",
+      "aspectRatio": 1.078
+    },
+    {
+      "modelId": "TJ02015",
+      "tier": "detail",
+      "source": "TJ02015.png",
+      "sourceSize": "641x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.031
+    },
+    {
+      "modelId": "TJ02015",
+      "tier": "card",
+      "source": "TJ02015.png",
+      "sourceSize": "641x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.031
+    },
+    {
+      "modelId": "TJ02016",
+      "tier": "detail",
+      "source": "TJ02016.png",
+      "sourceSize": "676x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "TJ02016",
+      "tier": "card",
+      "source": "TJ02016.png",
+      "sourceSize": "676x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "TJ02027",
+      "tier": "detail",
+      "source": "TJ02027.png",
+      "sourceSize": "667x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.065
+    },
+    {
+      "modelId": "TJ02027",
+      "tier": "card",
+      "source": "TJ02027.png",
+      "sourceSize": "667x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.065
+    },
+    {
+      "modelId": "TJ02031",
+      "tier": "detail",
+      "source": "TJ02031.png",
+      "sourceSize": "636x624",
+      "targetSize": "800x800",
+      "aspectRatio": 1.019
+    },
+    {
+      "modelId": "TJ02031",
+      "tier": "card",
+      "source": "TJ02031.png",
+      "sourceSize": "636x624",
+      "targetSize": "480x480",
+      "aspectRatio": 1.019
+    },
+    {
+      "modelId": "TJ02032",
+      "tier": "detail",
+      "source": "TJ02032.png",
+      "sourceSize": "679x631",
+      "targetSize": "800x800",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "TJ02032",
+      "tier": "card",
+      "source": "TJ02032.png",
+      "sourceSize": "679x631",
+      "targetSize": "480x480",
+      "aspectRatio": 1.076
+    },
+    {
+      "modelId": "TJ02037",
+      "tier": "detail",
+      "source": "TJ02037.png",
+      "sourceSize": "662x624",
+      "targetSize": "800x800",
+      "aspectRatio": 1.061
+    },
+    {
+      "modelId": "TJ02037",
+      "tier": "card",
+      "source": "TJ02037.png",
+      "sourceSize": "662x624",
+      "targetSize": "480x480",
+      "aspectRatio": 1.061
+    },
+    {
+      "modelId": "TJ02038",
+      "tier": "detail",
+      "source": "TJ02038.png",
+      "sourceSize": "602x613",
+      "targetSize": "800x800",
+      "aspectRatio": 0.982
+    },
+    {
+      "modelId": "TJ02038",
+      "tier": "card",
+      "source": "TJ02038.png",
+      "sourceSize": "602x613",
+      "targetSize": "480x480",
+      "aspectRatio": 0.982
+    },
+    {
+      "modelId": "TJ02039",
+      "tier": "detail",
+      "source": "TJ02039.png",
+      "sourceSize": "622x613",
+      "targetSize": "800x800",
+      "aspectRatio": 1.015
+    },
+    {
+      "modelId": "TJ02039",
+      "tier": "card",
+      "source": "TJ02039.png",
+      "sourceSize": "622x613",
+      "targetSize": "480x480",
+      "aspectRatio": 1.015
+    },
+    {
+      "modelId": "TJ02041",
+      "tier": "detail",
+      "source": "TJ02041.png",
+      "sourceSize": "646x616",
+      "targetSize": "800x800",
+      "aspectRatio": 1.049
+    },
+    {
+      "modelId": "TJ02041",
+      "tier": "card",
+      "source": "TJ02041.png",
+      "sourceSize": "646x616",
+      "targetSize": "480x480",
+      "aspectRatio": 1.049
+    },
+    {
+      "modelId": "TJ02046",
+      "tier": "detail",
+      "source": "TJ02046.png",
+      "sourceSize": "631x634",
+      "targetSize": "800x800",
+      "aspectRatio": 0.995
+    },
+    {
+      "modelId": "TJ02046",
+      "tier": "card",
+      "source": "TJ02046.png",
+      "sourceSize": "631x634",
+      "targetSize": "480x480",
+      "aspectRatio": 0.995
+    },
+    {
+      "modelId": "TJ02051",
+      "tier": "detail",
+      "source": "TJ02051.png",
+      "sourceSize": "616x624",
+      "targetSize": "800x800",
+      "aspectRatio": 0.987
+    },
+    {
+      "modelId": "TJ02051",
+      "tier": "card",
+      "source": "TJ02051.png",
+      "sourceSize": "616x624",
+      "targetSize": "480x480",
+      "aspectRatio": 0.987
+    },
+    {
+      "modelId": "TJ02053",
+      "tier": "detail",
+      "source": "TJ02053.png",
+      "sourceSize": "639x613",
+      "targetSize": "800x800",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "TJ02053",
+      "tier": "card",
+      "source": "TJ02053.png",
+      "sourceSize": "639x613",
+      "targetSize": "480x480",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "TJ02054",
+      "tier": "detail",
+      "source": "TJ02054.png",
+      "sourceSize": "656x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.045
+    },
+    {
+      "modelId": "TJ02054",
+      "tier": "card",
+      "source": "TJ02054.png",
+      "sourceSize": "656x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.045
+    },
+    {
+      "modelId": "TJ02055",
+      "tier": "detail",
+      "source": "TJ02055.png",
+      "sourceSize": "629x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ02055",
+      "tier": "card",
+      "source": "TJ02055.png",
+      "sourceSize": "629x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ02058",
+      "tier": "detail",
+      "source": "TJ02058.png",
+      "sourceSize": "632x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ02058",
+      "tier": "card",
+      "source": "TJ02058.png",
+      "sourceSize": "632x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ02061",
+      "tier": "detail",
+      "source": "TJ02061.png",
+      "sourceSize": "650x631",
+      "targetSize": "800x800",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "TJ02061",
+      "tier": "card",
+      "source": "TJ02061.png",
+      "sourceSize": "650x631",
+      "targetSize": "480x480",
+      "aspectRatio": 1.03
+    },
+    {
+      "modelId": "TJ02066",
+      "tier": "detail",
+      "source": "TJ02066.png",
+      "sourceSize": "633x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ02066",
+      "tier": "card",
+      "source": "TJ02066.png",
+      "sourceSize": "633x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ02076",
+      "tier": "detail",
+      "source": "TJ02076.png",
+      "sourceSize": "633x616",
+      "targetSize": "800x800",
+      "aspectRatio": 1.028
+    },
+    {
+      "modelId": "TJ02076",
+      "tier": "card",
+      "source": "TJ02076.png",
+      "sourceSize": "633x616",
+      "targetSize": "480x480",
+      "aspectRatio": 1.028
+    },
+    {
+      "modelId": "TJ02079",
+      "tier": "detail",
+      "source": "TJ02079.png",
+      "sourceSize": "626x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.005
+    },
+    {
+      "modelId": "TJ02079",
+      "tier": "card",
+      "source": "TJ02079.png",
+      "sourceSize": "626x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.005
+    },
+    {
+      "modelId": "TJ02085",
+      "tier": "detail",
+      "source": "TJ02085.png",
+      "sourceSize": "674x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.075
+    },
+    {
+      "modelId": "TJ02085",
+      "tier": "card",
+      "source": "TJ02085.png",
+      "sourceSize": "674x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.075
+    },
+    {
+      "modelId": "TJ02086",
+      "tier": "detail",
+      "source": "TJ02086.png",
+      "sourceSize": "642x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ02086",
+      "tier": "card",
+      "source": "TJ02086.png",
+      "sourceSize": "642x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ02087",
+      "tier": "detail",
+      "source": "TJ02087.png",
+      "sourceSize": "644x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "TJ02087",
+      "tier": "card",
+      "source": "TJ02087.png",
+      "sourceSize": "644x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "TJ02097",
+      "tier": "detail",
+      "source": "TJ02097.png",
+      "sourceSize": "615x614",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ02097",
+      "tier": "card",
+      "source": "TJ02097.png",
+      "sourceSize": "615x614",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ02102",
+      "tier": "detail",
+      "source": "TJ02102.png",
+      "sourceSize": "632x612",
+      "targetSize": "800x800",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ02102",
+      "tier": "card",
+      "source": "TJ02102.png",
+      "sourceSize": "632x612",
+      "targetSize": "480x480",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ01001",
+      "tier": "detail",
+      "source": "TJ01001.png",
+      "sourceSize": "620x627",
+      "targetSize": "800x800",
+      "aspectRatio": 0.989
+    },
+    {
+      "modelId": "TJ01001",
+      "tier": "card",
+      "source": "TJ01001.png",
+      "sourceSize": "620x627",
+      "targetSize": "480x480",
+      "aspectRatio": 0.989
+    },
+    {
+      "modelId": "TJ01002",
+      "tier": "detail",
+      "source": "TJ01002.png",
+      "sourceSize": "633x617",
+      "targetSize": "800x800",
+      "aspectRatio": 1.026
+    },
+    {
+      "modelId": "TJ01002",
+      "tier": "card",
+      "source": "TJ01002.png",
+      "sourceSize": "633x617",
+      "targetSize": "480x480",
+      "aspectRatio": 1.026
+    },
+    {
+      "modelId": "TJ01003",
+      "tier": "detail",
+      "source": "TJ01003.png",
+      "sourceSize": "640x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ01003",
+      "tier": "card",
+      "source": "TJ01003.png",
+      "sourceSize": "640x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ01005",
+      "tier": "detail",
+      "source": "TJ01005.png",
+      "sourceSize": "669x624",
+      "targetSize": "800x800",
+      "aspectRatio": 1.072
+    },
+    {
+      "modelId": "TJ01005",
+      "tier": "card",
+      "source": "TJ01005.png",
+      "sourceSize": "669x624",
+      "targetSize": "480x480",
+      "aspectRatio": 1.072
+    },
+    {
+      "modelId": "TJ01009",
+      "tier": "detail",
+      "source": "TJ01009.png",
+      "sourceSize": "649x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ01009",
+      "tier": "card",
+      "source": "TJ01009.png",
+      "sourceSize": "649x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ01010",
+      "tier": "detail",
+      "source": "TJ01010.png",
+      "sourceSize": "646x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ01010",
+      "tier": "card",
+      "source": "TJ01010.png",
+      "sourceSize": "646x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ01013",
+      "tier": "detail",
+      "source": "TJ01013.png",
+      "sourceSize": "653x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ01013",
+      "tier": "card",
+      "source": "TJ01013.png",
+      "sourceSize": "653x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.033
+    },
+    {
+      "modelId": "TJ01016",
+      "tier": "detail",
+      "source": "TJ01016.png",
+      "sourceSize": "646x635",
+      "targetSize": "800x800",
+      "aspectRatio": 1.017
+    },
+    {
+      "modelId": "TJ01016",
+      "tier": "card",
+      "source": "TJ01016.png",
+      "sourceSize": "646x635",
+      "targetSize": "480x480",
+      "aspectRatio": 1.017
+    },
+    {
+      "modelId": "TJ01017",
+      "tier": "detail",
+      "source": "TJ01017.png",
+      "sourceSize": "630x625",
+      "targetSize": "800x800",
+      "aspectRatio": 1.008
+    },
+    {
+      "modelId": "TJ01017",
+      "tier": "card",
+      "source": "TJ01017.png",
+      "sourceSize": "630x625",
+      "targetSize": "480x480",
+      "aspectRatio": 1.008
+    },
+    {
+      "modelId": "TJ01018",
+      "tier": "detail",
+      "source": "TJ01018.png",
+      "sourceSize": "630x635",
+      "targetSize": "800x800",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "TJ01018",
+      "tier": "card",
+      "source": "TJ01018.png",
+      "sourceSize": "630x635",
+      "targetSize": "480x480",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "TJ01023",
+      "tier": "detail",
+      "source": "TJ01023.png",
+      "sourceSize": "649x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ01023",
+      "tier": "card",
+      "source": "TJ01023.png",
+      "sourceSize": "649x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ01024",
+      "tier": "detail",
+      "source": "TJ01024.png",
+      "sourceSize": "642x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ01024",
+      "tier": "card",
+      "source": "TJ01024.png",
+      "sourceSize": "642x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ01025",
+      "tier": "detail",
+      "source": "TJ01025.png",
+      "sourceSize": "638x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ01025",
+      "tier": "card",
+      "source": "TJ01025.png",
+      "sourceSize": "638x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ01028",
+      "tier": "detail",
+      "source": "TJ01028.png",
+      "sourceSize": "653x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.048
+    },
+    {
+      "modelId": "TJ01028",
+      "tier": "card",
+      "source": "TJ01028.png",
+      "sourceSize": "653x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.048
+    },
+    {
+      "modelId": "TJ01030",
+      "tier": "detail",
+      "source": "TJ01030.png",
+      "sourceSize": "659x635",
+      "targetSize": "800x800",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "TJ01030",
+      "tier": "card",
+      "source": "TJ01030.png",
+      "sourceSize": "659x635",
+      "targetSize": "480x480",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "TJ01031",
+      "tier": "detail",
+      "source": "TJ01031.png",
+      "sourceSize": "633x619",
+      "targetSize": "800x800",
+      "aspectRatio": 1.023
+    },
+    {
+      "modelId": "TJ01031",
+      "tier": "card",
+      "source": "TJ01031.png",
+      "sourceSize": "633x619",
+      "targetSize": "480x480",
+      "aspectRatio": 1.023
+    },
+    {
+      "modelId": "TJ01033",
+      "tier": "detail",
+      "source": "TJ01033.png",
+      "sourceSize": "641x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ01033",
+      "tier": "card",
+      "source": "TJ01033.png",
+      "sourceSize": "641x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ01034",
+      "tier": "detail",
+      "source": "TJ01034.png",
+      "sourceSize": "639x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ01034",
+      "tier": "card",
+      "source": "TJ01034.png",
+      "sourceSize": "639x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ01038",
+      "tier": "detail",
+      "source": "TJ01038.png",
+      "sourceSize": "633x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.011
+    },
+    {
+      "modelId": "TJ01038",
+      "tier": "card",
+      "source": "TJ01038.png",
+      "sourceSize": "633x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.011
+    },
+    {
+      "modelId": "TJ01039",
+      "tier": "detail",
+      "source": "TJ01039.png",
+      "sourceSize": "632x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ01039",
+      "tier": "card",
+      "source": "TJ01039.png",
+      "sourceSize": "632x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ01048",
+      "tier": "detail",
+      "source": "TJ01048.png",
+      "sourceSize": "1920x1740",
+      "targetSize": "800x800",
+      "aspectRatio": 1.103
+    },
+    {
+      "modelId": "TJ01048",
+      "tier": "card",
+      "source": "TJ01048.png",
+      "sourceSize": "1920x1740",
+      "targetSize": "480x480",
+      "aspectRatio": 1.103
+    },
+    {
+      "modelId": "TJ01050",
+      "tier": "detail",
+      "source": "TJ01050.png",
+      "sourceSize": "1463x1280",
+      "targetSize": "800x800",
+      "aspectRatio": 1.143
+    },
+    {
+      "modelId": "TJ01050",
+      "tier": "card",
+      "source": "TJ01050.png",
+      "sourceSize": "1463x1280",
+      "targetSize": "480x480",
+      "aspectRatio": 1.143
+    },
+    {
+      "modelId": "DZSBM08",
+      "tier": "detail",
+      "source": "DZSBM08.png",
+      "sourceSize": "639x625",
+      "targetSize": "800x800",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "DZSBM08",
+      "tier": "card",
+      "source": "DZSBM08.png",
+      "sourceSize": "639x625",
+      "targetSize": "480x480",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ03001",
+      "tier": "detail",
+      "source": "TJ03001.png",
+      "sourceSize": "683x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.084
+    },
+    {
+      "modelId": "TJ03001",
+      "tier": "card",
+      "source": "TJ03001.png",
+      "sourceSize": "683x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.084
+    },
+    {
+      "modelId": "TJ03002",
+      "tier": "detail",
+      "source": "TJ03002.png",
+      "sourceSize": "644x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.034
+    },
+    {
+      "modelId": "TJ03002",
+      "tier": "card",
+      "source": "TJ03002.png",
+      "sourceSize": "644x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.034
+    },
+    {
+      "modelId": "TJ03003",
+      "tier": "detail",
+      "source": "TJ03003.png",
+      "sourceSize": "634x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.018
+    },
+    {
+      "modelId": "TJ03003",
+      "tier": "card",
+      "source": "TJ03003.png",
+      "sourceSize": "634x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.018
+    },
+    {
+      "modelId": "TJ03005",
+      "tier": "detail",
+      "source": "TJ03005.png",
+      "sourceSize": "638x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.014
+    },
+    {
+      "modelId": "TJ03005",
+      "tier": "card",
+      "source": "TJ03005.png",
+      "sourceSize": "638x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.014
+    },
+    {
+      "modelId": "TJ03006",
+      "tier": "detail",
+      "source": "TJ03006.png",
+      "sourceSize": "660x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.049
+    },
+    {
+      "modelId": "TJ03006",
+      "tier": "card",
+      "source": "TJ03006.png",
+      "sourceSize": "660x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.049
+    },
+    {
+      "modelId": "TJ03016",
+      "tier": "detail",
+      "source": "TJ03016.png",
+      "sourceSize": "630x631",
+      "targetSize": "800x800",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "TJ03016",
+      "tier": "card",
+      "source": "TJ03016.png",
+      "sourceSize": "630x631",
+      "targetSize": "480x480",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "TJ03017",
+      "tier": "detail",
+      "source": "TJ03017.png",
+      "sourceSize": "655x617",
+      "targetSize": "800x800",
+      "aspectRatio": 1.062
+    },
+    {
+      "modelId": "TJ03017",
+      "tier": "card",
+      "source": "TJ03017.png",
+      "sourceSize": "655x617",
+      "targetSize": "480x480",
+      "aspectRatio": 1.062
+    },
+    {
+      "modelId": "TJ03020",
+      "tier": "detail",
+      "source": "TJ03020.png",
+      "sourceSize": "641x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.017
+    },
+    {
+      "modelId": "TJ03020",
+      "tier": "card",
+      "source": "TJ03020.png",
+      "sourceSize": "641x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.017
+    },
+    {
+      "modelId": "TJ03021",
+      "tier": "detail",
+      "source": "TJ03021.png",
+      "sourceSize": "635x617",
+      "targetSize": "800x800",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ03021",
+      "tier": "card",
+      "source": "TJ03021.png",
+      "sourceSize": "635x617",
+      "targetSize": "480x480",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ03022",
+      "tier": "detail",
+      "source": "TJ03022.png",
+      "sourceSize": "646x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ03022",
+      "tier": "card",
+      "source": "TJ03022.png",
+      "sourceSize": "646x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.029
+    },
+    {
+      "modelId": "TJ03025",
+      "tier": "detail",
+      "source": "TJ03025.png",
+      "sourceSize": "650x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.032
+    },
+    {
+      "modelId": "TJ03025",
+      "tier": "card",
+      "source": "TJ03025.png",
+      "sourceSize": "650x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.032
+    },
+    {
+      "modelId": "TJ03027",
+      "tier": "detail",
+      "source": "TJ03027.png",
+      "sourceSize": "630x616",
+      "targetSize": "800x800",
+      "aspectRatio": 1.023
+    },
+    {
+      "modelId": "TJ03027",
+      "tier": "card",
+      "source": "TJ03027.png",
+      "sourceSize": "630x616",
+      "targetSize": "480x480",
+      "aspectRatio": 1.023
+    },
+    {
+      "modelId": "TJ03028",
+      "tier": "detail",
+      "source": "TJ03028.png",
+      "sourceSize": "630x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03028",
+      "tier": "card",
+      "source": "TJ03028.png",
+      "sourceSize": "630x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03029",
+      "tier": "detail",
+      "source": "TJ03029.png",
+      "sourceSize": "633x610",
+      "targetSize": "800x800",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "TJ03029",
+      "tier": "card",
+      "source": "TJ03029.png",
+      "sourceSize": "633x610",
+      "targetSize": "480x480",
+      "aspectRatio": 1.038
+    },
+    {
+      "modelId": "TJ03031",
+      "tier": "detail",
+      "source": "TJ03031.png",
+      "sourceSize": "672x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.068
+    },
+    {
+      "modelId": "TJ03031",
+      "tier": "card",
+      "source": "TJ03031.png",
+      "sourceSize": "672x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.068
+    },
+    {
+      "modelId": "TJ03032",
+      "tier": "detail",
+      "source": "TJ03032.png",
+      "sourceSize": "643x631",
+      "targetSize": "800x800",
+      "aspectRatio": 1.019
+    },
+    {
+      "modelId": "TJ03032",
+      "tier": "card",
+      "source": "TJ03032.png",
+      "sourceSize": "643x631",
+      "targetSize": "480x480",
+      "aspectRatio": 1.019
+    },
+    {
+      "modelId": "TJ03034",
+      "tier": "detail",
+      "source": "TJ03034.png",
+      "sourceSize": "624x625",
+      "targetSize": "800x800",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "TJ03034",
+      "tier": "card",
+      "source": "TJ03034.png",
+      "sourceSize": "624x625",
+      "targetSize": "480x480",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "TJ03036",
+      "tier": "detail",
+      "source": "TJ03036.png",
+      "sourceSize": "635x618",
+      "targetSize": "800x800",
+      "aspectRatio": 1.028
+    },
+    {
+      "modelId": "TJ03036",
+      "tier": "card",
+      "source": "TJ03036.png",
+      "sourceSize": "635x618",
+      "targetSize": "480x480",
+      "aspectRatio": 1.028
+    },
+    {
+      "modelId": "TJ03037",
+      "tier": "detail",
+      "source": "TJ03037.png",
+      "sourceSize": "642x634",
+      "targetSize": "800x800",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ03037",
+      "tier": "card",
+      "source": "TJ03037.png",
+      "sourceSize": "642x634",
+      "targetSize": "480x480",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ03038",
+      "tier": "detail",
+      "source": "TJ03038.png",
+      "sourceSize": "641x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.019
+    },
+    {
+      "modelId": "TJ03038",
+      "tier": "card",
+      "source": "TJ03038.png",
+      "sourceSize": "641x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.019
+    },
+    {
+      "modelId": "TJ03039",
+      "tier": "detail",
+      "source": "TJ03039.png",
+      "sourceSize": "623x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ03039",
+      "tier": "card",
+      "source": "TJ03039.png",
+      "sourceSize": "623x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ03040",
+      "tier": "detail",
+      "source": "TJ03040.png",
+      "sourceSize": "625x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.008
+    },
+    {
+      "modelId": "TJ03040",
+      "tier": "card",
+      "source": "TJ03040.png",
+      "sourceSize": "625x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.008
+    },
+    {
+      "modelId": "TJ03041",
+      "tier": "detail",
+      "source": "TJ03041.png",
+      "sourceSize": "635x633",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03041",
+      "tier": "card",
+      "source": "TJ03041.png",
+      "sourceSize": "635x633",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03042",
+      "tier": "detail",
+      "source": "TJ03042.png",
+      "sourceSize": "646x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ03042",
+      "tier": "card",
+      "source": "TJ03042.png",
+      "sourceSize": "646x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ03044",
+      "tier": "detail",
+      "source": "TJ03044.png",
+      "sourceSize": "661x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.049
+    },
+    {
+      "modelId": "TJ03044",
+      "tier": "card",
+      "source": "TJ03044.png",
+      "sourceSize": "661x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.049
+    },
+    {
+      "modelId": "TJ03045",
+      "tier": "detail",
+      "source": "TJ03045.png",
+      "sourceSize": "639x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ03045",
+      "tier": "card",
+      "source": "TJ03045.png",
+      "sourceSize": "639x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.016
+    },
+    {
+      "modelId": "TJ03046",
+      "tier": "detail",
+      "source": "TJ03046.png",
+      "sourceSize": "650x633",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ03046",
+      "tier": "card",
+      "source": "TJ03046.png",
+      "sourceSize": "650x633",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ03048",
+      "tier": "detail",
+      "source": "TJ03048.png",
+      "sourceSize": "646x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ03048",
+      "tier": "card",
+      "source": "TJ03048.png",
+      "sourceSize": "646x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ03050",
+      "tier": "detail",
+      "source": "TJ03050.png",
+      "sourceSize": "621x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ03050",
+      "tier": "card",
+      "source": "TJ03050.png",
+      "sourceSize": "621x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ03051",
+      "tier": "detail",
+      "source": "TJ03051.png",
+      "sourceSize": "650x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ03051",
+      "tier": "card",
+      "source": "TJ03051.png",
+      "sourceSize": "650x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ03052",
+      "tier": "detail",
+      "source": "TJ03052.png",
+      "sourceSize": "628x620",
+      "targetSize": "800x800",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ03052",
+      "tier": "card",
+      "source": "TJ03052.png",
+      "sourceSize": "628x620",
+      "targetSize": "480x480",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ03053",
+      "tier": "detail",
+      "source": "TJ03053.png",
+      "sourceSize": "630x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03053",
+      "tier": "card",
+      "source": "TJ03053.png",
+      "sourceSize": "630x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03054",
+      "tier": "detail",
+      "source": "TJ03054.png",
+      "sourceSize": "653x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ03054",
+      "tier": "card",
+      "source": "TJ03054.png",
+      "sourceSize": "653x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.04
+    },
+    {
+      "modelId": "TJ03057",
+      "tier": "detail",
+      "source": "TJ03057.png",
+      "sourceSize": "683x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.086
+    },
+    {
+      "modelId": "TJ03057",
+      "tier": "card",
+      "source": "TJ03057.png",
+      "sourceSize": "683x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.086
+    },
+    {
+      "modelId": "TJ03059",
+      "tier": "detail",
+      "source": "TJ03059.png",
+      "sourceSize": "661x626",
+      "targetSize": "800x800",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "TJ03059",
+      "tier": "card",
+      "source": "TJ03059.png",
+      "sourceSize": "661x626",
+      "targetSize": "480x480",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "TJ03060",
+      "tier": "detail",
+      "source": "TJ03060.png",
+      "sourceSize": "663x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "TJ03060",
+      "tier": "card",
+      "source": "TJ03060.png",
+      "sourceSize": "663x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "TJ03067",
+      "tier": "detail",
+      "source": "TJ03067.png",
+      "sourceSize": "631x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03067",
+      "tier": "card",
+      "source": "TJ03067.png",
+      "sourceSize": "631x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03068",
+      "tier": "detail",
+      "source": "TJ03068.png",
+      "sourceSize": "647x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "TJ03068",
+      "tier": "card",
+      "source": "TJ03068.png",
+      "sourceSize": "647x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "TJ03072",
+      "tier": "detail",
+      "source": "TJ03072.png",
+      "sourceSize": "631x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03072",
+      "tier": "card",
+      "source": "TJ03072.png",
+      "sourceSize": "631x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.003
+    },
+    {
+      "modelId": "TJ03076",
+      "tier": "detail",
+      "source": "TJ03076.png",
+      "sourceSize": "651x625",
+      "targetSize": "800x800",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "TJ03076",
+      "tier": "card",
+      "source": "TJ03076.png",
+      "sourceSize": "651x625",
+      "targetSize": "480x480",
+      "aspectRatio": 1.042
+    },
+    {
+      "modelId": "DZSXM02",
+      "tier": "detail",
+      "source": "DZSXM02.png",
+      "sourceSize": "667x629",
+      "targetSize": "800x800",
+      "aspectRatio": 1.06
+    },
+    {
+      "modelId": "DZSXM02",
+      "tier": "card",
+      "source": "DZSXM02.png",
+      "sourceSize": "667x629",
+      "targetSize": "480x480",
+      "aspectRatio": 1.06
+    },
+    {
+      "modelId": "TJ11005",
+      "tier": "detail",
+      "source": "TJ11005.png",
+      "sourceSize": "624x634",
+      "targetSize": "800x800",
+      "aspectRatio": 0.984
+    },
+    {
+      "modelId": "TJ11005",
+      "tier": "card",
+      "source": "TJ11005.png",
+      "sourceSize": "624x634",
+      "targetSize": "480x480",
+      "aspectRatio": 0.984
+    },
+    {
+      "modelId": "TJ11008",
+      "tier": "detail",
+      "source": "TJ11008.png",
+      "sourceSize": "638x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ11008",
+      "tier": "card",
+      "source": "TJ11008.png",
+      "sourceSize": "638x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.013
+    },
+    {
+      "modelId": "TJ11010",
+      "tier": "detail",
+      "source": "TJ11010.png",
+      "sourceSize": "654x632",
+      "targetSize": "800x800",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ11010",
+      "tier": "card",
+      "source": "TJ11010.png",
+      "sourceSize": "654x632",
+      "targetSize": "480x480",
+      "aspectRatio": 1.035
+    },
+    {
+      "modelId": "TJ15006",
+      "tier": "detail",
+      "source": "TJ15006.png",
+      "sourceSize": "637x623",
+      "targetSize": "800x800",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ15006",
+      "tier": "card",
+      "source": "TJ15006.png",
+      "sourceSize": "637x623",
+      "targetSize": "480x480",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ37004",
+      "tier": "detail",
+      "source": "TJ37004.png",
+      "sourceSize": "400x362",
+      "targetSize": "800x800",
+      "aspectRatio": 1.105
+    },
+    {
+      "modelId": "TJ37004",
+      "tier": "card",
+      "source": "TJ37004.png",
+      "sourceSize": "400x362",
+      "targetSize": "480x480",
+      "aspectRatio": 1.105
+    },
+    {
+      "modelId": "TJ37005",
+      "tier": "detail",
+      "source": "TJ37005.png",
+      "sourceSize": "648x634",
+      "targetSize": "800x800",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ37005",
+      "tier": "card",
+      "source": "TJ37005.png",
+      "sourceSize": "648x634",
+      "targetSize": "480x480",
+      "aspectRatio": 1.022
+    },
+    {
+      "modelId": "TJ37011",
+      "tier": "detail",
+      "source": "TJ37011.png",
+      "sourceSize": "649x618",
+      "targetSize": "800x800",
+      "aspectRatio": 1.05
+    },
+    {
+      "modelId": "TJ37011",
+      "tier": "card",
+      "source": "TJ37011.png",
+      "sourceSize": "649x618",
+      "targetSize": "480x480",
+      "aspectRatio": 1.05
+    },
+    {
+      "modelId": "TJ37014",
+      "tier": "detail",
+      "source": "TJ37014.png",
+      "sourceSize": "1920x1680",
+      "targetSize": "800x800",
+      "aspectRatio": 1.143
+    },
+    {
+      "modelId": "TJ37014",
+      "tier": "card",
+      "source": "TJ37014.png",
+      "sourceSize": "1920x1680",
+      "targetSize": "480x480",
+      "aspectRatio": 1.143
+    },
+    {
+      "modelId": "DZSWJ03",
+      "tier": "detail",
+      "source": "DZSWJ03.png",
+      "sourceSize": "704x625",
+      "targetSize": "800x800",
+      "aspectRatio": 1.126
+    },
+    {
+      "modelId": "DZSWJ03",
+      "tier": "card",
+      "source": "DZSWJ03.png",
+      "sourceSize": "704x625",
+      "targetSize": "480x480",
+      "aspectRatio": 1.126
+    },
+    {
+      "modelId": "DZSWJ05",
+      "tier": "detail",
+      "source": "DZSWJ05.png",
+      "sourceSize": "689x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.094
+    },
+    {
+      "modelId": "DZSWJ05",
+      "tier": "card",
+      "source": "DZSWJ05.png",
+      "sourceSize": "689x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.094
+    },
+    {
+      "modelId": "DZSWJ06",
+      "tier": "detail",
+      "source": "DZSWJ06.png",
+      "sourceSize": "693x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.1
+    },
+    {
+      "modelId": "DZSWJ06",
+      "tier": "card",
+      "source": "DZSWJ06.png",
+      "sourceSize": "693x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.1
+    },
+    {
+      "modelId": "TJ09001",
+      "tier": "detail",
+      "source": "TJ09001.png",
+      "sourceSize": "631x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ09001",
+      "tier": "card",
+      "source": "TJ09001.png",
+      "sourceSize": "631x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.006
+    },
+    {
+      "modelId": "TJ09002",
+      "tier": "detail",
+      "source": "TJ09002.png",
+      "sourceSize": "624x629",
+      "targetSize": "800x800",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "TJ09002",
+      "tier": "card",
+      "source": "TJ09002.png",
+      "sourceSize": "624x629",
+      "targetSize": "480x480",
+      "aspectRatio": 0.992
+    },
+    {
+      "modelId": "TJ09012",
+      "tier": "detail",
+      "source": "TJ09012.png",
+      "sourceSize": "639x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ09012",
+      "tier": "card",
+      "source": "TJ09012.png",
+      "sourceSize": "639x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.027
+    },
+    {
+      "modelId": "TJ10002",
+      "tier": "detail",
+      "source": "TJ10002.png",
+      "sourceSize": "625x626",
+      "targetSize": "800x800",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "TJ10002",
+      "tier": "card",
+      "source": "TJ10002.png",
+      "sourceSize": "625x626",
+      "targetSize": "480x480",
+      "aspectRatio": 0.998
+    },
+    {
+      "modelId": "TJ10004",
+      "tier": "detail",
+      "source": "TJ10004.png",
+      "sourceSize": "620x633",
+      "targetSize": "800x800",
+      "aspectRatio": 0.979
+    },
+    {
+      "modelId": "TJ10004",
+      "tier": "card",
+      "source": "TJ10004.png",
+      "sourceSize": "620x633",
+      "targetSize": "480x480",
+      "aspectRatio": 0.979
+    },
+    {
+      "modelId": "TJ10005",
+      "tier": "detail",
+      "source": "TJ10005.png",
+      "sourceSize": "641x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ10005",
+      "tier": "card",
+      "source": "TJ10005.png",
+      "sourceSize": "641x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.021
+    },
+    {
+      "modelId": "TJ11003",
+      "tier": "detail",
+      "source": "TJ11003.png",
+      "sourceSize": "610x628",
+      "targetSize": "800x800",
+      "aspectRatio": 0.971
+    },
+    {
+      "modelId": "TJ11003",
+      "tier": "card",
+      "source": "TJ11003.png",
+      "sourceSize": "610x628",
+      "targetSize": "480x480",
+      "aspectRatio": 0.971
+    },
+    {
+      "modelId": "TJ26001",
+      "tier": "detail",
+      "source": "TJ26001.png",
+      "sourceSize": "642x627",
+      "targetSize": "800x800",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "TJ26001",
+      "tier": "card",
+      "source": "TJ26001.png",
+      "sourceSize": "642x627",
+      "targetSize": "480x480",
+      "aspectRatio": 1.024
+    },
+    {
+      "modelId": "TJ26002",
+      "tier": "detail",
+      "source": "TJ26002.png",
+      "sourceSize": "643x622",
+      "targetSize": "800x800",
+      "aspectRatio": 1.034
+    },
+    {
+      "modelId": "TJ26002",
+      "tier": "card",
+      "source": "TJ26002.png",
+      "sourceSize": "643x622",
+      "targetSize": "480x480",
+      "aspectRatio": 1.034
+    },
+    {
+      "modelId": "TJ26003",
+      "tier": "detail",
+      "source": "TJ26003.png",
+      "sourceSize": "620x634",
+      "targetSize": "800x800",
+      "aspectRatio": 0.978
+    },
+    {
+      "modelId": "TJ26003",
+      "tier": "card",
+      "source": "TJ26003.png",
+      "sourceSize": "620x634",
+      "targetSize": "480x480",
+      "aspectRatio": 0.978
+    },
+    {
+      "modelId": "TJ26010",
+      "tier": "detail",
+      "source": "TJ26010.png",
+      "sourceSize": "661x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.053
+    },
+    {
+      "modelId": "TJ26010",
+      "tier": "card",
+      "source": "TJ26010.png",
+      "sourceSize": "661x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.053
+    },
+    {
+      "modelId": "TJ26015",
+      "tier": "detail",
+      "source": "TJ26015.png",
+      "sourceSize": "625x624",
+      "targetSize": "800x800",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ26015",
+      "tier": "card",
+      "source": "TJ26015.png",
+      "sourceSize": "625x624",
+      "targetSize": "480x480",
+      "aspectRatio": 1.002
+    },
+    {
+      "modelId": "TJ26017",
+      "tier": "detail",
+      "source": "TJ26017.png",
+      "sourceSize": "400x317",
+      "targetSize": "800x800",
+      "aspectRatio": 1.262
+    },
+    {
+      "modelId": "TJ26017",
+      "tier": "card",
+      "source": "TJ26017.png",
+      "sourceSize": "400x317",
+      "targetSize": "480x480",
+      "aspectRatio": 1.262
+    },
+    {
+      "modelId": "TJ26021",
+      "tier": "detail",
+      "source": "TJ26021.png",
+      "sourceSize": "658x630",
+      "targetSize": "800x800",
+      "aspectRatio": 1.044
+    },
+    {
+      "modelId": "TJ26021",
+      "tier": "card",
+      "source": "TJ26021.png",
+      "sourceSize": "658x630",
+      "targetSize": "480x480",
+      "aspectRatio": 1.044
+    },
+    {
+      "modelId": "TJ26023",
+      "tier": "detail",
+      "source": "TJ26023.png",
+      "sourceSize": "626x614",
+      "targetSize": "800x800",
+      "aspectRatio": 1.02
+    },
+    {
+      "modelId": "TJ26023",
+      "tier": "card",
+      "source": "TJ26023.png",
+      "sourceSize": "626x614",
+      "targetSize": "480x480",
+      "aspectRatio": 1.02
+    },
+    {
+      "modelId": "TJ26030",
+      "tier": "detail",
+      "source": "TJ26030.png",
+      "sourceSize": "663x628",
+      "targetSize": "800x800",
+      "aspectRatio": 1.056
+    },
+    {
+      "modelId": "TJ26030",
+      "tier": "card",
+      "source": "TJ26030.png",
+      "sourceSize": "663x628",
+      "targetSize": "480x480",
+      "aspectRatio": 1.056
+    }
+  ],
+  "missingMainImage": [],
+  "failed": []
+}
