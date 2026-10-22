@@ -20,13 +20,14 @@ vi.mock("next/link", () => ({
 }));
 
 describe("ProductsQuickEntry", () => {
-  it("links Tesla to its live brand page instead of showing coming soon", () => {
+  it("links model-less live brands (Tesla, Voyah) to their brand pages instead of showing coming soon", () => {
     render(<ProductsQuickEntry />);
 
     expect(screen.queryByText("即将上线")).not.toBeInTheDocument();
-    expect(screen.getByText("查看品牌方案").closest("a")).toHaveAttribute(
-      "href",
-      "/product/tesla",
-    );
+    const brandLinks = screen
+      .getAllByText("查看品牌方案")
+      .map((el) => el.closest("a")?.getAttribute("href"));
+    expect(brandLinks).toContain("/product/tesla");
+    expect(brandLinks).toContain("/product/voyah");
   });
 });

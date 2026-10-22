@@ -1,0 +1,36 @@
+import { buildModelPageConfig } from "@/lib/brand-series/model-page-config";
+import { leapmotorFitment } from "./fitment/leapmotor";
+import type { FaqItem } from "@/components/vehicle-page";
+
+const faq: FaqItem[] = [
+  {
+    question: "我的零跑C11能装哪些项目？",
+    answer:
+      "适配库收录底盘护板、360软包脚垫、平面尾箱垫、360全包尾箱。底盘护板原文：锰钢1.2mm；铝镁合金2.0mm，年款2023、2024；2026；2026-2027，纯电续航640；增程300/210；电动续航580/650公里；增程续航200、300、285，保护位置前电机、电池前、电池后、后电机、发电机、线束、油箱、后部底盘、发动机；另有三件套（前电机、后电机、电池2片）与增程五件套（水箱、发动机、线路、电池、后电机；前水箱、发动机、电池、油路、油箱后电机）。360软包脚垫：21款-23款前排轨道下是胶壳，24款-25款前排轨道下是绒布，26款--前排内侧带储物盒；平面尾箱垫为4门4座；360全包尾箱21款--左边带音响。未收录的配置以门店现场检查为准。",
+  },
+  {
+    question: "佛山本地哪里能装零跑C11？",
+    answer:
+      "蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工。到店时按车型年款、续航版本（纯电/增程）与底盘结构逐项对表，确认后再施工。",
+  },
+  {
+    question: "零跑C11加装底盘护板、脚垫、尾箱垫需要备案吗？",
+    answer:
+      "底盘护板、脚垫、尾箱垫属车内防护与加装件，不涉及外观变更的不需要备案；涉及外观变更的项目（如包围、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界，页面不做备案承诺。",
+  },
+  {
+    question: "C11 适配数据以什么为准？",
+    answer:
+      "页面适配件信息来自蓝辉供应商适配库原文（资料日期 2026-08-30 / 2026-09-07 / 2026-09-08），材质、年款、续航与保护位置均为原文，实际安装以门店现场检查为准。",
+  },
+];
+
+export const leapmotorC11PageConfig = buildModelPageConfig({
+  brandSlug: "leapmotor",
+  brandName: "零跑",
+  modelDisplay: "C11",
+  theme: "orange",
+  fitment: leapmotorFitment,
+  includeSections: ["C11"],
+  faq,
+});

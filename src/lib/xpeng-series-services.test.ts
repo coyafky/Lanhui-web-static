@@ -2,7 +2,7 @@
  * 小鹏一级页数据 — vitest 单元测试
  *
  * 验证项（2026-07-15 重构）：
- *   1. 长度字面量（baseServices=6, steps=6, faq=8, douyin=3）
+ *   1. 长度字面量（baseServices=6, steps=6, faq=11, douyin=3）
  *   2. id 唯一 / step 单调递增
  *   3. 基础服务 href 均指向已存在的产品路由
  *   4. FAQ 无"需到店确认"式空洞话术
@@ -39,8 +39,8 @@ describe("xpeng-series-services: lengths (literal constraints)", () => {
     expect(xpengSeriesServiceSteps).toHaveLength(6);
   });
 
-  it("faq has exactly 8 entries", () => {
-    expect(xpengSeriesFaq).toHaveLength(8);
+  it("faq has exactly 11 entries", () => {
+    expect(xpengSeriesFaq).toHaveLength(11);
   });
 
   it("douyin highlights has exactly 3 entries", () => {

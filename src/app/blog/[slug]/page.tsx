@@ -18,6 +18,7 @@ import type { Article } from "@/lib/blog";
 import { safeJsonLd } from "@/lib/json-ld";
 import { generateBreadcrumbSchema } from "@/lib/geo";
 import { getSiteUrl } from "@/lib/site-url";
+import { getAuthor } from "@/lib/author";
 
 type Params = { slug: string };
 
@@ -107,6 +108,7 @@ export default async function BlogArticlePage({
   if (!article) notFound();
 
   const { prev, next } = getAdjacentArticles(slug);
+  const author = getAuthor();
   const articleUrl = `${SITE_URL}/blog/${article.slug}`;
   const breadcrumbItems = [
     { label: "首页", href: "/" },
@@ -128,7 +130,17 @@ export default async function BlogArticlePage({
       : {}),
     datePublished: article.publishedAt,
     dateModified: article.publishedAt,
-    author: { "@type": "Organization", name: "蓝辉轻改 LANHUI" },
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/brand#${author.id}`,
+      name: author.name,
+      jobTitle: author.title,
+      description: author.description,
+      image: `${SITE_URL}${author.avatar}`,
+      url: `${SITE_URL}${author.url}`,
+      knowsAbout: author.knowsAbout,
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+    },
     publisher: {
       "@type": "Organization",
       name: "蓝辉轻改 LANHUI",
@@ -159,6 +171,28 @@ export default async function BlogArticlePage({
             <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-5 leading-snug">
               {article.title}
             </h1>
+            {/* 作者署名（E-E-A-T：可追责的个人主体） */}
+            <div className="flex items-center gap-3 mb-5 pb-5 border-b border-zinc-900">
+              <Image
+                src={author.avatar}
+                alt={`${author.name}，${author.title}`}
+                width={44}
+                height={44}
+                className="rounded-full border border-zinc-700 shrink-0"
+              />
+              <div className="min-w-0">
+                <p className="text-sm font-medium text-zinc-200">
+                  {author.name}
+                  <span className="ml-2 text-xs font-normal text-zinc-500">
+                    {author.title}
+                  </span>
+                </p>
+                <p className="text-xs text-zinc-500 mt-0.5">
+                  基于顺德大良门店实车施工经验整理
+                </p>
+              </div>
+            </div>
+
             <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500">
               <span className="inline-flex items-center gap-1.5">
                 <CalendarDays className="w-4 h-4 text-orange-400" aria-hidden="true" />

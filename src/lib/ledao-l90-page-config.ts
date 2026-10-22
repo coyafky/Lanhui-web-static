@@ -8,6 +8,7 @@ import {
   LEDAO_L90_CATEGORY_LABELS,
   LEDAO_L90_HERO_IMAGE,
 } from "./ledao-l90-products";
+import { ledaoFitment } from "./fitment/ledao";
 
 const CATEGORY_LABELS: Record<LedaoL90Category, string> = LEDAO_L90_CATEGORY_LABELS;
 
@@ -62,4 +63,18 @@ export const ledaoL90PageConfig = {
     question: item.question,
     answer: item.answer,
   })),
+
+  // 适配速查（供应商适配库）：仅取 L90 专属节，排除 L60 / L80
+  fitment: {
+    heading: "乐道 L90 适配速查：你的配置能装哪些项目？",
+    models: ledaoFitment.models
+      .filter((m) => m.model === "L90")
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 } satisfies VehiclePageConfig;

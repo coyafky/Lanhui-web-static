@@ -51,8 +51,8 @@ describe("wenjie-m7-upgrade-projects: lengths (literal constraints)", () => {
     expect(wenjieM7ServiceSteps).toHaveLength(7);
   });
 
-  it("faq has exactly 8 entries", () => {
-    expect(wenjieM7Faq).toHaveLength(8);
+  it("faq has exactly 11 entries", () => {
+    expect(wenjieM7Faq).toHaveLength(11);
   });
 
   it("tier buckets sum to 30 (5 + 15 + 10)", () => {
@@ -75,15 +75,28 @@ describe("wenjie-m7-upgrade-projects: projects invariants", () => {
     expect(orders).toEqual(Array.from({ length: 30 }, (_, i) => i + 1));
   });
 
-  it("all imageStatus are 'product-preview'", () => {
+  // 供应商成品图接入（B1）：m7-wheels 使用真实产品图（real → config 映射 matched），其余保持 product-preview
+  const REAL_IMAGE_IDS = new Set(["m7-wheels"]);
+
+  it("imageStatus 默认 product-preview（真实图白名单除外）", () => {
     expect(
-      wenjieM7UpgradeProjects.every((p) => p.imageStatus === "product-preview"),
+      wenjieM7UpgradeProjects.every(
+        (p) =>
+          (REAL_IMAGE_IDS.has(p.id) && p.imageStatus === "real") ||
+          p.imageStatus === "product-preview",
+      ),
     ).toBe(true);
   });
 
-  it("all projects have generated public preview images", () => {
+  it("项目图默认指向 M7 generated 预览图（真实图白名单除外）", () => {
     for (const p of wenjieM7UpgradeProjects) {
-      expect(p.image.publicPath).toMatch(/^\/images\/products\/wenjie\/M7\/generated\/.+\.webp$/);
+      if (REAL_IMAGE_IDS.has(p.id)) {
+        expect(p.image.publicPath).toMatch(
+          /^\/images\/products\/wenjie\/m7\/wheels\/.+\.webp$/,
+        );
+      } else {
+        expect(p.image.publicPath).toMatch(/^\/images\/products\/wenjie\/M7\/generated\/.+\.webp$/);
+      }
       expect(p.image.width).toBe(1448);
       expect(p.image.height).toBe(1086);
       expect(p.image.aspectRatio).toBe("4/3");

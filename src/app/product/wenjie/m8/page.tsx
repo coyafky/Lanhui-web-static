@@ -67,6 +67,49 @@ export default async function WenjieM8Page() {
     })),
   };
 
+  // GEO 增量 C2：Vehicle + FAQPage 结构化数据，让 AI 能直接回答
+  // "M8 能改什么 / 我的配置能装吗 / 佛山哪里能装" 类问题
+  const vehicleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Vehicle",
+    name: `${MODEL_NAME} 轻改升级`,
+    brand: { "@type": "Brand", name: "问界" },
+    model: "M8",
+    category: "汽车轻改升级服务",
+    description:
+      "蓝辉轻改提供问界 M8 专属轻改方案参考，覆盖底盘护板、电动踏板、地板、小桌板、包围、防虫网等轻改项目。",
+    url: "https://lanhui.com/product/wenjie/m8",
+    provider: {
+      "@type": "AutoRepair",
+      name: "蓝辉轻改",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "广东省",
+        addressLocality: "佛山市顺德区",
+      },
+      areaServed: "全国",
+    },
+    makesOffer: wenjieM8PageConfig.projects.map((p) => ({
+      "@type": "Offer",
+      name: `${MODEL_NAME} ${p.name} 升级方案`,
+      description: p.summary,
+      category: p.category,
+    })),
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: wenjieM8PageConfig.faq.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow bg-zinc-950">
@@ -117,6 +160,14 @@ export default async function WenjieM8Page() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(vehicleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
       </main>
       {breadcrumbSchema && (

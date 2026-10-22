@@ -2,7 +2,7 @@
  * 高山 8 单车型轻改项目 — 数据层
  *
  * 数据来源 PRD：
- *   docs/PRD/product/GAOSHAN_8_TOPIC_PRD_2026-06-25.md
+ *   specs/archive/prd/product/GAOSHAN_8_TOPIC_PRD_2026-06-25.md
  *
  * 节号映射：
  *   §7.1 23 个海报项目       → gaoshan8UpgradeProjects  (length === 23)

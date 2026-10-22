@@ -2,7 +2,7 @@
  * 智界 V9 单车型轻改项目 — 数据层
  *
  * 数据来源 PRD：
- *   docs/PRD/product/ZHIJIE_V9_TOPIC_PRD_2026-06-25.md
+ *   specs/archive/prd/product/ZHIJIE_V9_TOPIC_PRD_2026-06-25.md
  *
  * 节号映射：
  *   §7  14 个海报项目       → zhijieV9UpgradeProjects  (length === 14)

@@ -12,11 +12,60 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { xpengBaseServices } from "@/lib/xpeng-series-services";
+import {
+  xpengBaseServices,
+  xpengSeriesFaq,
+} from "@/lib/xpeng-series-services";
+import { xpengFitment } from "@/lib/fitment/xpeng";
+import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
+import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { XPENG_GX_HERO_IMAGE } from "@/lib/xpeng-gx-products";
 import { XPENG_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { safeJsonLd } from "@/lib/json-ld";
+
+/** 适配库 10 节（G6/G7/G9/GX/M03/P5/P7/X9/G3/L03）精确匹配。 */
+const XPENG_FITMENT_SECTIONS = new Set([
+  "G6",
+  "G7",
+  "G9",
+  "GX",
+  "M03",
+  "P5",
+  "P7",
+  "X9",
+  "G3",
+  "L03",
+]);
+
+function buildXpengFitmentModels(): FitmentModel[] {
+  return xpengFitment.models
+    .filter((section) => XPENG_FITMENT_SECTIONS.has(section.model))
+    .map((section) => ({
+      model: section.model,
+      projects: section.projects.map((p) => ({
+        name: p.name,
+        specs: p.specs.map((raw): FitmentSpec => {
+          const s = raw as {
+            label?: string;
+            material?: string;
+            year?: string;
+            note?: string;
+            date?: string;
+            dynamics?: string;
+          };
+          return {
+            label: s.label,
+            material: s.material,
+            year: s.year,
+            note: s.note,
+            date: s.date,
+            dynamics: s.dynamics,
+          };
+        }),
+      })),
+    }));
+}
 
 const PAGE_TITLE = "小鹏汽车贴膜与轻改服务｜顺德大良蓝辉轻改 LANHUI";
 const PAGE_DESCRIPTION =
@@ -94,6 +143,54 @@ export default function XpengBrandPage() {
     },
   };
 
+  // 供应商适配库速查：G6/G7/G9/GX/M03/P5/P7/X9/G3/L03 精确匹配，按车型分组渲染
+  const fitmentConfig = {
+    heading: "小鹏 适配速查：你的车型能装哪些项目？",
+    models: buildXpengFitmentModels(),
+    groupByModel: true,
+  };
+
+  // GEO 增量：Vehicle + FAQPage 结构化数据
+  const vehicleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Vehicle",
+    name: "小鹏全系轻改升级",
+    brand: { "@type": "Brand", name: "小鹏" },
+    model: "G6、G7、G9、GX、M03、P5、P7、X9、G3、L03 全系车型",
+    category: "汽车轻改升级服务",
+    description: PAGE_DESCRIPTION,
+    url: brand.canonicalPath,
+    provider: {
+      "@type": "AutoRepair",
+      name: "蓝辉轻改",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "广东省",
+        addressLocality: "佛山市顺德区",
+      },
+      areaServed: "全国",
+    },
+    makesOffer: xpengBaseServices.map((svc) => ({
+      "@type": "Offer",
+      name: `小鹏 ${svc.title}`,
+      description: svc.painPoint,
+      category: svc.id,
+    })),
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: xpengSeriesFaq.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow">
@@ -101,10 +198,19 @@ export default function XpengBrandPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(vehicleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
+        />
         <XpengSeriesHeroV2 breadcrumbItems={breadcrumbItems} />
         <XpengBaseServiceGrid />
         <XpengGxEntrySection image={gxImage} />
         <XpengServiceFlowV2 />
+        <FitmentQuickCheck config={fitmentConfig} theme="green" />
         <XpengFaqSectionV2 />
         <XpengDouyinCta />
 

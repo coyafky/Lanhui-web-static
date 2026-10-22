@@ -286,7 +286,7 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
         product: "12 层金属膜 Z70",
         params: "可见光阻隔率 28%；紫外线阻隔率 99%；红外线阻隔率 96%；总太阳能阻隔率 56%；厚度 3.5mil",
         userMeaning:
-          "前挡提供顶级红外阻隔与较厚膜层，是高隔热组合的前挡核心。",
+          "前挡的红外阻隔参数与较厚膜层，是高隔热组合的重要部分。",
       },
       {
         position: "rear",

@@ -1,7 +1,10 @@
 import type { VehiclePageConfig } from "./vehicle-page.schema";
 import { VehicleHero } from "./VehicleHero";
 import { ProjectTabs } from "./ProjectTabs";
+import { MaterialComparison } from "./MaterialComparison";
 import { ScenarioMatrix } from "./ScenarioMatrix";
+import { FitmentQuickCheck } from "./FitmentQuickCheck";
+import { ComplianceNotice } from "./ComplianceNotice";
 import { ServiceFlow } from "./ServiceFlow";
 import { FaqSection } from "./FaqSection";
 import { BundleList } from "./BundleList";
@@ -25,8 +28,13 @@ export function VehiclePageRenderer({ config }: Props) {
         </div>
       )}
       <VehicleHero config={config.hero} theme={config.theme} />
-      <ProjectTabs projects={config.projects} theme={config.theme} />
+      <ProjectTabs projects={config.projects} theme={config.theme} heading={config.projectsHeading} />
+      {config.materialComparison && (
+        <MaterialComparison config={config.materialComparison} theme={config.theme} />
+      )}
       <ScenarioMatrix scenarios={config.scenarios} theme={config.theme} />
+      {config.fitment && <FitmentQuickCheck config={config.fitment} theme={config.theme} />}
+      {config.compliance && <ComplianceNotice config={config.compliance} theme={config.theme} />}
       <ServiceFlow config={config.serviceFlow} theme={config.theme} />
       <FaqSection items={config.faq} theme={config.theme} />
       {config.bundles && config.bundles.length > 0 && (

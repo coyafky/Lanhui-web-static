@@ -57,9 +57,12 @@ const serviceSlugPageModuleMap: Record<string, () => Promise<unknown>> = {
   chassis: () => import("@/app/product/chassis/page"),
   flooring: () => import("@/app/product/flooring/page"),
   "floor-mats": () => import("@/app/product/floor-mats/page"),
+  "tray-table": () => import("@/app/product/tray-table/page"),
   "car-care": () => import("@/app/product/car-care/page"),
   "car-tv": () => import("@/app/product/car-tv/page"),
+  "toyota-wheels": () => import("@/app/product/toyota/wheels/page"),
   "tei-brake": () => import("@/app/product/tei-brake/page"),
+  "body-kits": () => import("@/app/product/body-kits/page"),
 };
 
 describe.each(LIVE_SERVICES)(
@@ -109,10 +112,13 @@ describe("car-tv product structure", () => {
     await renderServicePage(serviceSlugPageModuleMap["car-tv"]);
 
     const body = document.body.textContent ?? "";
-    expect(body).toContain("18.5 英寸车载电视");
+    expect(body).toContain("后排娱乐系统");
+    expect(body).toContain("吸顶式后排电视");
+    expect(body).toContain("座椅背装式后排电视");
+    expect(body).toContain("流媒体后视镜");
     expect(body).toContain("1920 × 1080");
     expect(body).toContain("4G ＋ Wi-Fi");
-    expect(body).toContain("好看的收起状态，来自前期检查");
+    expect(body).toContain("三套方案，安装前检查的点不一样");
     expect(body).toContain("原车功能控制属于适配能力");
     expect(body).not.toContain("无限流量");
     expect(body).not.toContain("无损安装");

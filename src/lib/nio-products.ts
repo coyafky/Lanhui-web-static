@@ -2,7 +2,7 @@
  * 蔚来 ES8 专题页静态数据
  *
  * 数据派生自 `public/images/products/nio-es8/generated/manifest.json`（v1, 2026-06-26）
- * 与 [`NIO_ES8_TOPIC_PRD_2026-06-27.md`](../../docs/PRD/product/NIO_ES8_TOPIC_PRD_2026-06-27.md)。
+ * 与 [`NIO_ES8_TOPIC_PRD_2026-06-27.md`](../../specs/archive/prd/product/NIO_ES8_TOPIC_PRD_2026-06-27.md)。
  *
  * 字段值零变更：每个项目的 key / name / publicPath / width / height / aspectRatio
  * / imageStatus / promptSummary 与 manifest 完全对齐；category / summary /

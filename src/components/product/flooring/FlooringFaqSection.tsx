@@ -1,6 +1,7 @@
 import { ChevronDown, Shield, Wrench } from "lucide-react";
 import {
   flooringFaqs,
+  flooringServiceFaqs,
   flooringInstallNotes,
   flooringWarranties,
   flooringMaintenance,
@@ -50,6 +51,30 @@ export function FlooringFaqSection() {
 
           <div className="space-y-2 mb-6">
             {flooringFaqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="group rounded-xl bg-zinc-900/60 shadow-[0_0_0_1px_oklch(1_0_0/0.06)]"
+              >
+                <summary className="flex items-center justify-between p-4 cursor-pointer list-none">
+                  <span className="text-sm font-medium text-zinc-300 pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown className="size-4 text-zinc-500 shrink-0 transition-transform group-open:rotate-180" aria-hidden />
+                </summary>
+                <div className="px-4 pb-4">
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <h3 className="text-xl font-bold text-white mb-4">
+            施工与适配常见问题
+          </h3>
+          <div className="space-y-2">
+            {flooringServiceFaqs.map((faq) => (
               <details
                 key={faq.question}
                 className="group rounded-xl bg-zinc-900/60 shadow-[0_0_0_1px_oklch(1_0_0/0.06)]"

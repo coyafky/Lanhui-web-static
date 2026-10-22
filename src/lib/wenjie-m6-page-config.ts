@@ -6,6 +6,7 @@ import {
   wenjieM6Faq,
   type WenjieM6UpgradeCategory,
 } from "./wenjie-m6-upgrade-projects";
+import { wenjieFitment } from "./fitment/wenjie";
 
 const CATEGORY_LABELS: Record<WenjieM6UpgradeCategory, string> = {
   protection: "新车保护",
@@ -67,4 +68,20 @@ export const wenjieM6PageConfig = {
     question: item.question,
     answer: item.answer,
   })),
+
+  // 适配速查（供应商适配库）：M6 主节 + 增程/纯电/年份细分节（同名项目由组件合并方案）
+  fitment: {
+    heading: "问界 M6 适配速查：你的配置能装哪些项目？",
+    models: wenjieFitment.models
+      .filter((m) =>
+        ["M6", "M6增程", "M6纯电", "26款问界M6"].includes(m.model),
+      )
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 } satisfies VehiclePageConfig;

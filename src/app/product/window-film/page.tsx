@@ -18,6 +18,18 @@ import {
   windowFilmFaqs,
 } from "@/lib/window-film-experiences";
 import { safeJsonLd } from "@/lib/json-ld";
+import { productSchema } from "@/lib/schema";
+import { generateLocalBusinessSchema } from "@/lib/geo";
+import { stores } from "@/lib/store";
+import {
+  WindowPackageCompare,
+  HeatTestGallery,
+  FilmComparison,
+  FilmCases,
+  FilmLocalStore,
+  FilmFaqSection,
+} from "@/components/film";
+import { windowPackages, windowPackageFaqs } from "@/lib/film-products";
 import { ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -64,6 +76,33 @@ export default function WindowFilmPage() {
   const breadcrumbItems = getProductBreadcrumbs("/product/window-film");
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/window-film");
 
+  const localStore = stores.find((s) => s.isActive);
+  const localBusiness = localStore ? generateLocalBusinessSchema(localStore) : null;
+
+  const productJsonLd = productSchema({
+    name: product.name,
+    slug: product.slug,
+    description: product.heroDescription ?? product.cardDescription,
+    category: product.groupLabel,
+  });
+
+  const allFaqs = [...windowFilmFaqs, ...windowPackageFaqs];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: allFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const caseItems = windowPackages.map((p) => ({
+    image: p.image,
+    alt: p.imageAlt,
+    caption: `${p.name} · ${p.seriesLabel.split(" · ")[0]}（产品图）`,
+  }));
+
   return (
     <>
       <FilmPageHero breadcrumbItems={breadcrumbItems} />
@@ -99,6 +138,9 @@ export default function WindowFilmPage() {
           </div>
         </section>
 
+        {/* ====== 资料 4 款套餐参数对比（无价格） ====== */}
+        <WindowPackageCompare />
+
         {/* ====== 窗膜核心作用 ====== */}
         <WindowFilmBenefits />
 
@@ -117,8 +159,27 @@ export default function WindowFilmPage() {
           />
         )}
 
+        {/* ====== 隔热实测现场记录 ====== */}
+        <HeatTestGallery />
+
         {/* ====== 抖音案例 CTA ====== */}
         <WindowFilmDouyinCta />
+
+        {/* ====== 三品类对比 ====== */}
+        <FilmComparison active="window" />
+
+        {/* ====== 产品图参考（非本店实拍） ====== */}
+        <FilmCases items={caseItems} />
+
+        {/* ====== 本地服务锚点 ====== */}
+        <FilmLocalStore />
+
+        {/* ====== 套餐怎么选补充 FAQ ====== */}
+        <FilmFaqSection
+          title="套餐怎么选？报价口径与施工养护常见问题"
+          intro="资料套餐选择、天窗口径、信号影响与贴后养护，到店按车型确认。"
+          faqs={windowPackageFaqs}
+        />
 
         {/* ====== FAQ ====== */}
         <section className="py-16 sm:py-20 bg-zinc-950 border-t border-white/[0.05]">
@@ -163,6 +224,20 @@ export default function WindowFilmPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }}
         />
       )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(productJsonLd) }}
+      />
+      {localBusiness && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(localBusiness) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
+      />
     </>
   );
 }

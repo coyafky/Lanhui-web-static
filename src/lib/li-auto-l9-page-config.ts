@@ -7,6 +7,7 @@ import {
   LI_AUTO_L9_PROJECT_COUNT,
   LI_AUTO_L9_SCENARIO_COUNT,
 } from "@/lib/li-auto-l9-products";
+import { li_autoFitment } from "./fitment/li-auto";
 
 export const liAutoL9PageConfig: VehiclePageConfig = {
   theme: "blue",
@@ -55,4 +56,18 @@ export const liAutoL9PageConfig: VehiclePageConfig = {
     })),
   },
   faq: [...liAutoL9Faq],
+
+  // 适配速查（供应商适配库）：L9 专属节 + L9livis 节
+  fitment: {
+    heading: "理想 L9 适配速查：你的配置能装哪些项目？",
+    models: li_autoFitment.models
+      .filter((m) => ["L9", "L9livis"].includes(m.model))
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 };

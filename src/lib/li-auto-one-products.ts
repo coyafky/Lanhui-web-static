@@ -2,14 +2,14 @@
  * 理想 ONE 专题页静态数据
  *
  * 数据来源 PRD：
- *   docs/PRD/product/LI_AUTO_ONE_TOPIC_PRD_2026-06-27.md
+ *   specs/archive/prd/product/LI_AUTO_ONE_TOPIC_PRD_2026-06-27.md
  *
  * 节号映射：
  *   §7   8 项轻改项目目录   → liAutoOneUpgradeProjects  (length === 8)
  *   §8   5 大用车场景       → liAutoOneScenarios       (length === 5)
  *   §9   4 个推荐组合       → liAutoOneBundles         (length === 4)
  *   §11  7 步服务流程       → liAutoOneServiceSteps    (length === 7)
- *   §11  9 条 FAQ           → liAutoOneFaq             (length === 9)
+ *   §11  12 条 FAQ          → liAutoOneFaq             (length === 12)
  *
  * 字面量防漂移（参考 i8 / ES8 模式）
  */
@@ -93,7 +93,7 @@ export const LI_AUTO_ONE_PROJECT_COUNT = 8;
 export const LI_AUTO_ONE_SCENARIO_COUNT = 5;
 export const LI_AUTO_ONE_BUNDLE_COUNT = 4;
 export const LI_AUTO_ONE_SERVICE_STEP_COUNT = 7;
-export const LI_AUTO_ONE_FAQ_COUNT = 9;
+export const LI_AUTO_ONE_FAQ_COUNT = 12;
 
 // ---- 8 项轻改项目（PRD §7，与海报顺序对齐）----
 
@@ -347,7 +347,7 @@ export const liAutoOneServiceSteps: readonly LiAutoOneServiceStep[] = [
   },
 ];
 
-// ---- 9 条 FAQ（PRD §11）----
+// ---- 12 条 FAQ（PRD §11）----
 
 export const liAutoOneFaq: readonly LiAutoOneFaqItem[] = [
   {
@@ -386,6 +386,21 @@ export const liAutoOneFaq: readonly LiAutoOneFaqItem[] = [
   {
     question: "工期多久？",
     answer: "根据项目组合、库存和施工排期确认；不同项目工期差异较大，到店评估后会给出明确工期。",
+  },
+  {
+    question: "我的理想 ONE 能装哪些项目？",
+    answer:
+      "供应商适配库 ONE 节收录：底盘护板（锰钢1.2mm；铝镁合金2.0mm，2019-2021，五件套，混动，保护位置含发动机、电池、线束、油管、后电机）、电动踏板（2020-2021.10；2021.11+，对插；线夹）、360软包脚垫（5门6座/4片、5门7座/4片，20款--）、平面尾箱垫（5门6座，20款；21款--）、360全包尾箱（5门6座/5片，20款--；21款--）。页面其他未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "蓝辉轻改门店在哪里？可以到店评估吗？",
+    answer:
+      "蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工；不同年份、批次和配置存在差异，到店检查车辆后确认安装可行性。",
+  },
+  {
+    question: "理想 ONE 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、改色、轮毂、车顶平台）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
   },
 ];
 

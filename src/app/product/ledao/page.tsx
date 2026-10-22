@@ -17,13 +17,49 @@ import {
 } from "@/lib/product-breadcrumbs";
 import {
   ledaoBaseServices,
+  ledaoSeriesFaq,
   LEDAO_MODEL_COPY,
 } from "@/lib/ledao-series-services";
+import { ledaoFitment } from "@/lib/fitment/ledao";
+import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
+import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { LEDAO_L90_HERO_IMAGE } from "@/lib/ledao-l90-products";
 import { LEDAO_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+
+/** 适配库 3 节（L60 / L80 / L90）与官方车型精确匹配。 */
+const LEDAO_FITMENT_SECTIONS = new Set(["L60", "L80", "L90"]);
+
+function buildLedaoFitmentModels(): FitmentModel[] {
+  return ledaoFitment.models
+    .filter((section) => LEDAO_FITMENT_SECTIONS.has(section.model))
+    .map((section) => ({
+      model: section.model,
+      projects: section.projects.map((p) => ({
+        name: p.name,
+        specs: p.specs.map((raw): FitmentSpec => {
+          const s = raw as {
+            label?: string;
+            material?: string;
+            year?: string;
+            note?: string;
+            date?: string;
+            dynamics?: string;
+          };
+          return {
+            label: s.label,
+            material: s.material,
+            year: s.year,
+            note: s.note,
+            date: s.date,
+            dynamics: s.dynamics,
+          };
+        }),
+      })),
+    }));
+}
 
 const PAGE_TITLE =
   "乐道全系家庭用车保护与舒适升级｜车膜、踏板、地板与洗美养护｜顺德大良蓝辉轻改";
@@ -108,6 +144,54 @@ export default function LedaoBrandPage() {
     }),
   };
 
+  // 供应商适配库速查：L60 / L80 / L90 精确匹配，按车型分组渲染
+  const fitmentConfig = {
+    heading: "乐道 适配速查：你的车型能装哪些项目？",
+    models: buildLedaoFitmentModels(),
+    groupByModel: true,
+  };
+
+  // GEO 增量：Vehicle + FAQPage 结构化数据
+  const vehicleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Vehicle",
+    name: "乐道全系轻改升级",
+    brand: { "@type": "Brand", name: "乐道" },
+    model: "L60、L80、L90 全系车型",
+    category: "汽车轻改升级服务",
+    description: PAGE_DESCRIPTION,
+    url: brand.canonicalPath,
+    provider: {
+      "@type": "AutoRepair",
+      name: "蓝辉轻改",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "广东省",
+        addressLocality: "佛山市顺德区",
+      },
+      areaServed: "全国",
+    },
+    makesOffer: ledaoBaseServices.map((svc) => ({
+      "@type": "Offer",
+      name: `乐道 ${svc.title}`,
+      description: svc.painPoint,
+      category: svc.id,
+    })),
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: ledaoSeriesFaq.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow">
@@ -115,10 +199,19 @@ export default function LedaoBrandPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(vehicleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
+        />
         <LedaoSeriesHero breadcrumbItems={breadcrumbItems} />
         <LedaoBaseServiceGrid />
         <LedaoModelEntryGrid entries={modelEntries} />
         <LedaoServiceFlow />
+        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
         <LedaoFaqSection />
         <LedaoDouyinCta />
 

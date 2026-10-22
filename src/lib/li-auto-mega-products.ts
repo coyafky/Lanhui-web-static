@@ -1,12 +1,12 @@
 /**
  * 理想 MEGA 专题页静态数据
  *
- * 数据派生自 `docs/PRD/product/LI_AUTO_MEGA_TOPIC_PRD_2026-06-27.md` §7-§9。
+ * 数据派生自 `specs/archive/prd/product/LI_AUTO_MEGA_TOPIC_PRD_2026-06-27.md` §7-§9。
  *
  * 当前全部 pending-review（无实际图片），publicPath / width / height / aspectRatio 均省略。
  *
  * 字面量防漂移：
- *   - 18 个项目 / 5 场景 / 5 组合 / 7 步 / 9 FAQ 用 count 常量 + runtime assert 双重保证
+ *   - 18 个项目 / 5 场景 / 5 组合 / 7 步 / 12 FAQ 用 count 常量 + runtime assert 双重保证
  *   - order 单调递增 1-18
  *   - 所有 key 唯一互不冲突
  */
@@ -107,7 +107,7 @@ export const LI_AUTO_MEGA_PROJECT_COUNT = 18;
 export const LI_AUTO_MEGA_SCENARIO_COUNT = 5;
 export const LI_AUTO_MEGA_BUNDLE_COUNT = 5;
 export const LI_AUTO_MEGA_SERVICE_STEP_COUNT = 7;
-export const LI_AUTO_MEGA_FAQ_COUNT = 9;
+export const LI_AUTO_MEGA_FAQ_COUNT = 12;
 
 // ---- 18 项升级项目 ----
 
@@ -519,7 +519,7 @@ export const liAutoMegaServiceSteps: readonly LiAutoMegaServiceStep[] = [
   },
 ];
 
-// ---- 9 条 FAQ ----
+// ---- 12 条 FAQ ----
 
 export const liAutoMegaFaq: readonly LiAutoMegaFaqItem[] = [
   {
@@ -565,6 +565,21 @@ export const liAutoMegaFaq: readonly LiAutoMegaFaqItem[] = [
     question: "工期多久？",
     answer:
       "根据项目组合、库存和施工排期确认；不同项目工期差异较大，到店评估后会给出明确工期。",
+  },
+  {
+    question: "我的理想 MEGA 能装哪些项目？",
+    answer:
+      "供应商适配库 MEGA 节收录：地板（2024）、包围（吸塑；ABS）、360软包脚垫（5门7座，24款；24款--，含5片/2片方案，主副架内侧塞边或不塞边）、平面尾箱垫（5门7座，1938下层，24款--）。页面其他未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "蓝辉轻改门店在哪里？可以到店评估吗？",
+    answer:
+      "蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工；不同年份、批次和配置存在差异，到店检查车辆后确认安装可行性。",
+  },
+  {
+    question: "理想 MEGA 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、尾翼、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
   },
 ];
 

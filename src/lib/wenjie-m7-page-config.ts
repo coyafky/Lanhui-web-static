@@ -6,6 +6,7 @@ import {
   wenjieM7Faq,
   type WenjieM7UpgradeCategory,
 } from "./wenjie-m7-upgrade-projects";
+import { wenjieFitment } from "./fitment/wenjie";
 
 const CATEGORY_LABELS: Record<WenjieM7UpgradeCategory, string> = {
   protection: "新车保护",
@@ -70,4 +71,20 @@ export const wenjieM7PageConfig = {
     question: item.question,
     answer: item.answer,
   })),
+
+  // 适配速查（供应商适配库）：M7 主节 + 22-25款/26款/增程细分节（同名项目由组件合并方案）
+  fitment: {
+    heading: "问界 M7 适配速查：你的配置能装哪些项目？",
+    models: wenjieFitment.models
+      .filter((m) =>
+        ["M7", "22-25款问界M7", "26款问界M7", "M7增程"].includes(m.model),
+      )
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 } satisfies VehiclePageConfig;

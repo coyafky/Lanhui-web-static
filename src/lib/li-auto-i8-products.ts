@@ -2,14 +2,14 @@
  * 理想 i8 专题页静态数据
  *
  * 数据来源 PRD：
- *   docs/PRD/product/LI_AUTO_I8_TOPIC_PRD_2026-06-24.md
+ *   specs/archive/prd/product/LI_AUTO_I8_TOPIC_PRD_2026-06-24.md
  *
  * 节号映射：
  *   §7   20 项热门轻改产品目录 → liAutoI8UpgradeProjects  (length === 20)
  *   §8   5 大用车场景          → liAutoI8Scenarios        (length === 5)
  *   §9   5 个推荐组合          → liAutoI8Bundles          (length === 5)
  *   §13  7 步服务流程          → liAutoI8ServiceSteps     (length === 7)
- *   §14  9 条 FAQ              → liAutoI8Faq              (length === 9)
+ *   §14  12 条 FAQ             → liAutoI8Faq              (length === 12)
  *
  * 字面量防漂移（参考 NIO ES8 模式）：
  *   - 图片状态 `pending-review`，暂无 publicPath
@@ -98,7 +98,7 @@ export const LI_AUTO_I8_PROJECT_COUNT = 20;
 export const LI_AUTO_I8_SCENARIO_COUNT = 5;
 export const LI_AUTO_I8_BUNDLE_COUNT = 5;
 export const LI_AUTO_I8_SERVICE_STEP_COUNT = 7;
-export const LI_AUTO_I8_FAQ_COUNT = 9;
+export const LI_AUTO_I8_FAQ_COUNT = 12;
 
 // ---- 20 项轻改项目（PRD §7，与海报顺序对齐）----
 
@@ -458,7 +458,7 @@ export const liAutoI8ServiceSteps: readonly LiAutoI8ServiceStep[] = [
   },
 ];
 
-// ---- 9 条 FAQ（PRD §11）----
+// ---- 12 条 FAQ（PRD §11）----
 
 export const liAutoI8Faq: readonly LiAutoI8FaqItem[] = [
   {
@@ -497,6 +497,21 @@ export const liAutoI8Faq: readonly LiAutoI8FaqItem[] = [
   {
     question: "工期多久？",
     answer: "根据项目组合、库存和施工排期确认；不同项目工期差异较大，到店评估后会给出明确工期。",
+  },
+  {
+    question: "我的理想 i8 能装哪些项目？",
+    answer:
+      "供应商适配库 i8 节收录：底盘护板（五系2.0mm，锰钢1.2mm；铝镁合金2.0mm，2025/2026，七件套，续航720，保护位置含前电机、电池前检修口、电池前、电池后、电池后检修口、线束、后电机）、地板（2025）、360软包脚垫（4门6座/4片，25款--）；i8-720续航节收录底盘护板四件套（前电机、前电池、后电池、后电机）。页面其他未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "蓝辉轻改门店在哪里？可以到店评估吗？",
+    answer:
+      "蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工；不同年份、批次和配置存在差异，到店检查车辆后确认安装可行性。",
+  },
+  {
+    question: "理想 i8 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
   },
 ];
 

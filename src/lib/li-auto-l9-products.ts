@@ -1,13 +1,13 @@
 /**
  * 理想 L9 专题页静态数据
  *
- * 数据派生自 `docs/PRD/product/LI_AUTO_TOPIC_PRD_2026-06-24.md` §7-§9。
+ * 数据派生自 `specs/archive/prd/product/LI_AUTO_TOPIC_PRD_2026-06-24.md` §7-§9。
  *
  * 字段值零变更：与 PRD 完全对齐。
  * 当前全部 pending-review（无实际图片），publicPath / width / height / aspectRatio 均省略。
  *
  * 字面量防漂移（参考 ZEEKR v1 / Tesla v1 / NIO ES8 v1 模式）：
- *   - 14 个项目 / 5 场景 / 4 组合 / 7 步 / 9 FAQ 用 count 常量 + runtime assert 双重保证
+ *   - 14 个项目 / 5 场景 / 4 组合 / 7 步 / 12 FAQ 用 count 常量 + runtime assert 双重保证
  *   - order 单调递增 1-14
  *   - 所有 key 唯一互不冲突
  */
@@ -106,7 +106,7 @@ export const LI_AUTO_L9_PROJECT_COUNT = 14;
 export const LI_AUTO_L9_SCENARIO_COUNT = 5;
 export const LI_AUTO_L9_BUNDLE_COUNT = 4;
 export const LI_AUTO_L9_SERVICE_STEP_COUNT = 7;
-export const LI_AUTO_L9_FAQ_COUNT = 9;
+export const LI_AUTO_L9_FAQ_COUNT = 12;
 
 // ---- 14 项升级项目（PRD §7）----
 
@@ -445,7 +445,7 @@ export const liAutoL9ServiceSteps: readonly LiAutoL9ServiceStep[] = [
   },
 ];
 
-// ---- 9 条 FAQ ----
+// ---- 12 条 FAQ ----
 
 export const liAutoL9Faq: readonly LiAutoL9FaqItem[] = [
   {
@@ -491,6 +491,21 @@ export const liAutoL9Faq: readonly LiAutoL9FaqItem[] = [
     question: "图片是真实施工案例吗？",
     answer:
       "当前暂无实际施工图片，待后续补充；真实施工以到店沟通和现场评估为准。",
+  },
+  {
+    question: "我的理想 L9 能装哪些项目？",
+    answer:
+      "供应商适配库 L9 节收录：底盘护板（五系2.0mm；五系3.0mm，锰钢1.2mm；铝镁合金2.0mm，2022-2025；2026，7+2件套，续航350/420，1.5T）、电动踏板（2022-2025；2026，原厂对插；对插，基础版；单流光；双流光）、小桌板（简约款；功能款；米白/棕红真皮同色系，真皮+金属饰条，电动款可选）、尾翼（专用）、地板（2022-2024）、包围（专用）、360软包脚垫（5门6座，22款--；26款--）、平面尾箱垫（5门6座，22款--）、360全包尾箱（5门6座，22款-25款；26款--）；L9livis 节收录底盘护板七件套（发动机护板、线束板护板、电池护板、油箱护板、后电机护板、后尾箱护板A、后尾箱护板B）。页面其他未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "蓝辉轻改门店在哪里？可以到店评估吗？",
+    answer:
+      "蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工；不同年份、批次和配置存在差异，到店检查车辆后确认安装可行性。",
+  },
+  {
+    question: "理想 L9 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、尾翼、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
   },
 ];
 

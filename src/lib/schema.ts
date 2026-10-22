@@ -14,6 +14,7 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: brand.zh,
     alternateName: brand.en,
     url: SITE_URL,

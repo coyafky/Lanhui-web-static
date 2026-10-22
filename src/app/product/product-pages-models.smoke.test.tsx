@@ -191,21 +191,6 @@ vi.mock("@/components/denza/DenzaD9ServiceFlow", () => ({
 vi.mock("@/components/denza/DenzaD9Faq", () => ({
   DenzaD9Faq: () => <div data-testid="DenzaD9Faq" />,
 }));
-vi.mock("@/components/voyah/VoyahDreamerHero", () => ({
-  VoyahDreamerHero: () => <div data-testid="VoyahDreamerHero" />,
-}));
-vi.mock("@/components/voyah/VoyahDreamerProjectGrid", () => ({
-  VoyahDreamerProjectGrid: () => <div data-testid="VoyahDreamerProjectGrid" />,
-}));
-vi.mock("@/components/voyah/VoyahDreamerScenarioMatrix", () => ({
-  VoyahDreamerScenarioMatrix: () => <div data-testid="VoyahDreamerScenarioMatrix" />,
-}));
-vi.mock("@/components/voyah/VoyahDreamerServiceFlow", () => ({
-  VoyahDreamerServiceFlow: () => <div data-testid="VoyahDreamerServiceFlow" />,
-}));
-vi.mock("@/components/voyah/VoyahDreamerFaq", () => ({
-  VoyahDreamerFaq: () => <div data-testid="VoyahDreamerFaq" />,
-}));
 
 // ---------- Mock xpeng 组件 ----------
 vi.mock("@/components/xpeng/XpengGxTopicHero", () => ({
@@ -302,12 +287,63 @@ const modelPageModuleMap: Record<string, () => Promise<unknown>> = {
   "li-auto/l9": () => import("@/app/product/li-auto/l9/page"),
   "li-auto/mega": () => import("@/app/product/li-auto/mega/page"),
   "denza/d9": () => import("@/app/product/denza/d9/page"),
-  "voyah/dreamer": () => import("@/app/product/voyah/dreamer/page"),
   "xpeng/gx": () => import("@/app/product/xpeng/gx/page"),
   "ledao/l90": () => import("@/app/product/ledao/l90/page"),
   "gaoshan/8": () => import("@/app/product/gaoshan/8/page"),
   "zhijie/v9": () => import("@/app/product/zhijie/v9/page"),
   "nio/es8": () => import("@/app/product/nio/es8/page"),
+  "toyota/land-cruiser": () => import("@/app/product/toyota/land-cruiser/page"),
+  "toyota/prado": () => import("@/app/product/toyota/prado/page"),
+  "toyota/highlander": () => import("@/app/product/toyota/highlander/page"),
+  "toyota/rav4": () => import("@/app/product/toyota/rav4/page"),
+  "toyota/alphard": () => import("@/app/product/toyota/alphard/page"),
+  "toyota/corolla": () => import("@/app/product/toyota/corolla/page"),
+  "hongqi/hs7": () => import("@/app/product/hongqi/hs7/page"),
+  "hongqi/h5": () => import("@/app/product/hongqi/h5/page"),
+  "yangwang/u8": () => import("@/app/product/yangwang/u8/page"),
+  "buick/gl8": () => import("@/app/product/buick/gl8/page"),
+  "buick/regal": () => import("@/app/product/buick/regal/page"),
+  "buick/envision": () => import("@/app/product/buick/envision/page"),
+  "geely/xingyue-l": () => import("@/app/product/geely/xingyue-l/page"),
+  "geely/boyue-l": () => import("@/app/product/geely/boyue-l/page"),
+  "geely/emgrand": () => import("@/app/product/geely/emgrand/page"),
+  "tank/300": () => import("@/app/product/tank/300/page"),
+  "tank/500": () => import("@/app/product/tank/500/page"),
+  "mercedes/c-class": () => import("@/app/product/mercedes/c-class/page"),
+  "mercedes/e-class": () => import("@/app/product/mercedes/e-class/page"),
+  "mercedes/s-class": () => import("@/app/product/mercedes/s-class/page"),
+  "audi/a4": () => import("@/app/product/audi/a4/page"),
+  "audi/a6": () => import("@/app/product/audi/a6/page"),
+  "audi/q5": () => import("@/app/product/audi/q5/page"),
+  "honda/cr-v": () => import("@/app/product/honda/cr-v/page"),
+  "honda/civic": () => import("@/app/product/honda/civic/page"),
+  "honda/accord": () => import("@/app/product/honda/accord/page"),
+  "arcfox/alpha-s": () => import("@/app/product/arcfox/alpha-s/page"),
+  "arcfox/alpha-t": () => import("@/app/product/arcfox/alpha-t/page"),
+  "peugeot/408": () => import("@/app/product/peugeot/408/page"),
+  "peugeot/508": () => import("@/app/product/peugeot/508/page"),
+  "deepal/sl03": () => import("@/app/product/deepal/sl03/page"),
+  "deepal/s07": () => import("@/app/product/deepal/s07/page"),
+  "leapmotor/c11": () => import("@/app/product/leapmotor/c11/page"),
+  "leapmotor/c01": () => import("@/app/product/leapmotor/c01/page"),
+  "leapmotor/t03": () => import("@/app/product/leapmotor/t03/page"),
+  "wey/lanshan": () => import("@/app/product/wey/lanshan/page"),
+  "wey/mocha": () => import("@/app/product/wey/mocha/page"),
+  "fangchengbao/bao-5": () => import("@/app/product/fangchengbao/bao-5/page"),
+  "fangchengbao/bao-8": () => import("@/app/product/fangchengbao/bao-8/page"),
+  "byd/han": () => import("@/app/product/byd/han/page"),
+  "byd/tang": () => import("@/app/product/byd/tang/page"),
+  "byd/seal": () => import("@/app/product/byd/seal/page"),
+  "avatr/11": () => import("@/app/product/avatr/11/page"),
+  "avatr/12": () => import("@/app/product/avatr/12/page"),
+  "cadillac/ct5": () => import("@/app/product/cadillac/ct5/page"),
+  "cadillac/xt5": () => import("@/app/product/cadillac/xt5/page"),
+  "baic/bj40": () => import("@/app/product/baic/bj40/page"),
+  "baic/bj60": () => import("@/app/product/baic/bj60/page"),
+  "geely-galaxy/l7": () => import("@/app/product/geely-galaxy/l7/page"),
+  "geely-galaxy/e8": () => import("@/app/product/geely-galaxy/e8/page"),
+  "aion/aion-y": () => import("@/app/product/aion/aion-y/page"),
+  "aion/aion-s": () => import("@/app/product/aion/aion-s/page"),
 };
 
 // ---------- 工具函数 ----------

@@ -25,8 +25,8 @@ describe("Xpeng GX 数据层 shape", () => {
     expect(xpengGxServiceSteps).toHaveLength(7);
   });
 
-  it("faq 长度为 8", () => {
-    expect(xpengGxFaq).toHaveLength(8);
+  it("faq 长度为 11", () => {
+    expect(xpengGxFaq).toHaveLength(11);
   });
 });
 

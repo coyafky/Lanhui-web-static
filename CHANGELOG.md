@@ -62,7 +62,7 @@
 
 > 🚨 **同日发生一次生产事故**：发布 `67a8d2d` 时一次未受控的 `next build` 造成 2C2G 小机资源饥饿
 > （TCP 可连但 SSH banner / TLS / HTTP 首字节全部超时），强制重启后恢复，**旧版线上数据未丢失**。
-> 复盘见 [`docs/deployment/ssh-handoff-codex.md`](docs/deployment/ssh-handoff-codex.md) §9。
+> 复盘见 [`specs/active/deployment/ssh-handoff-codex.md`](specs/active/deployment/ssh-handoff-codex.md) §9。
 > 此后服务器构建改为 **memory cgroup 受限构建**（`MemoryMax=1300M`）。
 
 ---
@@ -145,7 +145,7 @@
 ## 2026-07-20 — 模板 → 静态站收口
 
 - `3aca951` **chore**：最终清理 —— 移除 admin / superpowers 文档与 AI dotfiles，**为静态站重写 `CLAUDE.md` / `AGENTS.md`**
-- `4452fa7` **chore**：**重写 `docs/ARCHITECTURE.md` 以匹配静态站**，移除残留 admin / CMS 文档
+- `4452fa7` **chore**：**重写 `specs/ARCHITECTURE.md` 以匹配静态站**，移除残留 admin / CMS 文档
 - `11220c1` / `c5c0faa` **chore**：把 `docs/` 加入 `.gitignore`，并把已跟踪的 docs 从 git 移除
 
 > ⚠️ 这两条正是「`docs/` 不进版本库」的由来 —— 所以本文件所在的 `docs/` 是本地文档区，别处引用时注意。
@@ -159,7 +159,7 @@
 
 > 📌 **重要背景**：仓库是从开源模板 `ai-website-clone-template` 派生（`package.json` 仍保留该 name / repository 字段），
 > 早期形态包含 admin CMS、Prisma、API routes 等，**均已在本日之后陆续删除**。
-> 因此 `docs/PRD/`、`docs/SPEC/` 里关于 admin / Prisma / API 的内容都是**模板期遗物**，不代表现状。
+> 因此 `specs/archive/prd/`、`specs/` 里关于 admin / Prisma / API 的内容都是**模板期遗物**，不代表现状。
 
 ---
 

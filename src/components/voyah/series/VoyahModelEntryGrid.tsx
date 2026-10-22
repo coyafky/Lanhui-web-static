@@ -1,18 +1,16 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { VoyahModelEntryKey } from "@/lib/voyah-series-services";
 
 export type VoyahModelEntry = {
   modelKey: VoyahModelEntryKey;
   modelName: string;
-  canonicalPath: string;
   /** 主打使用场景 */
   scenario: string;
   /** 最常见的三项需求 */
   topNeeds: readonly [string, string, string];
-  projectCount: number;
-  image: { src: string; alt: string };
+  /** 覆盖的适配件类别数 */
+  fitmentCount: number;
 };
 
 type VoyahModelEntryGridProps = {
@@ -20,8 +18,10 @@ type VoyahModelEntryGridProps = {
 };
 
 /**
- * 岚图梦想家车型专属子页入口（整卡可点）。
- * 品牌页只保留入口，17 个专车项目在 /product/voyah/dreamer 子页展示。
+ * 岚图品牌页 S1「车型速览」— 5 车型入口卡。
+ *
+ * 岚图 5 车型合并为单页：卡片为锚点跳转（滚动到 S3 适配件明细），不进入子页。
+ * 车型产品增多、拆出独立子页时，卡片改为 href 子页（见 voyah-page-spec.md §七）。
  */
 export function VoyahModelEntryGrid({ entries }: VoyahModelEntryGridProps) {
   return (
@@ -39,63 +39,47 @@ export function VoyahModelEntryGrid({ entries }: VoyahModelEntryGridProps) {
             id="voyah-models-title"
             className="text-2xl md:text-3xl font-bold text-white text-balance leading-[1.08] tracking-[-0.025em]"
           >
-            岚图梦想家应优先升级什么？
+            岚图全系 5 款车型，都在这一个页面
           </h2>
           <p className="mt-3 text-zinc-400 max-w-2xl text-base leading-relaxed text-pretty">
-            梦想家已整理独立专车方案。进入子页查看完整项目清单，按年款与配置继续确认。
+            追光、FREE、知音、泰山、梦想家各自能装哪些，看下面这张卡就知道。
+            点进明细直接对型号，不用再翻子页。
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-5 lg:gap-4">
           {entries.map((m) => (
-            <Link
+            <div
               key={m.modelKey}
-              href={m.canonicalPath}
-              className="group flex flex-col overflow-hidden rounded-3xl bg-zinc-900/60 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] transition-transform active:scale-[0.98]"
+              className="group flex flex-col rounded-3xl bg-zinc-900/60 shadow-[0_0_0_1px_oklch(1_0_0/0.06)] p-5"
             >
-              <div className="relative aspect-[4/3] bg-zinc-900">
-                <Image
-                  src={m.image.src}
-                  alt={m.image.alt}
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover"
-                />
-                <span className="absolute left-3 top-3 rounded-full bg-zinc-950/80 px-3 py-1 text-xs text-zinc-300 shadow-[0_0_0_1px_oklch(1_0_0/0.1)]">
-                  效果预览图
+              <div className="flex items-center gap-3">
+                <h3 className="text-lg font-bold text-white">{m.modelName}</h3>
+                <span className="rounded-full bg-violet-400/10 px-2.5 py-0.5 text-xs font-medium text-violet-300">
+                  {m.fitmentCount} 类适配件
                 </span>
               </div>
-              <div className="flex flex-1 flex-col gap-3 p-5">
-                <div className="flex items-center gap-3">
-                  <h3 className="text-lg font-bold text-white">
-                    {m.modelName} 专属升级方案
-                  </h3>
-                  <span className="rounded-full bg-violet-400/10 px-2.5 py-0.5 text-xs font-medium text-violet-300">
-                    {m.projectCount} 项适配参考
+              <p className="mt-3 text-base text-zinc-400 leading-relaxed text-pretty flex-1">
+                {m.scenario}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {m.topNeeds.map((need) => (
+                  <span
+                    key={need}
+                    className="inline-flex items-center rounded-full bg-white/[0.04] px-3 py-1 text-xs text-zinc-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]"
+                  >
+                    {need}
                   </span>
-                </div>
-                <p className="text-base text-zinc-400 leading-relaxed text-pretty flex-1">
-                  {m.scenario}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {m.topNeeds.map((need) => (
-                    <span
-                      key={need}
-                      className="inline-flex items-center rounded-full bg-white/[0.04] px-3 py-1 text-xs text-zinc-300 shadow-[0_0_0_1px_oklch(1_0_0/0.08)]"
-                    >
-                      {need}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs text-zinc-500">
-                  进入后按年款与配置继续确认
-                </p>
-                <span className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-violet-400 transition-colors group-hover:text-violet-300">
-                  查看 {m.modelName} 专属方案
-                  <ArrowRight className="size-4" aria-hidden />
-                </span>
+                ))}
               </div>
-            </Link>
+              <Link
+                href="#voyah-fitment"
+                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-violet-400 transition-colors hover:text-violet-300"
+              >
+                看 {m.modelName} 适配明细
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
+            </div>
           ))}
         </div>
       </div>

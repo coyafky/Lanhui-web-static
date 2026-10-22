@@ -35,8 +35,8 @@ describe("wenjie-m6-upgrade-projects: lengths (literal constraints)", () => {
     expect(wenjieM6ServiceSteps).toHaveLength(7);
   });
 
-  it("faq has exactly 7 entries", () => {
-    expect(wenjieM6Faq).toHaveLength(7);
+  it("faq has exactly 10 entries", () => {
+    expect(wenjieM6Faq).toHaveLength(10);
   });
 });
 

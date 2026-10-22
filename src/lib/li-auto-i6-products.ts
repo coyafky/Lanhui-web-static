@@ -2,14 +2,14 @@
  * 理想 i6 专题页静态数据
  *
  * 数据来源 PRD：
- *   docs/PRD/product/LI_AUTO_I6_TOPIC_PRD_2026-06-27.md
+ *   specs/archive/prd/product/LI_AUTO_I6_TOPIC_PRD_2026-06-27.md
  *
  * 节号映射：
  *   §7   20 项热门轻改产品目录  → liAutoI6UpgradeProjects  (length === 20)
  *   §8   5 大用车场景           → liAutoI6Scenarios        (length === 5)
  *   §9   5 个推荐组合           → liAutoI6Bundles          (length === 5)
  *   §11  6 步服务流程           → liAutoI6ServiceSteps     (length === 6)
- *   §11  6 条 FAQ               → liAutoI6Faq              (length === 6)
+ *   §11  9 条 FAQ               → liAutoI6Faq              (length === 9)
  *
  * 字面量防漂移（参考 NIO ES8 模式）：
  *   - 图片状态 `pending-review`，暂无 publicPath
@@ -106,7 +106,7 @@ export const LI_AUTO_I6_PROJECT_COUNT = 20;
 export const LI_AUTO_I6_SCENARIO_COUNT = 5;
 export const LI_AUTO_I6_BUNDLE_COUNT = 5;
 export const LI_AUTO_I6_SERVICE_STEP_COUNT = 6;
-export const LI_AUTO_I6_FAQ_COUNT = 6;
+export const LI_AUTO_I6_FAQ_COUNT = 9;
 
 export const LI_AUTO_I6_HERO_IMAGE: LiAutoI6HeroImage = {
   publicPath: "/images/products/li-auto/i6/generated/hero.webp",
@@ -550,7 +550,7 @@ export const liAutoI6ServiceSteps: readonly LiAutoI6ServiceStep[] = [
   },
 ];
 
-// ---- 6 条 FAQ（PRD §11）----
+// ---- 9 条 FAQ（PRD §11）----
 
 export const liAutoI6Faq: readonly LiAutoI6FaqItem[] = [
   {
@@ -577,6 +577,21 @@ export const liAutoI6Faq: readonly LiAutoI6FaqItem[] = [
   {
     question: "行车防护项目有哪些？",
     answer: "底盘护板、平衡杆、防虫网、挡泥板、迎宾踏板；关注底部防护、前部格栅和上下车区域。",
+  },
+  {
+    question: "我的理想 i6 能装哪些项目？",
+    answer:
+      "供应商适配库 i6 节收录：底盘护板（五系2.0mm，锰钢1.2mm；铝镁合金2.0mm，2025，纯电，适配状态:支持）、小桌板（简约款；功能款）、包围（吸塑；ABS，2025）、后排电视（324A/灰色，2025）、360软包脚垫（4门5座/4片，25款--）、平面尾箱垫（4门5座，25款--）；25款理想 i6 节收录吸顶电视（灰色，2025，17.3英寸高清屏）；i6-720续航节收录底盘护板四件套（前电机、前电池、后电池、后电机）。页面其他未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "蓝辉轻改门店在哪里？可以到店评估吗？",
+    answer:
+      "蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工；不同年份、批次和配置存在差异，到店检查车辆后确认安装可行性。",
+  },
+  {
+    question: "理想 i6 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
   },
 ];
 

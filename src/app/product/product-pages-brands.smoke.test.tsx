@@ -97,6 +97,42 @@ const brandPageModuleMap: Record<string, () => Promise<unknown>> = {
   gaoshan: () => import("@/app/product/gaoshan/page"),
   zhijie: () => import("@/app/product/zhijie/page"),
   nio: () => import("@/app/product/nio/page"),
+  toyota: () => import("@/app/product/toyota/page"),
+  mazda: () => import("@/app/product/mazda/page"),
+    gac: () => import("@/app/product/gac/page"),
+    nissan: () => import("@/app/product/nissan/page"),
+  haval: () => import("@/app/product/haval/page"),
+  icar: () => import("@/app/product/icar/page"),
+  shangjie: () => import("@/app/product/shangjie/page"),
+  xiangjie: () => import("@/app/product/xiangjie/page"),
+  bmw: () => import("@/app/product/bmw/page"),
+  haobo: () => import("@/app/product/haobo/page"),
+  "land-rover": () => import("@/app/product/land-rover/page"),
+  chery: () => import("@/app/product/chery/page"),
+  "great-wall": () => import("@/app/product/great-wall/page"),
+  chevrolet: () => import("@/app/product/chevrolet/page"),
+  hongqi: () => import("@/app/product/hongqi/page"),
+  volkswagen: () => import("@/app/product/volkswagen/page"),
+  kia: () => import("@/app/product/kia/page"),
+  yangwang: () => import("@/app/product/yangwang/page"),
+  buick: () => import("@/app/product/buick/page"),
+  geely: () => import("@/app/product/geely/page"),
+  tank: () => import("@/app/product/tank/page"),
+  mercedes: () => import("@/app/product/mercedes/page"),
+  audi: () => import("@/app/product/audi/page"),
+  honda: () => import("@/app/product/honda/page"),
+  arcfox: () => import("@/app/product/arcfox/page"),
+  peugeot: () => import("@/app/product/peugeot/page"),
+  deepal: () => import("@/app/product/deepal/page"),
+  leapmotor: () => import("@/app/product/leapmotor/page"),
+  wey: () => import("@/app/product/wey/page"),
+  fangchengbao: () => import("@/app/product/fangchengbao/page"),
+  byd: () => import("@/app/product/byd/page"),
+  avatr: () => import("@/app/product/avatr/page"),
+  cadillac: () => import("@/app/product/cadillac/page"),
+  baic: () => import("@/app/product/baic/page"),
+  "geely-galaxy": () => import("@/app/product/geely-galaxy/page"),
+  aion: () => import("@/app/product/aion/page"),
 };
 
 async function renderBrandPage(importFn: () => Promise<unknown>) {
@@ -272,7 +308,7 @@ describe("Voyah page lightweight structure", () => {
     expect(body).not.toContain("这是选择参考，最终根据车型、年款和车况确认");
     expect(body).not.toContain("施工边界：涉及电路、座椅滑轨、门体、底盘");
     expect(body).toContain("获取车型适配建议");
-    expect(body).toContain("查看梦想家专属方案");
+    expect(body).toContain("看全系适配件明细");
   });
 });
 

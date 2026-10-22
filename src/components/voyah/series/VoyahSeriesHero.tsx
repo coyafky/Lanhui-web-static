@@ -46,10 +46,10 @@ export function VoyahSeriesHero({
                 获取车型适配建议
               </button>
               <Link
-                href="/product/voyah/dreamer"
+                href="#voyah-fitment"
                 className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-white/[0.04] px-6 text-base font-medium text-zinc-200 shadow-[0_0_0_1px_oklch(1_0_0/0.08)] transition-colors hover:bg-white/[0.08] active:scale-[0.96]"
               >
-                查看梦想家专属方案
+                看全系适配件明细
                 <ArrowRight className="size-4" aria-hidden />
               </Link>
             </div>

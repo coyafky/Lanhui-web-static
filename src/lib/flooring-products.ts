@@ -608,3 +608,504 @@ export const flooringGalleryItems: FlooringColorVariant[] =
       ...variant,
     })),
   );
+
+// ─── 38 车系适配库（2026.10 价格单；金额全部脱敏，供应商不出现）───
+// SUV 17 车系 + MPV 21 车系，按价格单原文搬运，不换算不合并。
+
+export type FlooringFitmentBodyType = "SUV" | "MPV";
+
+export type FlooringFitmentEntry = {
+  bodyType: FlooringFitmentBodyType;
+  /** 索引展示品牌（按价格单行） */
+  brand: string;
+  /** 品牌归属（厂商口径，用于品牌去重统计） */
+  manufacturer: string;
+  /** 车型原文（成对车系按原文一行呈现） */
+  model: string;
+  /** 配置构成原文 */
+  composition: string;
+  /** 可选配逻辑原文（金额脱敏；空字符串表示无备注） */
+  optionalLogic: string;
+  status: FlooringFitmentStatus;
+};
+
+export const FLOORING_FITMENT_SHEET_DATE = "2026.10";
+export const FLOORING_FITMENT_MODEL_COUNT = 38;
+export const FLOORING_FITMENT_BRAND_COUNT = 17;
+export const FLOORING_SUV_MODEL_COUNT = 17;
+export const FLOORING_MPV_MODEL_COUNT = 21;
+
+/** SUV 组品牌索引（价格单顺序） */
+export const flooringFitmentSuvBrands = [
+  "问界",
+  "极氪",
+  "腾势",
+  "理想",
+  "小鹏",
+  "岚图",
+  "蔚来",
+  "魏牌",
+  "领克",
+  "乐道",
+] as const;
+
+/** MPV 组品牌索引（价格单顺序） */
+export const flooringFitmentMpvBrands = [
+  "智界",
+  "高山",
+  "理想",
+  "腾势",
+  "塞纳",
+  "别克",
+  "GL8",
+  "比亚迪",
+  "岚图",
+  "极氪",
+  "奥德赛",
+  "奔驰",
+  "埃尔法",
+  "小鹏",
+  "传祺",
+] as const;
+
+export const flooringFitmentEntries: FlooringFitmentEntry[] = [
+  // ─── SUV 17 车系 ───
+  {
+    bodyType: "SUV",
+    brand: "问界",
+    manufacturer: "问界",
+    model: "问界 M7",
+    composition: "地板 + 碳纤钢风口件",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "问界",
+    manufacturer: "问界",
+    model: "问界 M8",
+    composition: "地板 + 碳纤钢风口件 + 主副驾地板",
+    optionalLogic: "可选钢琴脚托；主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "问界",
+    manufacturer: "问界",
+    model: "问界 M9",
+    composition: "地板 + 碳纤钢风口件 + 主副驾地板",
+    optionalLogic: "可选钢琴脚托；主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "极氪",
+    manufacturer: "极氪",
+    model: "极氪 8X",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "极氪",
+    manufacturer: "极氪",
+    model: "极氪 9X",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "腾势",
+    manufacturer: "腾势",
+    model: "腾势 N8L",
+    composition: "地板 + 钢琴键脚托",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "腾势",
+    manufacturer: "腾势",
+    model: "腾势 N9",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "理想",
+    manufacturer: "理想",
+    model: "理想 L8",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "理想",
+    manufacturer: "理想",
+    model: "理想 L9",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "理想",
+    manufacturer: "理想",
+    model: "理想 i8",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "小鹏",
+    manufacturer: "小鹏",
+    model: "小鹏 GX",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "needs-review",
+  },
+  {
+    bodyType: "SUV",
+    brand: "岚图",
+    manufacturer: "岚图",
+    model: "岚图泰山",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "needs-review",
+  },
+  {
+    bodyType: "SUV",
+    brand: "蔚来",
+    manufacturer: "蔚来",
+    model: "蔚来 ES8",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "蔚来",
+    manufacturer: "蔚来",
+    model: "蔚来 ES9",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "魏牌",
+    manufacturer: "魏牌",
+    model: "魏牌 V9X",
+    composition: "地板 + 钢琴键脚托 + 主副驾地板",
+    optionalLogic: "主副驾可不要",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "领克",
+    manufacturer: "领克",
+    model: "领克 900",
+    composition: "地板 + 钢琴键脚托",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "SUV",
+    brand: "乐道",
+    manufacturer: "乐道",
+    model: "乐道 L90",
+    composition: "地板 + 钢琴键脚托",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  // ─── MPV 21 车系 ───
+  {
+    bodyType: "MPV",
+    brand: "智界",
+    manufacturer: "智界",
+    model: "智界 V9",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "主副驾可加装",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "高山",
+    manufacturer: "魏牌",
+    model: "高山 7",
+    composition: "地板 + 平面脚托 + 迎宾踏板",
+    optionalLogic: "可选钢琴脚托",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "高山",
+    manufacturer: "魏牌",
+    model: "高山 8",
+    composition: "地板 + 平面脚托 + 迎宾踏板",
+    optionalLogic: "可选钢琴脚托",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "高山",
+    manufacturer: "魏牌",
+    model: "高山 9",
+    composition: "地板 + 平面脚托 + 迎宾踏板",
+    optionalLogic: "可选钢琴脚托",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "理想",
+    manufacturer: "理想",
+    model: "理想 MEGA",
+    composition: "地板 + 一体木脚托 + 迎宾踏板",
+    optionalLogic: "可选钢琴脚托",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "腾势",
+    manufacturer: "腾势",
+    model: "腾势 D9",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "塞纳",
+    manufacturer: "丰田",
+    model: "塞纳 / 格瑞维亚",
+    composition: "地板 + 碳纤钢风口件 + 迎宾踏板",
+    optionalLogic: "可选钢琴脚托",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "别克",
+    manufacturer: "别克",
+    model: "别克至境世家",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "GL8",
+    manufacturer: "别克",
+    model: "GL8（陆尚/陆尊）",
+    composition: "地板 + 钢琴键脚托 + 迎宾踏板",
+    optionalLogic: "电池孔件可加装",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "比亚迪",
+    manufacturer: "比亚迪",
+    model: "比亚迪·夏",
+    composition: "地板 + 星钻脚托 + 迎宾踏板",
+    optionalLogic: "星钻系列",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "岚图",
+    manufacturer: "岚图",
+    model: "岚图·梦想家",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "星钻系列",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "极氪",
+    manufacturer: "极氪",
+    model: "极氪 009",
+    composition: "地板 + 碳纤钢风口件 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "奥德赛",
+    manufacturer: "本田",
+    model: "奥德赛 / 艾力绅",
+    composition: "地板 + 一体木脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "奔驰",
+    manufacturer: "奔驰",
+    model: "奔驰·威霆 V260",
+    composition: "地板 + 分体木脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "奔驰",
+    manufacturer: "奔驰",
+    model: "奔驰·威霆 V300",
+    composition: "地板 + 分体木脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "埃尔法",
+    manufacturer: "丰田",
+    model: "埃尔法 30 系",
+    composition: "地板 + 分体铝合金脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "埃尔法",
+    manufacturer: "丰田",
+    model: "埃尔法 40 系",
+    composition: "地板 + 大风口件脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "小鹏",
+    manufacturer: "小鹏",
+    model: "小鹏 X9",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "传祺",
+    manufacturer: "传祺",
+    model: "传祺 E8",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "传祺",
+    manufacturer: "传祺",
+    model: "传祺 E9",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+  {
+    bodyType: "MPV",
+    brand: "传祺",
+    manufacturer: "传祺",
+    model: "传祺 M8",
+    composition: "地板 + 钢琴脚托 + 迎宾踏板",
+    optionalLogic: "",
+    status: "confirmed",
+  },
+];
+
+// ─── 配件材质对比（价格单 §S3 原文）───
+
+export type FlooringAccessory = {
+  name: string;
+  material: string;
+  trait: string;
+  fit: string;
+};
+
+export const flooringAccessories: FlooringAccessory[] = [
+  {
+    name: "碳纤钢风口件",
+    material: "碳纤钢",
+    trait: "出风口一体化覆盖，质感强",
+    fit: "SUV（问界 / 塞纳 / 极氪 009）",
+  },
+  {
+    name: "钢琴键脚托",
+    material: "钢琴漆面",
+    trait: "商务质感，易清洁",
+    fit: "SUV / MPV 主流",
+  },
+  {
+    name: "一体木脚托",
+    material: "原木一体",
+    trait: "温润质感",
+    fit: "MPV（理想 MEGA / 奥德赛）",
+  },
+  {
+    name: "分体木脚托",
+    material: "原木分体",
+    trait: "可局部更换",
+    fit: "奔驰威霆 V260 / V300",
+  },
+  {
+    name: "分体铝合金脚托",
+    material: "铝合金",
+    trait: "金属质感、耐用",
+    fit: "埃尔法 30 系",
+  },
+  {
+    name: "大风口件脚托",
+    material: "大出风口件",
+    trait: "出风口覆盖更广",
+    fit: "埃尔法 40 系",
+  },
+  {
+    name: "星钻脚托",
+    material: "星钻面",
+    trait: "防滑、防踢",
+    fit: "比亚迪·夏 / 岚图·梦想家",
+  },
+  {
+    name: "迎宾踏板",
+    material: "金属 / 发光",
+    trait: "上下车保护 + 仪式感",
+    fit: "MPV 全系",
+  },
+];
+
+// ─── 服务问答（施工时长 / 拆装 / 异味 / 质保 / 前排脚垫 / 未收录车型）───
+
+export const flooringServiceFaqs: FlooringFaq[] = [
+  {
+    question: "装一套地板要多久？",
+    answer:
+      "施工时长视车型与配置而定，一般半天到一天，具体以到店评估和预约排期为准；可先电话沟通车型、年款与座椅布局，预约到店时间。",
+  },
+  {
+    question: "安装会拆座椅吗？",
+    answer:
+      "安装涉及座椅拆装，以便贴合滑轨和原车固定点；装回后保留原车座椅的前后移动行程与锁定机制。标准方案不打孔、不切割、不改动原车线路。",
+  },
+  {
+    question: "新装地板会有异味吗？",
+    answer:
+      "新材料可能带有轻微气味，通常几天到一周内消散；如对气味敏感，可提前与门店沟通，交付后保持车内通风。",
+  },
+  {
+    question: "装地板会影响原车质保吗？",
+    answer:
+      "汽车地板属车内内饰加装，不改车身外观与结构，不涉及车辆备案；安装不改动原车线路和固定结构。是否影响整车质保以车辆品牌保修政策为准，可到店说明后再决定。",
+  },
+  {
+    question: "全车方案包含前排脚垫吗？",
+    answer:
+      "全车方案不含前排脚垫、不含税、不含运费。前排可另配 360 软包脚垫，与后排地板组合使用，可查看 360 软包脚垫页面。",
+  },
+  {
+    question: "我的车型没列在适配表里，能装吗？",
+    answer:
+      "适配表未收录的车型不代表不能装，以门店现场检查为准。可先发车型、年款、座椅布局和车内照片，门店核对滑轨结构与固定点后给出方案。",
+  },
+];

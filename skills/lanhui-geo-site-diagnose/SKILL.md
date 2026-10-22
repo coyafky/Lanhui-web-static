@@ -7,6 +7,8 @@ metadata:
   maturity: beta
   requires_web: true
   engines: geo-seo-hub 0.7.0
+  # NOTE: geo-seo-hub is vendored OUTSIDE this repo at ~/Documents/Code/_vendored/geo-seo-hub/
+  # (moved 2026-10-06 — it was never tracked by git; .gitignore line /geo-seo-hub/).
   purpose: whole-site GEO readiness baseline & remediation
 ---
 
@@ -32,7 +34,7 @@ metadata:
 2. 确认诊断 URL（默认 `https://lanhuiqinggai.com/`；若抛给别的网址则尊重用户输入）。
 3. 运行诊断引擎（任选一种）：
    - 推荐：`bash <workspace>/skills/lanhui-geo-site-diagnose/run_diagnose.sh --url <URL> [--max-pages N]`
-   - 直接 CLI：`cd <workspace> && ./geo-seo-hub/.venv/bin/geo-seo-hub site-diagnose --url <URL> --output runs --locale zh-CN --max-pages 10 --render http`
+   - 直接 CLI：`cd <workspace> && ~/Documents/Code/_vendored/geo-seo-hub/.venv/bin/geo-seo-hub site-diagnose --url <URL> --output runs --locale zh-CN --max-pages 10 --render http`
 4. 读取运行目录顶层的 `site-diagnosis.json`（overall_score / dimensions / site_checks）、`quality-report.json`（confidence / gaps / warnings，注意 `render_gap` 或抓取超时）、`remediation-backlog.json`（按 priority 排序的修复动作）。
 5. **不要照念数字**：把 8 维度得分转成对蓝辉业务的语言（如「AI 可访问性与可回答性优秀，但权威署名与证据引用有短板，会影响 AI 引用采信」）。
 6. 对照 `references/lanhui-site-profile.md` 的基线（overall 85），指出**本次相比基线的变化**（进步/回退/持平）。

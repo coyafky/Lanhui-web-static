@@ -7,6 +7,8 @@ import { ProjectGrid } from "./ProjectGrid";
 interface ProjectTabsProps {
   projects: ProjectConfig[];
   theme: VehicleTheme;
+  /** 项目区 H2（问答式文案），透传给 ProjectGrid；缺省回退「升级项目」 */
+  heading?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -116,7 +118,7 @@ const TAB_LABELS: Record<TabId, string> = {
  * - 非当前分类的图片不进入 DOM → 图片按需加载，缓解白屏
  * - 桌面端保留"全部"Tab，行为不变
  */
-export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
+export function ProjectTabs({ projects, theme, heading }: ProjectTabsProps) {
   const [activeTab, setActiveTab] = useState<TabId>("全部");
 
   // 归一化 + 分组（保持 Tab 顺序固定）
@@ -133,7 +135,7 @@ export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
   // 是否真的需要 Tab（所有项目归一化后只落在一个分类 → 退化原列表）
   const nonEmptyTabs = TABS.filter((t) => t.id !== "全部" && grouped.get(t.id)!.length > 0);
   if (nonEmptyTabs.length <= 1) {
-    return <ProjectGrid projects={projects} theme={theme} />;
+    return <ProjectGrid projects={projects} theme={theme} heading={heading} />;
   }
 
   const visibleProjects =
@@ -182,7 +184,7 @@ export function ProjectTabs({ projects, theme }: ProjectTabsProps) {
       </div>
 
       {/* 分组渲染：切换 Tab 时自动触发图片按需加载 */}
-      <ProjectGrid projects={visibleProjects} theme={theme} />
+      <ProjectGrid projects={visibleProjects} theme={theme} heading={heading} />
     </div>
   );
 }

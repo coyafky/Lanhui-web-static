@@ -81,9 +81,9 @@ function main() {
   if (siteUrl) {
     siteUrl = siteUrl.replace(/\/$/, "");
   } else {
-    siteUrl = "https://www.lanhuiqinggai.com";
+    siteUrl = "https://lanhuiqinggai.com";
     warnings.push(
-      "NEXT_PUBLIC_SITE_URL not set — using default https://www.lanhuiqinggai.com for sitemap checks",
+      "NEXT_PUBLIC_SITE_URL not set — using default https://lanhuiqinggai.com for sitemap checks",
     );
   }
 

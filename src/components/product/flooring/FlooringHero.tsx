@@ -50,7 +50,7 @@ export function FlooringHero({
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center pt-2">
               <button
                 type="button"
-                onClick={() => scrollTo("flooring-vehicles")}
+                onClick={() => scrollTo("flooring-fitment")}
                 className="inline-flex min-h-12 select-none items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-6 text-base font-semibold text-white shadow-lg shadow-amber-500/20 transition-transform active:scale-[0.96]"
               >
                 查询我的车型

@@ -10,7 +10,7 @@ import {
 } from "./wheels.data";
 
 /**
- * 契约：docs/plans/wheel-page-prototype-migration-2026-09-21.md §9.1 / §9.2 / §9.3 / §9.6
+ * 契约：specs/active/plans/wheel-page-prototype-migration-2026-09-21.md §9.1 / §9.2 / §9.3 / §9.6
  * 源数据实测（旋压 186 + 锻造 218）。
  */
 const EXPECTED_MODEL_COUNT = 404;

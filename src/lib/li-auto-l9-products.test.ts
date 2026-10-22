@@ -133,7 +133,7 @@ describe("li-auto-l9-products data shape (B.1)", () => {
     });
   });
 
-  describe("9 FAQ", () => {
+  describe("12 FAQ", () => {
     it("question 与 answer 非空", () => {
       for (const f of liAutoL9Faq) {
         expect(f.question.length).toBeGreaterThan(0);

@@ -2,7 +2,7 @@
  * 问界 M7 专属升级方案 — 单车型专题页数据
  *
  * 数据来源 PRD：
- *   docs/PRD/product/WENJIE_M7_TOPIC_PRD_2026-06-25.md
+ *   specs/archive/prd/product/WENJIE_M7_TOPIC_PRD_2026-06-25.md
  *
  * 节号映射：
  *   §7.1 + §7.2 + §7.3 = 30 项目（5 必改 + 15 商务 + 10 小配件）→ wenjieM7UpgradeProjects
@@ -23,8 +23,12 @@
 
 import {
   buildWenjieProductPreviewImage,
+  WENJIE_PREVIEW_IMAGE_ASPECT_RATIO,
+  WENJIE_PREVIEW_IMAGE_HEIGHT,
+  WENJIE_PREVIEW_IMAGE_WIDTH,
   type WenjieModelCategory,
   type WenjiePreviewImage,
+  type WenjiePreviewImageFields,
   type WenjiePreviewImageStatus,
 } from "./wenjie-preview-images";
 
@@ -65,12 +69,30 @@ export type WenjieM7UpgradeProject = {
 
 type WenjieM7UpgradeProjectRow = Omit<WenjieM7UpgradeProject, "image">;
 
+/**
+ * 供应商成品图覆盖：有真实产品图的项目优先用真实图（imageStatus=real → config 映射 matched）。
+ * 图源：供应商产品资料/_整理后/问界/问界锻造轮毂（已转 1448×1086 适配 webp）。
+ */
+const WENJIE_M7_REAL_IMAGES: Partial<Record<string, WenjiePreviewImageFields>> = {
+  "m7-wheels": {
+    imageStatus: "real",
+    image: {
+      publicPath: "/images/products/wenjie/m7/wheels/cover-4x3.webp",
+      alt: "问界 M7 锻造轮毂产品图",
+      width: WENJIE_PREVIEW_IMAGE_WIDTH,
+      height: WENJIE_PREVIEW_IMAGE_HEIGHT,
+      aspectRatio: WENJIE_PREVIEW_IMAGE_ASPECT_RATIO,
+    },
+  },
+};
+
 function withWenjieM7PreviewImages(
   projects: readonly WenjieM7UpgradeProjectRow[],
 ): readonly WenjieM7UpgradeProject[] {
   return projects.map((project) => ({
     ...project,
-    ...buildWenjieProductPreviewImage(project.id, project.name, "M7"),
+    ...(WENJIE_M7_REAL_IMAGES[project.id] ??
+      buildWenjieProductPreviewImage(project.id, project.name, "M7")),
   }));
 }
 
@@ -667,5 +689,20 @@ export const wenjieM7Faq: readonly WenjieM7FaqItem[] = [
   {
     question: "工期多久？",
     answer: "根据项目组合、库存和施工排期确认",
+  },
+  {
+    question: "M7 底盘护板 22-25 款和 26 款有区别吗？",
+    answer:
+      "按供应商适配库记录：M7 底盘护板分七件套（线束、储气罐专用，其它通用问界 M8 纯电）与六件套（发动机、线束、电池、后电机与 M8 增程通用，油箱、储气罐专用）；22-25 款与 26 款吸顶电视分别收录。具体以门店现场检查为准。",
+  },
+  {
+    question: "M7 吸顶电视 22-25 款和 26 款都能装吗？",
+    answer:
+      "适配库分别收录 22-25 款问界 M7 与 26 款问界 M7 的吸顶电视条目，安装方案与接口以门店现场评估为准。",
+  },
+  {
+    question: "佛山本地哪里能装 M7 电动踏板？",
+    answer:
+      "蓝辉轻改提供问界 M7 轻改施工，门店位于佛山顺德大良，可到店评估并安排施工。",
   },
 ] as const;

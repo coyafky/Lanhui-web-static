@@ -2,7 +2,7 @@
  * 问界 M8 专属升级方案 — 单车型专题页数据
  *
  * 数据来源 PRD：
- *   docs/PRD/product/WENJIE_M8_TOPIC_PRD_2026-06-25.md
+ *   specs/archive/prd/product/WENJIE_M8_TOPIC_PRD_2026-06-25.md
  *
  * 节号映射：
  *   §7.1 + §7.2 + §7.3 = 30 项目（5 必改 + 15 商务 + 10 小配件）→ wenjieM8UpgradeProjects
@@ -663,5 +663,20 @@ export const wenjieM8Faq: readonly WenjieM8FaqItem[] = [
   {
     question: "工期多久？",
     answer: "根据项目组合、库存和施工排期确认",
+  },
+  {
+    question: "M8 纯电 / 增程底盘护板适配什么续航？",
+    answer:
+      "按供应商适配库记录：M8 六件套底盘护板覆盖前电机、前线束、电池前/后、后电机等位置，纯电续航 705/655/625（120kWh），增程 235/310；电池护板与智界纯电 R7 通用。具体以门店现场检查为准。",
+  },
+  {
+    question: "M8 能做包围和防虫网吗？",
+    answer:
+      "适配库收录包围、满天星防虫网（三段式）、原厂款防虫网、冰箱防踢带垃圾桶、地板、小桌板等项目，材料与方案以门店现场评估为准。",
+  },
+  {
+    question: "佛山本地哪里能装 M8 小桌板？",
+    answer:
+      "蓝辉轻改提供问界 M8 轻改施工，门店位于佛山顺德大良，可到店评估并安排施工。",
   },
 ] as const;

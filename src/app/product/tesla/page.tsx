@@ -12,11 +12,53 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { teslaBaseServices } from "@/lib/tesla-series-services";
-import { TESLA_HERO_IMAGE } from "@/lib/tesla-series-services";
+import {
+  teslaBaseServices,
+  teslaSeriesFaq,
+  TESLA_HERO_IMAGE,
+} from "@/lib/tesla-series-services";
+import { teslaFitment } from "@/lib/fitment/tesla";
+import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
+import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+
+type FitmentRawSpec = {
+  label?: string;
+  material?: string;
+  year?: string;
+  note?: string;
+  date?: string;
+  dynamics?: string;
+};
+
+function toFitmentSpec(s: unknown): FitmentSpec {
+  const r = s as FitmentRawSpec;
+  return {
+    label: r.label,
+    material: r.material,
+    year: r.year,
+    note: r.note,
+    date: r.date,
+    dynamics: r.dynamics,
+  };
+}
+
+/** 适配库仅收录官方 5 款车型；「Model 3/Y」跨车型节不收录。 */
+const TESLA_OFFICIAL = new Set(["Model 3", "Model Y", "Model Y-L", "Model S", "Model X"]);
+
+function buildTeslaFitmentModels(): FitmentModel[] {
+  return teslaFitment.models
+    .filter((section) => TESLA_OFFICIAL.has(section.model.trim()))
+    .map((section) => ({
+      model: section.model.trim(),
+      projects: section.projects.map((p) => ({
+        name: p.name,
+        specs: p.specs.map(toFitmentSpec),
+      })),
+    }));
+}
 
 const PAGE_TITLE =
   "Tesla 特斯拉贴膜与轻改服务｜车膜、轮毂、脚垫与洗美养护｜顺德大良蓝辉轻改";
@@ -83,6 +125,52 @@ export default function TeslaBrandPage() {
     }),
   };
 
+  const fitmentConfig = {
+    heading: "Tesla 特斯拉 适配速查：你的车型能装哪些项目？",
+    models: buildTeslaFitmentModels(),
+    groupByModel: true,
+  };
+
+  const vehicleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Vehicle",
+    name: "Tesla 特斯拉贴膜与轻改服务",
+    brand: { "@type": "Brand", name: "Tesla 特斯拉" },
+    model: "Model 3 / Model Y / Model Y-L / Model S / Model X",
+    category: "汽车轻改升级服务",
+    description: PAGE_DESCRIPTION,
+    url: brand.canonicalPath,
+    provider: {
+      "@type": "AutoRepair",
+      name: "蓝辉轻改",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "广东省",
+        addressLocality: "佛山市顺德区",
+      },
+      areaServed: "全国",
+    },
+    makesOffer: teslaBaseServices.map((svc) => ({
+      "@type": "Offer",
+      name: `特斯拉 ${svc.title}`,
+      description: svc.painPoint,
+      category: svc.id,
+    })),
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: teslaSeriesFaq.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow">
@@ -90,10 +178,19 @@ export default function TeslaBrandPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(vehicleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
+        />
         <TeslaSeriesHero breadcrumbItems={breadcrumbItems} />
         <TeslaScenarioSelector />
         <TeslaBaseServiceGrid />
         <TeslaServiceFlow />
+        <FitmentQuickCheck config={fitmentConfig} theme="red" />
         <TeslaFaqSection />
         <TeslaDouyinCta />
 

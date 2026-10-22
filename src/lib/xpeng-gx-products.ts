@@ -2,15 +2,15 @@
  * 小鹏 GX 单车型轻改项目 — 数据层
  *
  * 数据来源 PRD：
- *   docs/PRD/product/XPENG_GX_TOPIC_PRD_2026-06-25.md
- *   docs/SPEC/public-site/product/models/xpeng-gx.md (v0.2)
+ *   specs/archive/prd/product/XPENG_GX_TOPIC_PRD_2026-06-25.md
+ *   specs/active/product/models/xpeng-gx.md (v0.2)
  *
  * 节号映射：
  *   §7  15 个海报项目       → xpengGxUpgradeProjects  (length === 15)
  *   §8  6 大场景           → xpengGxScenarios        (length === 6)
  *   §9  3 大组合           → xpengGxBundles          (length === 3)
  *   §12 7 步服务流程        → xpengGxServiceSteps     (length === 7)
- *   §13 8 条 FAQ           → xpengGxFaq              (length === 8)
+ *   §13 11 条 FAQ          → xpengGxFaq              (length === 11)
  *
  * 字段值沿用 PRD §7-§13；展示图使用 product-preview 预览图，
  * saleStatus 严格按 PRD §7 标注（电动门 = "preorder"）。
@@ -427,7 +427,7 @@ export const xpengGxServiceSteps: readonly XpengGxServiceStep[] = [
   },
 ] as const satisfies readonly XpengGxServiceStep[];
 
-// ---- §13 8 条 FAQ ----
+// ---- §13 11 条 FAQ ----
 export const xpengGxFaq: readonly XpengGxFaqItem[] = [
   {
     question: "小鹏 GX 的这些项目是否都能安装?",
@@ -462,6 +462,21 @@ export const xpengGxFaq: readonly XpengGxFaqItem[] = [
     question: "工期多久?",
     answer: "根据项目组合、库存和施工排期确认。",
   },
+  {
+    question: "小鹏 GX 的底盘护板、360 脚垫和全包尾箱适配什么年款？",
+    answer:
+      "按供应商适配库记录：GX 底盘护板收录「五系2.0mm」铝镁合金2.0mm（2026，重要说明:7件套；五件套；增程320；纯电续航665；保护位置:发动机；电池前；电池后；油箱；后电机；空悬泵R；空悬泵L；前电机；储气罐；增程；纯电），另收录发动机护板、电池前护板、电池后护板、油箱护板、后电机护板与前电机护板、前电池护板、后电池护板、后电机护板方案（原始资料未注明具体合金类型）；360软包脚垫支持26款--，规格5门6座/5片；360全包尾箱支持26款--，规格5门6座。未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "佛山本地哪里能装小鹏 GX 的项目？",
+    answer:
+      "蓝辉轻改提供小鹏 GX 轻改施工，蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工。",
+  },
+  {
+    question: "小鹏 GX 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
+  },
 ] as const satisfies readonly XpengGxFaqItem[];
 
 // ---- 6 类别中文名映射 (供 UI 显示) ----
@@ -492,8 +507,8 @@ function assertXpengGxDataShape(): void {
       `xpengGxServiceSteps expected 7, got ${xpengGxServiceSteps.length}`,
     );
   }
-  if (xpengGxFaq.length !== 8) {
-    throw new Error(`xpengGxFaq expected 8, got ${xpengGxFaq.length}`);
+  if (xpengGxFaq.length !== 11) {
+    throw new Error(`xpengGxFaq expected 11, got ${xpengGxFaq.length}`);
   }
 
   // key 唯一性

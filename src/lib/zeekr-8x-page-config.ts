@@ -9,6 +9,7 @@ import {
   ZEEKR_8X_PROJECT_COUNT,
   ZEEKR_8X_SCENARIO_COUNT,
 } from "./zeekr-8x-products";
+import { zeekrFitment } from "./fitment/zeekr";
 
 const CATEGORY_LABELS: Record<Zeekr8xCategory, string> = {
   protection: "漆面保护",
@@ -78,4 +79,18 @@ export const zeekr8xPageConfig = {
     question: item.question,
     answer: item.answer,
   })),
+
+  // 适配速查（供应商适配库）：8X 专属节
+  fitment: {
+    heading: "极氪 8X 适配速查：你的配置能装哪些项目？",
+    models: zeekrFitment.models
+      .filter((m) => m.model === "8X")
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 } satisfies VehiclePageConfig;

@@ -1,5 +1,16 @@
 # TODO — 蓝辉轻改官网开发计划与当前进度
 
+> **2026-10-22 更新**：网站源码与图片已整理为发布提交，`check:static` 的裸域误报已修复并通过。下方 2026-09-23 的状态表与 P0 清单是历史快照，不能作为当前状态或部署命令使用；本次发布记录见 `work/RELEASE-20261022.md`。
+
+> 🔄 **2026-10-06 文档体系重构已完成**
+> - `docs/`（227 md）→ `specs/`(224) + `adr/`(7) + `rules/`(5) + `work/`(3)，**零丢失已验证**（md5 逐项比对）
+> - **PRD 层取消**，历史 PRD 归档在 `specs/archive/prd/`；新规格写在 `specs/active/`，一份写全
+> - 三 Agent 入口统一：`AGENTS.md` 唯一正本，`CLAUDE.md` 与 `.opencode/agents/` 改为指针
+> - 新增 skill `content-copy-audit`（文案极限词检查）
+> - `geo-seo-hub/`（28MB，1889 文件）已移出仓库至 `~/Documents/Code/_vendored/`，依赖它的 skill 路径已更新
+> - 旧 `docs/` 归档在 `archive/2026-10-06-docs-legacy/`；重构前备份 `~/.config/alma/backups/lanhui-docs-pre-refactor-20261006-202750/`
+> - 门禁实测：`typecheck` 0 错误 · `lint` 0 错误 · `build` EXIT=0（563 页）
+
 > 最后核对：**2026-09-23** · 依据：`git status` / `git log` / `npm run check:static-output` 实测 / `docs/` 下审计与交接文档
 >
 > 维护约定：**任何条目都必须能指向一处证据**（提交、文件、命令输出）。本文件不是愿望清单，
@@ -15,7 +26,7 @@
 | 工作区 | ⚠️ **脏**：31 个已修改、6 个重命名已 staged、**792 项未跟踪**（含 756 张图片） |
 | 本地 vs 部署源 | ⚠️ 本地 `main` **领先 `gitee/master` 5 个提交**（那 5 个还没推） |
 | 线上站点 | `https://lanhuiqinggai.com`（裸域唯一正式版），正常伺服中；线上跑的是更早的版本 |
-| 文档区 | `docs/` 已被 `.gitignore` 忽略 → 本地文档不进版本库 |
+| 文档区 | ✅ **2026-10-06 重构**：`docs/` → `specs/`（224 md）+ `adr/`（7）+ `rules/`（5）+ `work/`（3）。均被 `.gitignore` 忽略，不进版本库（依据 `adr/0006`）。旧 `docs/` 已归档至 `archive/2026-10-06-docs-legacy/` |
 | 版本标记 | 无 git tag；`package.json` 的 `0.3.1` 是模板继承值 |
 
 ---
@@ -71,7 +82,7 @@
 - 本地 `main` 领先 `gitee/master` **5 个提交**，即「TEI 刹车卡钳页 / 3 篇案例文章 / 博客第 15 篇」这批
   代码层面已就绪但**部署源没有**。
 - **动作**：与 P0-1 一起推。顺带对齐 `docs/ops/server-operations.md` 与
-  `docs/deployment/ssh-handoff-codex.md` 里**互相打架**的推送/拉取写法
+  `specs/active/deployment/ssh-handoff-codex.md` 里**互相打架**的推送/拉取写法
   （一边 `git push gitee main:master` + `git pull origin master`，一边 `git push gitee main` + `git pull origin main`）
   —— 实测 `git status` 报的是 `ahead of 'gitee/master'`，即远端分支叫 `master`。
 
@@ -81,16 +92,16 @@
 
 | # | 问题 | 位置 | 证据 |
 |---|---|---|---|
-| P1-1 | **跳过导航链接失效 2 处**：`<main>` 缺 `id="main-content"`，点「跳到主要内容」无目标 | `src/components/ProductDetail.tsx:58`、`src/components/product/window-film/WindowFilmPackageDetail.tsx:23` | `docs/PAGE-STRUCTURE.md` |
-| P1-2 | **面包屑 `aria-label` 缺失**：`/agent`、`/agent/[slug]`、`/agent/[slug]/[city]`、`/brand/history` 内联 `<nav>` 无语义标签（门店详情页有） | 对应 `page.tsx` | `docs/COMPONENT-GUIDELINES.md` |
-| P1-3 | **触控目标低于 44px 基线**：分页页码 36px、Header 按钮 40px | 分页组件 / `Header.tsx` | `docs/COMPONENT-GUIDELINES.md` |
-| P1-4 | **Hero 与 `<main>` 嵌套不一致**：wheels / window-film / color-film 的 H1 落在 `<main>` 之外 | 对应 `page.tsx` | `docs/PAGE-STRUCTURE.md` |
-| P1-5 | **小米与极氪撞色**（同为 `orange`） | `src/lib/product-routes.ts` | `docs/design-reviews/scoring/public-product-xiaomi.md` |
-| P1-6 | **accent 色阶映射重复实现 ≥5 份**，新增 accent 必须全部同步 | 各品牌组件 | `docs/design-reviews` + `DESIGN.md §12` |
-| P1-7 | **文档与代码冲突**：`docs/SPEC/INDEX.md` 的主题色（denza=blue / voyah=cyan / ledao=green / gaoshan=slate / zhijie=indigo）与代码不符；车型项目数（m6=30 / su7=26 / 9x=25）与 `projectCount`（17/12/18）不符 | `docs/SPEC/INDEX.md` | `docs/PROJECT-SPEC.md` |
+| P1-1 | **跳过导航链接失效 2 处**：`<main>` 缺 `id="main-content"`，点「跳到主要内容」无目标 | `src/components/ProductDetail.tsx:58`、`src/components/product/window-film/WindowFilmPackageDetail.tsx:23` | `specs/PAGE-STRUCTURE.md` |
+| P1-2 | **面包屑 `aria-label` 缺失**：`/agent`、`/agent/[slug]`、`/agent/[slug]/[city]`、`/brand/history` 内联 `<nav>` 无语义标签（门店详情页有） | 对应 `page.tsx` | `specs/COMPONENT-GUIDELINES.md` |
+| P1-3 | **触控目标低于 44px 基线**：分页页码 36px、Header 按钮 40px | 分页组件 / `Header.tsx` | `specs/COMPONENT-GUIDELINES.md` |
+| P1-4 | **Hero 与 `<main>` 嵌套不一致**：wheels / window-film / color-film 的 H1 落在 `<main>` 之外 | 对应 `page.tsx` | `specs/PAGE-STRUCTURE.md` |
+| P1-5 | **小米与极氪撞色**（同为 `orange`） | `src/lib/product-routes.ts` | `specs/archive/design-reviews/scoring/public-product-xiaomi.md` |
+| P1-6 | **accent 色阶映射重复实现 ≥5 份**，新增 accent 必须全部同步 | 各品牌组件 | `specs/archive/design-reviews` + `DESIGN.md §12` |
+| P1-7 | **历史规格矩阵与代码不一致**：旧主题色和项目数矩阵已移入 `specs/archive/legacy/INDEX-before-2026-10-13.md`，不再作为当前规格；若后续重建车型矩阵，必须从 `src/lib/product-routes.ts` 与当前产品数据生成/核对 | 历史索引（仅追溯） | `src/lib/product-routes.ts` |
 | P1-8 | **`reduced-motion` 只处理了 3 处**，新增动效未覆盖 | 全站 | `DESIGN.md §7` |
-| P1-9 | **魔法数**：`blog/page.tsx` 用 `9` 而别处用 `BLOG_PAGE_SIZE` | `src/app/blog/page.tsx` | `docs/COMPONENT-GUIDELINES.md` |
-| P1-10 | **`StickyTabBar` 注释说 3 个 tab，实际只传 2 个** | 对应组件 | `docs/COMPONENT-GUIDELINES.md` |
+| P1-9 | **魔法数**：`blog/page.tsx` 用 `9` 而别处用 `BLOG_PAGE_SIZE` | `src/app/blog/page.tsx` | `specs/COMPONENT-GUIDELINES.md` |
+| P1-10 | **`StickyTabBar` 注释说 3 个 tab，实际只传 2 个** | 对应组件 | `specs/COMPONENT-GUIDELINES.md` |
 
 ---
 
@@ -99,18 +110,18 @@
 | # | 项 | 说明 |
 |---|---|---|
 | P2-1 | **死代码清理** | `OptimizedImage.tsx`、`src/lib/images.ts`、`src/lib/image.ts`、`src/hooks/use-unsaved-changes-guard.ts`、`FeaturedStores.tsx`、`CurrentCopyrightYear.tsx`、`ui/sonner.tsx` 的 `Toaster` 均**零生产引用**；`BLUR_DATA_URL` 在 4 个文件重复定义 |
-| P2-2 | **图片资产外置** | 本地图片体积已到需要专门脚本清理/校验的规模（含未跟踪的 756 张），`docs/deployment/COS-image-cdn-plan.md` 已有 COS 100GB + CDN 方案，未启用 |
+| P2-2 | **图片资产外置** | 本地图片体积已到需要专门脚本清理/校验的规模（含未跟踪的 756 张），`specs/active/deployment/COS-image-cdn-plan.md` 已有 COS 100GB + CDN 方案，未启用 |
 | P2-3 | **服务页三种范式归一** | 主题型组件栈（10 个）/ `ProductDetail` 单体（`ppf`）/ `notFound()` 占位（`business-comfort`）—— 本项目最大技术债来源 |
 | P2-4 | **品牌系列页复用车型页渲染器** | 12 套手写组件栈 vs 19 个共用 `VehiclePageRenderer`，区块语义高度重叠却不复用 |
 | P2-5 | **僵尸配置清理** | `package.json` 仍保留 `prisma` / `msw` 配置键，以及 `description` 里的 "and admin CMS"；`name` / `repository` 还是模板的 `ai-website-cloner-template` |
 | P2-6 | **`src/components/ui/` 风格统一** | 5 个 shadcn 基础件是无分号 + token 配色，与站点手写的"分号 + zinc/orange"是两套 |
-| P2-7 | **12 个校验脚本未被任何地方调用** | `scripts/` 下有 12 个 `check-*/verify-*` 脚本未接进 npm script 或 CI，要么接线要么归档（清单见 `docs/REGISTRY.md`） |
+| P2-7 | **12 个校验脚本未被任何地方调用** | `scripts/` 下有 12 个 `check-*/verify-*` 脚本未接进 npm script 或 CI，要么接线要么归档（清单见 `specs/REGISTRY.md`） |
 
 ---
 
 ## 🔵 待办 · 基建与合规（来自交接文档，未复核时效）
 
-> 依据 `docs/deployment/ssh-handoff-codex.md` §10（成文于 2026-09-06），**执行前先确认是否仍然成立**。
+> 依据 `specs/active/deployment/ssh-handoff-codex.md` §10（成文于 2026-09-06），**执行前先确认是否仍然成立**。
 
 | # | 项 | 现状 |
 |---|---|---|
@@ -118,17 +129,17 @@
 | F-2 | **COS 100GB 静态托管 / CDN** | 有规划文档，未启用（同 P2-2） |
 | F-3 | **公安备案号页脚** | 交接文档记为「备案流程中」 |
 | F-4 | **隐私政策页** | 未做 |
-| F-5 | **`ops/deploy/*.sh` 与 `ops/nginx/lanhui.conf` 重写或删除** | 三份都是**失真的历史模板**（写死 `/var/www/lanhui` + `current` 软链 + www 域名 + `/etc/nginx/ssl` 证书路径），生产完全不用。要么按真实拓扑重写，要么删掉以免后人误跑 —— 见 `docs/DEPLOYMENT.md` |
+| F-5 | **`ops/deploy/*.sh` 与 `ops/nginx/lanhui.conf` 重写或删除** | 三份都是**失真的历史模板**（写死 `/var/www/lanhui` + `current` 软链 + www 域名 + `/etc/nginx/ssl` 证书路径），生产完全不用。要么按真实拓扑重写，要么删掉以免后人误跑 —— 见 `specs/DEPLOYMENT.md` |
 
 ---
 
 ## ⏳ 待核实（我没能确证，别当结论用）
 
 - `geo-seo-hub/`、`outputs/`、`runs/`、`skills/`、`skill-plan/`、`Volumes/`、`Users/` 这几个未跟踪目录**是什么、要不要入库**
-- `docs/design-reviews/` 与 `docs/audits/` 里的评分/审计基于 **2026-06 ~ 2026-08** 的旧版本（那时还有 `/news`、`/admin`），
+- `specs/archive/design-reviews/` 与 `specs/active/audits/` 里的评分/审计基于 **2026-06 ~ 2026-08** 的旧版本（那时还有 `/news`、`/admin`），
   结论对今天的**适用边界**需要重新确认
-- `docs/SPEC/INDEX.md` 里车型项目数（m6=30 等）与代码 `projectCount` 的差异，**哪边才是对的**
-- `docs/deployment/url-canonical-status-20260818.md` 自身矛盾（一处写全站带尾斜杠，§8 又写无尾斜杠），实测 sitemap 无尾斜杠
+- 历史车型项目数矩阵与当前代码的差异已标记为旧数据；当前索引不再发布未经复核的汇总数字
+- `specs/active/deployment/url-canonical-status-20260818.md` 自身矛盾（一处写全站带尾斜杠，§8 又写无尾斜杠），实测 sitemap 无尾斜杠
 
 ---
 

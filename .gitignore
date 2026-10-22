@@ -62,6 +62,10 @@ test-results/
 .agents/skills/*
 !.agents/skills/lanhui-trellis-daily/
 !.agents/skills/lanhui-trellis-daily/SKILL.md
+# QA project profile is a shared team asset — keep it in version control.
+# (The generic method lives globally at ~/.config/alma/skills/webapp-qa/)
+!.agents/skills/lanhui-qa/
+!.agents/skills/lanhui-qa/SKILL.md
 .amazonq/
 .augment/
 .continue/
@@ -75,16 +79,16 @@ test-results/
 .claude/worktrees/
 .codex/
 
-# Stray temporary files at repo root
-/E
-/class="text-xl md:text-2xl font-bold text-white mb-3"
-/carousel-desktop.png
-/electric-steps-desktop.png
-/electric-steps-compat.png
-/tc-f9-redirect-issue-list-page.png
-
 # Documentation (local only, not committed)
+# NOTE: local-only docs and snapshots. Their current map is DOCUMENTATION.md; ADR-0006 explains the policy.
 docs/
+/specs/
+/adr/
+/rules/
+/work/
+/archive/
+/供应商产品资料/
+/.codegraph/
 
 # Database backups
 backups/

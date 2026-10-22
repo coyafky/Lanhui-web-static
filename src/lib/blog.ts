@@ -222,6 +222,8 @@ const CATEGORY_SLUGS: Record<string, string> = {
   轮毂: "cat-wheel",
   门店服务: "cat-store-service",
   车主案例: "cat-case",
+  产品地板: "cat-flooring",
+  品牌资讯: "cat-brand-news",
 };
 
 /** 分类显示名 → URL slug（未登记的用 encodeURIComponent 兜底） */

@@ -1,7 +1,7 @@
 /**
  * 极氪 8X 专题页静态数据
  *
- * 派生自 docs/PRD/product/ZEEKR_8X_TOPIC_PRD_2026-06-27.md。
+ * 派生自 specs/archive/prd/product/ZEEKR_8X_TOPIC_PRD_2026-06-27.md。
  * 所有项目使用 product-preview 图例（非真实施工图）。
  */
 
@@ -81,7 +81,7 @@ export const ZEEKR_8X_PROJECT_COUNT = 17;
 export const ZEEKR_8X_SCENARIO_COUNT = 5;
 export const ZEEKR_8X_BUNDLE_COUNT = 5;
 export const ZEEKR_8X_SERVICE_STEP_COUNT = 7;
-export const ZEEKR_8X_FAQ_COUNT = 7;
+export const ZEEKR_8X_FAQ_COUNT = 10;
 
 export const ZEEKR_8X_CATEGORY_LABELS: Record<Zeekr8xCategory, string> = {
   protection: "漆面保护",
@@ -438,6 +438,21 @@ export const zeekr8xFaq: readonly Zeekr8xFaqItem[] = [
     question: "工期多久？",
     answer:
       "根据项目组合、库存和施工排期确定；不同项目工期差异较大，到店评估后会给出明确工期。",
+  },
+  {
+    question: "8X 底盘护板和 9X 通用吗？",
+    answer:
+      "按供应商适配库记录：一体电池护板 8X/9X 通用；8X 底盘护板分体七件套 / 一体六件套，9X 普通版程式优化后部分与 8X 通用。具体以门店现场检查为准。",
+  },
+  {
+    question: "8X 有哪些实用配件？",
+    answer:
+      "适配库收录尾箱垫 7 件套、挡泥板+内衬 6 件套、门槛条 10 件套、内/外门槛条 8 件套、冰箱防踢垃圾桶（按压款）、尾门防刮面板、三段式方向盘套、360 软包脚垫等，材料与方案以门店现场评估为准。",
+  },
+  {
+    question: "佛山本地哪里能装 8X 底盘护板？",
+    answer:
+      "蓝辉轻改提供极氪 8X 轻改施工，门店位于佛山顺德大良，可到店评估并安排施工。",
   },
 ];
 

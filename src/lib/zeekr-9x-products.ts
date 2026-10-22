@@ -2,7 +2,7 @@
  * 极氪 9X 单车型专题页静态数据
  *
  * 18 项升级项目、5 大用车场景、6 步服务流程、6 条 FAQ。
- * PRD: docs/PRD/product/ZEEKR_9X_UPGRADE_PRD_2026-06-24.md
+ * PRD: specs/archive/prd/product/ZEEKR_9X_UPGRADE_PRD_2026-06-24.md
  *
  * 所有项目使用 product-preview 图例（非真实施工图）。
  *
@@ -70,7 +70,7 @@ export interface Zeekr9xFaqItem {
 export const ZEEKR_9X_PROJECT_COUNT = 18;
 export const ZEEKR_9X_SCENARIO_COUNT = 5;
 export const ZEEKR_9X_SERVICE_STEP_COUNT = 6;
-export const ZEEKR_9X_FAQ_COUNT = 6;
+export const ZEEKR_9X_FAQ_COUNT = 9;
 
 export const ZEEKR_9X_CATEGORY_LABELS: Record<Zeekr9xCategory, string> = {
   paint_protection: "漆面保护",
@@ -188,8 +188,14 @@ export const zeekr9xUpgradeProjects: readonly Zeekr9xUpgradeProject[] = [
     category: "chassis_protection",
     summary: "应对路面剐蹭、碎石和底部防护",
     suitableFor: ["新车车主", "复杂路况用户"],
-    imageStatus: "product-preview",
-    image: generatedImage("underbody-guard.webp", "底盘护板"),
+    imageStatus: "matched",
+    image: {
+      publicPath: "/images/products/zeekr/9x/13-underbody-plate.webp",
+      alt: "极氪 9X 底盘护板产品图",
+      width: 1448,
+      height: 1086,
+      aspectRatio: "4/3",
+    },
     sourceArea: "poster_project_matrix",
   },
   {
@@ -437,6 +443,21 @@ export const zeekr9xFaq: readonly Zeekr9xFaqItem[] = [
     question: "图片是实际施工案例吗？",
     answer:
       "当前展示的是项目功能预览示意（pending-review），真实施工效果以到店案例为准。",
+  },
+  {
+    question: "9X 双电机 / 续航版底盘护板有区别吗？",
+    answer:
+      "按供应商适配库记录：9X 双电机 3mm、9x-288 续航 2mm 等版本分别收录；底盘护板分体七件套 / 一体六件套，一体电池护板 8X/9X 通用。具体以门店现场检查为准。",
+  },
+  {
+    question: "9X 能做地板和小桌板吗？",
+    answer:
+      "适配库收录地板、小桌板、包围、全包坐垫（普通款）、后备箱垫-7 件套、天地门全套 6 件套、防虫网 16/24 件套等项目，材料与方案以门店现场评估为准。",
+  },
+  {
+    question: "佛山本地哪里能装 9X 底盘护板？",
+    answer:
+      "蓝辉轻改提供极氪 9X 轻改施工，门店位于佛山顺德大良，可到店评估并安排施工。",
   },
 ] as const satisfies readonly Zeekr9xFaqItem[];
 

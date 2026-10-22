@@ -12,24 +12,24 @@ function pageFileExists(canonicalPath: string): boolean {
 }
 
 describe("product-routes registry", () => {
-  it("contains exactly 12 brands", () => {
-    expect(ALL_BRANDS).toHaveLength(12);
+  it("contains exactly 48 brands", () => {
+    expect(ALL_BRANDS).toHaveLength(48);
   });
 
-  it("contains exactly 19 models", () => {
-    expect(ALL_MODELS).toHaveLength(19);
+  it("contains exactly 70 models", () => {
+    expect(ALL_MODELS).toHaveLength(70);
   });
 
-  it("contains exactly 12 published services (11 live + 1 planned)", () => {
-    expect(ALL_SERVICES).toHaveLength(12);
-    expect(ALL_SERVICES.filter((s) => s.status === "live")).toHaveLength(11);
+  it("contains exactly 15 published services (14 live + 1 planned)", () => {
+    expect(ALL_SERVICES).toHaveLength(15);
+    expect(ALL_SERVICES.filter((s) => s.status === "live")).toHaveLength(14);
     expect(ALL_SERVICES.filter((s) => s.status === "planned")).toHaveLength(1);
     expect(getServiceRoute("tei-brake")).toBeDefined();
     expect(getServiceRoute("skid-plate")).toBeUndefined();
   });
 
-  it("all 18 legacy aliases are mapped", () => {
-    expect(ALL_LEGACY_ALIASES).toHaveLength(18);
+  it("all 17 legacy aliases are mapped", () => {
+    expect(ALL_LEGACY_ALIASES).toHaveLength(17);
   });
 
   it("every model's parent brand is registered", () => {
@@ -73,8 +73,8 @@ describe("product-routes registry", () => {
     expect(wenjieModels.map((m) => m.modelSlug).sort()).toEqual(["m6", "m7", "m8"]);
   });
 
-  it("getLiveBrands() returns 12 brands (wenjie, xiaomi, zeekr, tesla, xpeng, nio, li-auto, zhijie, denza, ledao, gaoshan, voyah)", () => {
-    expect(getLiveBrands().map((b) => b.brandSlug).sort()).toEqual(["denza", "gaoshan", "ledao", "li-auto", "nio", "tesla", "voyah", "wenjie", "xiaomi", "xpeng", "zeekr", "zhijie"]);
+  it("getLiveBrands() returns 48 brands (29 existing + 19 fitment-data brands)", () => {
+    expect(getLiveBrands().map((b) => b.brandSlug).sort()).toEqual(["aion", "arcfox", "audi", "avatr", "baic", "bmw", "buick", "byd", "cadillac", "chery", "chevrolet", "deepal", "denza", "fangchengbao", "gac", "gaoshan", "geely", "geely-galaxy", "great-wall", "haobo", "haval", "honda", "hongqi", "icar", "kia", "land-rover", "leapmotor", "ledao", "li-auto", "mazda", "mercedes", "nio", "nissan", "peugeot", "shangjie", "tank", "tesla", "toyota", "volkswagen", "voyah", "wenjie", "wey", "xiangjie", "xiaomi", "xpeng", "yangwang", "zeekr", "zhijie"]);
   });
 
   it("legacy aliases do not collide with canonical paths", () => {

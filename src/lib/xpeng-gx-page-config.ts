@@ -7,6 +7,7 @@ import {
   XPENG_GX_CATEGORY_LABELS,
   XPENG_GX_HERO_IMAGE,
 } from "./xpeng-gx-products";
+import { xpengFitment } from "./fitment/xpeng";
 
 export const xpengGxPageConfig = {
   theme: "orange" as const,
@@ -59,4 +60,18 @@ export const xpengGxPageConfig = {
     question: item.question,
     answer: item.answer,
   })),
+
+  // 适配速查（供应商适配库）：仅取 GX 专属节，排除 G6/G7/G9/M03/P5/P7/X9/G3/L03
+  fitment: {
+    heading: "小鹏 GX 适配速查：你的配置能装哪些项目？",
+    models: xpengFitment.models
+      .filter((m) => m.model === "GX")
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 } satisfies VehiclePageConfig;

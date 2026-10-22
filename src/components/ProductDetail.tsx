@@ -41,7 +41,7 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
     : {
         title: "蓝辉隐形车衣",
         description:
-          "6 款隐形车衣覆盖 6.5mil 至 10mil、3 至 12 年质保，按材质、厚度与用车需求选择。",
+          "6 款隐形车衣覆盖 6.5mil 至 10mil、3 至 12 年质保，按材质、厚度与用车需求选择；佛山顺德大良可到店施工，广州可预约上门评估。",
         image: "/images/producthero/ppf-hero.webp",
         imageAlt: "蓝辉隐形车衣透明保护膜施工效果",
       };

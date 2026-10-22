@@ -1,0 +1,22 @@
+{
+  "_comment": "As-Is 视口基线抽样集。按页面类型各挑代表，覆盖 87 个真实路由的各类形态。",
+  "viewports": [
+    { "id": "mobile",  "width": 390,  "height": 844,  "label": "390 · 移动" },
+    { "id": "tablet",  "width": 768,  "height": 1024, "label": "768 · 平板" },
+    { "id": "desktop", "width": 1440, "height": 900,  "label": "1440 · 桌面" }
+  ],
+  "samples": [
+    { "route": "/",                          "type": "首页",       "why": "全站入口，首屏信息密度与 CTA 最关键" },
+    { "route": "/product",                   "type": "产品总览",   "why": "分类枢纽，卡片网格的响应式行为" },
+    { "route": "/product/bmw",               "type": "品牌页",     "why": "29 款车型单页，数据量最大的形态" },
+    { "route": "/product/xiaomi/su7",        "type": "车型详情页", "why": "动态路由模板代表，参数化长页" },
+    { "route": "/product/color-film",        "type": "产品大类页", "why": "服务线落地页，转化路径主承载" },
+    { "route": "/product/wheels",            "type": "筛选目录页", "why": "含筛选栏+分页，交互最复杂" },
+    { "route": "/product/electric-steps/fitment", "type": "适配页", "why": "表格密集，多端表格降级策略" },
+    { "route": "/brand",                     "type": "品牌故事",   "why": "叙事型长页" },
+    { "route": "/contact",                   "type": "转化页",     "why": "表单，转化终点" },
+    { "route": "/agent",                     "type": "门店列表",   "why": "列表+地图类" },
+    { "route": "/blog",                      "type": "博客列表",   "why": "内容列表" },
+    { "route": "/blog/ppf-edge-wrapping-guide", "type": "博客详情", "why": "长文，正文排版与图片" }
+  ]
+}

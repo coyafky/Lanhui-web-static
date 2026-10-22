@@ -34,6 +34,26 @@ export const chassisImages = {
   },
 } as const;
 
+/** 过渡期通用产品图（资料库 DPH-IMG-001/002，非本店实拍） */
+export const chassisCaseImages = [
+  {
+    image: "/images/products/chassis/底盘护板_产品图_01.webp",
+    publicPath: "/images/products/chassis/底盘护板_产品图_01.webp",
+    width: 1448,
+    height: 1086,
+    alt: "底盘护板通用产品图 01（金属冲压护板组件）",
+    caption: "产品图，非本店实拍",
+  },
+  {
+    image: "/images/products/chassis/底盘护板_产品图_02.webp",
+    publicPath: "/images/products/chassis/底盘护板_产品图_02.webp",
+    width: 1448,
+    height: 1086,
+    alt: "底盘护板通用产品图 02（黑色多块护板组件）",
+    caption: "产品图，非本店实拍",
+  },
+] as const;
+
 export const chassisCoverageZones: readonly ChassisCoverageZone[] = [
   {
     code: "01",

@@ -54,8 +54,8 @@ describe("wenjie-m8-upgrade-projects: lengths (literal constraints)", () => {
     expect(wenjieM8ServiceSteps).toHaveLength(7);
   });
 
-  it("faq has exactly 8 entries", () => {
-    expect(wenjieM8Faq).toHaveLength(8);
+  it("faq has exactly 11 entries", () => {
+    expect(wenjieM8Faq).toHaveLength(11);
   });
 
   it("tier buckets sum to 30 (5 + 15 + 10)", () => {

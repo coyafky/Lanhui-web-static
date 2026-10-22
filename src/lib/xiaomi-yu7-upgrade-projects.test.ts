@@ -27,21 +27,65 @@ describe("Xiaomi YU7 data shape", () => {
     });
   });
 
-  describe("9 项项目字段防漂移", () => {
+  describe("30 项项目字段防漂移", () => {
     it("id 唯一", () => {
       const ids = xiaomiYu7UpgradeProjects.map((p) => p.id);
       expect(new Set(ids).size).toBe(ids.length);
     });
 
-    it("order 严格单调 1..9", () => {
-      xiaomiYu7UpgradeProjects.forEach((p, i) => {
-        expect(p.order).toBe(i + 1);
-      });
+    it("order 严格单调递增", () => {
+      for (let i = 1; i < xiaomiYu7UpgradeProjects.length; i++) {
+        expect(xiaomiYu7UpgradeProjects[i].order).toBeGreaterThan(
+          xiaomiYu7UpgradeProjects[i - 1].order
+        );
+      }
     });
 
-    it('全部 imageStatus === "product-preview"', () => {
+    it("imageStatus ∈ {product-preview, matched}，且 matched 数量 = 21", () => {
+      const allowed = ["product-preview", "matched"] as const;
+      let matchedCount = 0;
       for (const p of xiaomiYu7UpgradeProjects) {
+        expect(allowed).toContain(p.imageStatus);
+        if (p.imageStatus === "matched") matchedCount++;
+      }
+      expect(matchedCount).toBe(21);
+    });
+
+    it("原有 9 项（xy-01~xy-09）为 product-preview", () => {
+      const legacy = xiaomiYu7UpgradeProjects.filter((p) =>
+        p.id.startsWith("xy-")
+      );
+      expect(legacy).toHaveLength(9);
+      for (const p of legacy) {
         expect(p.imageStatus).toBe("product-preview");
+      }
+    });
+
+    it("所有项目有非空 imageCaption", () => {
+      for (const p of xiaomiYu7UpgradeProjects) {
+        expect(p.imageCaption?.trim().length).toBeGreaterThan(0);
+      }
+    });
+
+    it("modelBadge ∈ {SU7, YU7, 双车型}", () => {
+      const allowed = ["SU7", "YU7", "双车型"] as const;
+      for (const p of xiaomiYu7UpgradeProjects) {
+        expect(allowed).toContain(p.modelBadge);
+      }
+    });
+
+    it("新增 21 项 id 为 yu-22~yu-42，order 22~42", () => {
+      const added = xiaomiYu7UpgradeProjects.filter((p) =>
+        p.id.startsWith("yu-")
+      );
+      expect(added).toHaveLength(21);
+      const expectedIds = Array.from({ length: 21 }, (_, i) => `yu-${22 + i}`);
+      const expectedOrders = Array.from({ length: 21 }, (_, i) => 22 + i);
+      expect(added.map((p) => p.id)).toEqual(expectedIds);
+      expect(added.map((p) => p.order)).toEqual(expectedOrders);
+      for (const p of added) {
+        expect(p.imageStatus).toBe("matched");
+        expect(p.publicPath).toMatch(/^\/images\/products\/xiaomi\/yu7\/.+\.webp$/);
       }
     });
 
@@ -123,7 +167,7 @@ describe("Xiaomi YU7 data shape", () => {
     });
   });
 
-  describe("6 条 FAQ", () => {
+  describe("15 条 FAQ", () => {
     it("每条有非空 question 和 answer", () => {
       for (const f of xiaomiYu7Faq) {
         expect(f.question.trim().length).toBeGreaterThan(0);

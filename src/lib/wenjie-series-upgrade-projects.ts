@@ -9,7 +9,7 @@
  *   - wenjieSeriesFaq           8 条 FAQ（具体回答，不用"需到店确认"式空洞话术）
  *   - wenjieDouyinHighlights    抖音案例入口 3 项
  *
- * 项目数据来源 PRD：docs/PRD/product/WENJIE_SERIES_UPGRADE_PRD_2026-06-24.md
+ * 项目数据来源 PRD：specs/archive/prd/product/WENJIE_SERIES_UPGRADE_PRD_2026-06-24.md
  * 命名差异（Architect §1.3 已确认）：
  *   - 一级 PRD §9.1 中 "改色膜" 保留原名
  *   - 一级 PRD §9.1 中 "挡泥板内衬" 保留原名

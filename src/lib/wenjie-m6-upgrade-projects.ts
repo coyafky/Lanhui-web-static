@@ -2,7 +2,7 @@
  * 问界 M6 专属升级方案 — 单车型专题页数据
  *
  * 数据来源 PRD：
- *   docs/PRD/product/WENJIE_M6_TOPIC_PRD_2026-06-25.md
+ *   specs/archive/prd/product/WENJIE_M6_TOPIC_PRD_2026-06-25.md
  *
  * 节号映射：
  *   §7  17 个项目      → wenjieM6UpgradeProjects  (length === 17, 单层级无 tier)
@@ -416,5 +416,20 @@ export const wenjieM6Faq: readonly WenjieM6FaqItem[] = [
   {
     question: "工期多久？",
     answer: "根据项目组合、库存和施工排期确认",
+  },
+  {
+    question: "M6 增程 / 纯电底盘护板有区别吗？",
+    answer:
+      "按供应商适配库记录：M6 底盘护板为五件套，覆盖前电机、电池、油箱/储气罐、后电机等位置；增程 Max 续航 200/235，纯电续航 760/705。具体以门店现场检查为准。",
+  },
+  {
+    question: "M6 能做后排电视和电动踏板吗？",
+    answer:
+      "适配库收录后排电视、电动踏板、小桌板、360 软包脚垫等项目；26 款 M6 吸顶电视单独收录，材料与方案以门店现场评估为准。",
+  },
+  {
+    question: "佛山本地哪里能装 M6 电动踏板？",
+    answer:
+      "蓝辉轻改提供问界 M6 轻改施工，门店位于佛山顺德大良，可到店评估并安排施工。",
   },
 ] as const;

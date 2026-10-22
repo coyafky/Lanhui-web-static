@@ -27,21 +27,58 @@ describe("Xiaomi SU7 data shape", () => {
     });
   });
 
-  describe("12 项项目字段防漂移", () => {
+  describe("42 项项目字段防漂移", () => {
     it("id 唯一", () => {
       const ids = xiaomiSu7UpgradeProjects.map((p) => p.id);
       expect(new Set(ids).size).toBe(ids.length);
     });
 
-    it("order 严格单调 1..12", () => {
+    it("order 严格单调 1..42", () => {
       xiaomiSu7UpgradeProjects.forEach((p, i) => {
         expect(p.order).toBe(i + 1);
       });
     });
 
-    it('全部 imageStatus === "product-preview"', () => {
+    it("imageStatus ∈ {product-preview, matched}，matched 数量 = 26", () => {
+      const valid = ["product-preview", "matched"] as const;
+      let matchedCount = 0;
       for (const p of xiaomiSu7UpgradeProjects) {
-        expect(p.imageStatus).toBe("product-preview");
+        expect(valid).toContain(p.imageStatus);
+        if (p.imageStatus === "matched") matchedCount += 1;
+      }
+      expect(matchedCount).toBe(26);
+    });
+
+    it("16 个 generated 预览图项目为 product-preview", () => {
+      const preview = xiaomiSu7UpgradeProjects.filter(
+        (p) => p.imageStatus === "product-preview"
+      );
+      expect(preview).toHaveLength(16);
+      for (const p of preview) {
+        expect(p.publicPath).toContain("/generated/");
+      }
+    });
+
+    it("所有项目有非空 imageCaption", () => {
+      for (const p of xiaomiSu7UpgradeProjects) {
+        expect(p.imageCaption?.trim().length ?? 0).toBeGreaterThan(0);
+      }
+    });
+
+    it("modelBadge ∈ {SU7, YU7, 双车型}", () => {
+      const valid = ["SU7", "YU7", "双车型"] as const;
+      for (const p of xiaomiSu7UpgradeProjects) {
+        expect(valid).toContain(p.modelBadge);
+      }
+    });
+
+    it("新增 xs-22~xs-42 存在且 order 为 22..42", () => {
+      const byId = new Map(xiaomiSu7UpgradeProjects.map((p) => [p.id, p]));
+      for (let n = 22; n <= 42; n++) {
+        const id = `xs-${String(n).padStart(2, "0")}`;
+        const project = byId.get(id);
+        expect(project, `missing ${id}`).toBeDefined();
+        expect(project?.order).toBe(n);
       }
     });
 
@@ -123,7 +160,7 @@ describe("Xiaomi SU7 data shape", () => {
     });
   });
 
-  describe("6 条 FAQ", () => {
+  describe("16 条 FAQ", () => {
     it("每条有非空 question 和 answer", () => {
       for (const f of xiaomiSu7Faq) {
         expect(f.question.trim().length).toBeGreaterThan(0);

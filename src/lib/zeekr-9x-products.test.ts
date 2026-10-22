@@ -42,17 +42,27 @@ describe("Zeekr 9X data shape (Task D)", () => {
       });
     });
 
-    it('全部 imageStatus === "product-preview"', () => {
+    // 供应商成品图接入（B1）：skid-plate 使用真实产品图（matched + 现有 14 张目录文件），其余保持 product-preview
+    const REAL_IMAGE_IDS = new Set(["skid-plate"]);
+
+    it("imageStatus 默认 product-preview（真实图白名单除外）", () => {
       for (const p of zeekr9xUpgradeProjects) {
-        expect(p.imageStatus).toBe("product-preview");
+        const expected = REAL_IMAGE_IDS.has(p.id) ? "matched" : "product-preview";
+        expect(p.imageStatus).toBe(expected);
       }
     });
 
-    it("全部项目图指向 zeekr-9x generated 目录", () => {
+    it("项目图指向 zeekr-9x generated 目录（真实图白名单除外）", () => {
       for (const p of zeekr9xUpgradeProjects) {
-        expect(p.image.publicPath).toMatch(
-          /^\/images\/products\/zeekr-9x\/generated\/[a-z0-9-]+\.webp$/,
-        );
+        if (REAL_IMAGE_IDS.has(p.id)) {
+          expect(p.image.publicPath).toMatch(
+            /^\/images\/products\/zeekr\/9x\/[a-z0-9-]+\.webp$/,
+          );
+        } else {
+          expect(p.image.publicPath).toMatch(
+            /^\/images\/products\/zeekr-9x\/generated\/[a-z0-9-]+\.webp$/,
+          );
+        }
         expect(p.image.alt).toContain(`极氪 9X ${p.name}`);
         expect(p.image.width).toBe(1448);
         expect(p.image.height).toBe(1086);

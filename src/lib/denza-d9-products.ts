@@ -2,7 +2,7 @@
  * 腾势 D9 单车型轻改项目 — 数据层
  *
  * 数据来源 PRD：
- *   docs/PRD/product/DENZA_D9_TOPIC_PRD_2026-06-24.md
+ *   specs/archive/prd/product/DENZA_D9_TOPIC_PRD_2026-06-24.md
  *
  * 节号映射：
  *   §7.1 23 个海报项目      → denzaD9UpgradeProjects  (length === 23)

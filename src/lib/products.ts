@@ -574,7 +574,7 @@ export const products: Product[] = [
       {
         title: "材质只认脂肪族TPU",
         description:
-          'PVC是\u201C毁容膜\u201D，选膜只认脂肪族TPU材质。厚度方面，7.5mil-8.5mil是最佳区间\u2014\u2014太薄防护不够，太厚影响贴合度和曲面表现。',
+          '选膜时可了解脂肪族TPU材质。厚度方面，7.5mil-8.5mil是常见选择区间，具体应结合贴合度、曲面与实车需求判断。',
         highlight: "7.5-8.5mil 推荐厚度",
       },
       {

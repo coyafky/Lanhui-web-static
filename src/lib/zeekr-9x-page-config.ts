@@ -9,6 +9,7 @@ import {
   ZEEKR_9X_SCENARIO_COUNT,
   type Zeekr9xCategory,
 } from "./zeekr-9x-products";
+import { zeekrFitment } from "./fitment/zeekr";
 
 const CATEGORY_LABELS: Record<Zeekr9xCategory, string> = {
   paint_protection: "漆面保护",
@@ -75,4 +76,20 @@ export const zeekr9xPageConfig = {
     question: item.question,
     answer: item.answer,
   })),
+
+  // 适配速查（供应商适配库）：9X 主节 + 动力/续航细分节（同名项目由组件合并方案）
+  fitment: {
+    heading: "极氪 9X 适配速查：你的配置能装哪些项目？",
+    models: zeekrFitment.models
+      .filter((m) =>
+        ["9X", "9X双电机3mm", "9x-288续航-2Mm"].includes(m.model),
+      )
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 } satisfies VehiclePageConfig;

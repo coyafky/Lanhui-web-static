@@ -1,10 +1,10 @@
 # DESIGN.md — 蓝辉轻改官网视觉 / 布局 / 交互设计规范
 
 > 最后核对：2026-09-23 · 依据：`src/app/globals.css`、`src/app/layout.tsx`、`src/components/{Header,Footer,Hero}.tsx`、
-> `src/lib/product-routes.ts`、`docs/design-reviews/`、`docs/audits/visual-page-audit-lanhui-20260809.md`
+> `src/lib/product-routes.ts`、`specs/archive/design-reviews/`、`specs/active/audits/visual-page-audit-lanhui-20260809.md`
 >
 > 本文件是**约束**，不是灵感板。写页面前先读这里；发现代码与本文冲突，以代码为准并回来改本文。
-> 全站视觉的历史评审记录在 [`docs/design-reviews/`](design-reviews/INDEX.md)。
+> 全站视觉的历史评审记录在 [`specs/archive/design-reviews/`](specs/archive/design-reviews/INDEX.md)。
 
 ---
 
@@ -90,8 +90,8 @@
 
 > ⚠️ **两个已知冲突，改色前先看**：
 > 1. `AGENTS.md` 里写的旧映射（xiaomi=orange / wenjie=cyan / zeekr=orange / flooring=amber）是**早期版本的简化说法**，`product-routes.ts` 才是事实源。
-> 2. `docs/SPEC/INDEX.md` 记的主题色（denza=blue / voyah=cyan / ledao=green / gaoshan=slate / zhijie=indigo）**与代码不一致**，以代码为准。
-> 3. **小米与极氪撞色**（都是 orange），是 `docs/design-reviews/scoring/public-product-xiaomi.md` 里已记录的遗留问题（P1）。
+> 2. 旧版主题色矩阵已归档在 `specs/archive/legacy/INDEX-before-2026-10-13.md`；其中 denza/voyah/ledao/gaoshan/zhijie 的旧值与代码不一致。主题色以 `src/lib/product-routes.ts` 为准。
+> 3. **小米与极氪撞色**（都是 orange），是 `specs/archive/design-reviews/scoring/public-product-xiaomi.md` 里已记录的遗留问题（P1）。
 >
 > 另一个技术债：`accent → className` 的色阶映射在**至少 5 个组件里各写了一份**，新增 accent 时必须全部同步。
 
@@ -234,7 +234,7 @@ className="... transition-transform motion-reduce:transition-none"
   OG 图由 `scripts/gen-og.mjs` 生成（首页 OG 为 1200×630）。
 - 图片体积受门禁约束，清理脚本 `scripts/cleanup-unused-images.mjs`，校验脚本 `scripts/verify-static-images.mjs`。
 
-> ⚠️ 历史教训（`docs/design-reviews/scoring/public-product-wenjie.md`）：**30+ 张 pending 占位图**曾把该页评分从 B 拉到 C（73 分）。
+> ⚠️ 历史教训（`specs/archive/design-reviews/scoring/public-product-wenjie.md`）：**30+ 张 pending 占位图**曾把该页评分从 B 拉到 C（73 分）。
 > **上线前必须确认零占位图**，这是视觉评审里权重最高的扣分项。
 
 ---
@@ -259,7 +259,7 @@ className="... transition-transform motion-reduce:transition-none"
 2. 门店省/市页、`/brand/history` 的面包屑 `<nav>` **缺 `aria-label`**（门店详情页有，其余漏）。
 3. 分页页码 36px、Header 按钮 40px **低于 44px 基线**。
 
-对照标准：`docs/design-reviews/` 的 5 维度评分（D1 Layout / D2 Visual / D3 Color / D4 Typography / D5 A11y），
+对照标准：`specs/archive/design-reviews/` 的 5 维度评分（D1 Layout / D2 Visual / D3 Color / D4 Typography / D5 A11y），
 全站均分曾为 84.7/100，**A11y 是五个维度里最弱的一项（16.1/20）**。
 
 ---
@@ -275,17 +275,17 @@ className="... transition-transform motion-reduce:transition-none"
 
 **价格纪律**：产品展示页**不标价格**（如 TEI 刹车卡钳 33 款页面刻意无价格），价格由门店确认。
 
-改文案前先看 `docs/audits/copy-review-20260808.md`。
+改文案前先看 `specs/active/audits/copy-review-20260808.md`。
 
 ---
 
 ## 11. 改设计的标准动作
 
-1. 先看 `docs/design-reviews/INDEX.md` 里该类页面是否已有评分卡与改版建议，别重复踩坑。
+1. 先看 `specs/archive/design-reviews/INDEX.md` 里该类页面是否已有评分卡与改版建议，别重复踩坑。
 2. 改动落在 `src/app/**` 或 `src/components/**`，**样式只写 Tailwind utilities**，不新增 CSS 文件。
 3. 三个视口自测：**390 / 768 / 1440**。
 4. 过门禁：`npm run lint && npm run typecheck && npm test`（新页面还要跑构建）。
-5. 涉及视觉大改，产出截图存 `docs/design-reviews/` 或 `docs/audits/`（沿用其命名规范）。
+5. 涉及视觉大改，产出截图存 `specs/archive/design-reviews/` 或 `specs/active/audits/`（沿用其命名规范）。
 
 ---
 
@@ -296,8 +296,8 @@ className="... transition-transform motion-reduce:transition-none"
 | 1 | 小米与极氪**撞色**（同为 orange） | `product-routes.ts` |
 | 2 | `accent → className` 映射**至少 5 份重复实现** | 各品牌组件 |
 | 3 | 品牌系列页 12 套**手写组件栈**，车型页 19 个共用渲染器 —— 语义重叠却不复用 | `src/components/*/` |
-| 4 | accent 与 SPEC 文档记载不一致（denza/voyah/ledao/gaoshan/zhijie） | `docs/SPEC/INDEX.md` |
+| 4 | 旧 SPEC 主题色矩阵与代码不一致（denza/voyah/ledao/gaoshan/zhijie） | `specs/archive/legacy/INDEX-before-2026-10-13.md`（历史材料） |
 | 5 | 跳出链接失效 2 处、面包屑 aria 缺失 3 处、触控 44px 缺口 | 见 §9 |
-| 6 | Hero 与 `<main>` 嵌套关系不一致（wheels / window-film / color-film 的 H1 在 `<main>` 外） | 见 `docs/PAGE-STRUCTURE.md` |
+| 6 | Hero 与 `<main>` 嵌套关系不一致（wheels / window-film / color-film 的 H1 在 `<main>` 外） | 见 `specs/PAGE-STRUCTURE.md` |
 | 7 | shadcn 基础件风格（无分号 + token）与站点手写风格（分号 + zinc）不统一 | `src/components/ui/` |
-| 8 | `OptimizedImage` / `src/lib/images.ts` / `src/lib/image.ts` 等为**零引用死代码** | 见 `docs/COMPONENT-GUIDELINES.md` |
+| 8 | `OptimizedImage` / `src/lib/images.ts` / `src/lib/image.ts` 等为**零引用死代码** | 见 `specs/COMPONENT-GUIDELINES.md` |

@@ -7,6 +7,7 @@ import {
   LI_AUTO_MEGA_PROJECT_COUNT,
   LI_AUTO_MEGA_SCENARIO_COUNT,
 } from "@/lib/li-auto-mega-products";
+import { li_autoFitment } from "./fitment/li-auto";
 
 export const liAutoMegaPageConfig: VehiclePageConfig = {
   theme: "blue",
@@ -55,4 +56,18 @@ export const liAutoMegaPageConfig: VehiclePageConfig = {
     })),
   },
   faq: [...liAutoMegaFaq],
+
+  // 适配速查（供应商适配库）：MEGA 专属节
+  fitment: {
+    heading: "理想 MEGA 适配速查：你的配置能装哪些项目？",
+    models: li_autoFitment.models
+      .filter((m) => m.model === "MEGA")
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 };

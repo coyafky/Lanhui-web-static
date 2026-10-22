@@ -29,7 +29,7 @@ import { wheelCatalogItems, wheelCatalogOptions } from "./wheel-catalog-projecti
 import type { WheelVariant } from "./wheels.data";
 
 /**
- * 契约：docs/plans/wheel-page-prototype-migration-2026-09-21.md §9.4
+ * 契约：specs/active/plans/wheel-page-prototype-migration-2026-09-21.md §9.4
  * 覆盖：跨维同 variant / PCD 包含语义 / 双孔距 / 分页钳制 / 空态 / 非法参数 / 分组不占名额。
  */
 

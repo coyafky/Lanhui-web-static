@@ -7,6 +7,7 @@ import {
   LI_AUTO_ONE_PROJECT_COUNT,
   LI_AUTO_ONE_SCENARIO_COUNT,
 } from "@/lib/li-auto-one-products";
+import { li_autoFitment } from "./fitment/li-auto";
 
 export const liAutoOnePageConfig: VehiclePageConfig = {
   theme: "blue",
@@ -55,4 +56,18 @@ export const liAutoOnePageConfig: VehiclePageConfig = {
     })),
   },
   faq: [...liAutoOneFaq],
+
+  // 适配速查（供应商适配库）：ONE 专属节
+  fitment: {
+    heading: "理想 ONE 适配速查：你的配置能装哪些项目？",
+    models: li_autoFitment.models
+      .filter((m) => m.model === "ONE")
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 };

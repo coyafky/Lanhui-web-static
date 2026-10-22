@@ -2,16 +2,14 @@
  * 岚图品牌一级页数据（2026-07-15 重构，参照 gaoshan-series-services 模式）
  *
  * 定位：岚图全系保护与舒适升级服务入口（顺德大良）。
- * 品牌页只讲共性需求与 6 类基础服务；17 个专车项目留在 /product/voyah/dreamer 子页。
+ * 品牌页讲 6 类基础服务 + 5 车型速览；专车适配件明细在 src/lib/voyah-all-models-products.ts。
  *
  * 结构：
  *   - voyahBaseServices        6 类基础服务（全系可咨询，链接到对应产品页）
  *   - voyahSeriesServiceSteps  6 步服务流程（确认车型 → 交付养护）
  *   - voyahSeriesFaq           6 条 FAQ（全系适配 / 信号 / 踏板 / 地板 / 内饰 / 工期）
  *   - voyahDouyinHighlights    抖音案例入口 3 项
- *   - VOYAH_MODEL_COPY         岚图梦想家车型入口文案
- *
- * 17 个梦想家项目数据仍在 src/lib/voyah-products.ts（子页依赖，不迁移）。
+ *   - VOYAH_MODEL_COPY         岚图 5 车型速览文案（S1 区块数据源）
  */
 
 // ---- 基础服务（6 类，岚图全系均可咨询）----
@@ -174,7 +172,7 @@ export const voyahSeriesFaq: readonly VoyahSeriesFaqItem[] = [
   {
     question: "岚图全系都可以做这些服务吗？",
     answer:
-      "岚图产品覆盖 SUV、MPV 和轿车等多种形态，车身结构、座椅布局和电子配置差异明显。可为岚图全系提供基础服务咨询；电动踏板、地板、轮毂及其他专车项目需根据车型、年款、配置、原车状态和实际安装条件确认，并非所有车型通用。梦想家已有独立专车方案。",
+      "岚图产品覆盖 SUV、MPV 和轿车等多种形态，车身结构、座椅布局和电子配置差异明显。可为岚图全系提供基础服务咨询；电动踏板、地板、轮毂及其他专车项目需根据车型、年款、配置、原车状态和实际安装条件确认，并非所有车型通用。全系车型的专车适配件型号与年款明细，都在本页「适配件明细」区块，按车型对照即可。",
   },
   {
     question: "贴隔热膜会影响 ETC、导航或车载信号吗？",
@@ -184,10 +182,10 @@ export const voyahSeriesFaq: readonly VoyahSeriesFaqItem[] = [
   {
     question: "电动踏板所有岚图都能装吗？",
     answer:
-      "不能。踏板只适用于部分车型，需要检查门体结构、电路走向、离地间隙和控制逻辑。发来车型和年款先确认是否在适配清单内，再谈款式。",
+      "不能。踏板只适用于部分车型，需要检查门体结构、电路走向、离地间隙和控制逻辑。目前适配清单内仅泰山 2026 款为原厂对插；发来车型和年款先确认是否在适配清单内，再谈款式。",
   },
   {
-    question: "梦想家地板和踏板施工会影响原车功能吗？",
+    question: "地板和踏板施工会影响原车功能吗？",
     answer:
       "安装前会确认座椅滑轨结构、固定点和线束走向，施工中做遮蔽保护，完工后对座椅移动、安全锁止、电动门和踏板联动逐项复检。涉及拆装或线路的环节会提前书面告知。",
   },
@@ -201,21 +199,70 @@ export const voyahSeriesFaq: readonly VoyahSeriesFaqItem[] = [
     answer:
       "车膜类通常 1–3 天；踏板、地板等安装类通常半天到 1 天；洗美养护 2–4 小时。确认方案时会同步告知准确工期。",
   },
+  {
+    question: "我的岚图车型在适配库收录了哪些项目？",
+    answer:
+      "适配库按梦想家、泰山、知音、追光、FREE 五款车型分节记录：梦想家有360全包尾箱、360软包脚垫（皮革/丝圈，22款-23款；25款--）、底盘护板、平面尾箱垫；泰山有360软包脚垫、底盘护板、电动踏板（2026 款原厂对插）、平面尾箱垫；知音有360软包脚垫、底盘护板、平面尾箱垫、小桌板（米白色皮质带杯架）；追光有360软包脚垫、底盘护板、平面尾箱垫；FREE 有360全包尾箱、360软包脚垫、底盘护板、平面尾箱垫。材质、年款与方案以适配库原文为准，未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "佛山本地哪里能装岚图适配件？",
+    answer:
+      "蓝辉轻改提供岚图追光、FREE、知音、泰山、梦想家专车适配件施工，蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工。",
+  },
+  {
+    question: "岚图改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
+  },
 ] as const;
 
-// ---- 岚图梦想家车型入口文案 ----
+// ---- 岚图 5 车型速览文案（S1 区块数据源）----
 
-export type VoyahModelEntryKey = "dreamer";
+export type VoyahModelEntryKey =
+  | "zhuguang" // 岚图追光
+  | "free"     // 岚图FREE
+  | "zhiyin"   // 岚图知音
+  | "taishan"  // 岚图泰山
+  | "dreamer"; // 岚图梦想家
 
 export type VoyahModelCopy = {
+  /** 主打使用场景 */
   scenario: string;
+  /** 最常见的三项需求 */
   topNeeds: readonly [string, string, string];
+  /** 覆盖的适配件类别数 */
+  fitmentCount: number;
 };
 
 export const VOYAH_MODEL_COPY: Record<VoyahModelEntryKey, VoyahModelCopy> = {
+  zhuguang: {
+    scenario:
+      "中大型轿车。软包脚垫、尾箱垫和底盘护板按年款适配，插混和纯电的护板件套不一样。",
+    topNeeds: ["软包脚垫", "底盘护板", "尾箱垫"],
+    fitmentCount: 3,
+  },
+  free: {
+    scenario:
+      "中大型 SUV。21 款全包尾箱带音响位开孔；25 款护板可上锰钢或铝镁合金六件套。",
+    topNeeds: ["全包尾箱", "软包脚垫", "底盘护板"],
+    fitmentCount: 4,
+  },
+  zhiyin: {
+    scenario:
+      "中型 SUV。全系可装前排靠背小桌板；脚垫按 24 / 25 款分两套版型。",
+    topNeeds: ["小桌板", "软包脚垫", "底盘护板"],
+    fitmentCount: 4,
+  },
+  taishan: {
+    scenario:
+      "6 座 SUV。电动踏板 2026 款原厂对插；二排安全带在座椅上，脚垫版型按此开模。",
+    topNeeds: ["电动踏板", "底盘护板", "软包脚垫"],
+    fitmentCount: 4,
+  },
   dreamer: {
     scenario:
-      "家用与商务兼顾的大型 MPV，已整理 17 个专车适配项目，覆盖新车保护、后排舒适、底盘防护与座舱维护。",
-    topNeeds: ["车衣 / 隔热膜", "铝地板", "电动踏板"],
+      "7 座 MPV。脚垫四款版型覆盖 22-25 款；护板按插混 / 油混 / 增程 / 纯电选件套，26 款纯电带电机专用支架。",
+    topNeeds: ["全包尾箱", "软包脚垫", "底盘护板"],
+    fitmentCount: 4,
   },
 } as const;

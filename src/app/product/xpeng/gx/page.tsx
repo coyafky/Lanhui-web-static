@@ -76,6 +76,48 @@ export default function XpengGxTopicPage() {
     })),
   };
 
+  // GEO 增量 C2：Vehicle + FAQPage 结构化数据，让 AI 能直接回答
+  // "GX 能改什么 / 我的配置能装吗 / 佛山哪里能装" 类问题
+  const vehicleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Vehicle",
+    name: "小鹏 GX 轻改升级",
+    brand: { "@type": "Brand", name: "小鹏" },
+    model: "GX",
+    category: "汽车轻改升级服务",
+    description: PAGE_DESCRIPTION,
+    url: "https://lanhui.com/product/xpeng/gx",
+    provider: {
+      "@type": "AutoRepair",
+      name: "蓝辉轻改",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "广东省",
+        addressLocality: "佛山市顺德区",
+      },
+      areaServed: "全国",
+    },
+    makesOffer: xpengGxPageConfig.projects.map((p) => ({
+      "@type": "Offer",
+      name: `小鹏 GX ${p.name} 升级方案`,
+      description: p.summary,
+      category: p.category,
+    })),
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: xpengGxPageConfig.faq.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <main id="main-content" tabIndex={-1} className="flex-grow flex flex-col bg-zinc-950">
@@ -119,6 +161,14 @@ export default function XpengGxTopicPage() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(vehicleJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
       </main>
       {breadcrumbSchema && (

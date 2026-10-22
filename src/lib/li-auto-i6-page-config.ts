@@ -8,6 +8,7 @@ import {
   LI_AUTO_I6_PROJECT_COUNT,
   LI_AUTO_I6_SCENARIO_COUNT,
 } from "@/lib/li-auto-i6-products";
+import { li_autoFitment } from "./fitment/li-auto";
 
 export const liAutoI6PageConfig: VehiclePageConfig = {
   theme: "blue",
@@ -56,4 +57,20 @@ export const liAutoI6PageConfig: VehiclePageConfig = {
     })),
   },
   faq: [...liAutoI6Faq],
+
+  // 适配速查（供应商适配库）：i6 专属节 + 25款理想 i6 节 + i6-720续航节
+  fitment: {
+    heading: "理想 i6 适配速查：你的配置能装哪些项目？",
+    models: li_autoFitment.models
+      .filter((m) =>
+        ["i6", "25款理想 i6", "i6-720续航"].includes(m.model),
+      )
+      .map((m) => ({
+        model: m.model,
+        projects: m.projects.map((p) => ({
+          name: p.name,
+          specs: [...p.specs],
+        })),
+      })),
+  },
 };

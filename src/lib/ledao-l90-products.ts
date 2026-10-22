@@ -2,14 +2,14 @@
  * 乐道 L90 单车型轻改项目 — 数据层
  *
  * 数据来源 PRD：
- *   docs/PRD/product/LEDAO_L90_TOPIC_PRD_2026-06-24.md
+ *   specs/archive/prd/product/LEDAO_L90_TOPIC_PRD_2026-06-24.md
  *
  * 节号映射：
  *   §7.1 21 个海报项目      → ledaoL90UpgradeProjects  (length === 21)
  *   §9   17 个"更多选择"    → ledaoL90MoreChoices       (length === 17)
  *   §8   5 大场景           → ledaoL90Scenarios        (length === 5)
  *   §11  6 步服务流程        → ledaoL90ServiceSteps     (length === 6)
- *   §12  6 条 FAQ           → ledaoL90Faq              (length === 6)
+ *   §12  9 条 FAQ           → ledaoL90Faq              (length === 9)
  *
  * 字段值零变更 —— 直接从 PRD §7-§12 抄写。一期允许 imageStatus = "pending-review"
  * (业务后续补图)。
@@ -538,7 +538,7 @@ export const ledaoL90ServiceSteps: readonly LedaoL90ServiceStep[] = [
   },
 ] as const satisfies readonly LedaoL90ServiceStep[];
 
-// ---- §12 6 条 FAQ ----
+// ---- §12 9 条 FAQ ----
 export const ledaoL90Faq: readonly LedaoL90FaqItem[] = [
   {
     question: "是否所有乐道 L90 都能安装?",
@@ -563,6 +563,21 @@ export const ledaoL90Faq: readonly LedaoL90FaqItem[] = [
   {
     question: "工期多久?",
     answer: "根据项目组合和施工排期确认。",
+  },
+  {
+    question: "乐道 L90 的底盘护板和 360 脚垫适配什么年款和规格？",
+    answer:
+      "按供应商适配库记录：L90 底盘护板收录锰钢1.2mm；铝镁合金2.0mm（2025，三件套，不分续航，保护位置：前电机；后电机；后尾箱储气罐；另有保护位置：前电机、后电机的方案，原始资料未注明具体合金类型）；360软包脚垫为皮革/丝圈，25款--，门座5门6座、片套4片。未收录项目具体以门店现场检查为准。",
+  },
+  {
+    question: "佛山本地哪里能装乐道 L90 的项目？",
+    answer:
+      "蓝辉轻改提供乐道 L90 轻改施工，蓝辉轻改门店位于佛山顺德大良，可到店评估并安排施工。",
+  },
+  {
+    question: "乐道 L90 改装项目需要备案吗？",
+    answer:
+      "涉及外观变更的项目（如包围、改色、轮毂）按当地交管规定执行，到店评估时门店会说明合规边界；页面不做备案承诺。",
   },
 ] as const satisfies readonly LedaoL90FaqItem[];
 
@@ -601,8 +616,8 @@ function assertLedaoL90DataShape(): void {
       `ledaoL90ServiceSteps expected 6, got ${ledaoL90ServiceSteps.length}`,
     );
   }
-  if (ledaoL90Faq.length !== 6) {
-    throw new Error(`ledaoL90Faq expected 6, got ${ledaoL90Faq.length}`);
+  if (ledaoL90Faq.length !== 9) {
+    throw new Error(`ledaoL90Faq expected 9, got ${ledaoL90Faq.length}`);
   }
 
   // key 唯一性 (project ids + more choice ids + scenario ids)
