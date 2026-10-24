@@ -25,15 +25,13 @@ export type PpfSeries = {
   gloss: string;
   warranty: string;
   audience: string;
-  image: string;
-  imageAlt: string;
 };
 
 export const ppfSeries: PpfSeries[] = [
   {
     name: "貔貅",
     finish: "有色亮面",
-    material: "国产军工级 TPU",
+    material: "TPU",
     thickness: "6.5mil",
     coating: "热固化涂层",
     glue: "Ashland® 亚什兰胶水",
@@ -42,13 +40,11 @@ export const ppfSeries: PpfSeries[] = [
     gloss: "增亮 30%",
     warranty: "3年",
     audience: "预算优先、城市通勤，先获得基础漆面防护与亮面效果",
-    image: "/images/products/ppf/YM6.5mil车衣.webp",
-    imageAlt: "貔貅系列亮面隐形车衣产品图",
   },
   {
     name: "青龙",
     finish: "有色亮面",
-    material: "国产军工级 TPU",
+    material: "TPU",
     thickness: "7.5mil",
     coating: "热固化涂层",
     glue: "Ashland® 亚什兰胶水",
@@ -57,8 +53,6 @@ export const ppfSeries: PpfSeries[] = [
     gloss: "增亮 40%",
     warranty: "5年",
     audience: "日常通勤频率高，看重厚度、亮面与 5 年质保的均衡选择",
-    image: "/images/products/ppf/青龙7.5mil车衣.webp",
-    imageAlt: "青龙系列亮面隐形车衣产品图",
   },
   {
     name: "白虎",
@@ -72,8 +66,6 @@ export const ppfSeries: PpfSeries[] = [
     gloss: "增亮 45%",
     warranty: "8年",
     audience: "重视耐黄变、抗划痕与亮度，从基础防护向进阶升级",
-    image: "/images/products/ppf/白虎YM70车衣.webp",
-    imageAlt: "白虎系列亮面隐形车衣产品图",
   },
   {
     name: "朱雀",
@@ -87,8 +79,6 @@ export const ppfSeries: PpfSeries[] = [
     gloss: "增亮 50%",
     warranty: "10年",
     audience: "新车、高价值车辆或长期持有，对厚度、亮度与质保都有要求",
-    image: "/images/products/ppf/朱雀YM80车衣.webp",
-    imageAlt: "朱雀系列亮面隐形车衣产品图",
   },
   {
     name: "玄武",
@@ -102,8 +92,6 @@ export const ppfSeries: PpfSeries[] = [
     gloss: "哑光，无增亮系数",
     warranty: "5年",
     audience: "偏爱哑光、磨砂视觉，同时希望兼顾漆面保护",
-    image: "/images/products/ppf/玄武YM80哑光系列车衣.webp",
-    imageAlt: "玄武系列哑光隐形车衣产品图",
   },
   {
     name: "麒麟",
@@ -116,9 +104,7 @@ export const ppfSeries: PpfSeries[] = [
     weathering: "QUV 1500H",
     gloss: "增亮 60%",
     warranty: "12年",
-    audience: "旗舰厚度、高延伸率与长质保周期，面向高价值与长期持有车辆",
-    image: "/images/products/ppf/麒麟YM-10车衣.webp",
-    imageAlt: "麒麟系列亮面隐形车衣产品图",
+    audience: "偏好较厚膜体、关注产品资料与书面质保条款的车主",
   },
 ];
 
@@ -133,8 +119,6 @@ export type WindowPackage = {
   thickness: string;
   warranty: string;
   audience: string;
-  image: string;
-  imageAlt: string;
 };
 
 export const windowPackages: WindowPackage[] = [
@@ -147,8 +131,6 @@ export const windowPackages: WindowPackage[] = [
     thickness: "前挡 2mil / 侧后挡 1.5mil",
     warranty: "5年",
     audience: "日常通勤，重视基础防晒、常规隔热与车内隐私",
-    image: "/images/products/window-film/春分套餐.webp",
-    imageAlt: "春分健康系列太阳膜套餐产品图",
   },
   {
     name: "谷雨",
@@ -159,8 +141,6 @@ export const windowPackages: WindowPackage[] = [
     thickness: "2mil",
     warranty: "8年",
     audience: "侧重紫外线阻隔、常规隔热与隐私，前挡侧后挡差异化配置",
-    image: "/images/products/window-film/谷雨套餐.webp",
-    imageAlt: "谷雨护肤系列太阳膜套餐产品图",
   },
   {
     name: "白露",
@@ -171,8 +151,6 @@ export const windowPackages: WindowPackage[] = [
     thickness: "3mil",
     warranty: "10年",
     audience: "追求高隔热指标、长质保与感光变化视觉",
-    image: "/images/products/window-film/白露套餐.webp",
-    imageAlt: "白露变色系列太阳膜套餐产品图",
   },
   {
     name: "帝王紫（凤凰红）",
@@ -183,8 +161,6 @@ export const windowPackages: WindowPackage[] = [
     thickness: "前挡 2mil",
     warranty: "7年",
     audience: "喜欢鲜明前挡色彩风格，兼顾防晒与隔热",
-    image: "/images/products/window-film/帝王紫.webp",
-    imageAlt: "帝王紫凤凰红彩色前挡太阳膜产品图",
   },
 ];
 
@@ -238,12 +214,12 @@ export const ppfFaqs: FilmFaq[] = [
   {
     question: "10mil 和 8.5mil 的隐形车衣有什么区别？",
     answer:
-      "10mil 是目录中膜体最厚的型号，断裂延伸率大于 550%，通过 QUV 1500H 耐候测试，提供 12 年质保；8.5mil 高阶亮面型号断裂延伸率大于 480%，通过 QUV 1300H 耐候测试，提供 10 年质保。厚度影响膜体抗冲击余量与贴合表现，具体按车型与用车场景到店确认。",
+      "产品资料分别列出 10mil 与 8.5mil 厚度，并标注延伸率、耐候测试与质保年限。具体参数请核对对应系列及批次的检测资料，质保以书面条款为准；厚度还需结合车型曲面与施工方案判断。",
   },
   {
     question: "隐形车衣质保多久？",
     answer:
-      "目录内 6 款亮面与哑光型号质保期为 3 年至 12 年不等，质保年限与条款以所选系列及门店质保卡为准。",
+      "产品资料列出的质保期因系列而异。实际期限、覆盖范围和生效条件以所选产品的书面质保条款为准。",
   },
   {
     question: "贴隐形车衣会损伤原车漆吗？",

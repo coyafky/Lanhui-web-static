@@ -43,7 +43,7 @@ const contactData = {
     {
       step: 2,
       title: "方案推荐",
-      description: "技师根据车型推荐最优轻改方案",
+      description: "技师根据车型与需求讨论轻改方案",
     },
     {
       step: 3,
@@ -83,7 +83,7 @@ export default function ContactPage() {
             </p>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">联系我们</h1>
             <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto">
-              欢迎到店咨询，专业技师为您推荐最优轻改方案。
+              欢迎到店咨询，技师会结合车型和需求讨论轻改方案。
             </p>
           </div>
         </section>

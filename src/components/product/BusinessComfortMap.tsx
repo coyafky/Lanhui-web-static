@@ -13,14 +13,14 @@ export function BusinessComfortMap({ services }: Props) {
   if (!carTv) return null;
 
   return (
-    <section aria-labelledby="business-comfort-title" className="overflow-hidden rounded-3xl border border-orange-900/40 bg-[#0b0c10]">
+    <section aria-labelledby="business-comfort-title" className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30">
       <Link href={carTv.canonicalPath} className="group grid min-h-11 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
           <p className="text-xs tracking-[0.18em] text-orange-400">REAR CABIN · 后排舒适</p>
           <div className="mt-5 flex size-11 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 ring-1 ring-orange-400/20">
             <MonitorPlay className="size-5" aria-hidden="true" />
           </div>
-          <h2 id="business-comfort-title" className="mt-5 text-2xl font-bold text-white md:text-3xl">
+          <h2 id="business-comfort-title" className="mt-5 text-2xl font-semibold tracking-tight text-white md:text-3xl">
             18.5 英寸车载电视
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-7 text-zinc-300 md:text-base">

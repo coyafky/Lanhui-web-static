@@ -23,33 +23,33 @@ const SLICES: readonly Slice[] = [
   {
     key: "ppf",
     title: "隐形车衣",
-    accentText: "text-cyan-300",
-    accentBg: "bg-cyan-950/30",
-    accentBorder: "border-cyan-800/40",
+    accentText: "text-orange-300",
+    accentBg: "bg-zinc-900/60",
+    accentBorder: "border-white/[0.08]",
     Icon: Shield,
   },
   {
     key: "window-film",
     title: "汽车窗膜",
-    accentText: "text-blue-300",
-    accentBg: "bg-blue-950/30",
-    accentBorder: "border-blue-800/40",
+    accentText: "text-orange-300",
+    accentBg: "bg-zinc-900/60",
+    accentBorder: "border-white/[0.08]",
     Icon: Sun,
   },
   {
     key: "wheel",
     title: "轮毂升级",
     accentText: "text-orange-300",
-    accentBg: "bg-orange-950/30",
-    accentBorder: "border-orange-800/40",
+    accentBg: "bg-zinc-900/60",
+    accentBorder: "border-white/[0.08]",
     Icon: CircleDot,
   },
   {
     key: "step",
     title: "电动踏板",
-    accentText: "text-amber-300",
-    accentBg: "bg-amber-950/30",
-    accentBorder: "border-amber-800/40",
+    accentText: "text-orange-300",
+    accentBg: "bg-zinc-900/60",
+    accentBorder: "border-white/[0.08]",
     Icon: Wrench,
   },
 ] as const;
@@ -79,7 +79,7 @@ function MaterialSliceWrapper({
 }) {
   return (
     <div
-      className={`group/slice relative rounded-xl border ${slice.accentBorder} ${slice.accentBg} p-3 md:p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-black/30`}
+      className={`group/slice relative rounded-xl border ${slice.accentBorder} ${slice.accentBg} p-3 md:p-4`}
     >
       <div className="flex items-center gap-3">
         <div
@@ -107,11 +107,11 @@ function MaterialSliceLink({
   return (
     <a
       href={href}
-      className={`group/slice relative block rounded-xl border ${slice.accentBorder} ${slice.accentBg} p-3 md:p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-black/30`}
+      className={`group/slice relative block rounded-xl border ${slice.accentBorder} ${slice.accentBg} p-3 md:p-4 transition-colors hover:border-orange-400/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400`}
     >
       <div className="flex items-center gap-3">
         <div
-          className={`flex-shrink-0 w-9 h-9 rounded-lg ${slice.accentBg} border ${slice.accentBorder} flex items-center justify-center transition-transform duration-300 group-hover/slice:rotate-3`}
+          className={`flex-shrink-0 w-9 h-9 rounded-lg ${slice.accentBg} border ${slice.accentBorder} flex items-center justify-center`}
         >
           <Icon className={`w-4 h-4 ${slice.accentText}`} aria-hidden="true" />
         </div>

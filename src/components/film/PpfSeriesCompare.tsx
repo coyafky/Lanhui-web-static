@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { ppfSeries } from "@/lib/film-products";
 
 /**
- * 6 款隐形车衣产品线适配速查（参数按产品图原文呈现，不换算、不含价格）。
+ * 6 款隐形车衣产品线适配速查（参数按产品资料呈现，不换算、不含价格）。
  */
 export function PpfSeriesCompare() {
   return (
@@ -14,7 +13,7 @@ export function PpfSeriesCompare() {
             6 款隐形车衣适配速查：厚度、延伸率、耐候与质保对比
           </h2>
           <p className="mt-3 text-zinc-400 max-w-2xl leading-relaxed">
-            参数整理自产品资料图，按原文呈现；具体适配以车型、车况与门店现场检查为准，价格到店询价。
+            以下数值为产品资料标称值，尚需核对对应系列与批次的检测资料；质保期限和范围以书面条款为准。具体适配以车型、车况与门店检查为准。
           </p>
         </div>
 
@@ -49,25 +48,13 @@ export function PpfSeriesCompare() {
           </table>
         </div>
 
-        {/* 卡片（含产品图） */}
+        {/* 卡片 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {ppfSeries.map((s) => (
             <article
               key={s.name}
               className="rounded-2xl overflow-hidden border border-white/[0.07] bg-zinc-900/60"
             >
-              <div className="relative aspect-[4/3] bg-zinc-900">
-                <Image
-                  src={s.image}
-                  alt={s.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <span className="absolute top-2 left-2 text-[10px] font-medium px-2 py-0.5 rounded-full bg-black/60 text-zinc-300 backdrop-blur-sm">
-                  产品图，非本店实拍
-                </span>
-              </div>
               <div className="p-5">
                 <div className="flex items-baseline justify-between gap-3 mb-3">
                   <h3 className="text-lg font-bold text-white">{s.name}</h3>

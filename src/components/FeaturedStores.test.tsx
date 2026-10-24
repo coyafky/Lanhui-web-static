@@ -116,11 +116,11 @@ describe("FeaturedStores", () => {
     expect(screen.getByText("FEATURED STORES")).toBeInTheDocument();
   });
 
-  it("R2a: 渲染副标题「精选星辉旗舰店」", async () => {
+  it("R2a: 渲染开放服务中心的说明", async () => {
     listStoresMock.mockReturnValue([createStore({ id: "100001" })]);
     await renderRSC();
     expect(
-      await screen.findByText(/精选星辉旗舰店/),
+      await screen.findByText(/查看当前开放的服务中心/),
     ).toBeInTheDocument();
   });
 

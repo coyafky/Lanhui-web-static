@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChevroletSeriesHero } from "@/components/chevrolet/series/ChevroletSeriesHero";
-import { ChevroletModelGrid } from "@/components/chevrolet/series/ChevroletModelGrid";
-import { ChevroletProjectGrid } from "@/components/chevrolet/series/ChevroletProjectGrid";
-import { ChevroletFitmentDetails } from "@/components/chevrolet/series/ChevroletFitmentDetails";
 import { ChevroletFaqSection } from "@/components/chevrolet/series/ChevroletFaqSection";
 import { ChevroletDouyinCta } from "@/components/chevrolet/series/ChevroletDouyinCta";
 import { ChevroletMobileCtaBar } from "@/components/chevrolet/series/ChevroletMobileCtaBar";
@@ -15,60 +12,20 @@ import {
 import { chevroletProjects } from "@/lib/chevrolet-all-models-products";
 import { chevroletModels } from "@/lib/chevrolet-model-groups";
 import { chevroletSeriesFaq } from "@/lib/chevrolet-series-services";
-import { chevroletFitment } from "@/lib/fitment/chevrolet";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
+import {
+  chevroletModelCards,
+  CHEVROLET_MODEL_GROUP_LABELS,
+  CHEVROLET_MODEL_GROUPS,
+  CHEVROLET_MODEL_CARD_COUNT,
+  CHEVROLET_SOURCE_ROW_COUNT,
+} from "@/lib/chevrolet-curated-models";
+import { chevroletProjects as chevroletCuratedProjects } from "@/lib/chevrolet-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { CHEVROLET_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
-
-type FitmentRawSpec = {
-  label?: string;
-  material?: string;
-  year?: string;
-  note?: string;
-  date?: string;
-  dynamics?: string;
-};
-
-function toFitmentSpec(s: unknown): FitmentSpec {
-  const r = s as FitmentRawSpec;
-  return {
-    label: r.label,
-    material: r.material,
-    year: r.year,
-    note: r.note,
-    date: r.date,
-    dynamics: r.dynamics,
-  };
-}
-
-/** 适配库节名 → 官方短名（索罗德 对应 索罗德2500HD；名单外的「乐风」不收录）。 */
-const CHEVROLET_FITMENT_ALIAS: Record<string, string> = {
-  索罗德: "索罗德2500HD",
-};
-
-function buildChevroletFitmentModels(): FitmentModel[] {
-  const official = new Set(
-    chevroletModels.map((m) => m.name.replace(/^雪佛兰/, "")),
-  );
-  return chevroletFitment.models
-    .filter((section) => {
-      const n = section.model.trim();
-      return CHEVROLET_FITMENT_ALIAS[n] !== undefined || official.has(n);
-    })
-    .map((section) => {
-      const n = section.model.trim();
-      return {
-        model: CHEVROLET_FITMENT_ALIAS[n] ?? n,
-        projects: section.projects.map((p) => ({
-          name: p.name,
-          specs: p.specs.map(toFitmentSpec),
-        })),
-      };
-    });
-}
 
 const PAGE_TITLE =
   "雪佛兰全系保护与升级｜16 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -142,12 +99,6 @@ export default function ChevroletBrandPage() {
     }),
   };
 
-  const fitmentConfig = {
-    heading: "雪佛兰 适配速查：你的车型能装哪些项目？",
-    models: buildChevroletFitmentModels(),
-    groupByModel: true,
-  };
-
   const vehicleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Vehicle",
@@ -204,10 +155,22 @@ export default function ChevroletBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <ChevroletSeriesHero breadcrumbItems={breadcrumbItems} />
-        <ChevroletModelGrid />
-        <ChevroletProjectGrid />
-        <ChevroletFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={chevroletModelCards}
+          groupOrder={CHEVROLET_MODEL_GROUPS}
+          groupLabels={CHEVROLET_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: CHEVROLET_SOURCE_ROW_COUNT, cards: CHEVROLET_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={chevroletCuratedProjects}
+          cards={chevroletModelCards}
+          groupOrder={CHEVROLET_MODEL_GROUPS}
+          groupLabels={CHEVROLET_MODEL_GROUP_LABELS}
+          brandLabel="雪佛兰"
+          theme="blue"
+        />
         <ChevroletFaqSection />
         <ChevroletDouyinCta />
 

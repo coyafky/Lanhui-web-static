@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ToyotaSeriesHero } from "@/components/toyota/series/ToyotaSeriesHero";
-import { ToyotaModelGrid } from "@/components/toyota/series/ToyotaModelGrid";
-import { ToyotaProjectGrid } from "@/components/toyota/series/ToyotaProjectGrid";
 import { ToyotaSubpageCards } from "@/components/toyota/series/ToyotaSubpageCards";
 import { ToyotaWheelsEntry } from "@/components/toyota/series/ToyotaWheelsEntry";
 import { ToyotaFaqSection } from "@/components/toyota/series/ToyotaFaqSection";
@@ -16,81 +14,25 @@ import {
 import { toyotaProjects } from "@/lib/toyota-all-models-products";
 import { toyotaModels } from "@/lib/toyota-model-groups";
 import { toyotaSeriesFaq } from "@/lib/toyota-series-services";
-import { toyotaFitment } from "@/lib/fitment/toyota";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { TOYOTA_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  toyotaModelCards,
+  TOYOTA_MODEL_GROUP_LABELS,
+  TOYOTA_MODEL_GROUPS,
+  TOYOTA_MODEL_CARD_COUNT,
+  TOYOTA_SOURCE_ROW_COUNT,
+} from "@/lib/toyota-curated-models";
+import { toyotaProjects as toyotaCuratedProjects } from "@/lib/toyota-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 /**
  * 适配库节过滤：官方车型名（toyotaModels）精确匹配 + 座椅布局/年款变体节；
  * 跨车型、编码、无意义（款式01-09）与官方名单外拼写节不收录。
  */
-const TOYOTA_VARIANT_SECTIONS = new Set([
-  "超霸4RUNNER",
-  "超霸4RUNNER 原车7座做5座",
-  "超霸4RUNNER 原车7座做7座",
-  "iA5 纯电动",
-  "酷路泽 原车7座做5座",
-  "酷路泽 原车7座做7座",
-  "酷路泽 7位做5位",
-  "陆地巡洋舰 原车7座做5座",
-  "陆地巡洋舰 原车5座",
-  "兰德酷路泽LC100",
-  "兰德酷路泽LC120",
-  "兰德酷路泽LC150",
-  "兰德酷路泽LC200",
-  "兰德酷路泽LC250",
-  "兰德酷路泽LC300",
-  "兰德酷路泽LC71",
-  "兰德酷路泽LC76",
-  "兰德酷路泽LC78",
-  "兰德酷路泽LC79",
-  "兰德酷路泽LC80",
-  "兰德酷路泽LC95",
-]);
-
-function buildToyotaFitmentModels(): FitmentModel[] {
-  const official = new Set(toyotaModels.map((m) => m.name));
-  // 适配库存在同名重复节（如 iA5），按节名合并项目，避免渲染重复 key
-  const merged = new Map<string, FitmentModel>();
-  for (const section of toyotaFitment.models) {
-    if (!official.has(section.model) && !TOYOTA_VARIANT_SECTIONS.has(section.model)) {
-      continue;
-    }
-    const projects = section.projects.map((p) => ({
-      name: p.name,
-      specs: p.specs.map((raw): FitmentSpec => {
-        const s = raw as {
-          label?: string;
-          material?: string;
-          year?: string;
-          note?: string;
-          date?: string;
-          dynamics?: string;
-        };
-        return {
-          label: s.label,
-          material: s.material,
-          year: s.year,
-          note: s.note,
-          date: s.date,
-          dynamics: s.dynamics,
-        };
-      }),
-    }));
-    const existing = merged.get(section.model);
-    if (existing) {
-      existing.projects.push(...projects);
-    } else {
-      merged.set(section.model, { model: section.model, projects });
-    }
-  }
-  return [...merged.values()];
-}
-
 const PAGE_TITLE =
   "丰田全系保护与舒适升级｜49 款车型适配件速查｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
@@ -176,12 +118,6 @@ export default function ToyotaBrandPage() {
   };
 
   // 供应商适配库速查：官方车型精确匹配 + 座椅布局/年款变体节，按车型分组渲染
-  const fitmentConfig = {
-    heading: "丰田 适配速查：你的车型能装哪些项目？",
-    models: buildToyotaFitmentModels(),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -239,11 +175,24 @@ export default function ToyotaBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <ToyotaSeriesHero breadcrumbItems={breadcrumbItems} />
-        <ToyotaModelGrid />
-        <ToyotaProjectGrid />
+        <BrandModelGroupGrid
+          cards={toyotaModelCards}
+          groupOrder={TOYOTA_MODEL_GROUPS}
+          groupLabels={TOYOTA_MODEL_GROUP_LABELS}
+          theme="red"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: TOYOTA_SOURCE_ROW_COUNT, cards: TOYOTA_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={toyotaCuratedProjects}
+          cards={toyotaModelCards}
+          groupOrder={TOYOTA_MODEL_GROUPS}
+          groupLabels={TOYOTA_MODEL_GROUP_LABELS}
+          brandLabel="丰田"
+          theme="red"
+        />
         <ToyotaSubpageCards />
         <ToyotaWheelsEntry />
-        <FitmentQuickCheck config={fitmentConfig} theme="red" />
         <ToyotaFaqSection />
         <ToyotaDouyinCta />
 

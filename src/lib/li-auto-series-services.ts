@@ -52,7 +52,7 @@ export const liAutoBaseServices: readonly LiAutoBaseService[] = [
     iconName: "Shield",
     title: "车膜保护",
     painPoint:
-      "家庭高频通勤、接送和商场停车，门边与漆面日常损伤最多；大面积玻璃夏季暴晒还要兼顾隔热、夜间视野、隐私和信号。理想汽车的摄像头、毫米波雷达和激光雷达感知区域会精确避让，隔热膜同步确认 ETC、导航与车载通信不受影响。",
+      "家庭高频通勤、接送和商场停车时，门边与漆面容易出现日常磨损；大面积玻璃还需兼顾隔热、夜间视野、隐私和信号。施工前核对摄像头、毫米波雷达和激光雷达感知区域，并结合实车测试 ETC、导航与车载通信。",
     suitableFor: "新提车、日晒通勤和在意智驾功能完整性的理想车主",
     href: "/product/ppf",
     subLinks: [
@@ -253,9 +253,9 @@ export const LI_AUTO_MODEL_COPY: Record<LiAutoModelEntryKey, LiAutoModelCopy> =
       topNeeds: ["隔热膜", "专车脚垫", "上下车便利"],
     },
     l9: {
-      positioning: "旗舰家庭 SUV",
+      positioning: "家庭 SUV",
       scenario:
-        "旗舰六座家庭 SUV，重点是老人孩子上下车、电动踏板、地板总成和长途舒适。",
+        "六座家庭 SUV，重点关注老人孩子上下车、电动踏板、地板总成和长途舒适体验。",
       topNeeds: ["电动踏板", "地板总成", "车衣 / 隔热膜"],
     },
     mega: {

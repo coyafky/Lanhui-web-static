@@ -97,7 +97,7 @@ export const flooringScenarios: FlooringScenario[] = [
     icon: "Users",
     title: "高频载客",
     description:
-      "多人乘坐场景下，滑轨周围和脚踏区域最容易积灰。地板总成让这些区域整体更整洁。",
+      "多人乘坐场景下，滑轨周围和脚踏区域容易积灰。地板总成有助于保持这些区域整洁。",
   },
 ];
 

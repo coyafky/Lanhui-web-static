@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GenericBrandHero } from "@/components/brand-series/GenericBrandHero";
-import { GenericBrandModelGrid } from "@/components/brand-series/GenericBrandModelGrid";
-import { GenericBrandFitment } from "@/components/brand-series/GenericBrandFitment";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { GenericBrandFaq } from "@/components/brand-series/GenericBrandFaq";
 import { GenericBrandCta } from "@/components/brand-series/GenericBrandCta";
 import { getBrandRoute } from "@/lib/product-routes";
@@ -10,11 +10,14 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { hondaFitment } from "@/lib/fitment/honda";
 import {
-  buildBrandFitmentConfig,
-  buildBrandGridModels,
-} from "@/lib/brand-series/model-page-config";
+  hondaModelCards,
+  HONDA_MODEL_GROUP_LABELS,
+  HONDA_MODEL_GROUPS,
+  HONDA_MODEL_CARD_COUNT,
+  HONDA_SOURCE_ROW_COUNT,
+} from "@/lib/honda-curated-models";
+import { hondaProjects, HONDA_PROJECT_COUNT } from "@/lib/honda-curated-projects";
 import type { FaqItem } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
@@ -71,49 +74,15 @@ export default function HondaBrandPage() {
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/honda");
   const localStore = stores.find((s) => s.isActive);
 
-  const gridModels = buildBrandGridModels(hondaFitment, [
-    { name: "艾力绅" },
-    { name: "奥德赛" },
-    { name: "缤智" },
-    { name: "飞度" },
-    { name: "锋范" },
-    { name: "哥瑞" },
-    { name: "歌诗图" },
-    { name: "冠道" },
-    { name: "皓影" },
-    { name: "杰德" },
-    { name: "竞瑞" },
-    { name: "理念S1" },
-    { name: "理念VE-1" },
-    { name: "凌派" },
-    { name: "思铂睿" },
-    { name: "思迪" },
-    { name: "思铭" },
-    { name: "思域", slug: "civic" },
-    { name: "享域" },
-    { name: "型格" },
-    { name: "雅阁", slug: "accord" },
-    { name: "英仕派" },
-    { name: "CR-V", slug: "cr-v" },
-    { name: "e:NS1" },
-    { name: "EA6绎乐" },
-    { name: "HR-V" },
-    { name: "INSPIRE" },
-    { name: "LIFE" },
-    { name: "M-NV" },
-    { name: "P7" },
-    { name: "UR-V" },
-    { name: "X-NV" },
-    { name: "XR-V" },
-    { name: "ZR-V致在" },
-  ]);
-  const fitmentConfig = buildBrandFitmentConfig("本田", hondaFitment);
+  // 车系归并数据（脚本生成，与适配库逐字对账：34 个数据行 → 34 个车系卡）
+  const modelCards = hondaModelCards;
+  const sourceRowCount = HONDA_SOURCE_ROW_COUNT;
 
-  const itemListElement = gridModels.map((m, idx) => ({
+  const itemListElement = modelCards.map((m, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    name: `${m.display} 适配件明细`,
-    url: m.slug ? `/product/honda/${m.slug}` : "/product/honda#brand-fitment",
+    name: `${m.displayName} 适配件明细`,
+    url: m.subpage ?? "/product/honda#brand-fitment",
   }));
 
   const jsonLd = {
@@ -152,13 +121,11 @@ export default function HondaBrandPage() {
       },
       areaServed: "全国",
     },
-    makesOffer: fitmentConfig.models.flatMap((m) =>
-      m.projects.map((p) => ({
-        "@type": "Offer",
-        name: `本田 ${m.model} ${p.name} 方案`,
-        category: "汽车轻改适配件",
-      })),
-    ),
+    makesOffer: hondaProjects.map((p) => ({
+      "@type": "Offer",
+      name: `本田 ${p.name} 方案（覆盖 ${p.modelCount} 个车系）`,
+      category: "汽车轻改适配件",
+    })),
   };
 
   const faqJsonLd = {
@@ -196,10 +163,24 @@ export default function HondaBrandPage() {
           subtitle="适配库收录车型速览 · 数据来自蓝辉供应商适配库"
           description={PAGE_DESCRIPTION}
           theme="blue"
-          stats={{ models: gridModels.length, projects: hondaFitment.models.reduce((n, m) => n + m.projects.length, 0) }}
+          stats={{ models: HONDA_MODEL_CARD_COUNT, projects: HONDA_PROJECT_COUNT }}
         />
-        <GenericBrandModelGrid models={gridModels} theme="blue" brandPath="/product/honda" />
-        <GenericBrandFitment config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={modelCards}
+          groupOrder={HONDA_MODEL_GROUPS}
+          groupLabels={HONDA_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: sourceRowCount, cards: HONDA_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={hondaProjects}
+          cards={modelCards}
+          groupOrder={HONDA_MODEL_GROUPS}
+          groupLabels={HONDA_MODEL_GROUP_LABELS}
+          brandLabel="本田"
+          theme="blue"
+        />
         <GenericBrandFaq items={brandFaq} theme="blue" />
         <GenericBrandCta
           title="本田升级方案 · 到店评估"

@@ -641,7 +641,7 @@ export const wenjieM8Faq: readonly WenjieM8FaqItem[] = [
     answer: "方便用户先做基础保护，再按预算和场景选择进阶项目",
   },
   {
-    question: "新车最推荐先做什么？",
+    question: "新车可以先考虑什么？",
     answer: "隔热膜、车衣、三防软包脚垫、底盘护板、电动踏板",
   },
   {

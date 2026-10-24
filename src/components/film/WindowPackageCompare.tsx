@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { windowPackages, WINDOW_PRICING_SCOPE } from "@/lib/film-products";
 
 /**
- * 4 款太阳膜套餐参数对比（无价格，参数按产品图原文呈现）。
+ * 4 款太阳膜套餐参数对比（无价格，参数按产品资料呈现）。
  * 页面保留原有 7 套组合卡片，本块为资料套餐参数补充。
  */
 export function WindowPackageCompare() {
@@ -15,7 +14,7 @@ export function WindowPackageCompare() {
             套餐参数适配速查：春分、谷雨、白露、帝王紫（凤凰红）怎么选？
           </h2>
           <p className="mt-3 text-zinc-400 max-w-2xl leading-relaxed">
-            以下为资料套餐的隔热指标、厚度与质保参考，价格不上页面，到店询价；页面上方的 7 套组合仍按侧重点选择。
+            以下数值来自产品资料，具体指标需核对对应型号与批次的检测报告；质保期限和范围以书面条款为准。到店时还需结合实车玻璃确认视野与适配。
           </p>
         </div>
 
@@ -54,18 +53,6 @@ export function WindowPackageCompare() {
               key={p.name}
               className="rounded-2xl overflow-hidden border border-white/[0.07] bg-zinc-900/60"
             >
-              <div className="relative aspect-[16/9] bg-zinc-900">
-                <Image
-                  src={p.image}
-                  alt={p.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <span className="absolute top-2 left-2 text-[10px] font-medium px-2 py-0.5 rounded-full bg-black/60 text-zinc-300 backdrop-blur-sm">
-                  产品图，非本店实拍
-                </span>
-              </div>
               <div className="p-5">
                 <div className="flex items-baseline justify-between gap-3 mb-2">
                   <h3 className="text-lg font-bold text-white">{p.name}</h3>

@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LedaoSeriesHero } from "@/components/ledao/series/LedaoSeriesHero";
 import { LedaoBaseServiceGrid } from "@/components/ledao/series/LedaoBaseServiceGrid";
-import {
-  LedaoModelEntryGrid,
-  type LedaoModelEntry,
-} from "@/components/ledao/series/LedaoModelEntryGrid";
 import { LedaoServiceFlow } from "@/components/ledao/series/LedaoServiceFlow";
 import { LedaoFaqSection } from "@/components/ledao/series/LedaoFaqSection";
 import { LedaoDouyinCta } from "@/components/ledao/series/LedaoDouyinCta";
 import { LedaoMobileCtaBar } from "@/components/ledao/series/LedaoMobileCtaBar";
-import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
+import { getBrandRoute } from "@/lib/product-routes";
 import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
@@ -18,49 +14,23 @@ import {
 import {
   ledaoBaseServices,
   ledaoSeriesFaq,
-  LEDAO_MODEL_COPY,
 } from "@/lib/ledao-series-services";
-import { ledaoFitment } from "@/lib/fitment/ledao";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
-import { LEDAO_L90_HERO_IMAGE } from "@/lib/ledao-l90-products";
 import { LEDAO_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  ledaoModelCards,
+  LEDAO_MODEL_GROUP_LABELS,
+  LEDAO_MODEL_GROUPS,
+  LEDAO_MODEL_CARD_COUNT,
+  LEDAO_SOURCE_ROW_COUNT,
+} from "@/lib/ledao-curated-models";
+import { ledaoProjects as ledaoCuratedProjects } from "@/lib/ledao-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 /** 适配库 3 节（L60 / L80 / L90）与官方车型精确匹配。 */
-const LEDAO_FITMENT_SECTIONS = new Set(["L60", "L80", "L90"]);
-
-function buildLedaoFitmentModels(): FitmentModel[] {
-  return ledaoFitment.models
-    .filter((section) => LEDAO_FITMENT_SECTIONS.has(section.model))
-    .map((section) => ({
-      model: section.model,
-      projects: section.projects.map((p) => ({
-        name: p.name,
-        specs: p.specs.map((raw): FitmentSpec => {
-          const s = raw as {
-            label?: string;
-            material?: string;
-            year?: string;
-            note?: string;
-            date?: string;
-            dynamics?: string;
-          };
-          return {
-            label: s.label,
-            material: s.material,
-            year: s.year,
-            note: s.note,
-            date: s.date,
-            dynamics: s.dynamics,
-          };
-        }),
-      })),
-    }));
-}
-
 const PAGE_TITLE =
   "乐道全系家庭用车保护与舒适升级｜车膜、踏板、地板与洗美养护｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
@@ -92,32 +62,10 @@ export const metadata: Metadata = {
   },
 };
 
-function buildModelEntries(): readonly LedaoModelEntry[] {
-  const route = getModelRoute("ledao", "l90");
-  if (!route) {
-    throw new Error("LedaoBrandPage: missing ledao l90 route definition");
-  }
-  return [
-    {
-      modelKey: "l90",
-      modelName: route.modelName,
-      canonicalPath: route.canonicalPath,
-      scenario: LEDAO_MODEL_COPY.l90.scenario,
-      topNeeds: LEDAO_MODEL_COPY.l90.topNeeds,
-      projectCount: route.projectCount ?? 21,
-      image: {
-        src: LEDAO_L90_HERO_IMAGE.publicPath ?? "",
-        alt: "乐道 L90 升级方案预览图",
-      },
-    },
-  ];
-}
-
 export default function LedaoBrandPage() {
   const brand = getBrandRoute("ledao");
   if (!brand || brand.status !== "live") notFound();
 
-  const modelEntries = buildModelEntries();
   const breadcrumbItems = getProductBreadcrumbs("/product/ledao");
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/ledao");
   const localStore = stores.find((s) => s.isActive);
@@ -145,11 +93,6 @@ export default function LedaoBrandPage() {
   };
 
   // 供应商适配库速查：L60 / L80 / L90 精确匹配，按车型分组渲染
-  const fitmentConfig = {
-    heading: "乐道 适配速查：你的车型能装哪些项目？",
-    models: buildLedaoFitmentModels(),
-    groupByModel: true,
-  };
 
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
@@ -209,9 +152,23 @@ export default function LedaoBrandPage() {
         />
         <LedaoSeriesHero breadcrumbItems={breadcrumbItems} />
         <LedaoBaseServiceGrid />
-        <LedaoModelEntryGrid entries={modelEntries} />
+        <BrandModelGroupGrid
+          cards={ledaoModelCards}
+          groupOrder={LEDAO_MODEL_GROUPS}
+          groupLabels={LEDAO_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: LEDAO_SOURCE_ROW_COUNT, cards: LEDAO_MODEL_CARD_COUNT, images: 0 }}
+        />
         <LedaoServiceFlow />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
+        <BrandProjectMatrix
+          projects={ledaoCuratedProjects}
+          cards={ledaoModelCards}
+          groupOrder={LEDAO_MODEL_GROUPS}
+          groupLabels={LEDAO_MODEL_GROUP_LABELS}
+          brandLabel="乐道"
+          theme="blue"
+        />
         <LedaoFaqSection />
         <LedaoDouyinCta />
 

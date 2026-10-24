@@ -13,6 +13,7 @@
 import Link from "next/link";
 import { Shield, Sun, Palette } from "lucide-react";
 import type { ServiceRoute } from "@/lib/product-routes";
+import { getServiceBlurb, getServiceSubtitle } from "@/lib/product-service-blurbs";
 
 type Props = {
   services: readonly ServiceRoute[];
@@ -24,59 +25,26 @@ const ICON_MAP: Record<string, typeof Shield> = {
   "color-film": Palette,
 };
 
-// 从 products.ts 复用的 tagline (避免在 RSC 触发额外数据加载)
-const TAGLINE_MAP: Record<string, string> = {
-  ppf: "花少钱，贴对膜 · TPU 透明膜防刮自修复",
-  "window-film": "前挡清晰+侧后隐私，夏季用车更舒适",
-  "color-film": "不伤原漆，撕除即可恢复，色系丰富可选",
-};
-
 export function FilmServiceMap({ services }: Props) {
   return (
     <section
       aria-labelledby="film-map-title"
-      className="relative overflow-hidden rounded-3xl border border-cyan-900/40 bg-zinc-950"
+      className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30"
     >
-      {/* 背景: cyan 光透射 + backdrop-blur */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-transparent backdrop-blur-md"
-      />
-
-      {/* 光透射线纹理 — 模拟玻璃贴膜后的折射感 */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        {[
-          "top-[15%] left-[5%] right-[20%]",
-          "top-[35%] left-[15%] right-[5%]",
-          "top-[55%] left-[8%] right-[25%]",
-          "top-[75%] left-[12%] right-[10%]",
-          "top-[25%] left-[40%] right-[40%]",
-          "top-[65%] left-[35%] right-[15%]",
-        ].map((pos, i) => (
-          <div
-            key={i}
-            className={`absolute h-px bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent ${pos}`}
-          />
-        ))}
-      </div>
-
-      <div className="relative z-10 p-6 md:p-8">
+      <div className="p-6 md:p-8">
         {/* Eyebrow + H2 */}
         <div className="mb-6">
-          <p className="text-xs tracking-widest text-cyan-400 mb-2">
+          <p className="mb-2 text-xs font-medium tracking-[0.18em] text-orange-400">
             FILM SERIES · 车膜系列
           </p>
           <h2
             id="film-map-title"
-            className="text-2xl md:text-3xl font-bold text-white"
+            className="text-2xl font-semibold tracking-tight text-white md:text-3xl"
           >
-            漆面与玻璃的全方位膜系
+            漆面与玻璃的膜系方案
           </h2>
           <p className="text-zinc-300 mt-2 text-sm md:text-base">
-            漆面保护的隐形盾牌 · 玻璃的隔热卫士 · 改色的视觉表达
+            根据漆面、玻璃与外观需求选择膜材，具体效果与施工方案以产品资料和实车检查为准。
           </p>
         </div>
 
@@ -84,42 +52,39 @@ export function FilmServiceMap({ services }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {services.map((service) => {
             const Icon = ICON_MAP[service.serviceSlug] ?? Shield;
-            const tagline = TAGLINE_MAP[service.serviceSlug] ?? "";
+            const subtitle = getServiceSubtitle(service.serviceSlug);
+            const blurb = getServiceBlurb(service.serviceSlug);
             return (
               <Link
                 key={service.serviceSlug}
                 href={service.canonicalPath}
-                className="group relative block rounded-xl border border-cyan-800/50 bg-cyan-950/20 p-4 md:p-5 backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-cyan-400/60 hover:bg-cyan-950/40 hover:backdrop-blur-xl hover:shadow-lg hover:shadow-cyan-500/10"
+                className="group block rounded-xl border border-white/[0.08] bg-zinc-950/60 p-5 transition-colors hover:border-orange-400/40 hover:bg-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
               >
-                {/* 卡片内 2 条额外光透射线 */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl"
-                >
-                  <div className="absolute top-[30%] left-[10%] right-[20%] h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
-                  <div className="absolute top-[70%] left-[20%] right-[10%] h-px bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent" />
-                </div>
-
-                <div className="relative z-10">
+                <div>
                   <div className="flex items-start gap-3 mb-3">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-950/60 border border-cyan-800/60 flex items-center justify-center group-hover:border-cyan-400/60 transition-colors">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-orange-400/20 bg-orange-500/10">
                       <Icon
-                        className="w-5 h-5 text-cyan-300"
+                        className="size-5 text-orange-300"
                         aria-hidden="true"
                       />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-base md:text-lg font-bold text-white group-hover:text-cyan-200 transition-colors">
+                      <h3 className="text-base font-semibold text-white md:text-lg">
                         {service.title}
                       </h3>
-                      <p className="text-[10px] tracking-wider text-cyan-500/70 mt-0.5">
-                        {service.navLabel.toUpperCase()}
-                      </p>
+                      {/* 副标题：不再回退到 navLabel（与 title 常相同 → 重复），无内容则隐藏 */}
+                      {subtitle && (
+                        <p className="mt-0.5 text-xs text-zinc-400">
+                          {subtitle}
+                        </p>
+                      )}
                     </div>
                   </div>
-                  <p className="text-sm text-zinc-300 leading-relaxed">
-                    {tagline}
-                  </p>
+                  {blurb && (
+                    <p className="text-sm text-zinc-300 leading-relaxed">
+                      {blurb}
+                    </p>
+                  )}
                 </div>
               </Link>
             );

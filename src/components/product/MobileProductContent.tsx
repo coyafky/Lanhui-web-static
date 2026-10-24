@@ -11,7 +11,7 @@
  * 注意: children 顺序必须与 tabs 顺序一致
  */
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { StickyTabBar, type Tab } from "./StickyTabBar";
 
 type Props = {
@@ -22,6 +22,35 @@ type Props = {
 export function MobileProductContent({ tabs, children }: Props) {
   const [activeTab, setActiveTab] = useState<string>(tabs[0]?.id ?? "");
   const panels = Array.isArray(children) ? children : [children];
+
+  useEffect(() => {
+    const activateForHash = (hash: string) => {
+      const targetTab = hash === "#service-projects"
+        ? "project"
+        : hash === "#vehicle-topics"
+          ? "vehicle"
+          : null;
+      if (!targetTab) return;
+      setActiveTab(targetTab);
+      requestAnimationFrame(() => {
+        document.getElementById(targetTab === "project" ? "service-projects" : "vehicle-topics")?.scrollIntoView();
+      });
+    };
+    const syncTabWithHash = () => activateForHash(window.location.hash);
+    const onAnchorClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const href = target.closest("a[href='#vehicle-topics'], a[href='#service-projects']")?.getAttribute("href");
+      if (href) activateForHash(href);
+    };
+    syncTabWithHash();
+    window.addEventListener("hashchange", syncTabWithHash);
+    document.addEventListener("click", onAnchorClick);
+    return () => {
+      window.removeEventListener("hashchange", syncTabWithHash);
+      document.removeEventListener("click", onAnchorClick);
+    };
+  }, []);
 
   return (
     <div>

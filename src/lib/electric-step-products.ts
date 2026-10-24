@@ -111,7 +111,7 @@ export const electricStepScenarios: readonly ElectricStepScenario[] = [
     icon: "ShoppingBag",
     title: "抱娃与提物",
     description:
-      "一手抱孩子、一手提行李时，上下车是最不方便的时刻。踏板提供一个稳定、清晰的落脚空间，让双手被占用的乘员也能安全、顺畅地进出车辆。",
+      "抱孩子或提行李时，上下车可能不便。踏板提供额外落脚位置，使用前仍需确认踏面状态与车辆停靠环境。",
   },
   {
     id: "business",
@@ -143,7 +143,7 @@ export const electricStepVariantComparison: readonly ElectricStepVariantComparis
   },
   {
     aspect: "维护差异",
-    noLight: "结构最简单，故障点最少",
+    noLight: "结构相对简单，仍需按使用情况维护",
     singleLight: "灯条可单独更换",
     largeLight: "灯带更换需拆面板",
   },
@@ -155,7 +155,7 @@ export const electricStepVariantComparison: readonly ElectricStepVariantComparis
   },
   {
     aspect: "车型限制",
-    noLight: "最广泛，几乎无限制",
+    noLight: "适配范围需按车型与安装位确认",
     singleLight: "需确认门板走线空间",
     largeLight: "需确认踏板内腔尺寸和电源负载",
   },

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HavalSeriesHero } from "@/components/haval/series/HavalSeriesHero";
-import { HavalModelGrid } from "@/components/haval/series/HavalModelGrid";
-import { HavalProjectGrid } from "@/components/haval/series/HavalProjectGrid";
-import { HavalFitmentDetails } from "@/components/haval/series/HavalFitmentDetails";
 import { HavalFaqSection } from "@/components/haval/series/HavalFaqSection";
 import { HavalDouyinCta } from "@/components/haval/series/HavalDouyinCta";
 import { HavalMobileCtaBar } from "@/components/haval/series/HavalMobileCtaBar";
@@ -15,12 +12,20 @@ import {
 import { havalProjects } from "@/lib/haval-all-models-products";
 import { havalModels } from "@/lib/haval-model-groups";
 import { havalSeriesFaq } from "@/lib/haval-series-services";
-import { havalFitment } from "@/lib/fitment/haval";
-import { FitmentQuickCheck } from "@/components/vehicle-page";
 import { HAVAL_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  havalModelCards,
+  HAVAL_MODEL_GROUP_LABELS,
+  HAVAL_MODEL_GROUPS,
+  HAVAL_MODEL_CARD_COUNT,
+  HAVAL_SOURCE_ROW_COUNT,
+} from "@/lib/haval-curated-models";
+import { havalProjects as havalCuratedProjects } from "@/lib/haval-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 const PAGE_TITLE =
   "哈弗全系保护与升级｜26 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -97,40 +102,6 @@ export default function NissanBrandPage() {
   };
 
   // 供应商适配库速查：仅收录适配库中存在的 19 个精确车型节；官方名单中 H2S/H6L/H6S/F7X/大狗PLUS/枭龙MAX/猛龙PLUS 无对应节，不展示
-  const fitmentConfig = {
-    heading: "哈弗 适配速查：你的车型能装哪些项目？",
-    models: havalFitment.models
-      .filter((m) => [
-        "赤兔",
-        "初恋",
-        "大狗",
-        "酷狗",
-        "猛龙",
-        "神兽",
-        "枭龙",
-        "F5",
-        "F7",
-        "H1",
-        "H2",
-        "H4",
-        "H5",
-        "H6",
-        "H7",
-        "H9",
-        "M6",
-        "H8",
-        "H10",
-      ].includes(m.model))
-      .map((m) => ({
-        model: m.model,
-        projects: m.projects.map((p) => ({
-          name: p.name,
-          specs: [...p.specs],
-        })),
-      })),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -188,10 +159,22 @@ export default function NissanBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <HavalSeriesHero breadcrumbItems={breadcrumbItems} />
-        <HavalModelGrid />
-        <HavalProjectGrid />
-        <HavalFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="red" />
+        <BrandModelGroupGrid
+          cards={havalModelCards}
+          groupOrder={HAVAL_MODEL_GROUPS}
+          groupLabels={HAVAL_MODEL_GROUP_LABELS}
+          theme="red"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: HAVAL_SOURCE_ROW_COUNT, cards: HAVAL_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={havalCuratedProjects}
+          cards={havalModelCards}
+          groupOrder={HAVAL_MODEL_GROUPS}
+          groupLabels={HAVAL_MODEL_GROUP_LABELS}
+          brandLabel="哈弗"
+          theme="red"
+        />
         <HavalFaqSection />
         <HavalDouyinCta />
 

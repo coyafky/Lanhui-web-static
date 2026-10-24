@@ -175,7 +175,7 @@ export const ELECTRIC_STEP_FITMENT: readonly ElectricStepFitment[] = [
     model: "腾势 N9",
     modelSlug: null,
     years: "2025 款",
-    body: "旗舰 SUV",
+    body: "大型 SUV",
     signal: "原厂对插",
     note: null,
     source: ELECTRIC_STEP_SOURCE,

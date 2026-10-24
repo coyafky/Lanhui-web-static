@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ShangjieSeriesHero } from "@/components/shangjie/series/ShangjieSeriesHero";
-import { ShangjieModelGrid } from "@/components/shangjie/series/ShangjieModelGrid";
-import { ShangjieProjectGrid } from "@/components/shangjie/series/ShangjieProjectGrid";
-import { ShangjieFitmentDetails } from "@/components/shangjie/series/ShangjieFitmentDetails";
 import { ShangjieFaqSection } from "@/components/shangjie/series/ShangjieFaqSection";
 import { ShangjieDouyinCta } from "@/components/shangjie/series/ShangjieDouyinCta";
 import { ShangjieMobileCtaBar } from "@/components/shangjie/series/ShangjieMobileCtaBar";
@@ -15,12 +12,20 @@ import {
 import { shangjieProjects } from "@/lib/shangjie-all-models-products";
 import { shangjieModels } from "@/lib/shangjie-model-groups";
 import { shangjieSeriesFaq } from "@/lib/shangjie-series-services";
-import { shangjieFitment } from "@/lib/fitment/shangjie";
-import { FitmentQuickCheck } from "@/components/vehicle-page";
 import { SHANGJIE_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  shangjieModelCards,
+  SHANGJIE_MODEL_GROUP_LABELS,
+  SHANGJIE_MODEL_GROUPS,
+  SHANGJIE_MODEL_CARD_COUNT,
+  SHANGJIE_SOURCE_ROW_COUNT,
+} from "@/lib/shangjie-curated-models";
+import { shangjieProjects as shangjieCuratedProjects } from "@/lib/shangjie-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 const PAGE_TITLE =
   "尚界 全系保护与升级｜3 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -96,28 +101,6 @@ export default function ShangjieBrandPage() {
     }),
   };
 
-  // 供应商适配库速查：官方车型 H5/Z7/Z7T 精确节 + 续航/纯电细分节；排除跨车型「鸿蒙智行系列」节
-  const fitmentConfig = {
-    heading: "尚界 适配速查：你的车型能装哪些项目？",
-    models: shangjieFitment.models
-      .filter((m) => [
-        "H5",
-        "Z7",
-        "Z7T",
-        "H5-200续航",
-        "H5纯电-535续航",
-        "Z7纯电Max-732续航",
-      ].includes(m.model))
-      .map((m) => ({
-        model: m.model,
-        projects: m.projects.map((p) => ({
-          name: p.name,
-          specs: [...p.specs],
-        })),
-      })),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -175,10 +158,22 @@ export default function ShangjieBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <ShangjieSeriesHero breadcrumbItems={breadcrumbItems} />
-        <ShangjieModelGrid />
-        <ShangjieProjectGrid />
-        <ShangjieFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={shangjieModelCards}
+          groupOrder={SHANGJIE_MODEL_GROUPS}
+          groupLabels={SHANGJIE_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: SHANGJIE_SOURCE_ROW_COUNT, cards: SHANGJIE_MODEL_CARD_COUNT, images: 4 }}
+        />
+        <BrandProjectMatrix
+          projects={shangjieCuratedProjects}
+          cards={shangjieModelCards}
+          groupOrder={SHANGJIE_MODEL_GROUPS}
+          groupLabels={SHANGJIE_MODEL_GROUP_LABELS}
+          brandLabel="尚界"
+          theme="blue"
+        />
         <ShangjieFaqSection />
         <ShangjieDouyinCta />
 

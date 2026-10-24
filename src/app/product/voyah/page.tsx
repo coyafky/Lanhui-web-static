@@ -2,11 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { VoyahSeriesHero } from "@/components/voyah/series/VoyahSeriesHero";
 import { VoyahBaseServiceGrid } from "@/components/voyah/series/VoyahBaseServiceGrid";
-import {
-  VoyahModelEntryGrid,
-  type VoyahModelEntry,
-} from "@/components/voyah/series/VoyahModelEntryGrid";
-import { VoyahFitmentMatrix } from "@/components/voyah/series/VoyahFitmentMatrix";
 import { VoyahServiceFlow } from "@/components/voyah/series/VoyahServiceFlow";
 import { VoyahFaqSection } from "@/components/voyah/series/VoyahFaqSection";
 import { VoyahDouyinCta } from "@/components/voyah/series/VoyahDouyinCta";
@@ -19,19 +14,22 @@ import {
 import {
   voyahBaseServices,
   voyahSeriesFaq,
-  VOYAH_MODEL_COPY,
-  type VoyahModelEntryKey,
 } from "@/lib/voyah-series-services";
-import {
-  voyahFitmentCategories,
-  VOYAH_MODEL_NAMES,
-} from "@/lib/voyah-all-models-products";
-import { voyahFitment } from "@/lib/fitment/voyah";
-import { FitmentQuickCheck } from "@/components/vehicle-page";
+import { voyahFitmentCategories } from "@/lib/voyah-all-models-products";
 import { VOYAH_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  voyahModelCards,
+  VOYAH_MODEL_GROUP_LABELS,
+  VOYAH_MODEL_GROUPS,
+  VOYAH_MODEL_CARD_COUNT,
+  VOYAH_SOURCE_ROW_COUNT,
+} from "@/lib/voyah-curated-models";
+import { voyahProjects as voyahCuratedProjects } from "@/lib/voyah-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 const PAGE_TITLE =
   "岚图全系保护与舒适升级｜追光 FREE 知音 泰山 梦想家｜顺德大良蓝辉轻改";
@@ -68,21 +66,10 @@ export const metadata: Metadata = {
   },
 };
 
-function buildModelEntries(): readonly VoyahModelEntry[] {
-  return (Object.keys(VOYAH_MODEL_COPY) as VoyahModelEntryKey[]).map((key) => ({
-    modelKey: key,
-    modelName: VOYAH_MODEL_NAMES[key],
-    scenario: VOYAH_MODEL_COPY[key].scenario,
-    topNeeds: VOYAH_MODEL_COPY[key].topNeeds,
-    fitmentCount: VOYAH_MODEL_COPY[key].fitmentCount,
-  }));
-}
-
 export default function VoyahBrandPage() {
   const brand = getBrandRoute("voyah");
   if (!brand || brand.status !== "live") notFound();
 
-  const modelEntries = buildModelEntries();
   const breadcrumbItems = getProductBreadcrumbs("/product/voyah");
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/voyah");
   const localStore = stores.find((s) => s.isActive);
@@ -117,21 +104,6 @@ export default function VoyahBrandPage() {
     ...(localStore && {
       provider: generateLocalBusinessSchema(localStore),
     }),
-  };
-
-  // 供应商适配库速查：梦想家/泰山/知音/追光/FREE 五款车型节全部精确匹配
-  const fitmentConfig = {
-    heading: "岚图 适配速查：你的车型能装哪些项目？",
-    models: voyahFitment.models
-      .filter((m) => ["梦想家", "泰山", "知音", "追光", "FREE"].includes(m.model))
-      .map((m) => ({
-        model: m.model,
-        projects: m.projects.map((p) => ({
-          name: p.name,
-          specs: [...p.specs],
-        })),
-      })),
-    groupByModel: true,
   };
 
   // GEO 增量：Vehicle + FAQPage 结构化数据
@@ -191,10 +163,23 @@ export default function VoyahBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <VoyahSeriesHero breadcrumbItems={breadcrumbItems} />
-        <VoyahModelEntryGrid entries={modelEntries} />
         <VoyahBaseServiceGrid />
-        <VoyahFitmentMatrix categories={voyahFitmentCategories} />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={voyahModelCards}
+          groupOrder={VOYAH_MODEL_GROUPS}
+          groupLabels={VOYAH_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: VOYAH_SOURCE_ROW_COUNT, cards: VOYAH_MODEL_CARD_COUNT, images: 6 }}
+        />
+        <BrandProjectMatrix
+          projects={voyahCuratedProjects}
+          cards={voyahModelCards}
+          groupOrder={VOYAH_MODEL_GROUPS}
+          groupLabels={VOYAH_MODEL_GROUP_LABELS}
+          brandLabel="岚图"
+          theme="blue"
+        />
         <VoyahServiceFlow />
         <VoyahFaqSection />
         <VoyahDouyinCta />

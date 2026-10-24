@@ -12,7 +12,7 @@ export const SLUG_REGEX = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 export type StoreLevel = "flagship" | "premium" | "specialty" | "member";
 
 export const STORE_LEVEL_LABELS: Record<StoreLevel, string> = {
-  flagship: "旗舰店",
+  flagship: "服务中心",
   premium: "尊享店",
   specialty: "专营店",
   member: "会员店",

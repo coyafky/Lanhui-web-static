@@ -182,7 +182,7 @@ export function WindowFilmPackageDetail({ pkg, breadcrumbItems }: Props) {
 
           <p className="mt-4 text-xs text-zinc-500">
             注：当前资料口径下，前挡与侧后挡均按「可见光阻隔率」标注，
-            与行业常见的可见光透过率 VLT 含义不同，以品牌资料为准。
+            与行业常见的可见光透过率 VLT 含义不同。所有数值需核对对应型号与批次的检测报告，实际表现以实车测试为准；质保以书面条款为准。
           </p>
         </div>
       </section>

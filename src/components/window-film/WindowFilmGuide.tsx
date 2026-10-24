@@ -20,7 +20,7 @@ export function WindowFilmGuide() {
             按你的用车需求选套餐
           </h2>
           <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
-            从真实用车场景出发，先看自己关心什么，再选最贴近的那一档。
+            从真实用车场景出发，先看自己关心什么，再选适合的方案。
           </p>
         </div>
 

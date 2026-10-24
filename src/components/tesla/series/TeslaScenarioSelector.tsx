@@ -59,7 +59,7 @@ export function TeslaScenarioSelector() {
             Tesla 车主最常见的用车痛点是什么？
           </h2>
           <p className="mt-3 text-zinc-400 max-w-2xl text-base leading-relaxed text-pretty">
-            选一个最接近你日常的场景，我们给出对应的服务组合参考。
+            选一个贴近日常用车的场景，查看对应的服务组合参考。
           </p>
         </div>
 

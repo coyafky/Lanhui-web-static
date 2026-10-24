@@ -154,7 +154,7 @@ export default async function ProvincePage({
                 <h2 className="text-xl font-bold text-white">省内门店</h2>
               </div>
               <p className="text-xs text-zinc-500 hidden sm:block">
-                按门店等级排序 · 旗舰优先
+                按门店等级与名称排序
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

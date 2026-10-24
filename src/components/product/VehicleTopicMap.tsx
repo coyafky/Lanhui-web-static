@@ -61,26 +61,12 @@ const ACCENT_TEXT: Record<AccentColor, string> = {
   sky: "text-sky-300",
 };
 
-// 第一人称视角 — 与 vehicle-topics 区域呼应
-const FIRST_PERSON_MAP: Record<string, string> = {
-  wenjie: "我开问界 · 看重 M 系列家用体验",
-  xiaomi: "我是小米车主 · 看重科技与运动感",
-  zeekr: "我是极氪车主 · 看重操控与质感",
-  "li-auto": "我是理想车主 · 看重家用舒适",
-  tesla: "我是特斯拉车主 · 看重简洁与科技",
-  xpeng: "我是小鹏车主 · 看重智驾与年轻化",
-  denza: "我是腾势车主 · 看重商务与舒适",
-  voyah: "我是岚图车主 · 看重高端与稳重",
-  ledao: "我是乐道车主 · 看重家用与空间",
-  gaoshan: "我是高山车主 · 看重商务接待",
-  zhijie: "我是智界车主 · 看重智驾与设计",
-};
-
 // 3 重点品牌 — 放大显示
 const FEATURED_SLUGS: readonly string[] = ["wenjie", "xiaomi", "zeekr"];
 
 export function VehicleTopicMap({ brands }: Props) {
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
+  const [showAllBrands, setShowAllBrands] = useState(false);
 
   const featured = brands.filter((b) => FEATURED_SLUGS.includes(b.brandSlug));
   const others = brands.filter((b) => !FEATURED_SLUGS.includes(b.brandSlug));
@@ -88,31 +74,21 @@ export function VehicleTopicMap({ brands }: Props) {
   return (
     <section
       aria-labelledby="topic-map-title"
-      className="relative overflow-hidden rounded-3xl border border-violet-900/40 bg-zinc-950"
+      className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30"
     >
-      {/* 背景: radial-gradient 紫色辉光 */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%)",
-        }}
-      />
-
-      <div className="relative z-10 p-6 md:p-8">
+      <div className="p-6 md:p-8">
         <div className="mb-6">
-          <p className="text-xs tracking-widest text-violet-400 mb-2">
+          <p className="mb-2 text-xs font-medium tracking-[0.18em] text-orange-400">
             VEHICLE TOPICS · 车型专题
           </p>
           <h2
             id="topic-map-title"
-            className="text-2xl md:text-3xl font-bold text-white"
+            className="text-2xl font-semibold tracking-tight text-white md:text-3xl"
           >
-            我是 [品牌] 车主 · 按车型找方案
+            按品牌找到适合你的车型方案
           </h2>
-          <p className="text-zinc-300 mt-2 text-sm md:text-base">
-            11 个热门品牌 + 13 款主流车型 · 围绕车主视角聚合升级方案
+          <p className="mt-2 text-sm text-zinc-300 md:text-base">
+            查看 {brands.length} 个品牌入口，按车型与年款了解可选项目。
           </p>
         </div>
 
@@ -131,7 +107,7 @@ export function VehicleTopicMap({ brands }: Props) {
 
         {/* 8 普通品牌 */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
-          {others.map((brand) => (
+          {(showAllBrands ? others : others.slice(0, 8)).map((brand) => (
             <BrandCard
               key={brand.brandSlug}
               brand={brand}
@@ -142,19 +118,16 @@ export function VehicleTopicMap({ brands }: Props) {
           ))}
         </div>
 
-        {/* 第一人称提示 — 鼠标悬停时同步显示 */}
-        <div
-          aria-live="polite"
-          className="mt-6 h-6 text-sm text-zinc-300 text-center"
-        >
-          {hoveredSlug ? (
-            <span className="text-violet-300">
-              {FIRST_PERSON_MAP[hoveredSlug] ?? "查看此品牌车型方案"}
-            </span>
-          ) : (
-            <span className="text-zinc-400">悬停品牌色块，查看车主视角</span>
-          )}
-        </div>
+        {others.length > 8 && (
+          <button
+            type="button"
+            aria-expanded={showAllBrands}
+            onClick={() => setShowAllBrands((current) => !current)}
+            className="mt-5 flex min-h-12 w-full items-center justify-center rounded-xl border border-white/[0.12] bg-white/[0.03] px-5 py-3 text-sm font-medium text-zinc-100 transition-colors hover:border-orange-400/40 hover:bg-orange-400/[0.06] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+          >
+            {showAllBrands ? "收起品牌列表" : `查看全部 ${brands.length} 个品牌`}
+          </button>
+        )}
       </div>
     </section>
   );
@@ -189,7 +162,7 @@ function BrandCard({
       onMouseLeave={() => onHover(null)}
       onFocus={() => onHover(brand.brandSlug)}
       onBlur={() => onHover(null)}
-      className={`group relative block rounded-xl border ${borderClass} bg-zinc-900/60 hover:bg-zinc-900 ${padding} transition-all duration-200 hover:scale-[1.04] hover:shadow-md hover:shadow-black/40`}
+      className={`group relative block rounded-xl border ${borderClass} bg-zinc-950/60 hover:bg-zinc-900 ${padding} transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400`}
       aria-label={`${brand.brandName} 车型方案 ${brand.status === "live" ? "已上线" : "整理中"}`}
     >
       <div className="flex items-center gap-2">

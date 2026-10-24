@@ -39,7 +39,7 @@ export const volkswagenSeriesFaq: readonly VolkswagenSeriesFaqItem[] = [
   {
     question: "底盘护板材质怎么选？",
     answer:
-      "锰钢 1.2mm 最硬，跑烂路选它；碳钢 1.5mm 均衡；铝镁合金 2.0mm 轻；塑钢 5.0mm 耐腐蚀；碳纤 5.0mm 最轻。城市代步铝镁合金够用，经常走非铺装路面优先锰钢或碳钢。",
+      "锰钢 1.2mm 侧重刚性；碳钢 1.5mm 可作为均衡选择；铝镁合金 2.0mm 侧重轻量化；塑钢 5.0mm 关注耐腐蚀表现；碳纤 5.0mm 需核对具体结构与适配。材质选择还应结合车型、路况与安装位置。",
   },
   {
     question: "电动踏板哪些车型能装？",

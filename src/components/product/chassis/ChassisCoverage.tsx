@@ -18,17 +18,14 @@ export function ChassisCoverage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {chassisCoverageZones.map((zone, index) => {
               const Icon = ZONE_ICONS[index] ?? ShieldCheck;
-              const isPrimary = zone.emphasis === "primary";
 
               return (
                 <article
                   key={zone.code}
-                  className={`relative min-w-0 overflow-hidden border border-white/[0.08] bg-zinc-900/60 p-6 ${
-                    isPrimary ? "lg:col-span-6 lg:min-h-56 lg:p-8" : "lg:col-span-4"
-                  }`}
+                  className="relative min-w-0 rounded-2xl border border-white/[0.08] bg-zinc-900/60 p-5 sm:p-6"
                 >
                   <div className="flex items-start justify-between gap-5">
                     <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 text-orange-300 ring-1 ring-orange-400/20">
@@ -36,7 +33,7 @@ export function ChassisCoverage() {
                     </div>
                     <span className="text-sm font-semibold tracking-[0.16em] text-zinc-600">{zone.code}</span>
                   </div>
-                  <h3 className={`mt-7 font-semibold text-white ${isPrimary ? "text-2xl" : "text-xl"}`}>
+                  <h3 className="mt-7 text-xl font-semibold text-white">
                     {zone.title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-zinc-300 sm:text-base">{zone.description}</p>

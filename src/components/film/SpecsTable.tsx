@@ -4,10 +4,12 @@ export function SpecsTable({
   columns,
   data,
   title,
+  disclaimer,
 }: {
   columns: Column[];
   data: Record<string, string>[];
   title?: string;
+  disclaimer?: string;
 }) {
   return (
     <section className="py-16 bg-black border-y border-zinc-900">
@@ -78,6 +80,9 @@ export function SpecsTable({
             </article>
           ))}
         </div>
+        {disclaimer && (
+          <p className="mt-5 text-xs leading-relaxed text-zinc-500">{disclaimer}</p>
+        )}
       </div>
     </section>
   );

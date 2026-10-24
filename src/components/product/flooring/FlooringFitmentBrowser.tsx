@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Search, SearchX, ShieldCheck, AlertTriangle } from "lucide-react";
+import { flooringFitmentPosterByModel } from "@/lib/flooring-fitment-images";
 import {
   flooringFitmentEntries,
   flooringFitmentSuvBrands,
@@ -130,31 +132,46 @@ function FitmentGroup({
                   STATUS_META[entry.status as FitmentStatus] ??
                   STATUS_META["confirmed"];
                 const { Icon } = meta;
+                const poster = flooringFitmentPosterByModel[entry.model];
                 return (
                   <div
                     key={entry.model}
-                    className="rounded-lg border border-white/[0.06] bg-zinc-950/60 p-4"
+                    className="flex gap-4 rounded-lg border border-white/[0.06] bg-zinc-950/60 p-4"
                   >
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-sm font-semibold text-white">
-                        {entry.model}
-                      </span>
-                      <span
-                        data-status={entry.status}
-                        className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs ring-1 ${meta.className}`}
-                      >
-                        <Icon className="size-3" aria-hidden="true" />
-                        {meta.label}
-                      </span>
-                    </div>
-                    <p className="mt-2 text-sm leading-7 text-zinc-200">
-                      配置构成：{entry.composition}
-                    </p>
-                    {entry.optionalLogic && (
-                      <p className="mt-1 text-sm leading-7 text-amber-300/90">
-                        可选配：{entry.optionalLogic}
-                      </p>
+                    {poster && (
+                      <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-zinc-900 ring-1 ring-white/[0.08] sm:size-24">
+                        <Image
+                          src={poster}
+                          alt={`${entry.model} 高端定制地板成品图`}
+                          width={768}
+                          height={768}
+                          loading="lazy"
+                          className="size-full object-cover object-top"
+                        />
+                      </div>
                     )}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-sm font-semibold text-white">
+                          {entry.model}
+                        </span>
+                        <span
+                          data-status={entry.status}
+                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs ring-1 ${meta.className}`}
+                        >
+                          <Icon className="size-3" aria-hidden="true" />
+                          {meta.label}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-sm leading-7 text-zinc-200">
+                        配置构成：{entry.composition}
+                      </p>
+                      {entry.optionalLogic && (
+                        <p className="mt-1 text-sm leading-7 text-amber-300/90">
+                          可选配：{entry.optionalLogic}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 );
               })}

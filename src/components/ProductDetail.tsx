@@ -41,7 +41,7 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
     : {
         title: "蓝辉隐形车衣",
         description:
-          "6 款隐形车衣覆盖 6.5mil 至 10mil、3 至 12 年质保，按材质、厚度与用车需求选择；佛山顺德大良可到店施工，广州可预约上门评估。",
+          "隐形车衣可按材质、厚度与用车需求选择；产品参数需核对对应资料，质保以书面条款为准。佛山顺德大良可到店沟通施工方案。",
         image: "/images/producthero/ppf-hero.webp",
         imageAlt: "蓝辉隐形车衣透明保护膜施工效果",
       };
@@ -193,7 +193,7 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
               <div className="mb-12">
                 <p className="text-xs tracking-widest text-orange-400 mb-3">决策梳理</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white max-w-2xl text-balance">
-                  从漆面威胁到长效保护，一站式解决
+                  了解常见漆面损耗与车衣防护边界
                 </h2>
                 <p className="text-zinc-400 text-sm mt-3 max-w-xl text-pretty">
                   了解车漆每天都在面对什么、隐形车衣如何保护、以及为什么众多车主选择蓝辉。
@@ -391,6 +391,9 @@ export function ProductDetail({ product, breadcrumbItems }: ProductDetailProps) 
                     </table>
                   </div>
                 </details>
+                <p className="mt-4 text-xs leading-relaxed text-zinc-500">
+                  表内数值为产品资料标称值，需核对对应系列与批次的检测资料；质保期限和范围以书面条款为准，实际表现受漆面状态、施工与使用环境影响。
+                </p>
               </div>
             </section>
           );

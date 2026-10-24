@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GenericBrandHero } from "@/components/brand-series/GenericBrandHero";
-import { GenericBrandModelGrid } from "@/components/brand-series/GenericBrandModelGrid";
-import { GenericBrandFitment } from "@/components/brand-series/GenericBrandFitment";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { GenericBrandFaq } from "@/components/brand-series/GenericBrandFaq";
 import { GenericBrandCta } from "@/components/brand-series/GenericBrandCta";
 import { getBrandRoute } from "@/lib/product-routes";
@@ -10,11 +10,14 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { buickFitment } from "@/lib/fitment/buick";
 import {
-  buildBrandFitmentConfig,
-  buildBrandGridModels,
-} from "@/lib/brand-series/model-page-config";
+  buickModelCards,
+  BUICK_MODEL_GROUP_LABELS,
+  BUICK_MODEL_GROUPS,
+  BUICK_MODEL_CARD_COUNT,
+  BUICK_SOURCE_ROW_COUNT,
+} from "@/lib/buick-curated-models";
+import { buickProjects, BUICK_PROJECT_COUNT } from "@/lib/buick-curated-projects";
 import type { FaqItem } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
@@ -75,37 +78,16 @@ export default function BuickBrandPage() {
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/buick");
   const localStore = stores.find((s) => s.isActive);
 
-  const gridModels = buildBrandGridModels(buickFitment, [
-    { name: "昂科拉" },
-    { name: "昂科拉GX" },
-    { name: "昂科旗" },
-    { name: "昂科威", slug: "envision" },
-    { name: "昂扬" },
-    { name: "君威", slug: "regal" },
-    { name: "君越" },
-    { name: "凯越" },
-    { name: "威朗" },
-    { name: "微蓝6" },
-    { name: "英朗" },
-    { name: "阅朗" },
-    { name: "至境世家" },
-    { name: "GL6" },
-    { name: "GL8", slug: "gl8" },
-    { name: "世纪" },
-    { name: "E4 EV" },
-    { name: "E5" },
-    { name: "至境E7" },
-    { name: "至境L7" },
-    { name: "林荫大道" },
-    { name: "VELITE（微蓝5）", display: "VELITE（微蓝）" },
-  ]);
-  const fitmentConfig = buildBrandFitmentConfig("别克", buickFitment);
+  // 车系归并数据（脚本生成，与适配库逐字对账：41 个数据行 → 20 个车系卡）
+  const modelCards = buickModelCards;
+  const sourceRowCount = BUICK_SOURCE_ROW_COUNT;
+  const imageCount = modelCards.reduce((n, c) => n + c.images.length, 0);
 
-  const itemListElement = gridModels.map((m, idx) => ({
+  const itemListElement = modelCards.map((m, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    name: `${m.display} 适配件明细`,
-    url: m.slug ? `/product/buick/${m.slug}` : "/product/buick#brand-fitment",
+    name: `${m.displayName} 适配件明细`,
+    url: m.subpage ?? "/product/buick#brand-fitment",
   }));
 
   const jsonLd = {
@@ -144,13 +126,11 @@ export default function BuickBrandPage() {
       },
       areaServed: "全国",
     },
-    makesOffer: fitmentConfig.models.flatMap((m) =>
-      m.projects.map((p) => ({
-        "@type": "Offer",
-        name: `别克 ${m.model} ${p.name} 方案`,
-        category: "汽车轻改适配件",
-      })),
-    ),
+    makesOffer: buickProjects.map((p) => ({
+      "@type": "Offer",
+      name: `别克 ${p.name} 方案（覆盖 ${p.modelCount} 个车系）`,
+      category: "汽车轻改适配件",
+    })),
   };
 
   const faqJsonLd = {
@@ -188,10 +168,24 @@ export default function BuickBrandPage() {
           subtitle="适配库收录车型速览 · 数据来自蓝辉供应商适配库"
           description={PAGE_DESCRIPTION}
           theme="red"
-          stats={{ models: gridModels.length, projects: buickFitment.models.reduce((n, m) => n + m.projects.length, 0) }}
+          stats={{ models: BUICK_MODEL_CARD_COUNT, projects: BUICK_PROJECT_COUNT }}
         />
-        <GenericBrandModelGrid models={gridModels} theme="red" brandPath="/product/buick" />
-        <GenericBrandFitment config={fitmentConfig} theme="red" />
+        <BrandModelGroupGrid
+          cards={modelCards}
+          groupOrder={BUICK_MODEL_GROUPS}
+          groupLabels={BUICK_MODEL_GROUP_LABELS}
+          theme="red"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: sourceRowCount, cards: BUICK_MODEL_CARD_COUNT, images: imageCount }}
+        />
+        <BrandProjectMatrix
+          projects={buickProjects}
+          cards={modelCards}
+          groupOrder={BUICK_MODEL_GROUPS}
+          groupLabels={BUICK_MODEL_GROUP_LABELS}
+          brandLabel="别克"
+          theme="red"
+        />
         <GenericBrandFaq items={brandFaq} theme="red" />
         <GenericBrandCta
           title="别克升级方案 · 到店评估"

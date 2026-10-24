@@ -356,7 +356,7 @@ export const liAutoOneFaq: readonly LiAutoOneFaqItem[] = [
       "不同年份、版本和配置可能不同，需到店评估确认；具体安装可行性以现场车辆情况和施工评估为准。",
   },
   {
-    question: "存量理想 ONE 最推荐先做什么？",
+    question: "存量理想 ONE 可以先考虑什么？",
     answer: "隐形车衣、隔热膜、改色膜；优先解决漆面保护、隔热隐私和外观焕新。",
   },
   {

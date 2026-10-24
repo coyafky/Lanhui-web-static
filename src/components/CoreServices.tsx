@@ -6,7 +6,7 @@ const SERVICES = [
   { icon: Boxes, title: "轻改方案库", description: "电动踏板、轮毂升级、底盘装甲，6大产品线覆盖外观个性化到功能实用性的全场景需求。", href: "/product", accent: "blue" },
   { icon: Layers, title: "车身膜专业服务", description: "隐形车衣、改色膜、隐私窗膜，采用进口TPU基材，专业无尘施工，防刮耐磨自修复。", href: "/product/window-film", accent: "orange" },
   { icon: Droplets, title: "洗美养护", description: "专业洗车与内饰深度清洁，日常养护到轻改装贴膜全覆盖，一条龙服务更省心。", href: "/product/car-care", accent: "green" },
-  { icon: ShieldCheck, title: "品质与质保", description: "专业技师持证上岗，施工全程记录，品牌质保体系覆盖所有服务项目，售后无忧。", href: "/brand", accent: "yellow" },
+  { icon: ShieldCheck, title: "品质与质保", description: "施工前核对项目与产品资料，交付时记录施工信息；质保范围以对应书面条款为准。", href: "/brand", accent: "yellow" },
 ];
 
 const ACCENT_MAP: Record<string, string> = {

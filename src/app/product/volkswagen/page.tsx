@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { VolkswagenSeriesHero } from "@/components/volkswagen/series/VolkswagenSeriesHero";
-import { VolkswagenModelGrid } from "@/components/volkswagen/series/VolkswagenModelGrid";
-import { VolkswagenProjectGrid } from "@/components/volkswagen/series/VolkswagenProjectGrid";
 import { VolkswagenFeaturedModels } from "@/components/volkswagen/series/VolkswagenFeaturedModels";
 import { VolkswagenFaqSection } from "@/components/volkswagen/series/VolkswagenFaqSection";
 import { VolkswagenDouyinCta } from "@/components/volkswagen/series/VolkswagenDouyinCta";
@@ -15,48 +13,20 @@ import {
 import { volkswagenProjects } from "@/lib/volkswagen-all-models-products";
 import { volkswagenModels } from "@/lib/volkswagen-model-groups";
 import { volkswagenSeriesFaq } from "@/lib/volkswagen-series-services";
-import { volkswagenFitment } from "@/lib/fitment/volkswagen";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
+import {
+  volkswagenModelCards,
+  VOLKSWAGEN_MODEL_GROUP_LABELS,
+  VOLKSWAGEN_MODEL_GROUPS,
+  VOLKSWAGEN_MODEL_CARD_COUNT,
+  VOLKSWAGEN_SOURCE_ROW_COUNT,
+} from "@/lib/volkswagen-curated-models";
+import { volkswagenProjects as volkswagenCuratedProjects } from "@/lib/volkswagen-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { VOLKSWAGEN_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
-
-type FitmentRawSpec = {
-  label?: string;
-  material?: string;
-  year?: string;
-  note?: string;
-  date?: string;
-  dynamics?: string;
-};
-
-function toFitmentSpec(s: unknown): FitmentSpec {
-  const r = s as FitmentRawSpec;
-  return {
-    label: r.label,
-    material: r.material,
-    year: r.year,
-    note: r.note,
-    date: r.date,
-    dynamics: r.dynamics,
-  };
-}
-
-/** 供应商适配库车型节仅收录 volkswagenModels 名单内的精确匹配车型。 */
-function buildVolkswagenFitmentModels(): FitmentModel[] {
-  const official = new Set(volkswagenModels.map((m) => m.name));
-  return volkswagenFitment.models
-    .filter((section) => official.has(section.model.trim()))
-    .map((section) => ({
-      model: section.model.trim(),
-      projects: section.projects.map((p) => ({
-        name: p.name,
-        specs: p.specs.map(toFitmentSpec),
-      })),
-    }));
-}
 
 const PAGE_TITLE =
   "大众全系底盘保护与上下车升级｜42 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -130,12 +100,6 @@ export default function VolkswagenBrandPage() {
     }),
   };
 
-  const fitmentConfig = {
-    heading: "大众 适配速查：你的车型能装哪些项目？",
-    models: buildVolkswagenFitmentModels(),
-    groupByModel: true,
-  };
-
   const vehicleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Vehicle",
@@ -192,10 +156,23 @@ export default function VolkswagenBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <VolkswagenSeriesHero breadcrumbItems={breadcrumbItems} />
-        <VolkswagenModelGrid />
-        <VolkswagenProjectGrid />
+        <BrandModelGroupGrid
+          cards={volkswagenModelCards}
+          groupOrder={VOLKSWAGEN_MODEL_GROUPS}
+          groupLabels={VOLKSWAGEN_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: VOLKSWAGEN_SOURCE_ROW_COUNT, cards: VOLKSWAGEN_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={volkswagenCuratedProjects}
+          cards={volkswagenModelCards}
+          groupOrder={VOLKSWAGEN_MODEL_GROUPS}
+          groupLabels={VOLKSWAGEN_MODEL_GROUP_LABELS}
+          brandLabel="大众"
+          theme="blue"
+        />
         <VolkswagenFeaturedModels />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
         <VolkswagenFaqSection />
         <VolkswagenDouyinCta />
 

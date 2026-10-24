@@ -131,7 +131,7 @@ export default async function CityStoresPage({
               </div>
               {storesInCity.length > 0 && (
                 <p className="text-xs text-zinc-500 hidden sm:block">
-                  按门店等级排序 · 旗舰优先
+                  按门店等级与名称排序
                 </p>
               )}
             </div>

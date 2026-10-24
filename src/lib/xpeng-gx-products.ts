@@ -434,7 +434,7 @@ export const xpengGxFaq: readonly XpengGxFaqItem[] = [
     answer: "不同年份、版本和配置可能不同，需到店评估确认。",
   },
   {
-    question: "新车最推荐先做什么?",
+    question: "新车可以先考虑什么？",
     answer:
       "车衣、隔热膜、360 脚垫、底盘护板、门槛条、钢化膜(适合刚提车的基础保护组合)。",
   },

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { XiangjieSeriesHero } from "@/components/xiangjie/series/XiangjieSeriesHero";
-import { XiangjieModelGrid } from "@/components/xiangjie/series/XiangjieModelGrid";
-import { XiangjieProjectGrid } from "@/components/xiangjie/series/XiangjieProjectGrid";
-import { XiangjieFitmentDetails } from "@/components/xiangjie/series/XiangjieFitmentDetails";
 import { XiangjieFaqSection } from "@/components/xiangjie/series/XiangjieFaqSection";
 import { XiangjieDouyinCta } from "@/components/xiangjie/series/XiangjieDouyinCta";
 import { XiangjieMobileCtaBar } from "@/components/xiangjie/series/XiangjieMobileCtaBar";
@@ -15,12 +12,20 @@ import {
 import { xiangjieProjects } from "@/lib/xiangjie-all-models-products";
 import { xiangjieModels } from "@/lib/xiangjie-model-groups";
 import { xiangjieSeriesFaq } from "@/lib/xiangjie-series-services";
-import { xiangjieFitment } from "@/lib/fitment/xiangjie";
-import { FitmentQuickCheck } from "@/components/vehicle-page";
 import { XIANGJIE_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  xiangjieModelCards,
+  XIANGJIE_MODEL_GROUP_LABELS,
+  XIANGJIE_MODEL_GROUPS,
+  XIANGJIE_MODEL_CARD_COUNT,
+  XIANGJIE_SOURCE_ROW_COUNT,
+} from "@/lib/xiangjie-curated-models";
+import { xiangjieProjects as xiangjieCuratedProjects } from "@/lib/xiangjie-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 const PAGE_TITLE =
   "享界 全系保护与升级｜2 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -96,21 +101,6 @@ export default function XiangjieBrandPage() {
     }),
   };
 
-  // 供应商适配库速查：官方车型 S9/S9T 精确节 + 增程/纯电细分节；排除跨车型「鸿蒙智行系列」节
-  const fitmentConfig = {
-    heading: "享界 适配速查：你的车型能装哪些项目？",
-    models: xiangjieFitment.models
-      .filter((m) => ["S9", "S9T", "S9增程", "S9纯电"].includes(m.model))
-      .map((m) => ({
-        model: m.model,
-        projects: m.projects.map((p) => ({
-          name: p.name,
-          specs: [...p.specs],
-        })),
-      })),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -168,10 +158,22 @@ export default function XiangjieBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <XiangjieSeriesHero breadcrumbItems={breadcrumbItems} />
-        <XiangjieModelGrid />
-        <XiangjieProjectGrid />
-        <XiangjieFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={xiangjieModelCards}
+          groupOrder={XIANGJIE_MODEL_GROUPS}
+          groupLabels={XIANGJIE_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: XIANGJIE_SOURCE_ROW_COUNT, cards: XIANGJIE_MODEL_CARD_COUNT, images: 1 }}
+        />
+        <BrandProjectMatrix
+          projects={xiangjieCuratedProjects}
+          cards={xiangjieModelCards}
+          groupOrder={XIANGJIE_MODEL_GROUPS}
+          groupLabels={XIANGJIE_MODEL_GROUP_LABELS}
+          brandLabel="享界"
+          theme="blue"
+        />
         <XiangjieFaqSection />
         <XiangjieDouyinCta />
 

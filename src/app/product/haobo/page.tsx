@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HaoboSeriesHero } from "@/components/haobo/series/HaoboSeriesHero";
-import { HaoboModelGrid } from "@/components/haobo/series/HaoboModelGrid";
-import { HaoboProjectGrid } from "@/components/haobo/series/HaoboProjectGrid";
-import { HaoboFitmentDetails } from "@/components/haobo/series/HaoboFitmentDetails";
 import { HaoboFaqSection } from "@/components/haobo/series/HaoboFaqSection";
 import { HaoboDouyinCta } from "@/components/haobo/series/HaoboDouyinCta";
 import { HaoboMobileCtaBar } from "@/components/haobo/series/HaoboMobileCtaBar";
@@ -15,8 +12,16 @@ import {
 import { haoboProjects } from "@/lib/haobo-all-models-products";
 import { haoboModels } from "@/lib/haobo-model-groups";
 import { haoboSeriesFaq } from "@/lib/haobo-series-services";
-import { haoboFitment } from "@/lib/fitment/haobo";
-import { FitmentQuickCheck } from "@/components/vehicle-page";
+import {
+  haoboModelCards,
+  HAOBO_MODEL_GROUP_LABELS,
+  HAOBO_MODEL_GROUPS,
+  HAOBO_MODEL_CARD_COUNT,
+  HAOBO_SOURCE_ROW_COUNT,
+} from "@/lib/haobo-curated-models";
+import { haoboProjects as haoboCuratedProjects } from "@/lib/haobo-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { HAOBO_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
@@ -95,29 +100,6 @@ export default function HaoboBrandPage() {
     }),
   };
 
-  // 供应商适配库速查：官方 SSR/GT/S600/HT/HL/A800；S600 无精确节，收录其增程/纯电两个细分节
-  const fitmentConfig = {
-    heading: "昊铂 适配速查：你的车型能装哪些项目？",
-    models: haoboFitment.models
-      .filter((m) => [
-        "A800",
-        "GT",
-        "HL",
-        "HT",
-        "SSR",
-        "S600增程.四驱",
-        "S600纯电660续航后驱",
-      ].includes(m.model))
-      .map((m) => ({
-        model: m.model,
-        projects: m.projects.map((p) => ({
-          name: p.name,
-          specs: [...p.specs],
-        })),
-      })),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -175,10 +157,22 @@ export default function HaoboBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <HaoboSeriesHero breadcrumbItems={breadcrumbItems} />
-        <HaoboModelGrid />
-        <HaoboProjectGrid />
-        <HaoboFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="green" />
+        <BrandModelGroupGrid
+          cards={haoboModelCards}
+          groupOrder={HAOBO_MODEL_GROUPS}
+          groupLabels={HAOBO_MODEL_GROUP_LABELS}
+          theme="green"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: HAOBO_SOURCE_ROW_COUNT, cards: HAOBO_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={haoboCuratedProjects}
+          cards={haoboModelCards}
+          groupOrder={HAOBO_MODEL_GROUPS}
+          groupLabels={HAOBO_MODEL_GROUP_LABELS}
+          brandLabel="昊铂"
+          theme="green"
+        />
         <HaoboFaqSection />
         <HaoboDouyinCta />
 

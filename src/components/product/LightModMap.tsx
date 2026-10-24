@@ -1,19 +1,9 @@
-/**
- * LightModMap — 轻改装业务地图（orange 主题）
- *
- * PRD v3 §4.3.2。视觉差异化（与 FilmServiceMap 完全不同）：
- * - 背景: repeating-linear-gradient 模拟金属拉丝纹理
- * - 卡片：厚边框 border-2 + 内阴影 + 4 角螺丝孔点装饰
- * - Hover: 边框颜色由 orange-700/40 → orange-500 + 金属反光扫过
- * - 2 列大卡片（少而精，强调金属装备感）
- * - P0 live light_mod 服务 (electric-steps / wheels / chassis)
- *
- * RSC — 纯展示
- */
+/** 产品中心的轻改装备入口，与其他服务地图共用卡片层级。 */
 
 import Link from "next/link";
 import { Wrench, CircleDot, Settings2 } from "lucide-react";
 import type { ServiceRoute } from "@/lib/product-routes";
+import { getServiceBlurb, getServiceSubtitle } from "@/lib/product-service-blurbs";
 
 type Props = {
   services: readonly ServiceRoute[];
@@ -25,111 +15,64 @@ const ICON_MAP: Record<string, typeof Wrench> = {
   chassis: Settings2,
 };
 
-const TAGLINE_MAP: Record<string, string> = {
-  "electric-steps": "开门自动展开 · 收起贴合原车 · 无损安装不破线束",
-  wheels: "数据精准匹配 · 款式多样可选 · 兼顾视觉与行驶品质",
-  chassis: "避震与加强件轻度升级 · 日常驾驶更舒适有质感",
-};
-
-const CORNER_DOT = "absolute w-1 h-1 rounded-full bg-orange-700/40";
+// 卡片文案集中在 product-service-blurbs 中维护。
 
 export function LightModMap({ services }: Props) {
   return (
     <section
       aria-labelledby="lightmod-map-title"
-      className="relative overflow-hidden rounded-3xl border-2 border-orange-900/40 bg-zinc-950"
+      className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30"
     >
-      {/* 背景：金属拉丝纹理 */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, rgba(251, 146, 60, 0.03) 0 1px, transparent 1px 12px)",
-        }}
-      />
-
-      <div className="relative z-10 p-6 md:p-8">
+      <div className="p-6 md:p-8">
         <div className="mb-6">
-          <p className="text-xs tracking-widest text-orange-400 mb-2">
+          <p className="mb-2 text-xs font-medium tracking-[0.18em] text-orange-400">
             LIGHT MOD · 轻改装
           </p>
           <h2
             id="lightmod-map-title"
-            className="text-2xl md:text-3xl font-bold text-white"
+            className="text-2xl font-semibold tracking-tight text-white md:text-3xl"
           >
             围绕姿态与上下车的金属升级
           </h2>
           <p className="text-zinc-300 mt-2 text-sm md:text-base">
-            不破线束 · 不伤原车结构 · 视觉与功能双重提升
+            按车型核对原车结构与安装条件，再选择合适的轻改装备。
           </p>
         </div>
 
-        {/* 2 列大卡片 (3 个服务: 2 + 1, 最后一张跨满) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 md:gap-4">
           {services.map((service) => {
             const Icon = ICON_MAP[service.serviceSlug] ?? Wrench;
-            const tagline = TAGLINE_MAP[service.serviceSlug] ?? "";
-            const isLastSingle =
-              services.length % 2 === 1 &&
-              service === services[services.length - 1];
+            const subtitle = getServiceSubtitle(service.serviceSlug);
+            const blurb = getServiceBlurb(service.serviceSlug);
 
             return (
               <Link
                 key={service.serviceSlug}
                 href={service.canonicalPath}
-                className={`group relative block rounded-2xl border-2 border-orange-700/40 bg-zinc-900/60 p-5 md:p-6 transition-all duration-200 hover:border-orange-500 hover:shadow-xl hover:shadow-orange-500/10 overflow-hidden ${
-                  isLastSingle ? "md:col-span-2" : ""
-                }`}
-                style={{
-                  boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.3)",
-                }}
+                className="group block rounded-xl border border-white/[0.08] bg-zinc-950/60 p-5 transition-colors hover:border-orange-400/40 hover:bg-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
               >
-                {/* 4 角螺丝孔点 */}
-                <span
-                  className={`${CORNER_DOT} top-2 left-2 group-hover:bg-orange-500/70 transition-colors`}
-                  aria-hidden="true"
-                />
-                <span
-                  className={`${CORNER_DOT} top-2 right-2 group-hover:bg-orange-500/70 transition-colors`}
-                  aria-hidden="true"
-                />
-                <span
-                  className={`${CORNER_DOT} bottom-2 left-2 group-hover:bg-orange-500/70 transition-colors`}
-                  aria-hidden="true"
-                />
-                <span
-                  className={`${CORNER_DOT} bottom-2 right-2 group-hover:bg-orange-500/70 transition-colors`}
-                  aria-hidden="true"
-                />
-
-                {/* Hover 金属反光扫过 */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background:
-                      "linear-gradient(110deg, transparent 30%, rgba(251, 146, 60, 0.15) 50%, transparent 70%)",
-                  }}
-                />
-
-                <div className="relative z-10 flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl bg-orange-950/60 border-2 border-orange-700/60 flex items-center justify-center group-hover:border-orange-500 group-hover:bg-orange-900/60 transition-colors">
+                <div className="flex items-start gap-3">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-orange-400/20 bg-orange-500/10">
                     <Icon
-                      className="w-6 h-6 md:w-7 md:h-7 text-orange-300 group-hover:text-orange-200"
+                      className="size-5 text-orange-300"
                       aria-hidden="true"
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-orange-200 transition-colors">
+                    <h3 className="text-base font-semibold text-white md:text-lg">
                       {service.title}
                     </h3>
-                    <p className="text-[10px] tracking-wider text-orange-500/70 mt-0.5 mb-2">
-                      {service.navLabel.toUpperCase()}
-                    </p>
-                    <p className="text-sm text-zinc-300 leading-relaxed">
-                      {tagline}
-                    </p>
+                    {/* 副标题：不再回退到 navLabel（与 title 常相同 → 「电动踏板 / 电动踏板」），无内容则隐藏 */}
+                    {subtitle && (
+                      <p className="mt-0.5 mb-2 text-xs text-zinc-400">
+                        {subtitle}
+                      </p>
+                    )}
+                    {blurb && (
+                      <p className="text-sm text-zinc-300 leading-relaxed">
+                        {blurb}
+                      </p>
+                    )}
                   </div>
                 </div>
               </Link>

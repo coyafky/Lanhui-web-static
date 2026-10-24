@@ -9,7 +9,7 @@ export const windowFilmConstructionProofs: WindowFilmConstructionProof[] = [
   {
     title: "正品现场核验",
     description:
-      "品牌、系列、型号，施工前现场核验，确保所贴即所选。不混用、不降级、不以次充好。",
+      "施工前与车主核对品牌、系列和型号，并记录实际使用的膜材信息，交付时可再次核对。",
   },
   {
     title: "无尘空间施工",
@@ -24,7 +24,7 @@ export const windowFilmConstructionProofs: WindowFilmConstructionProof[] = [
   {
     title: "内饰遮蔽保护",
     description:
-      "仪表台、门板、座椅全遮蔽，防止施工液渗入电子件与内饰。贴膜不伤车。",
+      "施工前遮蔽仪表台、门板和座椅，减少施工液接触电子件与内饰的风险；交付前检查车内状态。",
   },
 ];
 
@@ -37,7 +37,7 @@ export const windowFilmFaqs: WindowFilmFaq[] = [
   {
     question: "窗膜会影响年检吗？",
     answer:
-      "前挡可见光透光率符合国家标准即可通过年检。我们推荐的前挡膜参数均在合规范围内，侧后挡不影响年检。",
+      "前挡与侧后挡的透光、视野要求应按现行标准及当地检验要求核对。页面资料使用的「可见光阻隔率」不能直接当作透光率，施工前需结合实车玻璃与膜材的检测数据确认。",
   },
   {
     question: "金属膜会影响 ETC / 手机信号吗？",

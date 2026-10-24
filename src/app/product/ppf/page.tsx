@@ -10,11 +10,10 @@ import { stores } from "@/lib/store";
 import {
   PpfSeriesCompare,
   FilmComparison,
-  FilmCases,
   FilmLocalStore,
   FilmFaqSection,
 } from "@/components/film";
-import { ppfSeries, ppfFaqs } from "@/lib/film-products";
+import { ppfFaqs } from "@/lib/film-products";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/product/ppf" },
@@ -62,12 +61,6 @@ export default async function PpfPage() {
     })),
   };
 
-  const caseItems = ppfSeries.map((s) => ({
-    image: s.image,
-    alt: s.imageAlt,
-    caption: `${s.name}系列 · ${s.thickness} · ${s.warranty}质保（产品图）`,
-  }));
-
   return (
     <>
       <ProductDetail product={product} breadcrumbItems={breadcrumbItems} />
@@ -75,8 +68,6 @@ export default async function PpfPage() {
       <PpfSeriesCompare />
 
       <FilmComparison active="ppf" />
-
-      <FilmCases items={caseItems} />
 
       <FilmLocalStore />
 

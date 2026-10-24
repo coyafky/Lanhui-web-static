@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GenericBrandHero } from "@/components/brand-series/GenericBrandHero";
-import { GenericBrandModelGrid } from "@/components/brand-series/GenericBrandModelGrid";
-import { GenericBrandFitment } from "@/components/brand-series/GenericBrandFitment";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { GenericBrandFaq } from "@/components/brand-series/GenericBrandFaq";
 import { GenericBrandCta } from "@/components/brand-series/GenericBrandCta";
 import { getBrandRoute } from "@/lib/product-routes";
@@ -10,11 +10,14 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { weyFitment } from "@/lib/fitment/wey";
 import {
-  buildBrandFitmentConfig,
-  buildBrandGridModels,
-} from "@/lib/brand-series/model-page-config";
+  weyModelCards,
+  WEY_MODEL_GROUP_LABELS,
+  WEY_MODEL_GROUPS,
+  WEY_MODEL_CARD_COUNT,
+  WEY_SOURCE_ROW_COUNT,
+} from "@/lib/wey-curated-models";
+import { weyProjects, WEY_PROJECT_COUNT } from "@/lib/wey-curated-projects";
 import type { FaqItem } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
@@ -70,26 +73,19 @@ export default function WeyBrandPage() {
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/wey");
   const localStore = stores.find((s) => s.isActive);
 
-  const gridModels = buildBrandGridModels(weyFitment, [
-    { name: "P8" },
-    { name: "VV5" },
-    { name: "VV6" },
-    { name: "VV7" },
-    { name: "高山" },
-    { name: "蓝山", slug: "lanshan" },
-    { name: "玛奇朵" },
-    { name: "摩卡", slug: "mocha" },
-    { name: "拿铁" },
-    { name: "V9X" },
-  ]);
-  const fitmentConfig = buildBrandFitmentConfig("魏牌", weyFitment);
+  // 车系归并数据（脚本生成，与适配库逐字对账：变体行并回车系卡）
+  const modelCards = weyModelCards;
+  const sourceRowCount = WEY_SOURCE_ROW_COUNT;
 
-  const itemListElement = gridModels.map((m, idx) => ({
+  const itemListElement = modelCards.map((m, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    name: `${m.display} 适配件明细`,
-    url: m.slug ? `/product/wey/${m.slug}` : "/product/wey#brand-fitment",
+    name: `${m.displayName} 适配件明细`,
+    url: m.subpage ?? "/product/wey#brand-fitment",
   }));
+
+  // 每个车系当前可用的适配产品图（用于 Hero 统计，不手写数字）
+  const imageCount = modelCards.reduce((n, c) => n + c.images.length, 0);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -127,13 +123,11 @@ export default function WeyBrandPage() {
       },
       areaServed: "全国",
     },
-    makesOffer: fitmentConfig.models.flatMap((m) =>
-      m.projects.map((p) => ({
-        "@type": "Offer",
-        name: `魏牌 ${m.model} ${p.name} 方案`,
-        category: "汽车轻改适配件",
-      })),
-    ),
+    makesOffer: weyProjects.map((p) => ({
+      "@type": "Offer",
+      name: `魏牌 ${p.name} 方案（覆盖 ${p.modelCount} 个车系）`,
+      category: "汽车轻改适配件",
+    })),
   };
 
   const faqJsonLd = {
@@ -171,10 +165,23 @@ export default function WeyBrandPage() {
           subtitle="适配库收录车型速览 · 数据来自蓝辉供应商适配库"
           description={PAGE_DESCRIPTION}
           theme="amber"
-          stats={{ models: gridModels.length, projects: weyFitment.models.reduce((n, m) => n + m.projects.length, 0) }}
+          stats={{ models: WEY_MODEL_CARD_COUNT, projects: WEY_PROJECT_COUNT }}
         />
-        <GenericBrandModelGrid models={gridModels} theme="amber" brandPath="/product/wey" />
-        <GenericBrandFitment config={fitmentConfig} theme="amber" />
+        <BrandModelGroupGrid
+          cards={modelCards}
+          groupOrder={WEY_MODEL_GROUPS}
+          groupLabels={WEY_MODEL_GROUP_LABELS}
+          theme="amber"
+          reconciliation={{ rows: sourceRowCount, cards: WEY_MODEL_CARD_COUNT, images: imageCount }}
+        />
+        <BrandProjectMatrix
+          projects={weyProjects}
+          cards={modelCards}
+          groupOrder={WEY_MODEL_GROUPS}
+          groupLabels={WEY_MODEL_GROUP_LABELS}
+          brandLabel="魏牌"
+          theme="amber"
+        />
         <GenericBrandFaq items={brandFaq} theme="amber" />
         <GenericBrandCta
           title="魏牌升级方案 · 到店评估"

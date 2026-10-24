@@ -110,7 +110,7 @@ export default function AgentPage() {
               </div>
               <div className="flex items-center gap-3">
                 <p className="text-xs text-zinc-500 hidden sm:block">
-                  按门店等级排序 · 旗舰优先
+                  按门店等级与名称排序
                 </p>
               </div>
             </div>

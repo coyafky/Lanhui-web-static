@@ -18,7 +18,7 @@ export function ChassisSpecsFaq() {
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {chassisSpecGroups.map((group) => (
-              <article key={group.title} className="min-w-0 border border-white/[0.08] bg-[#0b0c10] p-5 sm:p-6">
+              <article key={group.title} className="min-w-0 rounded-2xl border border-white/[0.08] bg-[#0b0c10] p-5 sm:p-6">
                 <h3 className="text-lg font-semibold text-white">{group.title}</h3>
                 <dl className="mt-5 divide-y divide-white/[0.07]">
                   {group.items.map((item) => (

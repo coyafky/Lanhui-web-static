@@ -106,7 +106,7 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
     positioning:
       "日常通勤加强型，适合想要比入门更强隔热体验的车主。",
     headline:
-      "谷雨套餐把前挡金属膜和侧后陶瓷护肤膜组合起来，适合关注防晒、普通隔热和隐私的车主。它不是最激进的高隔热路线，而是偏向日常舒适和稳定体验。",
+      "谷雨套餐把前挡金属膜和侧后陶瓷护肤膜组合起来，适合关注防晒、日常隔热和隐私的车主，侧重日常使用体验。",
     summary: "兼顾紫外线、普通隔热和隐私，适合日常通勤。",
     painPoints: [
       "每天通勤较久，前挡和侧后挡都希望更舒适。",
@@ -123,7 +123,7 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
       {
         title: "侧后陶瓷护肤膜兼顾隐私",
         description:
-          "F20 在侧后挡提供更高紫外线阻隔（100%），同时保持后排舒适度。",
+          "F20 侧后挡侧重紫外线阻隔，具体指标需核对对应产品的检测报告。",
       },
       {
         title: "日常通勤加强定位",
@@ -159,9 +159,9 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
       {
         position: "rear",
         product: "陶瓷护肤膜 F20",
-        params: "可见光阻隔率 80%；紫外线阻隔率 100%；红外线阻隔率 95%；总太阳能阻隔率 57%；厚度 2mil",
+        params: "可见光阻隔率 80%；紫外线阻隔率待核验；红外线阻隔率 95%；总太阳能阻隔率 57%；厚度 2mil",
         userMeaning:
-          "侧后挡紫外线阻隔达到 100%，对皮肤敏感的家庭用户更友好。",
+          "侧后挡可结合紫外线指标、车内明暗与实际用车需求选择，效果以实测为准。",
       },
     ],
     imagePrompt:
@@ -172,12 +172,12 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
     positioning:
       "全车隔热与安全防护进阶方案，适合更重视隔热和安全感的车主。",
     headline:
-      "小满套餐使用 Z70 前挡搭配 K15 侧后挡，面向对全车隔热、安全防爆和隐私有更高要求的车主。它适合新能源车、家庭车和长时间用车的用户。",
+      "小满套餐使用 Z70 前挡搭配 K15 侧后挡，面向关注全车隔热、玻璃防护和隐私的车主；具体适配需结合车型与实车玻璃确认。",
     summary: "前挡 12 层金属膜搭配侧后挡，适合更重视隔热和安全的车主。",
     painPoints: [
       "新能源车玻璃面积大，热量更明显。",
       "夏季用车频率高，希望明显降低车内升温。",
-      "对玻璃安全防爆更关注。",
+      "关注玻璃破损时的碎片飞散风险。",
       "家庭多人出行，后排舒适要求高。",
     ],
     benefits: [
@@ -238,13 +238,13 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
     positioning:
       "强综合隔热组合，适合想要前挡和侧后挡都更均衡的车主。",
     headline:
-      "芒种套餐采用 Z70 + Z20 组合，更适合重视全车隔热、安全防爆和隐私的用户。侧后挡 Z20 的定位更高，适合后排使用频率高或玻璃面积较大的车型。",
+      "芒种套餐采用 Z70 + Z20 组合，适合关注全车隔热、玻璃防护和隐私的车主。侧后挡可结合后排使用频率与玻璃面积选择。",
     summary: "Z70 + Z20 组合，适合家庭车和新能源车。",
     painPoints: [
       "后排经常坐人，需要更强隔热。",
       "玻璃面积较大的新能源 SUV/MPV。",
       "想要更完整的全车隔热体验。",
-      "对安全防爆与隐私都有较高要求。",
+      "关注玻璃防护与车内隐私。",
     ],
     benefits: [
       {
@@ -293,7 +293,7 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
         product: "双银金属膜 Z20",
         params: "可见光阻隔率 75%；紫外线阻隔率 99%；红外线阻隔率 96%；总太阳能阻隔率 65%；厚度 3mil",
         userMeaning:
-          "侧后挡定位最高，TSER 65% 是当前参数表中的最高水平，适合后排使用。",
+          "侧后挡产品资料标注 TSER 65%，选用时还需关注车窗明暗、信号与夜间视野。",
       },
     ],
     imagePrompt:
@@ -320,7 +320,7 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
       },
       {
         title: "侧后挡 Z20 强隔热",
-        description: "维持高规格侧后挡，确保后排舒适与隐私。",
+        description: "侧后挡兼顾车内明暗、隐私与使用感受，具体效果因车型和光线而异。",
       },
       {
         title: "新能源车高级感",
@@ -368,13 +368,13 @@ export const windowFilmDetails: Record<string, WindowFilmPackageDetails> = {
     positioning:
       "高辨识度风格方案，适合喜欢个性化视觉表达的车主。",
     headline:
-      "网红套餐主打帝王紫/凤凰红 G7 的颜色识别度，适合希望车辆更有个性、更容易被看见的年轻车主。它不是最低调的选择，而是为喜欢视觉表达的人准备的方案。",
+      "网红套餐主打帝王紫/凤凰红 G7 的颜色识别度，适合喜欢鲜明车窗风格的车主。",
     summary: "帝王紫/凤凰红风格明显，适合个性表达。",
     painPoints: [
       "年轻车主，希望车辆更有个性。",
       "喜欢改色膜/轻改风格的视觉表达。",
       "希望车窗也参与整车风格。",
-      "不追求最低调，偏好高辨识度。",
+      "偏好鲜明色彩与较高辨识度。",
     ],
     benefits: [
       {
@@ -580,7 +580,7 @@ export const windowFilmParameterExplanations: {
     code: "厚度",
     fullName: "膜层厚度",
     userMeaning:
-      "影响施工手感、安全附着和产品定位，不应单独作为唯一判断标准。",
+      "影响施工手感与产品定位，选膜时还需结合其他参数和实际用途判断。",
   },
 ];
 

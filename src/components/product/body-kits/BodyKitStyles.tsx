@@ -14,7 +14,7 @@ const STYLE_CARDS: StyleCard[] = [
     name: "黑武士",
     image: "/images/products/body-kits/理想/理想L6/理想_理想L6_黑武士_前视_01.webp",
     alt: "理想 L6 黑武士风格包围前视效果图",
-    audience: "全黑金属质感，运动向、年轻向车主首选。",
+    audience: "全黑金属质感，适合偏好运动风格的车主。",
     sourceType: "效果图",
   },
   {

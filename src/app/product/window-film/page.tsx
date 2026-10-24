@@ -25,22 +25,21 @@ import {
   WindowPackageCompare,
   HeatTestGallery,
   FilmComparison,
-  FilmCases,
   FilmLocalStore,
   FilmFaqSection,
 } from "@/components/film";
-import { windowPackages, windowPackageFaqs } from "@/lib/film-products";
+import { windowPackageFaqs } from "@/lib/film-products";
 import { ChevronDown } from "lucide-react";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/product/window-film" },
   title: "汽车窗膜套餐推荐 | 蓝辉轻改 LANHUI",
   description:
-    "一张好膜不只是隔热。蓝辉轻改汽车窗膜覆盖隔热、清晰视野、隐私、信号与长期稳定，按车型匹配前挡+侧后挡方案，专业施工保障。",
+    "蓝辉轻改汽车窗膜服务关注隔热、视野与隐私需求，按车型与实车玻璃状态讨论前挡和侧后挡搭配，并在施工前核对膜材资料。",
   openGraph: {
     title: "汽车窗膜套餐推荐 | 蓝辉轻改 LANHUI",
     description:
-      "兼顾隔热、清晰视野、隐私、信号与长期稳定，按车型匹配前挡与侧后挡方案。",
+      "结合隔热、视野与隐私需求，按车型讨论前挡与侧后挡方案。",
     images: [
       {
         url: "/images/producthero/window-film-hero.webp",
@@ -97,12 +96,6 @@ export default function WindowFilmPage() {
     })),
   };
 
-  const caseItems = windowPackages.map((p) => ({
-    image: p.image,
-    alt: p.imageAlt,
-    caption: `${p.name} · ${p.seriesLabel.split(" · ")[0]}（产品图）`,
-  }));
-
   return (
     <>
       <FilmPageHero breadcrumbItems={breadcrumbItems} />
@@ -156,6 +149,7 @@ export default function WindowFilmPage() {
             title="单品参数一览"
             columns={[...SPECS_COLUMNS]}
             data={product.specs}
+            disclaimer="表内为产品资料标称值，具体指标需核对对应型号与批次的检测报告；实际视野和隔热表现以实车测试为准，质保以书面条款为准。"
           />
         )}
 
@@ -167,9 +161,6 @@ export default function WindowFilmPage() {
 
         {/* ====== 三品类对比 ====== */}
         <FilmComparison active="window" />
-
-        {/* ====== 产品图参考（非本店实拍） ====== */}
-        <FilmCases items={caseItems} />
 
         {/* ====== 本地服务锚点 ====== */}
         <FilmLocalStore />

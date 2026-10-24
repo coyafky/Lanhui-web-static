@@ -254,7 +254,7 @@ export const carMatSafetyChecks: readonly CarMatSafetyCheck[] = [
     title: "踏板间隙",
     description:
       "确认油门、刹车、休息踏板与脚垫边缘之间的安全距离，保证踏板全行程不被干涉。",
-    risk: "踏板被脚垫卡住可能导致加速或刹车失控，这是脚垫安装最重要的安全检查项。",
+    risk: "踏板被脚垫卡住可能影响加速或刹车，因此安装后需要重点核对踏板行程。",
   },
   {
     label: "CLIP",

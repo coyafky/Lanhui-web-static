@@ -545,7 +545,7 @@ export const ledaoL90Faq: readonly LedaoL90FaqItem[] = [
     answer: "不同批次和配置可能不同，需到店确认。",
   },
   {
-    question: "新车最推荐先做哪些项目?",
+    question: "新车可以先考虑哪些项目？",
     answer: "车衣、隔热膜、360脚垫、底盘护板、门槛条、内饰保护等。",
   },
   {

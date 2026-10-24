@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GenericBrandHero } from "@/components/brand-series/GenericBrandHero";
-import { GenericBrandModelGrid } from "@/components/brand-series/GenericBrandModelGrid";
-import { GenericBrandFitment } from "@/components/brand-series/GenericBrandFitment";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { GenericBrandFaq } from "@/components/brand-series/GenericBrandFaq";
 import { GenericBrandCta } from "@/components/brand-series/GenericBrandCta";
 import { getBrandRoute } from "@/lib/product-routes";
@@ -10,11 +10,14 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { geelyFitment } from "@/lib/fitment/geely";
 import {
-  buildBrandFitmentConfig,
-  buildBrandGridModels,
-} from "@/lib/brand-series/model-page-config";
+  geelyModelCards,
+  GEELY_MODEL_GROUP_LABELS,
+  GEELY_MODEL_GROUPS,
+  GEELY_MODEL_CARD_COUNT,
+  GEELY_SOURCE_ROW_COUNT,
+} from "@/lib/geely-curated-models";
+import { geelyProjects, GEELY_PROJECT_COUNT } from "@/lib/geely-curated-projects";
 import type { FaqItem } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
@@ -75,42 +78,15 @@ export default function GeelyBrandPage() {
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/geely");
   const localStore = stores.find((s) => s.isActive);
 
-  const gridModels = buildBrandGridModels(geelyFitment, [
-    { name: "缤瑞" },
-    { name: "缤越" },
-    { name: "博瑞" },
-    { name: "博越" },
-    { name: "博越L", slug: "boyue-l" },
-    { name: "帝豪", slug: "emgrand" },
-    { name: "功夫牛" },
-    { name: "豪越" },
-    { name: "几何C" },
-    { name: "几何E" },
-    { name: "嘉际" },
-    { name: "金刚" },
-    { name: "星瑞" },
-    { name: "星愿" },
-    { name: "星越" },
-    { name: "星越L", slug: "xingyue-l" },
-    { name: "星越S" },
-    { name: "熊猫EV" },
-    { name: "远景" },
-    { name: "远景X1" },
-    { name: "远景X3" },
-    { name: "远景X6" },
-    { name: "GX7" },
-    { name: "GX9" },
-    { name: "ICON" },
-    { name: "SX7" },
-    { name: "星舰7" },
-  ]);
-  const fitmentConfig = buildBrandFitmentConfig("吉利", geelyFitment);
+  // 车系归并数据（脚本生成，与适配库逐字对账：47 个数据行 → 17 个车系卡）
+  const modelCards = geelyModelCards;
+  const sourceRowCount = GEELY_SOURCE_ROW_COUNT;
 
-  const itemListElement = gridModels.map((m, idx) => ({
+  const itemListElement = modelCards.map((m, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    name: `${m.display} 适配件明细`,
-    url: m.slug ? `/product/geely/${m.slug}` : "/product/geely#brand-fitment",
+    name: `${m.displayName} 适配件明细`,
+    url: m.subpage ?? "/product/geely#brand-fitment",
   }));
 
   const jsonLd = {
@@ -149,13 +125,11 @@ export default function GeelyBrandPage() {
       },
       areaServed: "全国",
     },
-    makesOffer: fitmentConfig.models.flatMap((m) =>
-      m.projects.map((p) => ({
-        "@type": "Offer",
-        name: `吉利 ${m.model} ${p.name} 方案`,
-        category: "汽车轻改适配件",
-      })),
-    ),
+    makesOffer: geelyProjects.map((p) => ({
+      "@type": "Offer",
+      name: `吉利 ${p.name} 方案（覆盖 ${p.modelCount} 个车系）`,
+      category: "汽车轻改适配件",
+    })),
   };
 
   const faqJsonLd = {
@@ -193,10 +167,24 @@ export default function GeelyBrandPage() {
           subtitle="适配库收录车型速览 · 数据来自蓝辉供应商适配库"
           description={PAGE_DESCRIPTION}
           theme="blue"
-          stats={{ models: gridModels.length, projects: geelyFitment.models.reduce((n, m) => n + m.projects.length, 0) }}
+          stats={{ models: GEELY_MODEL_CARD_COUNT, projects: GEELY_PROJECT_COUNT }}
         />
-        <GenericBrandModelGrid models={gridModels} theme="blue" brandPath="/product/geely" />
-        <GenericBrandFitment config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={modelCards}
+          groupOrder={GEELY_MODEL_GROUPS}
+          groupLabels={GEELY_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: sourceRowCount, cards: GEELY_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={geelyProjects}
+          cards={modelCards}
+          groupOrder={GEELY_MODEL_GROUPS}
+          groupLabels={GEELY_MODEL_GROUP_LABELS}
+          brandLabel="吉利"
+          theme="blue"
+        />
         <GenericBrandFaq items={brandFaq} theme="blue" />
         <GenericBrandCta
           title="吉利升级方案 · 到店评估"

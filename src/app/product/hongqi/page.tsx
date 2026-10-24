@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HongqiSeriesHero } from "@/components/hongqi/series/HongqiSeriesHero";
-import { HongqiModelGrid } from "@/components/hongqi/series/HongqiModelGrid";
-import { HongqiProjectGrid } from "@/components/hongqi/series/HongqiProjectGrid";
 import { HongqiSubpageCards } from "@/components/hongqi/series/HongqiSubpageCards";
 import { HongqiFaqSection } from "@/components/hongqi/series/HongqiFaqSection";
 import { HongqiDouyinCta } from "@/components/hongqi/series/HongqiDouyinCta";
@@ -15,45 +13,22 @@ import {
 import { hongqiProjects } from "@/lib/hongqi-all-models-products";
 import { hongqiModels } from "@/lib/hongqi-model-groups";
 import { hongqiSeriesFaq } from "@/lib/hongqi-series-services";
-import { hongqiFitment } from "@/lib/fitment/hongqi";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { HONGQI_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  hongqiModelCards,
+  HONGQI_MODEL_GROUP_LABELS,
+  HONGQI_MODEL_GROUPS,
+  HONGQI_MODEL_CARD_COUNT,
+  HONGQI_SOURCE_ROW_COUNT,
+} from "@/lib/hongqi-curated-models";
+import { hongqiProjects as hongqiCuratedProjects } from "@/lib/hongqi-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 /** 适配库 17 节与官方车型名单精确匹配，无变体节。 */
-function buildHongqiFitmentModels(): FitmentModel[] {
-  const official = new Set(hongqiModels.map((m) => m.name));
-  return hongqiFitment.models
-    .filter((section) => official.has(section.model))
-    .map((section) => ({
-      model: section.model,
-      projects: section.projects.map((p) => ({
-        name: p.name,
-        specs: p.specs.map((raw): FitmentSpec => {
-          const s = raw as {
-            label?: string;
-            material?: string;
-            year?: string;
-            note?: string;
-            date?: string;
-            dynamics?: string;
-          };
-          return {
-            label: s.label,
-            material: s.material,
-            year: s.year,
-            note: s.note,
-            date: s.date,
-            dynamics: s.dynamics,
-          };
-        }),
-      })),
-    }));
-}
-
 const PAGE_TITLE =
   "红旗全系保护与舒适升级｜17 款车型适配件速查｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
@@ -128,13 +103,6 @@ export default function HongqiBrandPage() {
     }),
   };
 
-  // 供应商适配库速查：17 款官方车型精确匹配，按车型分组渲染
-  const fitmentConfig = {
-    heading: "红旗 适配速查：你的车型能装哪些项目？",
-    models: buildHongqiFitmentModels(),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -192,10 +160,23 @@ export default function HongqiBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <HongqiSeriesHero breadcrumbItems={breadcrumbItems} />
-        <HongqiModelGrid />
-        <HongqiProjectGrid />
+        <BrandModelGroupGrid
+          cards={hongqiModelCards}
+          groupOrder={HONGQI_MODEL_GROUPS}
+          groupLabels={HONGQI_MODEL_GROUP_LABELS}
+          theme="red"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: HONGQI_SOURCE_ROW_COUNT, cards: HONGQI_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={hongqiCuratedProjects}
+          cards={hongqiModelCards}
+          groupOrder={HONGQI_MODEL_GROUPS}
+          groupLabels={HONGQI_MODEL_GROUP_LABELS}
+          brandLabel="红旗"
+          theme="red"
+        />
         <HongqiSubpageCards />
-        <FitmentQuickCheck config={fitmentConfig} theme="red" />
         <HongqiFaqSection />
         <HongqiDouyinCta />
 

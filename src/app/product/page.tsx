@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  ALL_SERVICES,
-  getLiveBrands,
-  getLiveServices,
-} from "@/lib/product-routes";
+import { getLiveBrands, getLiveServices } from "@/lib/product-routes";
 import type { ServiceRoute } from "@/lib/product-routes";
 import { ProductHero } from "@/components/product/ProductHero";
 import { FilmServiceMap } from "@/components/product/FilmServiceMap";
@@ -48,8 +44,8 @@ export default function ProductCenter() {
 
   // 移动端 sticky tab — 车型 / 项目内容切换
   const mobileTabs = [
-    { id: "vehicle", label: "按车型", accentColor: "violet" as const },
-    { id: "project", label: "按项目", accentColor: "cyan" as const },
+    { id: "vehicle", label: "按车型", accentColor: "orange" as const },
+    { id: "project", label: "按项目", accentColor: "orange" as const },
   ];
 
   // JSON-LD: CollectionPage + ItemList (PRD §7.6 SEO)
@@ -89,18 +85,14 @@ export default function ProductCenter() {
         />
 
         {/* Phase 1: ProductHero，真实服务画廊 + 4 材质切片 + 品牌矩阵 */}
-        <ProductHero
-          liveBrands={liveBrands}
-          plannedCount={ALL_SERVICES.length}
-          breadcrumbItems={breadcrumbItems}
-        />
+        <ProductHero breadcrumbItems={breadcrumbItems} />
 
         {/* Phase 3-4: 移动端三段切换 / 桌面端平铺 */}
         <MobileProductContent tabs={mobileTabs}>
           {/* Tab 1: 按车型 — violet 主题 11 品牌矩阵 + 3 重点品牌放大 */}
           <section
             id="vehicle-topics"
-            className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900"
+            className="scroll-mt-32 border-t border-white/[0.06] bg-zinc-950 py-16 sm:py-20"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <VehicleTopicMap brands={liveBrands} />
@@ -110,9 +102,9 @@ export default function ProductCenter() {
           {/* Tab 2: 按项目 — FilmServiceMap + LightModMap */}
           <section
             id="service-projects"
-            className="py-12 md:py-16 bg-zinc-950 border-t border-zinc-900"
+            className="scroll-mt-32 border-t border-white/[0.06] bg-[#0b0c10] py-16 sm:py-20"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 md:space-y-8">
+            <div className="mx-auto max-w-7xl space-y-5 px-4 sm:px-6 lg:space-y-6 lg:px-8">
               <FilmServiceMap services={filmServices} />
               <LightModMap services={lightModServices} />
               <BusinessComfortMap services={businessComfortServices} />

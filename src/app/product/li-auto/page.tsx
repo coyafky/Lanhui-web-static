@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LiAutoSeriesHero } from "@/components/li-auto/series/LiAutoSeriesHero";
 import { LiAutoBaseServiceGrid } from "@/components/li-auto/series/LiAutoBaseServiceGrid";
-import {
-  LiAutoModelEntryGrid,
-  type LiAutoModelEntry,
-} from "@/components/li-auto/series/LiAutoModelEntryGrid";
 import { LiAutoServiceFlow } from "@/components/li-auto/series/LiAutoServiceFlow";
 import { LiAutoFaqSection } from "@/components/li-auto/series/LiAutoFaqSection";
 import { LiAutoDouyinCta } from "@/components/li-auto/series/LiAutoDouyinCta";
 import { LiAutoMobileCtaBar } from "@/components/li-auto/series/LiAutoMobileCtaBar";
-import { getBrandRoute, getModelRoute } from "@/lib/product-routes";
+import { getBrandRoute } from "@/lib/product-routes";
 import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
@@ -18,69 +14,26 @@ import {
 import {
   liAutoBaseServices,
   liAutoSeriesFaq,
-  LI_AUTO_MODEL_COPY,
-  type LiAutoModelEntryKey,
 } from "@/lib/li-auto-series-services";
-import { li_autoFitment } from "@/lib/fitment/li-auto";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
-import { LI_AUTO_I6_HERO_IMAGE } from "@/lib/li-auto-i6-products";
 import { LI_AUTO_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  liAutoModelCards,
+  LI_AUTO_MODEL_GROUP_LABELS,
+  LI_AUTO_MODEL_GROUPS,
+  LI_AUTO_MODEL_CARD_COUNT,
+  LI_AUTO_SOURCE_ROW_COUNT,
+} from "@/lib/li-auto-curated-models";
+import { liAutoProjects as liAutoCuratedProjects } from "@/lib/li-auto-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 /**
  * 适配库节过滤：8 个官方基础车型 + 焕新/年款/续航变体节；
  * 排除跨车型节（L7/L8、焕新版L7/L8）、编码节（TJ100xx）、通用适配节。
  */
-const LI_AUTO_FITMENT_SECTIONS = new Set([
-  "i6",
-  "i8",
-  "L6",
-  "L7",
-  "L8",
-  "L9",
-  "ONE",
-  "MEGA",
-  "焕新版L6",
-  "25款理想 i6",
-  "L6 300续航",
-  "L8-Livis-430续航",
-  "L9livis",
-  "i6-720续航",
-  "i8-720续航",
-]);
-
-function buildLiAutoFitmentModels(): FitmentModel[] {
-  return li_autoFitment.models
-    .filter((section) => LI_AUTO_FITMENT_SECTIONS.has(section.model))
-    .map((section) => ({
-      model: section.model,
-      projects: section.projects.map((p) => ({
-        name: p.name,
-        specs: p.specs.map((raw): FitmentSpec => {
-          const s = raw as {
-            label?: string;
-            material?: string;
-            year?: string;
-            note?: string;
-            date?: string;
-            dynamics?: string;
-          };
-          return {
-            label: s.label,
-            material: s.material,
-            year: s.year,
-            note: s.note,
-            date: s.date,
-            dynamics: s.dynamics,
-          };
-        }),
-      })),
-    }));
-}
-
 const PAGE_TITLE =
   "理想汽车家庭用车保护与舒适升级｜车膜、踏板、地板与洗美养护｜顺德大良蓝辉轻改";
 const PAGE_DESCRIPTION =
@@ -114,75 +67,10 @@ export const metadata: Metadata = {
   },
 };
 
-const MODEL_ENTRY_META: Record<
-  LiAutoModelEntryKey,
-  { fallbackProjectCount: number; imageSrc: string }
-> = {
-  one: {
-    fallbackProjectCount: 8,
-    imageSrc:
-      "/images/products/li-auto/one/generated/paint-protection-film.webp",
-  },
-  i6: {
-    fallbackProjectCount: 20,
-    imageSrc: LI_AUTO_I6_HERO_IMAGE.publicPath,
-  },
-  i8: {
-    fallbackProjectCount: 20,
-    imageSrc:
-      "/images/products/li-auto/i8/generated/i8-paint-protection-film.webp",
-  },
-  l9: {
-    fallbackProjectCount: 14,
-    imageSrc:
-      "/images/products/li-auto/l9/generated/paint-protection-film.webp",
-  },
-  mega: {
-    fallbackProjectCount: 18,
-    imageSrc:
-      "/images/products/li-auto/mega/generated/mega-paint-protection-film.webp",
-  },
-};
-
-const MODEL_KEYS: readonly LiAutoModelEntryKey[] = [
-  "one",
-  "i6",
-  "i8",
-  "l9",
-  "mega",
-];
-
-function buildModelEntries(): readonly LiAutoModelEntry[] {
-  return MODEL_KEYS.map((key) => {
-    const route = getModelRoute("li-auto", key);
-    if (!route) {
-      throw new Error(
-        `LiAutoBrandPage: missing li-auto model route definition for "${key}"`,
-      );
-    }
-    const meta = MODEL_ENTRY_META[key];
-    const copy = LI_AUTO_MODEL_COPY[key];
-    return {
-      modelKey: key,
-      modelName: route.modelName,
-      canonicalPath: route.canonicalPath,
-      positioning: copy.positioning,
-      scenario: copy.scenario,
-      topNeeds: copy.topNeeds,
-      projectCount: route.projectCount ?? meta.fallbackProjectCount,
-      image: {
-        src: meta.imageSrc,
-        alt: `${route.modelName} 升级方案效果预览图`,
-      },
-    };
-  });
-}
-
 export default function LiAutoBrandPage() {
   const brand = getBrandRoute("li-auto");
   if (!brand || brand.status !== "live") notFound();
 
-  const modelEntries = buildModelEntries();
   const breadcrumbItems = getProductBreadcrumbs("/product/li-auto");
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/li-auto");
   const localStore = stores.find((s) => s.isActive);
@@ -204,10 +92,10 @@ export default function LiAutoBrandPage() {
         url: svc.href,
       })),
     },
-    hasPart: modelEntries.map((m) => ({
+    hasPart: liAutoModelCards.map((m) => ({
       "@type": "WebPage",
-      name: `${m.modelName} 专属升级方案`,
-      url: m.canonicalPath,
+      name: `${m.displayName} 专属升级方案`,
+      url: m.subpage ?? "/product/li-auto#brand-fitment",
     })),
     ...(localStore && {
       provider: generateLocalBusinessSchema(localStore),
@@ -215,11 +103,6 @@ export default function LiAutoBrandPage() {
   };
 
   // 供应商适配库速查：官方车型 + 焕新/年款/续航变体节，按车型分组渲染
-  const fitmentConfig = {
-    heading: "理想 适配速查：你的车型能装哪些项目？",
-    models: buildLiAutoFitmentModels(),
-    groupByModel: true,
-  };
 
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
@@ -279,9 +162,23 @@ export default function LiAutoBrandPage() {
         />
         <LiAutoSeriesHero breadcrumbItems={breadcrumbItems} />
         <LiAutoBaseServiceGrid />
-        <LiAutoModelEntryGrid entries={modelEntries} />
+        <BrandModelGroupGrid
+          cards={liAutoModelCards}
+          groupOrder={LI_AUTO_MODEL_GROUPS}
+          groupLabels={LI_AUTO_MODEL_GROUP_LABELS}
+          theme="amber"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: LI_AUTO_SOURCE_ROW_COUNT, cards: LI_AUTO_MODEL_CARD_COUNT, images: 0 }}
+        />
         <LiAutoServiceFlow />
-        <FitmentQuickCheck config={fitmentConfig} theme="amber" />
+        <BrandProjectMatrix
+          projects={liAutoCuratedProjects}
+          cards={liAutoModelCards}
+          groupOrder={LI_AUTO_MODEL_GROUPS}
+          groupLabels={LI_AUTO_MODEL_GROUP_LABELS}
+          brandLabel="理想"
+          theme="amber"
+        />
         <LiAutoFaqSection />
         <LiAutoDouyinCta />
 

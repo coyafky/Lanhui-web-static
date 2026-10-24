@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BmwSeriesHero } from "@/components/bmw/series/BmwSeriesHero";
-import { BmwModelGrid } from "@/components/bmw/series/BmwModelGrid";
-import { BmwProjectGrid } from "@/components/bmw/series/BmwProjectGrid";
-import { BmwFitmentDetails } from "@/components/bmw/series/BmwFitmentDetails";
 import { BmwFaqSection } from "@/components/bmw/series/BmwFaqSection";
 import { BmwDouyinCta } from "@/components/bmw/series/BmwDouyinCta";
 import { BmwMobileCtaBar } from "@/components/bmw/series/BmwMobileCtaBar";
@@ -15,77 +12,20 @@ import {
 import { bmwProjects } from "@/lib/bmw-all-models-products";
 import { bmwModels } from "@/lib/bmw-model-groups";
 import { bmwSeriesFaq } from "@/lib/bmw-series-services";
-import { bmwFitment } from "@/lib/fitment/bmw";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
+import {
+  bmwModelCards,
+  BMW_MODEL_GROUP_LABELS,
+  BMW_MODEL_GROUPS,
+  BMW_MODEL_CARD_COUNT,
+  BMW_SOURCE_ROW_COUNT,
+} from "@/lib/bmw-curated-models";
+import { bmwProjects as bmwCuratedProjects } from "@/lib/bmw-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { BMW_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
-
-/**
- * 供应商适配库车型节 → 官方车型（bmwModels 29 款名单内）。
- * 精确匹配；或以官方 slug 开头且带车身形式/年款/绒布档位/削边/右呔等细分标记。
- * 「全新X5/全新宝马X6」等全新前缀节、「X4/X4M」跨车型节不收录。
- */
-const BMW_FITMENT_REST =
-  /^(\s|i\b|Li|L\b|Le\b|EV\b|M\b| m|纯电|纯电动|新能源|GT|轿跑|敞篷|旅行|两厢|三厢|右钛|右呔|原车|前排|高配|低配|高绒|矮绒|削边|2门|高配4座)/;
-
-function bmwFitmentCanon(name: string): string | null {
-  const n = name.trim();
-  const low = n.toLowerCase();
-  const slugs = bmwModels.map((m) => m.slug);
-  for (const c of slugs) if (low === c.toLowerCase()) return c;
-  for (const c of [...slugs].sort((a, b) => b.length - a.length)) {
-    if (low.startsWith(c.toLowerCase())) {
-      const rest = n.slice(c.length);
-      if (rest === "" || BMW_FITMENT_REST.test(rest)) return c;
-    }
-  }
-  return null;
-}
-
-type FitmentRawSpec = {
-  label?: string;
-  material?: string;
-  year?: string;
-  note?: string;
-  date?: string;
-  dynamics?: string;
-};
-
-function toFitmentSpec(s: unknown): FitmentSpec {
-  const r = s as FitmentRawSpec;
-  return {
-    label: r.label,
-    material: r.material,
-    year: r.year,
-    note: r.note,
-    date: r.date,
-    dynamics: r.dynamics,
-  };
-}
-
-function buildBmwFitmentModels(): FitmentModel[] {
-  const models: FitmentModel[] = [];
-  const index = new Map<string, number>();
-  for (const section of bmwFitment.models) {
-    const canon = bmwFitmentCanon(section.model);
-    if (!canon) continue;
-    const projects = section.projects.map((p) => ({
-      name: p.name,
-      specs: p.specs.map(toFitmentSpec),
-    }));
-    const idx = index.get(canon);
-    if (idx === undefined) {
-      index.set(canon, models.length);
-      models.push({ model: canon, projects });
-    } else {
-      models[idx].projects.push(...projects);
-    }
-  }
-  return models;
-}
 
 const PAGE_TITLE =
   "宝马全系保护与升级｜29 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -161,12 +101,6 @@ export default function NissanBrandPage() {
     }),
   };
 
-  const fitmentConfig = {
-    heading: "宝马 适配速查：你的车型能装哪些项目？",
-    models: buildBmwFitmentModels(),
-    groupByModel: true,
-  };
-
   const vehicleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Vehicle",
@@ -223,10 +157,22 @@ export default function NissanBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <BmwSeriesHero breadcrumbItems={breadcrumbItems} />
-        <BmwModelGrid />
-        <BmwProjectGrid />
-        <BmwFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="blue" />
+        <BrandModelGroupGrid
+          cards={bmwModelCards}
+          groupOrder={BMW_MODEL_GROUPS}
+          groupLabels={BMW_MODEL_GROUP_LABELS}
+          theme="blue"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: BMW_SOURCE_ROW_COUNT, cards: BMW_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={bmwCuratedProjects}
+          cards={bmwModelCards}
+          groupOrder={BMW_MODEL_GROUPS}
+          groupLabels={BMW_MODEL_GROUP_LABELS}
+          brandLabel="宝马"
+          theme="blue"
+        />
         <BmwFaqSection />
         <BmwDouyinCta />
 

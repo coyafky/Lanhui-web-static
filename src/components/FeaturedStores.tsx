@@ -34,7 +34,7 @@ export async function FeaturedStores() {
             推荐门店
           </h2>
           <p className="mt-4 text-sm text-zinc-500">
-            精选星辉旗舰店，优先展示已开放的旗舰服务中心。
+            查看当前开放的服务中心，了解地址与到店方式。
           </p>
         </div>
 

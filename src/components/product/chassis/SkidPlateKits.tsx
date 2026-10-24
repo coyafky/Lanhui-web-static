@@ -49,7 +49,7 @@ export function SkidPlateKits() {
           {KITS.map((kit) => (
             <article
               key={kit.name}
-              className="border border-white/[0.08] bg-zinc-900/60 p-6"
+              className="rounded-2xl border border-white/[0.08] bg-zinc-900/60 p-6"
             >
               <h3 className="text-xl font-semibold text-white">{kit.name}</h3>
               <p className="mt-3 text-sm leading-7 text-zinc-200">{kit.zones}</p>

@@ -19,7 +19,7 @@ export function FlooringStructureGrid() {
             地板总成能带来什么改变
           </h2>
           <p className="mt-3 text-zinc-400 max-w-2xl text-base leading-relaxed text-pretty mb-8">
-            三项最直接的变化，让你判断是否值得为后排做一次升级。
+            从三项直观变化判断是否需要升级后排。
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">

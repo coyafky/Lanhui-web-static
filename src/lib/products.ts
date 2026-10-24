@@ -132,7 +132,7 @@ export const products: Product[] = [
     group: "light-mod",
     groupLabel: "轻改装备",
     tagline: "上下车更从容，也更稳",
-    cardDescription: "开门自动展开，收起贴合原车，无损安装不破线束。",
+    cardDescription: "开门自动展开，收起后贴近车身；安装方式需按车型与接口确认。",
     heroDescription:
       "电动踏板面向家用 SUV / MPV / 越野等高底盘车型，展开后降低上下车高度，收起后保持原车姿态。",
     audience: [
@@ -154,7 +154,7 @@ export const products: Product[] = [
         description: "采用金属骨架与防滑踏面，长期使用更稳定。",
       },
       {
-        title: "无损安装",
+        title: "安装前核对",
         description: "优先采用原车接口对插方案，不破坏原车线束。",
       },
     ],
@@ -244,11 +244,11 @@ export const products: Product[] = [
         description: "降低阳光热量进入车内，提升驾乘舒适度",
       },
       {
-        title: "安全防爆",
-        description: "提升玻璃破裂时的安全防护能力",
+        title: "玻璃防护",
+        description: "膜层有助于减少玻璃破裂时的碎片飞散，具体表现因玻璃与膜材而异",
       },
       {
-        title: "无惧眩光",
+        title: "缓解眩光",
         description: "降低强光、逆光带来的驾驶干扰",
       },
       {
@@ -289,14 +289,14 @@ export const products: Product[] = [
         frontProduct: "单层金属膜 T7",
         frontParams: "可见光阻隔率 30%；紫外线阻隔率 99%；红外线阻隔率 92%；总太阳能阻隔率 53%；厚度 2mil",
         rearProduct: "陶瓷护肤膜 F20",
-        rearParams: "可见光阻隔率 80%；紫外线阻隔率 100%；红外线阻隔率 95%；总太阳能阻隔率 57%；厚度 2mil",
+        rearParams: "可见光阻隔率 80%；紫外线阻隔率待核验；红外线阻隔率 95%；总太阳能阻隔率 57%；厚度 2mil",
         warranty: "8年",
       },
       {
         slug: "xiaoman",
         name: "小满套餐",
         models: "Z70 + K15",
-        audience: "对全车隔热、安全防爆及隐私性要求较高的车主",
+        audience: "关注全车隔热、玻璃防护与隐私的车主",
         frontProduct: "12层金属膜 Z70",
         frontParams: "可见光阻隔率 28%；紫外线阻隔率 99%；红外线阻隔率 96%；总太阳能阻隔率 56%；厚度 3.5mil",
         rearProduct: "单银金属膜 K15",
@@ -307,7 +307,7 @@ export const products: Product[] = [
         slug: "mangzhong",
         name: "芒种套餐",
         models: "Z70 + Z20",
-        audience: "对全车隔热、安全防爆及隐私性要求较高的车主",
+        audience: "关注全车隔热、玻璃防护与隐私的车主",
         frontProduct: "12层金属膜 Z70",
         frontParams: "可见光阻隔率 28%；紫外线阻隔率 99%；红外线阻隔率 96%；总太阳能阻隔率 56%；厚度 3.5mil",
         rearProduct: "双银金属膜 Z20",
@@ -318,7 +318,7 @@ export const products: Product[] = [
         slug: "bailu",
         name: "白露套餐",
         models: "Z80 + Z20",
-        audience: "对全车隔热、安全防爆及隐私性要求较高的车主",
+        audience: "关注全车隔热、玻璃防护与隐私的车主",
         frontProduct: "变色陶瓷膜 Z80",
         frontParams: "可见光阻隔率 28-55%；紫外线阻隔率 99%；红外线阻隔率 90%；总太阳能阻隔率 53-62%；厚度 3mil",
         rearProduct: "双银金属膜 Z20",
@@ -352,7 +352,7 @@ export const products: Product[] = [
       { model: "K7", position: "前挡", vlt: "30%", uvr: "99%", irr: "94%", tser: "47%", thickness: "2mil", warranty: "5年" },
       { model: "C15", position: "侧后挡", vlt: "85%", uvr: "99%", irr: "90%", tser: "49%", thickness: "1.5mil", warranty: "5年" },
       { model: "T7", position: "前挡", vlt: "30%", uvr: "99%", irr: "92%", tser: "53%", thickness: "2mil", warranty: "8年" },
-      { model: "F20", position: "侧后挡", vlt: "80%", uvr: "100%", irr: "95%", tser: "57%", thickness: "2mil", warranty: "8年" },
+      { model: "F20", position: "侧后挡", vlt: "80%", uvr: "待核验", irr: "95%", tser: "57%", thickness: "2mil", warranty: "8年" },
       { model: "Z70", position: "前挡", vlt: "28%", uvr: "99%", irr: "96%", tser: "56%", thickness: "3.5mil", warranty: "10年" },
       { model: "K15", position: "侧后挡", vlt: "85%", uvr: "99%", irr: "94%", tser: "58%", thickness: "2mil", warranty: "10年" },
       { model: "Z20", position: "侧后挡", vlt: "75%", uvr: "99%", irr: "96%", tser: "65%", thickness: "3mil", warranty: "10年" },
@@ -368,7 +368,7 @@ export const products: Product[] = [
     group: "film",
     groupLabel: "汽车膜系",
     tagline: "换个颜色，换种心情",
-    cardDescription: "色系丰富可选，不伤原漆，撕除即可恢复。",
+    cardDescription: "色系丰富可选，施工前检查漆面状态，后续移除需规范操作。",
     heroDescription:
       "车身改色膜适合希望改变车辆外观风格、提升视觉个性，同时保留原厂车漆的车主。通过车身覆膜方式，可以在不喷漆的前提下改变车辆颜色。",
     audience: ["追求个性外观的车主", "年轻车主", "新能源车主"],
@@ -379,7 +379,7 @@ export const products: Product[] = [
       },
       {
         title: "保护原漆",
-        description: "覆膜保护原厂车漆，撕除后可恢复",
+        description: "覆膜有助于减少日常磨损；移除效果受原漆状态与施工方式影响",
       },
       {
         title: "个性表达",
@@ -387,7 +387,7 @@ export const products: Product[] = [
       },
       {
         title: "无需喷漆",
-        description: "不动原车漆，不影响二手车评估",
+        description: "通过覆膜改变外观，车辆评估结果仍以实际车况为准",
       },
     ],
     process: PROCESS_TEMPLATE,
@@ -423,38 +423,38 @@ export const products: Product[] = [
     group: "film",
     groupLabel: "汽车膜系",
     tagline: "选对膜，更要贴得对",
-    cardDescription: "TPU 透明膜具备自修复能力，可有效减轻轻微剐蹭与碎石冲击。",
+    cardDescription: "TPU 透明膜可缓冲部分轻微剐蹭与碎石飞溅，具体表现因膜材和使用环境而异。",
     heroDescription:
-      "隐形车衣以透明膜覆盖原车漆面，保护原厂车漆免受划痕、剐蹭、酸雨、水垢、鸟粪、树胶等日常伤害，适合新车车主及重视漆面保值的车主。",
+      "隐形车衣以透明膜覆盖原车漆面，有助于减少轻微划痕、污染物和日常环境因素对漆面的直接影响，适合关注漆面维护的车主。",
     audience: ["新车车主", "高端车型车主", "重视保值率和漆面保护的车主"],
     values: [
       {
         title: "原材料优势",
         description:
-          "ARGOTEC 基膜、美国亚什兰胶水、纳米与金属自修复涂层、双交联自洁功能，抗污能力强",
+          "可比较 TPU 基材、涂层、胶层等结构与相应产品资料，并结合实车需求选择",
       },
       {
         title: "制造设备",
         description:
-          "高性能流延与涂布设备，配套成熟膜材制造供应链",
+          "了解膜材的流延与涂布工艺，以及对应系列的产品资料",
       },
       {
         title: "生产工艺",
         description:
-          "流延成膜生产工艺，配合金属交联自修复涂层，膜面具备良好的抗污与修复表现",
+          "涂层可帮助减轻部分轻微细纹、便于日常清洁，效果受温度和养护方式影响",
       },
       {
         title: "技术服务",
         description:
-          "完善的服务与质保体系，覆盖主流车型的施工数据与交付服务",
+          "施工前核对车型与漆面状态，具体质保范围以所选系列的书面条款为准",
       },
     ],
     process: PROCESS_TEMPLATE,
     protectionScenes: [
-      { scene: "防止树胶叶痕", description: "减少树胶、落叶残留对车漆的腐蚀" },
-      { scene: "防止鸟粪虫尸", description: "降低酸性物质对漆面的伤害" },
-      { scene: "防止酸雨水垢", description: "减少雨水、水垢长期停留造成的漆面问题" },
-      { scene: "防止风沙粉尘", description: "减少细小颗粒对漆面的摩擦伤害" },
+      { scene: "减少树胶叶痕", description: "及时清洁时，可减少树胶、落叶残留与车漆直接接触" },
+      { scene: "减少鸟粪虫尸接触", description: "膜层可减少部分酸性残留与漆面的直接接触" },
+      { scene: "减轻雨水水垢影响", description: "定期清洁有助于减少水垢长期停留" },
+      { scene: "缓解风沙摩擦", description: "膜层可承受部分细小颗粒带来的表面磨损" },
       { scene: "降低石子冲击", description: "降低高速行驶中石子飞溅造成的漆面损伤" },
       { scene: "减少轻微剐蹭", description: "减少轻微剐蹭对原厂车漆的影响" },
       { scene: "增强划痕防护", description: "增强车身表面对划痕的防护能力" },
@@ -466,7 +466,7 @@ export const products: Product[] = [
         name: "貔貅",
         model: "YM-60",
         origin: "CHN",
-        material: "国产军工级 TPU",
+        material: "TPU",
         thickness: "6.5mil",
         coating: "热固化涂层",
         glue: "Ashland® 亚什兰",
@@ -481,7 +481,7 @@ export const products: Product[] = [
         name: "青龙",
         model: "YM-65",
         origin: "CHN",
-        material: "国产军工级 TPU",
+        material: "TPU",
         thickness: "7.5mil",
         coating: "热固化涂层",
         glue: "Ashland® 亚什兰",
@@ -556,37 +556,37 @@ export const products: Product[] = [
       {
         title: "智能驾驶车型也能放心贴",
         description:
-          "智能驾驶感知硬件对贴膜施工精度和车型数据适配度有更高要求。我们拥有经验丰富的专业贴膜师傅团队，施工前对雷达、摄像头位置做精确预留，兼顾漆面保护与智驾功能，不影响正常使用。",
+          "智能驾驶感知硬件对贴膜施工精度和车型适配有要求。施工前核对雷达、摄像头等位置并预留感知区域；施工方案需按具体车型确认。",
         highlight: "专业团队 · 精准施工",
       },
       {
         title: "新车是贴膜的推荐时机",
         description:
-          "新车无划痕、无氧化层，是做漆面防护的理想阶段。提前装贴保护膜，能从源头隔绝各类轻微漆面损伤，不用频繁去做抛光、补漆修复，长期来看反而能省下不少养护成本。",
-        highlight: "无划痕 · 无氧化层",
+          "新车漆面状态通常较容易检查，贴膜前仍需核对划痕、补漆和漆面污染情况。车衣可减少部分日常轻微磨损，后续维护仍需按实际车况进行。",
+        highlight: "先检查 · 再施工",
       },
       {
-        title: "正品TPU + 专业施工 = 靠谱",
+        title: "核对膜材与施工方案",
         description:
-          "旗舰车型选膜不能贪便宜。劣质车衣一两年就发黄、开胶、龟裂，撕膜时还可能损伤原厂漆，得不偿失。",
-        highlight: "拒绝劣质车衣",
+          "选择车衣时可核对膜材、胶层、质保条款与施工记录；老化膜层或补漆面在移除时需要先评估漆面风险。",
+        highlight: "先核对产品资料",
       },
       {
-        title: "材质只认脂肪族TPU",
+        title: "按材质与车型选择",
         description:
           '选膜时可了解脂肪族TPU材质。厚度方面，7.5mil-8.5mil是常见选择区间，具体应结合贴合度、曲面与实车需求判断。',
         highlight: "7.5-8.5mil 推荐厚度",
       },
       {
-        title: "TPU材质是底线，佛山高温天尤其重要",
+        title: "关注高温环境下的膜材表现",
         description:
-          "佛山顺德及珠三角常年高温暴晒，劣质TPH膜一两年就发黄、开裂。至少选脂肪族TPU材质，耐黄变、抗腐蚀，本地高温天实测3年不变色。",
+          "顺德及珠三角夏季日照较强，可结合产品的耐候资料、车辆停放环境和养护方式选择膜材；实际老化情况因使用条件而异。",
         highlight: "耐黄变 · 抗腐蚀",
       },
       {
         title: "新手车主不建议自己DIY",
         description:
-          '网上有\u201C不贴车衣、自己打蜡\u201D的省钱攻略，但如果你不是玩车老手，强烈不建议\u2014\u2014洗车打蜡稍有不慎就是满车太阳纹。大尺寸车型漆面娇贵，专业的事交给专业的人。',
+          '自行清洁和打蜡需要合适的工具与手法，操作不当可能留下细纹。贴膜前可到店检查漆面，并确认施工与后续养护方式。',
         highlight: "专业施工更安心",
       },
     ],

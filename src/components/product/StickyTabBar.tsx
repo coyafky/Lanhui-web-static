@@ -61,7 +61,7 @@ export function StickyTabBar({ tabs, activeTab, onChange }: Props) {
     <div
       role="tablist"
       aria-label="产品中心内容切换"
-      className="sticky top-16 z-50 bg-zinc-950/80 backdrop-blur-md border-y border-zinc-800"
+      className="sticky top-16 z-40 border-y border-zinc-800 bg-zinc-950/90 backdrop-blur-md"
     >
       <div className="flex h-14 items-stretch">
         {tabs.map((tab) => {
@@ -71,6 +71,7 @@ export function StickyTabBar({ tabs, activeTab, onChange }: Props) {
           return (
             <button
               key={tab.id}
+              id={tab.id}
               type="button"
               role="tab"
               aria-selected={isActive}

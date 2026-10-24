@@ -32,15 +32,17 @@ export function ChassisVariants() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {variants.map((variant) => (
-            <figure key={variant.name} className="min-w-0 overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-zinc-900/50">
-              <div className="relative mx-auto aspect-[9/16] w-full max-w-xl bg-zinc-100">
-                <Image
-                  src={variant.image.publicPath}
-                  alt={variant.image.alt}
-                  fill
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                  className="object-contain"
-                />
+            <figure key={variant.name} className="flex min-w-0 flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/50">
+              <div className="flex flex-1 items-center justify-center bg-[#111318] p-4 sm:p-6">
+                <div className="relative aspect-[9/16] w-full max-w-96 overflow-hidden rounded-lg bg-zinc-100">
+                  <Image
+                    src={variant.image.publicPath}
+                    alt={variant.image.alt}
+                    fill
+                    sizes="(max-width: 639px) 100vw, 384px"
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <figcaption className="border-t border-white/[0.06] p-5 sm:p-6">
                 <h3 className="text-xl font-semibold text-white">{variant.name}</h3>

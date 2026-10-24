@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GenericBrandHero } from "@/components/brand-series/GenericBrandHero";
-import { GenericBrandModelGrid } from "@/components/brand-series/GenericBrandModelGrid";
-import { GenericBrandFitment } from "@/components/brand-series/GenericBrandFitment";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 import { GenericBrandFaq } from "@/components/brand-series/GenericBrandFaq";
 import { GenericBrandCta } from "@/components/brand-series/GenericBrandCta";
 import { getBrandRoute } from "@/lib/product-routes";
@@ -10,11 +10,14 @@ import {
   getProductBreadcrumbs,
   getProductBreadcrumbSchema,
 } from "@/lib/product-breadcrumbs";
-import { mercedesFitment } from "@/lib/fitment/mercedes";
 import {
-  buildBrandFitmentConfig,
-  buildBrandGridModels,
-} from "@/lib/brand-series/model-page-config";
+  mercedesModelCards,
+  MERCEDES_MODEL_GROUP_LABELS,
+  MERCEDES_MODEL_GROUPS,
+  MERCEDES_MODEL_CARD_COUNT,
+  MERCEDES_SOURCE_ROW_COUNT,
+} from "@/lib/mercedes-curated-models";
+import { mercedesProjects, MERCEDES_PROJECT_COUNT } from "@/lib/mercedes-curated-projects";
 import type { FaqItem } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
@@ -72,44 +75,15 @@ export default function MercedesBrandPage() {
   const breadcrumbSchema = getProductBreadcrumbSchema("/product/mercedes");
   const localStore = stores.find((s) => s.isActive);
 
-  const gridModels = buildBrandGridModels(mercedesFitment, [
-    { name: "A级" },
-    { name: "AMG GT" },
-    { name: "B级" },
-    { name: "C级", slug: "c-class" },
-    { name: "CLA" },
-    { name: "CLE" },
-    { name: "E级", slug: "e-class" },
-    { name: "EQA" },
-    { name: "EQB" },
-    { name: "EQC" },
-    { name: "EQE" },
-    { name: "EQS" },
-    { name: "G级" },
-    { name: "GL" },
-    { name: "GLA" },
-    { name: "GLB" },
-    { name: "GLC" },
-    { name: "GLE" },
-    { name: "GLK" },
-    { name: "GLS" },
-    { name: "ML" },
-    { name: "R级" },
-    { name: "S级", slug: "s-class" },
-    { name: "SL级" },
-    { name: "smart精灵#1", display: "smart精灵系列" },
-    { name: "V级" },
-    { name: "V260 低配 MPV", display: "V260" },
-    { name: "威霆" },
-    { name: "唯雅诺" },
-  ]);
-  const fitmentConfig = buildBrandFitmentConfig("奔驰", mercedesFitment);
+  // 车系归并数据（脚本生成，与适配库逐字对账：115 个数据行 → 34 个车系卡）
+  const modelCards = mercedesModelCards;
+  const sourceRowCount = MERCEDES_SOURCE_ROW_COUNT;
 
-  const itemListElement = gridModels.map((m, idx) => ({
+  const itemListElement = modelCards.map((m, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    name: `${m.display} 适配件明细`,
-    url: m.slug ? `/product/mercedes/${m.slug}` : "/product/mercedes",
+    name: `${m.displayName} 适配件明细`,
+    url: m.subpage ?? "/product/mercedes#brand-fitment",
   }));
 
   const jsonLd = {
@@ -148,13 +122,11 @@ export default function MercedesBrandPage() {
       },
       areaServed: "全国",
     },
-    makesOffer: fitmentConfig.models.flatMap((m) =>
-      m.projects.map((p) => ({
-        "@type": "Offer",
-        name: `奔驰 ${m.model} ${p.name} 方案`,
-        category: "汽车轻改适配件",
-      })),
-    ),
+    makesOffer: mercedesProjects.map((p) => ({
+      "@type": "Offer",
+      name: `奔驰 ${p.name} 方案（覆盖 ${p.modelCount} 个车系）`,
+      category: "汽车轻改适配件",
+    })),
   };
 
   const faqJsonLd = {
@@ -192,10 +164,24 @@ export default function MercedesBrandPage() {
           subtitle="适配库收录车型速览 · 数据来自蓝辉供应商适配库"
           description={PAGE_DESCRIPTION}
           theme="amber"
-          stats={{ models: gridModels.length, projects: mercedesFitment.models.reduce((n, m) => n + m.projects.length, 0) }}
+          stats={{ models: MERCEDES_MODEL_CARD_COUNT, projects: MERCEDES_PROJECT_COUNT }}
         />
-        <GenericBrandModelGrid models={gridModels} theme="amber" brandPath="/product/mercedes" />
-        <GenericBrandFitment config={fitmentConfig} theme="amber" />
+        <BrandModelGroupGrid
+          cards={modelCards}
+          groupOrder={MERCEDES_MODEL_GROUPS}
+          groupLabels={MERCEDES_MODEL_GROUP_LABELS}
+          theme="amber"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: sourceRowCount, cards: MERCEDES_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={mercedesProjects}
+          cards={modelCards}
+          groupOrder={MERCEDES_MODEL_GROUPS}
+          groupLabels={MERCEDES_MODEL_GROUP_LABELS}
+          brandLabel="奔驰"
+          theme="amber"
+        />
         <GenericBrandFaq items={brandFaq} theme="amber" />
         <GenericBrandCta
           title="奔驰升级方案 · 到店评估"

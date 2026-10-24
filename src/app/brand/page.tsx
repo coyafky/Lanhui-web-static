@@ -193,7 +193,7 @@ export default function BrandPage() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">顺德大良店启航</h3>
                 <p className="text-zinc-400 leading-relaxed">
-                  {brand.currentStore} 是当前唯一的线下服务中心，提供到店沟通、施工交付与售后跟进。
+                  目前可到 {brand.currentStore} 沟通方案，门店提供施工交付与售后跟进。
                 </p>
               </div>
             </div>

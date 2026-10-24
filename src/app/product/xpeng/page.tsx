@@ -16,57 +16,19 @@ import {
   xpengBaseServices,
   xpengSeriesFaq,
 } from "@/lib/xpeng-series-services";
-import { xpengFitment } from "@/lib/fitment/xpeng";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { XPENG_GX_HERO_IMAGE } from "@/lib/xpeng-gx-products";
 import { XPENG_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  xpengModelCards,
+  XPENG_MODEL_GROUP_LABELS,
+  XPENG_MODEL_GROUPS,
+} from "@/lib/xpeng-curated-models";
+import { xpengProjects as xpengCuratedProjects } from "@/lib/xpeng-curated-projects";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 /** 适配库 10 节（G6/G7/G9/GX/M03/P5/P7/X9/G3/L03）精确匹配。 */
-const XPENG_FITMENT_SECTIONS = new Set([
-  "G6",
-  "G7",
-  "G9",
-  "GX",
-  "M03",
-  "P5",
-  "P7",
-  "X9",
-  "G3",
-  "L03",
-]);
-
-function buildXpengFitmentModels(): FitmentModel[] {
-  return xpengFitment.models
-    .filter((section) => XPENG_FITMENT_SECTIONS.has(section.model))
-    .map((section) => ({
-      model: section.model,
-      projects: section.projects.map((p) => ({
-        name: p.name,
-        specs: p.specs.map((raw): FitmentSpec => {
-          const s = raw as {
-            label?: string;
-            material?: string;
-            year?: string;
-            note?: string;
-            date?: string;
-            dynamics?: string;
-          };
-          return {
-            label: s.label,
-            material: s.material,
-            year: s.year,
-            note: s.note,
-            date: s.date,
-            dynamics: s.dynamics,
-          };
-        }),
-      })),
-    }));
-}
-
 const PAGE_TITLE = "小鹏汽车贴膜与轻改服务｜顺德大良蓝辉轻改 LANHUI";
 const PAGE_DESCRIPTION =
   "蓝辉轻改为小鹏车主提供车衣、隔热膜、改色膜、轮毂、电动踏板、地板总成、专车脚垫与洗美养护服务，小鹏 GX 已整理专属方案。";
@@ -144,11 +106,6 @@ export default function XpengBrandPage() {
   };
 
   // 供应商适配库速查：G6/G7/G9/GX/M03/P5/P7/X9/G3/L03 精确匹配，按车型分组渲染
-  const fitmentConfig = {
-    heading: "小鹏 适配速查：你的车型能装哪些项目？",
-    models: buildXpengFitmentModels(),
-    groupByModel: true,
-  };
 
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
@@ -210,7 +167,14 @@ export default function XpengBrandPage() {
         <XpengBaseServiceGrid />
         <XpengGxEntrySection image={gxImage} />
         <XpengServiceFlowV2 />
-        <FitmentQuickCheck config={fitmentConfig} theme="green" />
+        <BrandProjectMatrix
+          projects={xpengCuratedProjects}
+          cards={xpengModelCards}
+          groupOrder={XPENG_MODEL_GROUPS}
+          groupLabels={XPENG_MODEL_GROUP_LABELS}
+          brandLabel="小鹏"
+          theme="green"
+        />
         <XpengFaqSectionV2 />
         <XpengDouyinCta />
 

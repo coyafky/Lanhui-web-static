@@ -26,14 +26,14 @@ vi.mock("@/lib/products", () => {
         "可见光阻隔率 30%；紫外线阻隔率 99%；红外线阻隔率 92%；总太阳能阻隔率 53%；厚度 2mil",
       rearProduct: "陶瓷护肤膜 F20",
       rearParams:
-        "可见光阻隔率 80%；紫外线阻隔率 100%；红外线阻隔率 95%；总太阳能阻隔率 57%；厚度 2mil",
+        "可见光阻隔率 80%；紫外线阻隔率待核验；红外线阻隔率 95%；总太阳能阻隔率 57%；厚度 2mil",
       warranty: "8年",
     },
     {
       slug: "xiaoman",
       name: "小满套餐",
       models: "Z70 + K15",
-      audience: "对全车隔热、安全防爆及隐私性要求较高的车主",
+      audience: "关注全车隔热、玻璃防护与隐私的车主",
       frontProduct: "12 层金属膜 Z70",
       frontParams:
         "可见光阻隔率 28%；紫外线阻隔率 99%；红外线阻隔率 96%；总太阳能阻隔率 56%；厚度 3.5mil",
@@ -46,7 +46,7 @@ vi.mock("@/lib/products", () => {
       slug: "mangzhong",
       name: "芒种套餐",
       models: "Z70 + Z20",
-      audience: "对全车隔热、安全防爆及隐私性要求较高的车主",
+      audience: "关注全车隔热、玻璃防护与隐私的车主",
       frontProduct: "12 层金属膜 Z70",
       frontParams:
         "可见光阻隔率 28%；紫外线阻隔率 99%；红外线阻隔率 96%；总太阳能阻隔率 56%；厚度 3.5mil",
@@ -59,7 +59,7 @@ vi.mock("@/lib/products", () => {
       slug: "bailu",
       name: "白露套餐",
       models: "Z80 + Z20",
-      audience: "对全车隔热、安全防爆及隐私性要求较高的车主",
+      audience: "关注全车隔热、玻璃防护与隐私的车主",
       frontProduct: "变色陶瓷膜 Z80",
       frontParams:
         "可见光阻隔率 28-55%；紫外线阻隔率 99%；红外线阻隔率 90%；总太阳能阻隔率 53-62%；厚度 3mil",

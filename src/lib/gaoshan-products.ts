@@ -520,7 +520,7 @@ export const gaoshan8Faq: readonly Gaoshan8FaqItem[] = [
     answer: "不同年份、版本和配置可能不同，需到店评估确认。",
   },
   {
-    question: "新车最推荐先做什么？",
+    question: "新车可以先考虑什么？",
     answer: "车衣、隔热膜、360软包脚垫、底盘护板、钢化膜、内饰镀膜。",
   },
   {

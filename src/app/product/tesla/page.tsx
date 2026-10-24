@@ -17,48 +17,16 @@ import {
   teslaSeriesFaq,
   TESLA_HERO_IMAGE,
 } from "@/lib/tesla-series-services";
-import { teslaFitment } from "@/lib/fitment/tesla";
-import { FitmentQuickCheck } from "@/components/vehicle-page/FitmentQuickCheck";
-import type { FitmentModel, FitmentSpec } from "@/components/vehicle-page";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
-
-type FitmentRawSpec = {
-  label?: string;
-  material?: string;
-  year?: string;
-  note?: string;
-  date?: string;
-  dynamics?: string;
-};
-
-function toFitmentSpec(s: unknown): FitmentSpec {
-  const r = s as FitmentRawSpec;
-  return {
-    label: r.label,
-    material: r.material,
-    year: r.year,
-    note: r.note,
-    date: r.date,
-    dynamics: r.dynamics,
-  };
-}
-
-/** 适配库仅收录官方 5 款车型；「Model 3/Y」跨车型节不收录。 */
-const TESLA_OFFICIAL = new Set(["Model 3", "Model Y", "Model Y-L", "Model S", "Model X"]);
-
-function buildTeslaFitmentModels(): FitmentModel[] {
-  return teslaFitment.models
-    .filter((section) => TESLA_OFFICIAL.has(section.model.trim()))
-    .map((section) => ({
-      model: section.model.trim(),
-      projects: section.projects.map((p) => ({
-        name: p.name,
-        specs: p.specs.map(toFitmentSpec),
-      })),
-    }));
-}
+import {
+  teslaModelCards,
+  TESLA_MODEL_GROUP_LABELS,
+  TESLA_MODEL_GROUPS,
+} from "@/lib/tesla-curated-models";
+import { teslaProjects as teslaCuratedProjects } from "@/lib/tesla-curated-projects";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 const PAGE_TITLE =
   "Tesla 特斯拉贴膜与轻改服务｜车膜、轮毂、脚垫与洗美养护｜顺德大良蓝辉轻改";
@@ -125,12 +93,6 @@ export default function TeslaBrandPage() {
     }),
   };
 
-  const fitmentConfig = {
-    heading: "Tesla 特斯拉 适配速查：你的车型能装哪些项目？",
-    models: buildTeslaFitmentModels(),
-    groupByModel: true,
-  };
-
   const vehicleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Vehicle",
@@ -189,8 +151,15 @@ export default function TeslaBrandPage() {
         <TeslaSeriesHero breadcrumbItems={breadcrumbItems} />
         <TeslaScenarioSelector />
         <TeslaBaseServiceGrid />
+        <BrandProjectMatrix
+          projects={teslaCuratedProjects}
+          cards={teslaModelCards}
+          groupOrder={TESLA_MODEL_GROUPS}
+          groupLabels={TESLA_MODEL_GROUP_LABELS}
+          brandLabel="特斯拉"
+          theme="red"
+        />
         <TeslaServiceFlow />
-        <FitmentQuickCheck config={fitmentConfig} theme="red" />
         <TeslaFaqSection />
         <TeslaDouyinCta />
 

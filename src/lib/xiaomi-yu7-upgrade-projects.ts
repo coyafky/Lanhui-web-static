@@ -464,7 +464,7 @@ export const xiaomiYu7Faq: readonly XiaomiYu7FaqItem[] = [
     answer: "不同批次和配置可能不同，需到店确认。",
   },
   {
-    question: "新车最推荐先做哪些项目？",
+    question: "新车可以先考虑哪些项目？",
     answer: "软包脚垫、碳纤维护板、挡泥板等基础保护项目。",
   },
   {

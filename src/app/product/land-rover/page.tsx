@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LandRoverSeriesHero } from "@/components/land-rover/series/LandRoverSeriesHero";
-import { LandRoverModelGrid } from "@/components/land-rover/series/LandRoverModelGrid";
-import { LandRoverProjectGrid } from "@/components/land-rover/series/LandRoverProjectGrid";
-import { LandRoverFitmentDetails } from "@/components/land-rover/series/LandRoverFitmentDetails";
 import { LandRoverFaqSection } from "@/components/land-rover/series/LandRoverFaqSection";
 import { LandRoverDouyinCta } from "@/components/land-rover/series/LandRoverDouyinCta";
 import { LandRoverMobileCtaBar } from "@/components/land-rover/series/LandRoverMobileCtaBar";
@@ -15,12 +12,20 @@ import {
 import { landRoverProjects } from "@/lib/land-rover-all-models-products";
 import { landRoverModels } from "@/lib/land-rover-model-groups";
 import { landRoverSeriesFaq } from "@/lib/land-rover-series-services";
-import { land_roverFitment } from "@/lib/fitment/land-rover";
-import { FitmentQuickCheck } from "@/components/vehicle-page";
 import { LAND_ROVER_SERIES_HERO_IMAGE } from "@/lib/brand-series-hero-images";
 import { stores } from "@/lib/store";
 import { generateLocalBusinessSchema } from "@/lib/geo";
 import { safeJsonLd } from "@/lib/json-ld";
+import {
+  landRoverModelCards,
+  LAND_ROVER_MODEL_GROUP_LABELS,
+  LAND_ROVER_MODEL_GROUPS,
+  LAND_ROVER_MODEL_CARD_COUNT,
+  LAND_ROVER_SOURCE_ROW_COUNT,
+} from "@/lib/land-rover-curated-models";
+import { landRoverProjects as landRoverCuratedProjects } from "@/lib/land-rover-curated-projects";
+import { BrandModelGroupGrid } from "@/components/brand-series/BrandModelGroupGrid";
+import { BrandProjectMatrix } from "@/components/brand-series/BrandProjectMatrix";
 
 const PAGE_TITLE =
   "路虎全系保护与升级｜15 款车型适配件速查｜顺德大良蓝辉轻改";
@@ -97,28 +102,6 @@ export default function LandRoverBrandPage() {
   };
 
   // 供应商适配库速查：7 个车型节全部收录；「发现」节覆盖发现3/4/5/运动版/神行，「神行者」节覆盖神行者2/8，「卫士」节覆盖卫士/90/110/130
-  const fitmentConfig = {
-    heading: "路虎 适配速查：你的车型能装哪些项目？",
-    models: land_roverFitment.models
-      .filter((m) => [
-        "揽胜极光",
-        "揽胜运动版",
-        "发现",
-        "揽胜行政版",
-        "神行者",
-        "卫士",
-        "揽胜星脉",
-      ].includes(m.model))
-      .map((m) => ({
-        model: m.model,
-        projects: m.projects.map((p) => ({
-          name: p.name,
-          specs: [...p.specs],
-        })),
-      })),
-    groupByModel: true,
-  };
-
   // GEO 增量：Vehicle + FAQPage 结构化数据
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -176,10 +159,22 @@ export default function LandRoverBrandPage() {
           dangerouslySetInnerHTML={{ __html: safeJsonLd(faqJsonLd) }}
         />
         <LandRoverSeriesHero breadcrumbItems={breadcrumbItems} />
-        <LandRoverModelGrid />
-        <LandRoverProjectGrid />
-        <LandRoverFitmentDetails />
-        <FitmentQuickCheck config={fitmentConfig} theme="cyan" />
+        <BrandModelGroupGrid
+          cards={landRoverModelCards}
+          groupOrder={LAND_ROVER_MODEL_GROUPS}
+          groupLabels={LAND_ROVER_MODEL_GROUP_LABELS}
+          theme="cyan"
+          eyebrow="适配库收录车系"
+          reconciliation={{ rows: LAND_ROVER_SOURCE_ROW_COUNT, cards: LAND_ROVER_MODEL_CARD_COUNT, images: 0 }}
+        />
+        <BrandProjectMatrix
+          projects={landRoverCuratedProjects}
+          cards={landRoverModelCards}
+          groupOrder={LAND_ROVER_MODEL_GROUPS}
+          groupLabels={LAND_ROVER_MODEL_GROUP_LABELS}
+          brandLabel="路虎"
+          theme="cyan"
+        />
         <LandRoverFaqSection />
         <LandRoverDouyinCta />
 
