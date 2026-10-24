@@ -1,53 +1,28 @@
 #!/usr/bin/env bash
-# 蓝辉轻改官网材料库 —— 一键同步（模块 ①②③④）
-# 用法: bash _scripts/sync-all.sh [目标根目录]
-#   默认目标: /Volumes/usb/蓝辉轻改资料库/官网材料
+# 导出一份当前资料快照到新目录；不覆盖已有交接资料。
+# 用法: bash 官网材料导出/_scripts/sync-all.sh /绝对路径/新目录
 set -euo pipefail
-
 export COPYFILE_DISABLE=1
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$HERE/.." && pwd)"
-DEST="${1:-/Volumes/usb/蓝辉轻改资料库/官网材料}"
-
-echo "═══════════════════════════════════════════"
-echo " 蓝辉轻改 · 官网材料库 同步"
-echo " 源 → $ROOT"
-echo " 目标 → $DEST"
-echo "═══════════════════════════════════════════"
-
-[ -d "$DEST" ] || { echo "✗ 目标目录不存在: $DEST"; exit 1; }
-
-echo
-echo "【模块④】网站架构与说明"
-mkdir -p "$DEST/00-网站架构与说明"
+DEST="${1:?用法: sync-all.sh /绝对路径/新目录（必须不存在或为空）}"
+case "$DEST" in /*) ;; *) echo "目标必须是绝对路径" >&2; exit 2 ;; esac
+if [ -e "$DEST" ] && [ -n "$(ls -A "$DEST")" ]; then
+  echo "目标目录非空，请指定新的快照目录：$DEST" >&2
+  exit 2
+fi
+mkdir -p "$DEST/00-网站架构与说明" "$DEST/01-页面说明"
 rsync -a --exclude '.DS_Store' --exclude '._*' "$ROOT/00-网站架构与说明/" "$DEST/00-网站架构与说明/"
-echo "  ✓ $(find "$DEST/00-网站架构与说明" -name '*.md' | wc -l | tr -d ' ') 篇"
-
-echo
-echo "【模块①】逐页说明"
-mkdir -p "$DEST/01-页面说明"
 rsync -a --exclude '.DS_Store' --exclude '._*' "$ROOT/01-页面说明/" "$DEST/01-页面说明/"
-echo "  ✓ $(find "$DEST/01-页面说明" -name '*.md' | wc -l | tr -d ' ') 篇"
-
-echo
-echo "【模块②】图片素材"
 bash "$HERE/sync-images.sh" "$DEST"
 bash "$HERE/gen-image-index.sh" "$DEST"
-
-echo
-echo "【模块③】计划与日志"
 bash "$HERE/sync-plan.sh" "$DEST"
 bash "$HERE/gen-plan-index.sh" "$DEST"
+cat > "$DEST/README-快照边界.md" <<'NOTE'
+# 官网材料快照边界
 
-echo
-echo "【清理 macOS 元数据】"
-find "$DEST" -name '._*' -type f -delete 2>/dev/null || true
-find "$DEST" -name '.DS_Store' -type f -delete 2>/dev/null || true
-echo "  ✓ 完成"
+本目录是导出时本地工作区的材料副本，可能含未提交改动；它不是线上网站备份，也不是发布产物。`00-网站架构与说明/` 为当前整理的交接入口；`01-页面说明/` 含历史逐页资料，先读其 README；`02-图片素材/public/images/` 保留网站源路径；`03-官网计划与日志/` 含当前规则及历史/运行记录，按文件日期与状态使用。
 
-echo
-echo "═══════════════════════════════════════════"
-echo " ✓ 全部完成"
-echo " 文件总数: $(find "$DEST" -type f ! -name '._*' | wc -l | tr -d ' ')"
-echo " 总体积  : $(du -sh "$DEST" | cut -f1)"
-echo "═══════════════════════════════════════════"
+导出脚本不会复制 `.env*`、`out/`、`.next/`、`node_modules/`，也不会发布网站。请把导出日期、Git 版本、本地变更状态和线上发布版本另行记录在交接清单中。
+NOTE
+printf '完成：%s\n文件数：%s\n' "$DEST" "$(find "$DEST" -type f | wc -l | tr -d ' ')"
